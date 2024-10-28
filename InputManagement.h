@@ -9,6 +9,8 @@
  */
 
 #pragma once
+#include <unordered_map>
+#include <string>
 
 class InputManager
 {
@@ -41,9 +43,6 @@ public:
         auto scanCode = getScancodeFromString (key);
         return (isKeyPressed (scanCode));
     }
-
-    #include <unordered_map>
-    #include <string>
 
     std::unordered_map<SDL_Scancode, std::string> scancodeToString = {
         {SDL_SCANCODE_A, "A"},

@@ -1,5 +1,4 @@
 #include "CharacterControllerScript.h"
-#include <iostream>
 
 CharacterControllerScript::CharacterControllerScript(Sprite* sprite, int speed)
     : sprite (sprite), speed (speed)
