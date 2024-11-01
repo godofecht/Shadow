@@ -18,13 +18,17 @@ class Texture
         }
     }
 
-    void createFromSurface (SDL_Renderer* renderer, SDL_Surface* loadedSurface, const std::string& path)
+    bool createFromSurface (SDL_Renderer* renderer, SDL_Surface* loadedSurface, const std::string& path)
     {
         texture = SDL_CreateTextureFromSurface (renderer, loadedSurface);
         if (texture == nullptr)
         {
             std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << std::endl;
             SDL_FreeSurface (loadedSurface);
+            return false;
         }
+
+        SDL_FreeSurface (loadedSurface);
+        return true;
     }
 };

@@ -5,12 +5,11 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "Asset.h"
+#include "Object.h"
 #include "Script.h"
 #include <iostream>
 #include "Geometry.h"
 #include "Texture.h"
-
 
 
 
@@ -20,9 +19,10 @@ class Sprite : public Object
 public:
 
     Sprite (Renderer* renderer, const std::string& path, const std::string& _id)
-        : renderer (renderer), id (_id), bounds (0, 0, 0, 0) // Initialize bounds at (0,0) with zero width and height
+        : renderer (renderer), bounds (0, 0, 0, 0) // Initialize bounds at (0,0) with zero width and height
     {
-        std::cout << "Creating object: " << id << std::endl;
+        setId (_id);
+        std::cout << "Creating object: " << _id << std::endl;
 
         loadTexture (path);
         isInitialized = true;
@@ -66,10 +66,9 @@ public:
 
     float getX() const { return bounds.x; }
     float getY() const { return bounds.y; }
-    void setX(float x) { bounds.x = x; }
-    void setY(float y) { bounds.y = y; }
+    void setX (float x) { bounds.x = x; }
+    void setY (float y) { bounds.y = y; }
 
-    std::string getId() const { return id; }
     virtual void renderAndRunScripts (Renderer* renderer) override;
     void setActive (bool state) { isActive = state; }
     void destroy();
@@ -80,7 +79,7 @@ public:
     Scene* getScene() const { return scene; }
     void setScene (Scene* _scene) { scene = _scene; }
 
-    virtual void update(float deltaTime) {}
+    virtual void update (float deltaTime) {}
 
     bool isInitialized = false;
     bool isActive = true;
@@ -90,7 +89,6 @@ private:
     Texture texture;
     Scene* scene; // Pointer to the parent Scene
 
-    std::string id;
 
     float rotation = 0.0f;
     Rect<float> bounds; // Holds position (x, y), width, and height
@@ -98,5 +96,34 @@ private:
 
     bool loadTexture (const std::string& path);
 };
+
+
+// Utility function to calculate normalized direction from origin to target
+inline Vector2D calculateDirection (const Position<float>& origin, const Position<float>& target)
+{
+    float dx = target.x - origin.x;
+    float dy = target.y - origin.y;
+    float magnitude = std::sqrt (dx * dx + dy * dy);
+    return magnitude > 0 ? Vector2D (dx / magnitude, dy / magnitude) : Vector2D(0, 0);
+}
+
+inline float calculateAngle (const Vector2D& delta)
+{
+    return atan2 (delta.y, delta.x) * 180 / M_PI;
+}
+
+inline Vector2D getMousePosition()
+{
+    int x, y;
+    SDL_GetMouseState (&x, &y);
+    return Vector2D (static_cast<float>(x), static_cast<float>(y));
+}
+
+inline Vector2D getSpriteCenter (Sprite* sprite)
+{
+    float spriteX, spriteY;
+    sprite->getPosition (spriteX, spriteY);
+    return Vector2D (spriteX + sprite->getWidth() / 2, spriteY + sprite->getHeight() / 2);
+}
 
 #endif

@@ -6,7 +6,7 @@
 void Sprite::destroy()
 {
     //remove object from assetmanager
-    std::cout << "Destroying object: " << id << std::endl;
+    std::cout << "Destroying object: " << getId() << std::endl;
     setActive (false);
 }
 
@@ -17,25 +17,14 @@ void Sprite::setImage (const std::string& path)
 
 void Sprite::renderAndRunScripts (Renderer* renderer) // This not only renders but also runs the script
 {
-    SDL_Point* center = nullptr;
-    SDL_RendererFlip flip = SDL_FLIP_NONE;
-    SDL_Point calculatedCenter = { bounds.width / 2, bounds.height / 2 };
-    
-    if (center == nullptr) center = &calculatedCenter;
-
     if (!isActive) return;
-
-    SDL_Rect renderQuad = { static_cast<int>(bounds.x), static_cast<int>(bounds.y), static_cast<int>(bounds.width), static_cast<int>(bounds.height) };
-    SDL_RenderCopyEx (renderer->renderer, texture.texture, nullptr, &renderQuad, rotation, center, flip);
+    renderer->copyTexture (texture.texture, bounds, rotation);
 
     if (texture.texture == nullptr)
     {
-        std::cerr << "Texture is null for object: " << id << std::endl;
+        std::cerr << "Texture is null for object: " << getId() << std::endl;
         return;
     } //Fixes issue with period of non initialization... but is it the right approach?
-
-    assert (renderer != nullptr);
-    assert (texture.texture != nullptr);
 
     for (auto& script : scripts)
     {
@@ -71,7 +60,5 @@ bool Sprite::loadTexture (const std::string& path)
     texture.createFromSurface (renderer->renderer, loadedSurface, path);
 
     setSize (loadedSurface->w, loadedSurface->h);
-
-    SDL_FreeSurface (loadedSurface);
     return true;
 }

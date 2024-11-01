@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include <SDL_image.h>
 
 #ifdef _WIN32
 #include <d2d1.h>
@@ -25,7 +26,7 @@ public:
 class TextWriter 
 {
 public:
-    TextWriter(Renderer* sdlRenderer) : sdlRenderer(sdlRenderer->renderer) 
+    TextWriter (SDL_Renderer* _sdlRenderer) : sdlRenderer (_sdlRenderer) 
     {
         InitializeDirectWrite();
         CreateWICBitmap();
@@ -33,32 +34,60 @@ public:
 
     ~TextWriter() = default;
 
-    void RenderTextToTexture(const std::wstring& text, SDL_Texture* texture, D2D1::ColorF color) 
+    void RenderTextToTexture (const std::wstring& text, SDL_Texture* texture, D2D1::ColorF color) 
     {
         // Begin drawing and clear the previous text with a transparent background
         bitmapRenderTarget->BeginDraw();
 
         // Clear only the render target with transparent color (Alpha=0)
-        bitmapRenderTarget->Clear(D2D1::ColorF(0, 0, 0, 0));  // Fully transparent
+        bitmapRenderTarget->Clear (D2D1::ColorF (0, 0, 0, 0));  // Fully transparent
 
         // Define text layout
-        D2D1_RECT_F layoutRect = D2D1::RectF(0.0f, 0.0f, static_cast<FLOAT>(bitmapWidth), static_cast<FLOAT>(bitmapHeight));
+        D2D1_RECT_F layoutRect = D2D1::RectF (0.0f, 0.0f, static_cast<FLOAT>(bitmapWidth), static_cast<FLOAT>(bitmapHeight));
 
         // Set the brush color
-        brush->SetColor(color);
+        brush->SetColor (color);
 
         // Render text directly on top of the transparent cleared background
-        bitmapRenderTarget->DrawText(text.c_str(), text.size(), textFormat.Get(), layoutRect, brush.Get());
+        bitmapRenderTarget->DrawText (text.c_str(), text.size(), textFormat.Get(), layoutRect, brush.Get());
 
         // Finish drawing
         HRESULT hr = bitmapRenderTarget->EndDraw();
-        if (FAILED(hr)) 
+        if (FAILED (hr)) 
         {
-            SDL_Log("Direct2D drawing failed.");
+            SDL_Log ("Direct2D drawing failed.");
         }
 
         // Copy the WIC bitmap data to the SDL texture
-        CopyWICBitmapToSDLTexture(texture);
+        CopyWICBitmapToSDLTexture (texture);
+    }
+
+    void reset() {  }
+
+    void drawTextToRenderer (std::wstring text, SDL_Renderer* renderer)
+    {
+#ifdef _WIN32
+
+        // Create the texture for text rendering
+        SDL_Texture* textTexture = SDL_CreateTexture (renderer, SDL_PIXELFORMAT_BGRA32, SDL_TEXTUREACCESS_STREAMING, 800, 600);
+
+        // Clear textTexture with a transparent color to avoid overdraw
+        SDL_SetTextureBlendMode (textTexture, SDL_BLENDMODE_BLEND);
+        void* pixels;
+        int pitch;
+        SDL_LockTexture (textTexture, nullptr, &pixels, &pitch);
+        memset (pixels, 0, pitch * 600);  // Clear with transparent color
+        SDL_UnlockTexture (textTexture);
+
+        // Render text using DirectWrite on SDL window
+        RenderTextToTexture (text, textTexture, Col::green());
+
+        // Draw the texture to the SDL renderer
+        SDL_SetTextureAlphaMod (textTexture, 128); // Set alpha to 50%
+        SDL_RenderCopy (renderer, textTexture, NULL, NULL);    
+        // Clean up texture after rendering
+        SDL_DestroyTexture (textTexture);    
+#endif
     }
 
 private:
@@ -75,14 +104,16 @@ private:
     void InitializeDirectWrite() 
     {
         D2D1_FACTORY_OPTIONS options = {};
-        HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, __uuidof(ID2D1Factory), &options, reinterpret_cast<void**>(d2dFactory.GetAddressOf()));
-        if (FAILED(hr)) {
-            SDL_Log("Failed to create Direct2D factory.");
+        HRESULT hr = D2D1CreateFactory (D2D1_FACTORY_TYPE_SINGLE_THREADED, __uuidof(ID2D1Factory), &options, reinterpret_cast<void**>(d2dFactory.GetAddressOf()));
+        if (FAILED (hr)) 
+        {
+            SDL_Log ("Failed to create Direct2D factory.");
         }
 
-        hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), &dwriteFactory);
-        if (FAILED(hr)) {
-            SDL_Log("Failed to create DirectWrite factory.");
+        hr = DWriteCreateFactory (DWRITE_FACTORY_TYPE_SHARED, __uuidof (IDWriteFactory), &dwriteFactory);
+        if (FAILED (hr)) 
+        {
+            SDL_Log ("Failed to create DirectWrite factory.");
         }
 
         hr = dwriteFactory->CreateTextFormat(
@@ -94,24 +125,28 @@ private:
             L"en-us",
             &textFormat
         );
-        if (FAILED(hr)) {
+        if (FAILED (hr)) 
+        {
             SDL_Log("Failed to create DirectWrite text format.");
         }
 
-        textFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-        textFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+        textFormat->SetTextAlignment (DWRITE_TEXT_ALIGNMENT_CENTER);
+        textFormat->SetParagraphAlignment (DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
     }
 
-    void CreateWICBitmap() {
+    void CreateWICBitmap() 
+    {
         Microsoft::WRL::ComPtr<IWICImagingFactory> wicFactory;
         CoInitializeEx(nullptr, COINIT_MULTITHREADED);
         HRESULT hr = CoCreateInstance(CLSID_WICImagingFactory, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&wicFactory));
-        if (FAILED(hr)) {
+        if (FAILED(hr)) 
+        {
             SDL_Log("Failed to create WIC Imaging Factory.");
         }
 
         hr = wicFactory->CreateBitmap(bitmapWidth, bitmapHeight, GUID_WICPixelFormat32bppPBGRA, WICBitmapCacheOnLoad, &wicBitmap);
-        if (FAILED(hr)) {
+        if (FAILED(hr)) 
+        {
             SDL_Log("Failed to create WIC bitmap.");
         }
 
@@ -120,12 +155,14 @@ private:
             D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED)
         );
         hr = d2dFactory->CreateWicBitmapRenderTarget(wicBitmap.Get(), props, &bitmapRenderTarget);
-        if (FAILED(hr)) {
+        if (FAILED(hr)) 
+        {
             SDL_Log("Failed to create WIC bitmap render target.");
         }
 
         hr = bitmapRenderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &brush);
-        if (FAILED(hr)) {
+        if (FAILED(hr)) 
+        {
             SDL_Log("Failed to create Direct2D brush.");
         }
     }
@@ -134,7 +171,8 @@ private:
         Microsoft::WRL::ComPtr<IWICBitmapLock> lock;
         WICRect rect = { 0, 0, bitmapWidth, bitmapHeight };
         HRESULT hr = wicBitmap->Lock (&rect, WICBitmapLockRead, &lock);
-        if (FAILED (hr)) {
+        if (FAILED (hr)) 
+        {
             SDL_Log ("Failed to lock WIC bitmap.");
             return;
         }

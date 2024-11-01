@@ -11,39 +11,15 @@
 #include <unordered_map>
 #include "AssetManager.h"
 #include <cmath>
+#include "Helpers.h"
+
+
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
 
 
-// Utility function to calculate normalized direction from origin to target
-inline Vector2D getDirection (const Position<float>& origin, const Position<float>& target)
-{
-    float dx = target.x - origin.x;
-    float dy = target.y - origin.y;
-    float magnitude = std::sqrt (dx * dx + dy * dy);
-    return magnitude > 0 ? Vector2D (dx / magnitude, dy / magnitude) : Vector2D(0, 0);
-}
-
-inline float calculateAngle (const Vector2D& delta)
-{
-    return atan2 (delta.y, delta.x) * 180 / M_PI;
-}
-
-inline Vector2D getMousePosition()
-{
-    int x, y;
-    SDL_GetMouseState (&x, &y);
-    return Vector2D (static_cast<float>(x), static_cast<float>(y));
-}
-
-inline Vector2D getSpriteCenter (Sprite* sprite)
-{
-    float spriteX, spriteY;
-    sprite->getPosition (spriteX, spriteY);
-    return Vector2D (spriteX + sprite->getWidth() / 2, spriteY + sprite->getHeight() / 2);
-}
 
 class TopDownCharacterControllerScript : public Script
 {
@@ -67,8 +43,8 @@ public:
         sprite->getPosition (x, y);
 
         auto& inputManager = InputManager::getInstance();
-        if (inputManager.isKeyPressed ("W")) y -= jumpSpeed;
-        if (inputManager.isKeyPressed ("S")) y += gravity;
+        if (inputManager.isKeyPressed ("W")) y -= moveSpeed;
+        if (inputManager.isKeyPressed ("S")) y += moveSpeed;
         if (inputManager.isKeyPressed ("A")) x -= moveSpeed;
         if (inputManager.isKeyPressed ("D")) x += moveSpeed;
 
@@ -91,9 +67,10 @@ public:
                 float bulletStartY = y;
 
                 Position origin (bulletStartX, bulletStartY);
-                Position target (static_cast<float>(mouseX), static_cast<float>(mouseY));
+                Position target (static_cast<float>(mouseX - sprite->getBounds().width / 2.0f), 
+                                 static_cast<float>(mouseY - sprite->getBounds().height / 2.0f));
                 
-                Vector2D bulletDirection = getDirection (origin, target);
+                Vector2D bulletDirection = calculateDirection (origin, target);
                 
                 auto bullet = (scene->getAssetManager())->createAsset<Bullet>("bullet" + std::to_string (rand()));
                 bullet->setPosition (bulletStartX, bulletStartY);
@@ -118,7 +95,7 @@ public:
         Vector2D spriteCenter = getSpriteCenter(sprite);
 
         Vector2D delta = mousePos - spriteCenter;
-        float angle = calculateAngle(delta);
+        float angle = calculateAngle (delta);
         sprite->setRotation (angle - 115);
 
         Renderer* renderer = sprite->getRenderer();
@@ -127,14 +104,12 @@ public:
                             static_cast<int>(spriteCenter.y),
                             static_cast<int>(mousePos.x), 
                             static_cast<int>(mousePos.y));
+        health = clamp (health, 0.0f, maxHealth);
     }
 
     void handleLifeSupport()
     {
-        if (health <= 0.0f)
-        {
-            health = 0.0f;
-        }
+        health = clamp (health, 0.0f, maxHealth);
         health -= healthDepletionRate;
     }
 
@@ -142,7 +117,9 @@ public:
     float healthDepletionRate = 2.0f;
     float gravity = 1.0f;
     float jumpSpeed = 2.0f;
-    float moveSpeed = 1.0f;
+    float moveSpeed = 5.0f;
+
+    float maxHealth = 100.0f;
 
 private:
     Sprite* sprite;

@@ -94,3 +94,19 @@ public:
     T x, y, width, height;
     Position<T> center, topLeft, topRight, bottomLeft, bottomRight;
 };
+
+
+class RenderUtils 
+{
+public:
+    static SDL_Rect createRenderQuad (const Rect<float>& bounds) 
+    {
+        return SDL_Rect 
+        {
+            static_cast<int>(bounds.x),
+            static_cast<int>(bounds.y),
+            static_cast<int>(bounds.width),
+            static_cast<int>(bounds.height)
+        };
+    }
+};

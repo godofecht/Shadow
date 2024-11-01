@@ -1,8 +1,4 @@
 #include "SDLApp.h"
-#include <iostream>
-#include <memory>
-#include <string>
-#include <vector>
 
 int main (int argc, char* args[])
 {

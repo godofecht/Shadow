@@ -60,7 +60,7 @@ endif()
 
 # Add include directories for Box2D, SDL2, and SDL2_image
 target_include_directories(sdl_app PRIVATE 
-#    "${CMAKE_SOURCE_DIR}/box2d/include" 
+    "${CMAKE_SOURCE_DIR}/box2d/include" 
     ${SDL2_INCLUDE_DIRS} 
     ${SDL2_IMAGE_INCLUDE_DIRS}
 )
