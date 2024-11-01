@@ -1,4 +1,7 @@
+#pragma once
+#include "Renderer.h"
+
 class Object
 {
-    virtual void renderAndRunScripts(SDL_Renderer* renderer) = 0;
+    virtual void renderAndRunScripts (Renderer* renderer) = 0;
 };

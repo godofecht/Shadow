@@ -32,9 +32,9 @@ public:
         return instance;
     }
 
-    bool isKeyPressed(SDL_Scancode key)
+    bool isKeyPressed (SDL_Scancode key)
     {
-        keyboardState = SDL_GetKeyboardState(nullptr);
+        keyboardState = SDL_GetKeyboardState (nullptr);
         return keyboardState[key];
     }
 
@@ -313,6 +313,7 @@ public:
 
         bool isMouseButtonPressed(Uint32 button)
         {
+            updateMouseState();
             return (mouseState & SDL_BUTTON(button)) != 0;
         }
 

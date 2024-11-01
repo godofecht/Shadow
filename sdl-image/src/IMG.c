@@ -112,7 +112,7 @@ extern void IMG_QuitWEBP(void);
 
 static int initialized = 0;
 
-int IMG_Init(int flags)
+int cIMG_Init(int flags)
 {
     int result = 0;
 

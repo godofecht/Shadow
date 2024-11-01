@@ -1,30 +1,7 @@
 #include "Sprite.h"
 #include <SDL_image.h>
 #include <iostream>
-
-Sprite::Sprite(SDL_Renderer* renderer, const std::string& path, const std::string& _id)
-    : renderer(renderer), texture(nullptr), x(0), y(0)
-{
-    id = _id;
-    std::cout << "Creating object: " << id << std::endl;
-    loadTexture(path);
-}
-
-Sprite::~Sprite()
-{
-    if (texture != nullptr)
-    {
-        SDL_DestroyTexture(texture);
-    }
-}
-
-void Sprite::setBounds(int x, int y, int width, int height)
-{
-    this->x = x;
-    this->y = y;
-    this->width = width;
-    this->height = height;
-}
+#include <cassert>
 
 void Sprite::destroy()
 {
@@ -33,79 +10,68 @@ void Sprite::destroy()
     setActive (false);
 }
 
-void Sprite::setPosition(int x, int y)
+void Sprite::setImage (const std::string& path)
 {
-    this->x = x;
-    this->y = y;
+    loadTexture (path);
 }
 
-void Sprite::setSize(int width, int height)
-{
-    this->width = width;
-    this->height = height;
-}
-
-void Sprite::getPosition(int& xOut, int& yOut)
-{
-    xOut = x;
-    yOut = y;
-}
-
-void Sprite::setImage(const std::string& path)
-{
-    loadTexture(path);
-}
-
-void Sprite::attachScript(std::shared_ptr<Script> script)
-{
-    scripts.push_back(script);
-    script->start();
-}
-
-void Sprite::renderAndRunScripts(SDL_Renderer* renderer) // This not only renders but also runs the script
+void Sprite::renderAndRunScripts (Renderer* renderer) // This not only renders but also runs the script
 {
     SDL_Point* center = nullptr;
     SDL_RendererFlip flip = SDL_FLIP_NONE;
-    SDL_Point calculatedCenter = { width / 2, height / 2 };
-    if (center == nullptr) {
-        center = &calculatedCenter;
-    }
+    SDL_Point calculatedCenter = { bounds.width / 2, bounds.height / 2 };
+    
+    if (center == nullptr) center = &calculatedCenter;
+
     if (!isActive) return;
 
-    SDL_Rect renderQuad = { x, y, width, height };
-    SDL_RenderCopyEx(renderer, texture, nullptr, &renderQuad, rotation, center, flip);
+    SDL_Rect renderQuad = { static_cast<int>(bounds.x), static_cast<int>(bounds.y), static_cast<int>(bounds.width), static_cast<int>(bounds.height) };
+    SDL_RenderCopyEx (renderer->renderer, texture.texture, nullptr, &renderQuad, rotation, center, flip);
+
+    if (texture.texture == nullptr)
+    {
+        std::cerr << "Texture is null for object: " << id << std::endl;
+        return;
+    } //Fixes issue with period of non initialization... but is it the right approach?
+
+    assert (renderer != nullptr);
+    assert (texture.texture != nullptr);
 
     for (auto& script : scripts)
     {
+        assert (script != nullptr);
         script->update();
     }
 }
 
-bool Sprite::loadTexture(const std::string& path)
+inline SDL_Surface* loadSurfaceFromRenderer (const std::string& path)
 {
-    if (texture != nullptr)
-    {
-        SDL_DestroyTexture(texture);
-    }
+    return IMG_Load (path.c_str());
+}
 
-    SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+bool Sprite::loadTexture (const std::string& path)
+{
+    texture.destroy();
+
+    auto loadedSurface = loadSurfaceFromRenderer (path);
     if (loadedSurface == nullptr)
     {
         std::cerr << "Unable to load image " << path << "! SDL_image Error: " << IMG_GetError() << std::endl;
         return false;
     }
 
-    texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
-    if (texture == nullptr)
-    {
-        std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << std::endl;
-        SDL_FreeSurface(loadedSurface);
-        return false;
-    }
+    // texture = SDL_CreateTextureFromSurface (renderer, loadedSurface);
+    // if (texture == nullptr)
+    // {
+    //     std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << std::endl;
+    //     SDL_FreeSurface (loadedSurface);
+    //     return false;
+    // }
 
-    width = loadedSurface->w;
-    height = loadedSurface->h;
+    texture.createFromSurface (renderer->renderer, loadedSurface, path);
 
-    SDL_FreeSurface(loadedSurface);
+    setSize (loadedSurface->w, loadedSurface->h);
+
+    SDL_FreeSurface (loadedSurface);
     return true;
 }

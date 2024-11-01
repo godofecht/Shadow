@@ -31,7 +31,7 @@ public:
 
     void handleMovement()
     {
-        int x, y;
+        float x, y;
         sprite->getPosition(x, y);
 
         // Generate random movement

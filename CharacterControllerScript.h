@@ -3,35 +3,68 @@
 
 #include "Script.h"
 #include "Sprite.h"
+#include "Scene.h"
+#include "Bullet.h"
 #include <SDL.h>
 #include "InputManagement.h"
 #include <iostream>
 #include <unordered_map>
-
+#include "AssetManager.h"
+#include <cmath>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
 
 
+// Utility function to calculate normalized direction from origin to target
+inline Vector2D getDirection (const Position<float>& origin, const Position<float>& target)
+{
+    float dx = target.x - origin.x;
+    float dy = target.y - origin.y;
+    float magnitude = std::sqrt (dx * dx + dy * dy);
+    return magnitude > 0 ? Vector2D (dx / magnitude, dy / magnitude) : Vector2D(0, 0);
+}
 
-class CharacterControllerScript : public Script
+inline float calculateAngle (const Vector2D& delta)
+{
+    return atan2 (delta.y, delta.x) * 180 / M_PI;
+}
+
+inline Vector2D getMousePosition()
+{
+    int x, y;
+    SDL_GetMouseState (&x, &y);
+    return Vector2D (static_cast<float>(x), static_cast<float>(y));
+}
+
+inline Vector2D getSpriteCenter (Sprite* sprite)
+{
+    float spriteX, spriteY;
+    sprite->getPosition (spriteX, spriteY);
+    return Vector2D (spriteX + sprite->getWidth() / 2, spriteY + sprite->getHeight() / 2);
+}
+
+class TopDownCharacterControllerScript : public Script
 {
 public:
-    CharacterControllerScript(Sprite* sprite, int speed);
-    virtual void start() override;
-    virtual void update() override;
+    TopDownCharacterControllerScript (Sprite* sprite, int speed)
+        : sprite (sprite), speed (speed), lastShotTime (0), cooldownTime (500) // cooldownTime in milliseconds
+    {}
 
-    float health = 100.0f;
-    float healthDepletionRate = 2.0f;
-    float gravity = 1.0f;
-    float jumpSpeed = 2.0f;
-    float moveSpeed = 1.0f;
+    virtual void start() override {}
+    
+    virtual void update() override
+    {
+        handleMovement();
+        handleRotation();
+        handleLifeSupport();
+    }
 
     void handleMovement()
     {
-        int x, y;
-        sprite->getPosition(x, y);
+        float x, y;
+        sprite->getPosition (x, y);
 
         auto& inputManager = InputManager::getInstance();
         if (inputManager.isKeyPressed ("W")) y -= jumpSpeed;
@@ -39,52 +72,84 @@ public:
         if (inputManager.isKeyPressed ("A")) x -= moveSpeed;
         if (inputManager.isKeyPressed ("D")) x += moveSpeed;
 
-        sprite->setPosition (x, y);
+        // Check if cooldown has passed since last shot
+        Uint32 currentTime = SDL_GetTicks();
+        if (currentTime - lastShotTime >= cooldownTime)
+        {
+            isShooting = false; // Reset shooting state after cooldown
+        }
 
-        //apply gravity
-        // sprite->setPosition (sprite->getX(), sprite->getY() + 1);
+        if (inputManager.isMouseButtonPressed (SDL_BUTTON_LEFT) && !isShooting)
+        {
+            Scene* scene = sprite->getScene();
+            if (scene && scene->isInitialized)
+            {
+                int mouseX, mouseY;
+                SDL_GetMouseState (&mouseX, &mouseY);
+
+                float bulletStartX = x;
+                float bulletStartY = y;
+
+                Position origin (bulletStartX, bulletStartY);
+                Position target (static_cast<float>(mouseX), static_cast<float>(mouseY));
+                
+                Vector2D bulletDirection = getDirection (origin, target);
+                
+                auto bullet = (scene->getAssetManager())->createAsset<Bullet>("bullet" + std::to_string (rand()));
+                bullet->setPosition (bulletStartX, bulletStartY);
+
+                auto bulletControllerScript = std::dynamic_pointer_cast<BulletControllerScript>(bullet->getScripts()[0]);
+                bulletControllerScript->setDirection (bulletDirection);
+
+                scene->addItem (bullet);  // Add bullet to the scene
+                isShooting = true;
+
+                // Update last shot time to current time
+                lastShotTime = currentTime;
+            }
+        }
+
+        sprite->setPosition (x, y);
     }
 
     void handleRotation()
     {
-        int mouseX, mouseY;
-        SDL_GetMouseState(&mouseX, &mouseY);
+        Vector2D mousePos = getMousePosition();
+        Vector2D spriteCenter = getSpriteCenter(sprite);
 
-        int spriteX, spriteY;
-        sprite->getPosition(spriteX, spriteY);
+        Vector2D delta = mousePos - spriteCenter;
+        float angle = calculateAngle(delta);
+        sprite->setRotation (angle - 115);
 
-        int spriteCenterX = spriteX + sprite->getWidth() / 2;
-        int spriteCenterY = spriteY + sprite->getHeight() / 2;
+        Renderer* renderer = sprite->getRenderer();
 
-        float deltaX = mouseX - spriteCenterX;
-        float deltaY = mouseY - spriteCenterY;
-
-        float angle = atan2(deltaY, deltaX) * 180 / M_PI; // Convert radians to degrees
-
-        sprite->setRotation(angle - 115);
-
-        // Draw a line from the sprite to the mouse position
-        SDL_Renderer* renderer = sprite->getRenderer();
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color
-        SDL_RenderDrawLine(renderer, spriteCenterX, spriteCenterY, mouseX, mouseY);
- //       SDL_RenderPresent(renderer);
+        renderer->drawLine (static_cast<int>(spriteCenter.x), 
+                            static_cast<int>(spriteCenter.y),
+                            static_cast<int>(mousePos.x), 
+                            static_cast<int>(mousePos.y));
     }
 
     void handleLifeSupport()
     {
         if (health <= 0.0f)
         {
-            health = 0.0f; //just reset it for safety
- //           sprite->destroy();
+            health = 0.0f;
         }
-
-        //health naturally depletes over time
         health -= healthDepletionRate;
     }
+
+    float health = 100.0f;
+    float healthDepletionRate = 2.0f;
+    float gravity = 1.0f;
+    float jumpSpeed = 2.0f;
+    float moveSpeed = 1.0f;
 
 private:
     Sprite* sprite;
     int speed;
+    Uint32 lastShotTime;
+    const Uint32 cooldownTime;
+    bool isShooting = false;
 };
 
-#endif
+#endif // CHARACTERCONTROLLERSCRIPT_H
