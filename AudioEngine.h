@@ -160,11 +160,3 @@ class AudioEngine
 public:
     std::vector<AudioMediaGroup> audioMediaGroups;
 };
-
-// Main entry point for testing purposes
-int main()
-{
-    AudioMediaGroup group;
-    group.playAudio ("id");
-    return 0;
-}
