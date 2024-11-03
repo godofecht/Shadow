@@ -26,6 +26,9 @@ bool Game::start()
     std::cout << "Renderer and DirectX TextWriter created." << std::endl;
 
     assetManager = std::make_unique<AssetManager>(renderer.get());
+    physicsManager = std::make_unique<PhysicsManager>();
+
+    std::cout << "AssetManager and PhysicsManager created." << std::endl;
 
     return true;
 }
@@ -71,7 +74,6 @@ void Game::run()
     }
 }
 
-
 void Game::init()
 {
     //TODO: combine the two lines below into one
@@ -108,6 +110,8 @@ void Game::quit()
 
 void Game::update()
 {
+    physicsManager->getWorld().simulateStep();
+
     for (auto& scene : scenes)
     {
         scene->render (renderer.get());

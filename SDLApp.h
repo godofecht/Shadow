@@ -14,8 +14,6 @@
 #include "Enemy.h"
 #include "FPSCounter.h"
 
-
-
 class Window
 {
 public:
@@ -26,8 +24,7 @@ public:
     float screenHeight;
     const char* title;
 
-    Window ()
-    {}
+    Window(){}
 
     bool initialize (const char* title, int width, int height)
     {
@@ -52,7 +49,6 @@ public:
         }
     }
 };
-
 
 class Game
 {
@@ -98,6 +94,7 @@ private:
     int screenHeight;
     bool isRunning = false;
     std::unique_ptr<AssetManager> assetManager;
+    std::unique_ptr<PhysicsManager> physicsManager;
     std::vector<std::unique_ptr<Scene>> scenes;
 
     FPSCounter fpsCounter;
