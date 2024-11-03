@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "FPSCounter.h"
+#include "AudioEngine.h"
 
 class Window
 {
@@ -62,6 +63,8 @@ public:
 
     Renderer* getRenderer() {return renderer.get();}
     AssetManager* getAssetManager() {return assetManager.get();}
+    AudioEngine* getAudioEngine() {return audioEngine.get();}
+    
 
     void limitFPS(Uint32 fpsLimit)
     {
@@ -95,6 +98,7 @@ private:
     bool isRunning = false;
     std::unique_ptr<AssetManager> assetManager;
     std::unique_ptr<PhysicsManager> physicsManager;
+    std::unique_ptr<AudioEngine> audioManager;
     std::vector<std::unique_ptr<Scene>> scenes;
 
     FPSCounter fpsCounter;
