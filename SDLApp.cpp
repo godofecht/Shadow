@@ -61,16 +61,11 @@ void Game::run()
         }
 
         clearScreen(0x00, 0x00, 0x00, 0xFF);
-
         update();
-
         float fps = fpsCounter.getFPS();
-
-        renderer->getTextWriter()->drawTextToRenderer(std::to_wstring(fps), renderer->renderer);
-
+        renderer->getTextWriter()->drawTextToRenderer (std::to_wstring (fps), renderer->renderer);
         presentScreen();
-
-        limitFPS(fpsLimit);
+        limitFPS (fpsLimit);
     }
 }
 
@@ -91,14 +86,14 @@ void Game::init()
     //We might ALSO have to do so after scenes... but I'm unsure.
     //TODO: Clear this up.
 
-    auto& a = audioEngine->getAudioMediaGroupByIndex(0);
+    auto& a = audioEngine->getAudioMediaGroupByIndex (0);
     // a.addAudioPlayer("C:/Users/abhis/gamedev/Shadow/looptheme.wav", "main_theme");
     // a.playAudio("main_theme", true);  // Start main theme with looping
 }
 
-void Game::clearScreen(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+void Game::clearScreen (Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
-    renderer->clearScreen(r, g, b, a);
+    renderer->clearScreen (r, g, b, a);
 }
 
 void Game::presentScreen()
@@ -108,7 +103,7 @@ void Game::presentScreen()
 
 void Game::quit()
 {
-    audioEngine->stopAudioInGroup("main_theme", "main_theme");  // Stop main theme playback
+    audioEngine->stopAudioInGroup ("main_theme", "main_theme");  // Stop main theme playback
     renderer->reset();
     if (renderer != nullptr)
     {
