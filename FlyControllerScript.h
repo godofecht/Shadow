@@ -9,7 +9,7 @@
 class FlyControllerScript : public Script
 {
 public:
-    FlyControllerScript (Sprite* sprite, int speed) : 
+    FlyControllerScript (SimpleSprite* sprite, int speed) : 
         sprite (sprite), speed (speed)
     {
     }
@@ -75,7 +75,7 @@ public:
     }
 
 private:
-    Sprite* sprite;
+    SimpleSprite* sprite;
     int speed;
 };
 

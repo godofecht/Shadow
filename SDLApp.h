@@ -35,8 +35,8 @@ public:
             std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
             return false;
         }
-        screenWidth = width;
-        screenHeight = height;
+        screenWidth = (float) width;
+        screenHeight = (float) height;
 
         std::cout << "Window created." << std::endl;
         return true;
@@ -65,8 +65,7 @@ public:
     AssetManager* getAssetManager() {return assetManager.get();}
     AudioEngine* getAudioEngine() {return audioEngine.get();}
     
-
-    void limitFPS(Uint32 fpsLimit)
+    void limitFPS (Uint32 fpsLimit)
     {
         static Uint32 frameStart;
         static Uint32 frameTime;
@@ -92,13 +91,13 @@ private:
     void quit();
 
     Window window;
+    std::unique_ptr<AudioEngine> audioEngine;
     std::unique_ptr<Renderer> renderer;
     int screenWidth;
     int screenHeight;
     bool isRunning = false;
     std::unique_ptr<AssetManager> assetManager;
     std::unique_ptr<PhysicsManager> physicsManager;
-    std::unique_ptr<AudioEngine> audioManager;
     std::vector<std::unique_ptr<Scene>> scenes;
 
     FPSCounter fpsCounter;

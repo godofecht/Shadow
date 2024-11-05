@@ -6,7 +6,7 @@
 #include "Object.h"
 #include "Sprite.h"
 
-class Sprite;
+class SimpleSprite;
 class AssetManager;
 class Scene 
 {
@@ -14,8 +14,8 @@ private:
     AssetManager* assetManager;
 public:
     bool isInitialized = false;
-    std::vector<std::shared_ptr<Sprite>> sprites;
-    std::vector<std::shared_ptr<Sprite>> pendingSprites;
+    std::vector<std::shared_ptr<SimpleSprite>> sprites;
+    std::vector<std::shared_ptr<SimpleSprite>> pendingSprites;
 
     Scene() { initialize(); }
 
@@ -29,7 +29,7 @@ public:
         sprites.clear();
     }
 
-    std::shared_ptr<Sprite> getSpriteById (const std::string& id) 
+    std::shared_ptr<SimpleSprite> getSpriteById (const std::string& id) 
     {
         for (auto& sprite : sprites) 
         {
@@ -48,7 +48,7 @@ public:
         return nullptr;
     }
 
-    void addItem (std::shared_ptr<Sprite> sprite);
+    void addItem (std::shared_ptr<SimpleSprite> sprite);
     void render (Renderer* renderer);
     void initializePendingSprites();
 };

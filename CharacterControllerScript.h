@@ -24,7 +24,7 @@
 class TopDownCharacterControllerScript : public Script
 {
 public:
-    TopDownCharacterControllerScript (Sprite* sprite, int speed)
+    TopDownCharacterControllerScript (SimpleSprite* sprite, int speed)
         : sprite (sprite), speed (speed), lastShotTime (0), cooldownTime (500) // cooldownTime in milliseconds
     {}
 
@@ -74,6 +74,7 @@ public:
                 
                 auto bullet = (scene->getAssetManager())->createAsset<Bullet>("bullet" + std::to_string (rand()));
                 bullet->setPosition (bulletStartX, bulletStartY);
+                bullet->setSize (30, 30);
 
                 auto bulletControllerScript = std::dynamic_pointer_cast<BulletControllerScript>(bullet->getScripts()[0]);
                 bulletControllerScript->setDirection (bulletDirection);
@@ -96,7 +97,7 @@ public:
 
         Vector2D delta = mousePos - spriteCenter;
         float angle = calculateAngle (delta);
-        sprite->setRotation (angle - 115);
+        sprite->setAngle (angle + 90); // Adjust angle to match sprite orientation
 
         Renderer* renderer = sprite->getRenderer();
 
@@ -122,7 +123,7 @@ public:
     float maxHealth = 100.0f;
 
 private:
-    Sprite* sprite;
+    SimpleSprite* sprite;
     int speed;
     Uint32 lastShotTime;
     const Uint32 cooldownTime;

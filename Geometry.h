@@ -76,8 +76,13 @@ template <typename T>
 class Rect
 {
 public:
-    Rect(T x, T y, T _width, T _height) 
-        : x(x), y(y), width(_width), height(_height)
+    Rect (T x, T y, T _width, T _height) 
+        : x (x), y (y), width (_width), height (_height)
+    {
+        updatePoints();
+    }
+
+    Rect () : x (0), y (0), width (0), height (0)
     {
         updatePoints();
     }

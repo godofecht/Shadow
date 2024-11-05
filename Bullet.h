@@ -11,7 +11,7 @@
 class BulletControllerScript : public Script
 {
 public:
-    BulletControllerScript(Sprite* sprite, float speed, const Vector2D& direction, float lifetime)
+    BulletControllerScript(SimpleSprite* sprite, float speed, const Vector2D& direction, float lifetime)
         : sprite(sprite), speed(speed), direction(direction.normalized()), lifetime(lifetime) 
     {}
 
@@ -34,7 +34,7 @@ public:
     virtual ~BulletControllerScript() {}
 
 private:
-    Sprite* sprite;
+    SimpleSprite* sprite;
     Vector2D direction;
     float speed;
     float lifetime;
@@ -47,11 +47,11 @@ private:
     }
 };
 
-class Bullet : public Sprite
+class Bullet : public SimpleSprite
 {
 public:
     Bullet (Renderer* renderer, const std::string& _id)
-        : Sprite (renderer, "C:/Users/abhis/gamedev/Shadow/fly.png", _id),
+        : SimpleSprite (renderer, "C:/Users/abhis/gamedev/Shadow/fly.png", _id),
           direction (Vector2D (1.0f, 0.0f))
     {
         auto controller = std::make_shared<BulletControllerScript>(this, bulletSpeed, direction, 1.0f);

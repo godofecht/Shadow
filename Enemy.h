@@ -2,11 +2,11 @@
 #include <iostream>
 #include "Renderer.h"
 
-class Enemy : public Sprite
+class Enemy : public SimpleSprite
 {
 public:
     Enemy (Renderer* renderer, const std::string& id)
-        : Sprite (renderer, "C:/Users/abhis/gamedev/Shadow/fly.png", id)
+        : SimpleSprite (renderer, "C:/Users/abhis/gamedev/Shadow/fly.png", id)
     {
         std::cout << "Creating object: " << getId() << std::endl;
         // auto controller = std::make_shared<EnemyControllerScript>(this, 5);

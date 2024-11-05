@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-void Scene::addItem (std::shared_ptr<Sprite> sprite) 
+void Scene::addItem (std::shared_ptr<SimpleSprite> sprite) 
 {
     sprite->setScene (this);   // Associate the sprite with the current scene
     pendingSprites.push_back (sprite); // Add to pending, not main list
