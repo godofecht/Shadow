@@ -23,9 +23,9 @@ bool Game::start()
 
     std::cout << "SDL initialized." << std::endl;
 
-    window.initialize(title, screenWidth, screenHeight);
+    window.initialize (title, screenWidth, screenHeight);
 
-    if (!renderer->initialize(window.window)) return false;
+    if (!renderer->initialize (window.window)) return false;
     std::cout << "Renderer and DirectX TextWriter created." << std::endl;
 
     assetManager = std::make_unique<AssetManager>(renderer.get());
@@ -33,7 +33,7 @@ bool Game::start()
     if (!audioEngine->initialize()) return false;
     std::cout << "AudioEngine initialized." << std::endl;
 
-    audioEngine->addAudioMediaGroup("main_theme");
+    audioEngine->addAudioMediaGroup ("main_theme");
     std::cout << "AssetManager and PhysicsManager created." << std::endl;
 
     return true;
@@ -52,7 +52,7 @@ void Game::run()
     {
         Uint32 frameStart = SDL_GetTicks();
 
-        while (SDL_PollEvent(&event) != 0)
+        while (SDL_PollEvent (&event) != 0)
         {
             if (event.type == SDL_QUIT)
             {
@@ -60,10 +60,11 @@ void Game::run()
             }
         }
 
-        clearScreen(0x00, 0x00, 0x00, 0xFF);
+        clearScreen (0x00, 0x00, 0x00, 0xFF);
         update();
-        float fps = fpsCounter.getFPS();
-        renderer->getTextWriter()->drawTextToRenderer (std::to_wstring (fps), renderer->renderer);
+
+        drawFPS();
+        
         presentScreen();
         limitFPS (fpsLimit);
     }
@@ -80,6 +81,8 @@ void Game::init()
     scene->getSpriteById ("player")->setSize (100, 100);
     scene->getSpriteById ("enemy")->setSize (100, 100);
 
+    scene->getSpriteById ("enemy")->addComponent<PhysicsComponent> (physicsManager.get());
+
     scenes.push_back (std::move (scene));
 
     //Always initialize audio in the init function.
@@ -87,8 +90,8 @@ void Game::init()
     //TODO: Clear this up.
 
     auto& a = audioEngine->getAudioMediaGroupByIndex (0);
-    // a.addAudioPlayer("C:/Users/abhis/gamedev/Shadow/looptheme.wav", "main_theme");
-    // a.playAudio("main_theme", true);  // Start main theme with looping
+    // a.addAudioPlayer ("C:/Users/abhis/gamedev/Shadow/looptheme.wav", "main_theme");
+    // a.playAudio ("main_theme", true);  // Start main theme with looping
 }
 
 void Game::clearScreen (Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -105,20 +108,15 @@ void Game::quit()
 {
     audioEngine->stopAudioInGroup ("main_theme", "main_theme");  // Stop main theme playback
     renderer->reset();
-    if (renderer != nullptr)
-    {
-        renderer->destroy();
-    }
+    if (renderer != nullptr) renderer->destroy();
     window.exit();
     SDLManager::handleExit();
 }
 
 void Game::update()
 {
-//    physicsManager->getWorld().simulateStep();
+    physicsManager->getWorld().simulateStep();
 
     for (auto& scene : scenes)
-    {
-        scene->render(renderer.get());
-    }
+        scene->render (renderer.get());
 }

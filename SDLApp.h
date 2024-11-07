@@ -14,11 +14,11 @@
 #include "Enemy.h"
 #include "FPSCounter.h"
 #include "AudioEngine.h"
+#include "Physics.h"
 
 class Window
 {
 public:
-
     SDL_Window* window;
 
     float screenWidth;
@@ -61,9 +61,9 @@ public:
     void init();
     void update(); //Called repeatedly
 
-    Renderer* getRenderer() {return renderer.get();}
+    Renderer* getRenderer()             {return renderer.get();}
     AssetManager* getAssetManager() {return assetManager.get();}
-    AudioEngine* getAudioEngine() {return audioEngine.get();}
+    AudioEngine* getAudioEngine()    {return audioEngine.get();}
     
     void limitFPS (Uint32 fpsLimit)
     {
@@ -81,12 +81,33 @@ public:
             SDL_Delay ((1000 / fpsLimit) - frameTime);
         }
     }
+
+    void drawFPS()
+    {
+        float fps = fpsCounter.getFPS();
+        std::wstring fpsText = L"FPS: " + std::to_wstring(fps);
+
+        int textHeight = 300;  // Adjust this value for the text box height
+
+        // Get the width and height of the text box
+        int textWidth = textHeight * 8.0f / 6.0f;  // Adjust this value as needed for the text box width
+
+        // Calculate the position for the top-right corner
+        float xPosition = screenWidth - textWidth; // 10-pixel margin from the right edge
+        float yPosition = textHeight; // 10-pixel margin from the top edge
+
+        // Set the bounds for the text
+        Rect<float> bounds(0, 0, textWidth, textHeight);
+
+        // Draw the text
+        // renderer->getTextWriter()->drawTextToRenderer (fpsText, renderer->renderer, bounds, "default.ttf");
+    }
     
     const char* title; //Window title
 
 private:
     bool start();
-    void clearScreen(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+    void clearScreen (Uint8 r, Uint8 g, Uint8 b, Uint8 a);
     void presentScreen();
     void quit();
 

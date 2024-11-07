@@ -228,6 +228,8 @@
 //     PhysicsManager* physicsManager;
 // };
 
+#pragma once
+
 #include <box2d/box2d.h>
 #include <SDL_image.h>
 #include <SDL.h>
@@ -265,7 +267,7 @@ class World
     float timeStep = 1.0f / fps;
     int subStepCount = 4;
 
-    std::vector<Body> bodies;
+    std::vector<Body*> bodies;
 public:
 
     b2WorldId getId() { return id; }
@@ -281,22 +283,22 @@ public:
     {
         for (auto body : bodies)
         {
-            b2Vec2 position = b2Body_GetPosition (body.getId());
-            b2Rot rotation = b2Body_GetRotation (body.getId());
+            b2Vec2 position = b2Body_GetPosition (body->getId());
+            b2Rot rotation = b2Body_GetRotation (body->getId());
             printf ("%4.2f %4.2f %4.2f\n", position.x, position.y, b2Rot_GetAngle (rotation));     
         }
         b2World_Step (id, timeStep, subStepCount);
     }
 
-    void addBody (Body& body) { bodies.push_back (body); }
+    void addBody (Body* body) { bodies.push_back (body); }
 
     void deleteBodyWithId (const char* id)
     {
         for (auto it = bodies.begin(); it != bodies.end(); ++it)
         {
-            if (it->getUid(), id)
+            if ((*it)->getUid() == id)
             {
-                bodies.erase (it);
+                bodies.erase(it);
                 break;
             }
         }

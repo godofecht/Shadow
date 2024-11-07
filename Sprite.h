@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Geometry.h"
 #include "Texture.h"
+#include "Physics.h"
 
 class Scene;
 
@@ -28,6 +29,33 @@ public:
 
 };
 
+
+class Component
+{
+
+public:
+    Component()
+    {
+
+    }
+};
+class PhysicsComponent : public Component
+{
+    PhysicsManager* physicsManager;
+    std::unique_ptr<Body> body;
+    public:
+
+    PhysicsComponent(PhysicsManager* _physicsManager) : physicsManager(_physicsManager)
+    {
+        body = std::make_unique<RigidBody>(physicsManager->getWorld());
+    }
+
+    Body* getBody()
+    {
+        return body.get();
+    }
+};
+
 class SimpleSprite : public Object
 {
 public:
@@ -41,34 +69,51 @@ public:
         isInitialized = true;
     }
 
+    SimpleSprite (Renderer* renderer, const std::string& _id)
+        : Object (renderer)
+    {
+        setId (_id);
+        std::cout << "Creating object: " << _id << std::endl;
+
+        isInitialized = false;
+    }
+
     ~SimpleSprite()
     {
         getBackgroundTexture().destroy();
     }
 
+    std::vector<Component*> components;
+
+    template <typename T>
+    void addComponent (PhysicsManager* physicsManager) 
+    {
+        components.push_back (new PhysicsComponent (physicsManager));
+        Body* body = static_cast<PhysicsComponent*>(components.back())->getBody();
+        physicsManager->getWorld().addBody (body);
+    }
+
     void setImage (const std::string& path);
-    void attachScript (std::shared_ptr<Script> script) { scripts.push_back(script); }
+    void attachScript (std::shared_ptr<Script> script) { scripts.push_back (script); }
     std::vector<std::shared_ptr<Script>>& getScripts() { return scripts; }
 
     virtual void renderAndRunScripts (Renderer* renderer) override;
     void setActive (bool state) { isActive = state; }
     void destroy();
 
-
-
     Scene* getScene() const { return scene; }
     void setScene (Scene* _scene) { scene = _scene; }
 
-
     virtual void update (float deltaTime) {}
 
-    void addPart (const std::string& path, const std::string& id)
+    Part* addPart (const std::string& path, const std::string& id)
     {
         std::shared_ptr<Part> part = std::make_shared<Part>(getRenderer());
         part->loadBackgroundTexture (path);
         part->setId (id);
         // part->setScene (scene);
         parts.push_back (part);
+        return parts.back().get();
     }
 
     Part* getPart (const std::string& id)

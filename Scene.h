@@ -8,6 +8,7 @@
 
 class SimpleSprite;
 class AssetManager;
+
 class Scene 
 {
 private:

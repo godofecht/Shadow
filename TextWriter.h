@@ -10,6 +10,9 @@
 #include <wincodec.h>  // For IWICBitmap and IWICBitmapLock
 #include <string>
 #include <SDL_syswm.h>  // Required for SDL_SysWMinfo
+#include "Geometry.h"
+#include <SDL_ttf.h>
+
 
 class Col 
 {
@@ -64,31 +67,45 @@ public:
 
     void reset() {  }
 
-    void drawTextToRenderer (std::wstring text, SDL_Renderer* renderer)
+
+    void drawTextToRenderer(std::wstring text, SDL_Renderer* renderer, Rect<float> bounds, TTF_Font* font)
     {
-#ifdef _WIN32
+    #ifdef _WIN32
+
+        // Convert std::wstring to UTF-8 string for TTF rendering
+        std::string utf8Text(text.begin(), text.end());
+
+        // Calculate the size of the text using SDL_ttf
+        int textWidth, textHeight;
+        if (TTF_SizeUTF8(font, utf8Text.c_str(), &textWidth, &textHeight) != 0) {
+            std::cerr << "Failed to calculate text size: " << TTF_GetError() << std::endl;
+            return;
+        }
+
+        // Adjust bounds if necessary based on text size
+        float xPosition = bounds.x - textWidth / 2;
+        float yPosition = bounds.y - textHeight / 2;
 
         // Create the texture for text rendering
-        SDL_Texture* textTexture = SDL_CreateTexture (renderer, SDL_PIXELFORMAT_BGRA32, SDL_TEXTUREACCESS_STREAMING, 800, 600);
+        SDL_Surface* textSurface = TTF_RenderUTF8_Blended(font, utf8Text.c_str(), {0, 255, 0, 255}); // Green color
+        SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+        SDL_FreeSurface(textSurface);
 
-        // Clear textTexture with a transparent color to avoid overdraw
-        SDL_SetTextureBlendMode (textTexture, SDL_BLENDMODE_BLEND);
-        void* pixels;
-        int pitch;
-        SDL_LockTexture (textTexture, nullptr, &pixels, &pitch);
-        memset (pixels, 0, pitch * 600);  // Clear with transparent color
-        SDL_UnlockTexture (textTexture);
+        // Set the destination rectangle for rendering (position and size)
+        SDL_Rect dstRect;
+        dstRect.x = static_cast<int>(xPosition);
+        dstRect.y = static_cast<int>(yPosition);
+        dstRect.w = textWidth;
+        dstRect.h = textHeight;
 
-        // Render text using DirectWrite on SDL window
-        RenderTextToTexture (text, textTexture, Col::green());
+        // Render the text texture to the SDL renderer
+        SDL_RenderCopy(renderer, textTexture, NULL, &dstRect);
 
-        // Draw the texture to the SDL renderer
-        SDL_SetTextureAlphaMod (textTexture, 128); // Set alpha to 50%
-        SDL_RenderCopy (renderer, textTexture, NULL, NULL);    
         // Clean up texture after rendering
-        SDL_DestroyTexture (textTexture);    
-#endif
+        SDL_DestroyTexture(textTexture);
+    #endif
     }
+
 
 private:
     SDL_Renderer* sdlRenderer;

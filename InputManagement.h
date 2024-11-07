@@ -11,37 +11,38 @@
 #pragma once
 #include <unordered_map>
 #include <string>
+#include <SDL.h>
+#include "Geometry.h"
 
-class InputManager
+class Keys
 {
-    InputManager()
-    {
-        keyboardState = SDL_GetKeyboardState(nullptr);
-    }
 public:
     const Uint8* keyboardState;
 
-    // Deleting the copy constructor and assignment operator to ensure Singleton behavior
-    InputManager(InputManager const&) = delete;
-    void operator=(InputManager const&) = delete;
+    Keys() : keyboardState(SDL_GetKeyboardState(nullptr)) {}
 
-
-    static InputManager& getInstance()
+    bool isKeyPressed(SDL_Scancode key)
     {
-        static InputManager instance;  // Guaranteed to be destroyed and instantiated on first use
-        return instance;
-    }
-
-    bool isKeyPressed (SDL_Scancode key)
-    {
-        keyboardState = SDL_GetKeyboardState (nullptr);
+        keyboardState = SDL_GetKeyboardState(nullptr);
         return keyboardState[key];
     }
 
-    bool isKeyPressed (std::string key)
+    bool isKeyPressed(const std::string& key)
     {
-        auto scanCode = getScancodeFromString (key);
-        return (isKeyPressed (scanCode));
+        auto scanCode = getScancodeFromString(key);
+        return isKeyPressed(scanCode);
+    }
+
+    SDL_Scancode getScancodeFromString(const std::string& keyString)
+    {
+        for (const auto& pair : scancodeToString)
+        {
+            if (pair.second == keyString)
+            {
+                return pair.first;
+            }
+        }
+        return SDL_SCANCODE_UNKNOWN; // Return an unknown scancode if not found
     }
 
     std::unordered_map<SDL_Scancode, std::string> scancodeToString = {
@@ -288,42 +289,114 @@ public:
         {SDL_SCANCODE_AUDIOREWIND, "AUDIOREWIND"},
         {SDL_SCANCODE_AUDIOFASTFORWARD, "AUDIOFASTFORWARD"}
     };
+};
 
-    SDL_Scancode getScancodeFromString(const std::string& keyString)
+class Mouse
+{
+private:
+    int mouseX, mouseY;
+    Uint32 mouseState;
+
+public:
+    void updateMouseState() { mouseState = SDL_GetMouseState(&mouseX, &mouseY); }
+    bool isMouseButtonPressed(Uint32 button)
     {
-        for (const auto& pair : scancodeToString)
-        {
-            if (pair.second == keyString)
-            {
-                return pair.first;
+        updateMouseState();
+        return (mouseState & SDL_BUTTON(button)) != 0;
+    }
+    int getMouseX() const { return mouseX; }
+    int getMouseY() const { return mouseY; }
+};
+
+class GamePad
+{
+public:
+    GamePad()
+    {
+        if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) != 0) {
+            std::cerr << "Failed to initialize SDL GameController: " << SDL_GetError() << std::endl;
+        }
+
+        // Open all available controllers
+        int numJoysticks = SDL_NumJoysticks();
+        for (int i = 0; i < numJoysticks; ++i) {
+            if (SDL_IsGameController(i)) {
+                SDL_GameController* controller = SDL_GameControllerOpen(i);
+                if (controller) {
+                    controllers.push_back(controller);
+                    std::cout << "Opened game controller: " << SDL_GameControllerName(controller) << std::endl;
+                } else {
+                    std::cerr << "Could not open game controller " << i << ": " << SDL_GetError() << std::endl;
+                }
             }
         }
-        return SDL_SCANCODE_UNKNOWN; // Return an unknown scancode if not found
     }
 
-    private:
-        int mouseX, mouseY;
-        Uint32 mouseState;
-
-    public:
-        void updateMouseState()
-        {
-            mouseState = SDL_GetMouseState(&mouseX, &mouseY);
+    ~GamePad()
+    {
+        for (auto controller : controllers) {
+            SDL_GameControllerClose(controller);
         }
+        SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER);
+    }
 
-        bool isMouseButtonPressed(Uint32 button)
-        {
-            updateMouseState();
-            return (mouseState & SDL_BUTTON(button)) != 0;
+    bool isButtonPressed(int controllerIndex, SDL_GameControllerButton button)
+    {
+        if (controllerIndex < controllers.size() && controllers[controllerIndex]) {
+            return SDL_GameControllerGetButton(controllers[controllerIndex], button);
         }
+        return false;
+    }
 
-        int getMouseX() const
-        {
-            return mouseX;
+    Sint16 getAxisState(int controllerIndex, SDL_GameControllerAxis axis)
+    {
+        if (controllerIndex < controllers.size() && controllers[controllerIndex]) {
+            return SDL_GameControllerGetAxis(controllers[controllerIndex], axis);
         }
+        return 0; // Neutral position if the controller or axis is not available
+    }
 
-        int getMouseY() const
-        {
-            return mouseY;
+    void printControllerInfo()
+    {
+        for (int i = 0; i < controllers.size(); ++i) {
+            if (controllers[i]) {
+                std::cout << "Controller " << i << ": " << SDL_GameControllerName(controllers[i]) << std::endl;
+            }
         }
+    }
+
+private:
+    std::vector<SDL_GameController*> controllers;
+};
+
+class InputManager
+{
+private:
+    Keys keys;
+    Mouse mouse;
+    GamePad gamePad;
+
+    InputManager() = default;
+
+public:
+    // Singleton implementation
+    InputManager(const InputManager&) = delete;
+    void operator=(const InputManager&) = delete;
+
+    static InputManager& getInstance()
+    {
+        static InputManager instance; // Guaranteed to be destroyed and instantiated on first use
+        return instance;
+    }
+
+    bool isKeyPressed(SDL_Scancode key) { return keys.isKeyPressed(key); }
+    bool isKeyPressed(const std::string& key) { return keys.isKeyPressed(key); }
+    bool isMouseButtonPressed(Uint32 button) { return mouse.isMouseButtonPressed(button); }
+    bool isButtonPressed(int controllerIndex, SDL_GameControllerButton button) { return gamePad.isButtonPressed(controllerIndex, button); }
+    Sint16 getAxisState(int controllerIndex, SDL_GameControllerAxis axis) { return gamePad.getAxisState(controllerIndex, axis); }
+    Vector2D getMousePosition() { return Vector2D(mouse.getMouseX(), mouse.getMouseY()); }
+
+    Keys& getKeys() { return keys; }
+    Mouse& getMouse() { return mouse; }
+    GamePad& getGamePad() { return gamePad; }
 };

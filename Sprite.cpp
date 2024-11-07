@@ -13,6 +13,7 @@ void SimpleSprite::destroy()
 void SimpleSprite::setImage (const std::string& path)
 {
     loadBackgroundTexture (path);
+    isInitialized = true;
 }
 
 void SimpleSprite::renderAndRunScripts (Renderer* renderer) // This not only renders but also runs the script
