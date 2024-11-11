@@ -24,3 +24,7 @@ Wednesday, 6 November 2024
 I have, on purpose, taken out DirectWrite... replacing it with SDL_ttf.
 Integrated GamePad support, using SDL_GamePad.
 
+11 November
+
+Refactored Position to Point2D to fit in line with Vector2D
+

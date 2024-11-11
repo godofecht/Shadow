@@ -15,6 +15,7 @@
 #include "FPSCounter.h"
 #include "AudioEngine.h"
 #include "Physics.h"
+#include "TileMap.h"
 
 class Window
 {
@@ -64,6 +65,11 @@ public:
     Renderer* getRenderer()             {return renderer.get();}
     AssetManager* getAssetManager() {return assetManager.get();}
     AudioEngine* getAudioEngine()    {return audioEngine.get();}
+
+    void addScene (std::unique_ptr<Scene>& scene)
+    {
+        scenes.push_back (std::move (scene));
+    }
     
     void limitFPS (Uint32 fpsLimit)
     {
@@ -81,6 +87,8 @@ public:
             SDL_Delay ((1000 / fpsLimit) - frameTime);
         }
     }
+
+    virtual void initializeComponents() {}
 
     void drawFPS()
     {
@@ -104,6 +112,10 @@ public:
     }
     
     const char* title; //Window title
+
+    PhysicsManager* getPhysicsManager() { return physicsManager.get(); }
+
+    virtual void onStart() {}
 
 private:
     bool start();

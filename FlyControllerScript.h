@@ -31,8 +31,9 @@ public:
 
     void handleMovement()
     {
-        float x, y;
-        sprite->getPosition (x, y);
+        Point2D position = sprite->getPosition();
+        float& x = position.x;
+        float& y = position.y;
 
         // Generate random movement
         int randomDirection = rand() % 4; // 0: up, 1: down, 2: left, 3: right
@@ -52,7 +53,7 @@ public:
             break;
         }
 
-        sprite->setPosition (x, y);
+        sprite->setPosition (position);
 
         //apply gravity
         // sprite->setPosition (sprite->getX(), sprite->getY() + 1);

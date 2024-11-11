@@ -1,69 +1,92 @@
 #pragma once
 
-template <typename T>
-class Position
+class Point2D
 {
 public:
     float x, y;
 
-    Position(T x = 0.0f, T y = 0.0f)
-        : x(x), y(y) 
+    Point2D (float x = 0.0f, float y = 0.0f) : x (x), y (y)
     {}
 
-    void update(T dx, T dy)
+    Point2D (std::initializer_list<float> list)
     {
-        x += dx;
-        y += dy;
+        auto it = list.begin();
+        x = (it != list.end()) ? *it++ : 0.0f;
+        y = (it != list.end()) ? *it : 0.0f;
+    }
+
+    Point2D operator-() const
+    {
+        return Point2D (-x, -y);
+    }
+
+    Point2D operator+ (const Point2D& other) const
+    {
+        return Point2D (x + other.x, y + other.y);
+    }
+
+    Point2D operator- (const Point2D& other) const
+    {
+        return Point2D (x - other.x, y - other.y);
+    }
+
+    void translate (const Point2D& other)
+    {
+        x += other.x;
+        y += other.y;
+    }
+
+    bool operator== (const Point2D& other) const
+    {
+        return x == other.x && y == other.y;
     }
 };
 
 class Vector2D
 {
 public:
-    float x, y;
+    Point2D origin;
 
     Vector2D(float x = 0.0f, float y = 0.0f)
-        : x(x), y(y) 
+        : origin (x, y)
     {}
 
     Vector2D normalized() const
     {
-        float magnitude = std::sqrt(x * x + y * y);
-        return magnitude > 0 ? Vector2D(x / magnitude, y / magnitude) : Vector2D(0, 0);
+        float magnitude = std::sqrt (origin.x * origin.x + origin.y * origin.y);
+        return magnitude > 0 ? Vector2D (origin.x / magnitude, origin.y / magnitude) : Vector2D(0, 0);
     }
 
     Vector2D operator*(float scalar) const
     {
-        return Vector2D(x * scalar, y * scalar);
+        return Vector2D (origin.x * scalar, origin.y * scalar);
     }
 
     Vector2D operator+(const Vector2D& other) const
     {
-        return Vector2D(x + other.x, y + other.y);
+        return Vector2D (origin.x + other.origin.x, origin.y + other.origin.y);
     }
 
     Vector2D operator-(const Vector2D& other) const
     {
-        return Vector2D(x - other.x, y - other.y);
+        return Vector2D (origin.x - other.origin.x, origin.y - other.origin.y);
     }
 
     Vector2D& operator+=(const Vector2D& other)
     {
-        x += other.x;
-        y += other.y;
+        origin.translate (other.origin);
         return *this;
     }
 
     Vector2D& operator-=(const Vector2D& other)
     {
-        x -= other.x;
-        y -= other.y;
+        origin.translate (-other.origin);
         return *this;
     }
 
     bool operator==(const Vector2D& other) const
     {
-        return x == other.x && y == other.y;
+        return (origin == other.origin);
     }
 
     bool operator!=(const Vector2D& other) const
@@ -89,15 +112,15 @@ public:
 
     void updatePoints()
     {
-        topLeft = Position<T>(x, y);
-        topRight = Position<T>(x + width, y);
-        bottomLeft = Position<T>(x, y + height);
-        bottomRight = Position<T>(x + width, y + height);
-        center = Position<T>(x + width / 2.0, y + height / 2.0);
+        topLeft = Point2D (x, y);
+        topRight = Point2D (x + width, y);
+        bottomLeft = Point2D (x, y + height);
+        bottomRight = Point2D (x + width, y + height);
+        center = Point2D (x + width / 2.0, y + height / 2.0);
     }
 
     T x, y, width, height;
-    Position<T> center, topLeft, topRight, bottomLeft, bottomRight;
+    Point2D center, topLeft, topRight, bottomLeft, bottomRight;
 };
 
 

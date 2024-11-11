@@ -11,7 +11,6 @@ class Object
     Texture backgroundTexture;
 
     Renderer* renderer;
-
 public:
 
     bool isInitialized = false;
@@ -26,6 +25,7 @@ public:
     void setTexture (Texture& texture) { this->texture = texture; }
     void setBounds (Rect<float> bounds) { this->bounds = bounds; }
     void setAngle (float angle) { this->angle = angle; } //rotation is really in degrees
+
     void setSize (float width, float height)
     {
         bounds.width = width;
@@ -43,44 +43,37 @@ public:
             return false;
         }
 
-        // texture = SDL_CreateTextureFromSurface (renderer, loadedSurface);
-        // if (texture == nullptr)
-        // {
-        //     std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << std::endl;
-        //     SDL_FreeSurface (loadedSurface);
-        //     return false;
-        // }
-
         getBackgroundTexture().createFromSurface (renderer->renderer, loadedSurface, path);
-
-        // setSize (100, 100);
-
         return true;
     }
 
-    void setBounds (float x, float y, float width, float height)
-    {
-        bounds = Rect<float>(x, y, width, height);
-    }
-
+    void setBounds (float x, float y, float width, float height) { bounds = Rect<float>(x, y, width, height); }
     Rect<float> getBounds() const { return bounds; }
 
-    void setPosition (float x, float y)
+    void setPosition (Point2D position)
     {
-        bounds.x = x;
-        bounds.y = y;
+        bounds.x = position.x;
+        bounds.y = position.y;
     }
 
-    void getPosition (float& xOut, float& yOut) const
+    void setCenter (Point2D position)
     {
-        xOut = bounds.x;
-        yOut = bounds.y;
+        bounds.x = position.x - bounds.width / 2;
+        bounds.y = position.y - bounds.height / 2;
+    }
+
+    Point2D getCenter() const
+    {
+        float xOut = bounds.x + bounds.width / 2;
+        float yOut = bounds.y + bounds.height / 2;
+        return {xOut, yOut};
     }
 
     float getX() const { return bounds.x; }
     float getY() const { return bounds.y; }
     void setX (float x) { bounds.x = x; }
     void setY (float y) { bounds.y = y; }
+    Point2D getPosition() const { return {bounds.x, bounds.y}; }
 
     float getWidth() const { return bounds.width; }
     float getHeight() const { return bounds.height; }

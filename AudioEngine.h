@@ -497,4 +497,15 @@ public:
             }
         }
     }
+
+    void stopAudioInAllGroups()
+    {
+        for (auto &group : audioMediaGroups) 
+        {
+            for (auto &player : group.audioPlayers) 
+            {
+                player.stop();
+            }
+        }
+    }
 };

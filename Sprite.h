@@ -10,6 +10,7 @@
 #include "Geometry.h"
 #include "Texture.h"
 #include "Physics.h"
+#include "Helpers.h"
 
 class Scene;
 
@@ -26,9 +27,7 @@ public:
     {
 
     };
-
 };
-
 
 class Component
 {
@@ -78,10 +77,7 @@ public:
         isInitialized = false;
     }
 
-    ~SimpleSprite()
-    {
-        getBackgroundTexture().destroy();
-    }
+    ~SimpleSprite() { getBackgroundTexture().destroy(); }
 
     std::vector<Component*> components;
 
@@ -130,14 +126,13 @@ public:
 
 private:
 
-    std::vector<std::shared_ptr<Part>> parts;
     Scene* scene; // Pointer to the parent Scene
-
+    std::vector<std::shared_ptr<Part>> parts;
     std::vector<std::shared_ptr<Script>> scripts;
 };
 
 // Utility function to calculate normalized direction from origin to target
-inline Vector2D calculateDirection (const Position<float>& origin, const Position<float>& target)
+inline Vector2D calculateDirection (const Point2D& origin, const Point2D& target)
 {
     float dx = target.x - origin.x;
     float dy = target.y - origin.y;
@@ -145,23 +140,19 @@ inline Vector2D calculateDirection (const Position<float>& origin, const Positio
     return magnitude > 0 ? Vector2D (dx / magnitude, dy / magnitude) : Vector2D(0, 0);
 }
 
-inline float calculateAngle (const Vector2D& delta)
-{
-    return atan2 (delta.y, delta.x) * 180 / M_PI;
-}
+inline float calculateAngle (const Point2D& delta) { return atan2 (delta.y, delta.x) * 180.0 / M_PI; } //TODO: change atan2 to Point2D::calculateAngleFromOrigin()
 
-inline Vector2D getMousePosition()
+inline Point2D getMousePosition()
 {
     int x, y;
     SDL_GetMouseState (&x, &y);
-    return Vector2D (static_cast<float>(x), static_cast<float>(y));
+    return Point2D (static_cast<float>(x), static_cast<float>(y));
 }
 
-inline Vector2D getSpriteCenter (SimpleSprite* sprite)
+inline Point2D getSpriteCenter (SimpleSprite* sprite)
 {
-    float spriteX, spriteY;
-    sprite->getPosition (spriteX, spriteY);
-    return Vector2D (spriteX + sprite->getWidth() / 2, spriteY + sprite->getHeight() / 2);
+    Point2D position = sprite->getPosition();
+    return Point2D (position.x + sprite->getWidth() / 2, position.y + sprite->getHeight() / 2);
 }
 
 #endif

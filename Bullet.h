@@ -22,7 +22,7 @@ public:
     {
         Vector2D velocity = direction * speed;
 
-        sprite->setPosition (sprite->getBounds().x + velocity.x, sprite->getBounds().y + velocity.y);
+        sprite->setPosition ({sprite->getBounds().x + velocity.origin.x, sprite->getBounds().y + velocity.origin.y});
 
         elapsedTime += deltaTime; // deltaTime should be the frame time
         if (elapsedTime >= lifetime)

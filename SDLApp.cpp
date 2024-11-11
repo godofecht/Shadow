@@ -33,8 +33,7 @@ bool Game::start()
     if (!audioEngine->initialize()) return false;
     std::cout << "AudioEngine initialized." << std::endl;
 
-    audioEngine->addAudioMediaGroup ("main_theme");
-    std::cout << "AssetManager and PhysicsManager created." << std::endl;
+    onStart();
 
     return true;
 }
@@ -72,26 +71,7 @@ void Game::run()
 
 void Game::init()
 {
-    auto scene = std::make_unique<Scene>();
-    scene->setAssetManager (assetManager.get());
-
-    scene->addItem (assetManager->createAsset<Player>("player"));
-    scene->addItem (assetManager->createAsset<Enemy>("enemy"));
-
-    scene->getSpriteById ("player")->setSize (100, 100);
-    scene->getSpriteById ("enemy")->setSize (100, 100);
-
-    scene->getSpriteById ("enemy")->addComponent<PhysicsComponent> (physicsManager.get());
-
-    scenes.push_back (std::move (scene));
-
-    //Always initialize audio in the init function.
-    //We might ALSO have to do so after scenes... but I'm unsure.
-    //TODO: Clear this up.
-
-    auto& a = audioEngine->getAudioMediaGroupByIndex (0);
-    // a.addAudioPlayer ("C:/Users/abhis/gamedev/Shadow/looptheme.wav", "main_theme");
-    // a.playAudio ("main_theme", true);  // Start main theme with looping
+    initializeComponents();
 }
 
 void Game::clearScreen (Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -106,7 +86,7 @@ void Game::presentScreen()
 
 void Game::quit()
 {
-    audioEngine->stopAudioInGroup ("main_theme", "main_theme");  // Stop main theme playback
+    audioEngine->stopAudioInAllGroups();  // Stop main theme playback
     renderer->reset();
     if (renderer != nullptr) renderer->destroy();
     window.exit();
