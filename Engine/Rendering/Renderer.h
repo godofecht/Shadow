@@ -7,6 +7,7 @@
 #include "Geometry.h"
 #include <cassert>
 #include "SDLManager.h"
+#include "Texture.h"
 
 class TextWriter;
 class Renderer
@@ -69,3 +70,8 @@ public:
 
     SDL_Renderer* renderer;
 };
+
+inline SDL_Surface* loadSurfaceFromRenderer (const std::string& path)
+{
+    return IMG_Load (path.c_str());
+}
