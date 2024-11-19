@@ -1,0 +1,10 @@
+^C:\USERS\ABHIS\GAMEDEV\SHADOW\DEPENDENCIES\BUILD-WIN\CMAKEFILES\19C76192F9EBB3AC0925D519E819A924\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/dependencies -BC:/Users/abhis/gamedev/Shadow/dependencies/build-win --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/abhis/gamedev/Shadow/dependencies/build-win/Project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

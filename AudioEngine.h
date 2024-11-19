@@ -305,7 +305,7 @@
 // };
 
 #include "AudioFile.h" // For WAV file loading
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <SDL_mixer.h>
 #include <iostream>
 #include <vector>

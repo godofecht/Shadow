@@ -1,0 +1,17 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake/share/cmake-3.30/Templates/CPackConfig.cmake.in
+C:/Users/abhis/gamedev/Shadow/dependencies/SDL_mixer/external/ogg/CMakeLists.txt
+C:/Users/abhis/gamedev/Shadow/dependencies/SDL_mixer/external/ogg/cmake/CheckSizes.cmake
+C:/Users/abhis/gamedev/Shadow/dependencies/SDL_mixer/external/ogg/include/ogg/config_types.h.in
+C:/Users/abhis/gamedev/Shadow/dependencies/SDL_mixer/external/ogg/ogg.pc.in

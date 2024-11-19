@@ -1,3 +1,6 @@
+#pragma once
+
+#define SDL_MAIN_HANDLED
 #include "SDLApp.h"
 
 #include <vector>
@@ -173,9 +176,27 @@ class TopDownTileGame : public Game
     }
 };
 
-int main (int argc, char* args[])
+#ifdef __cplusplus
+extern "C"
+#endif
+
+int main (int argc, char* argv[])
 {
-    TopDownTileGame app ("BrainRot Engine", 700, 700);
-    app.run();
+    // TopDownTileGame app ("BrainRot Engine", 700, 700);
+    // app.run();
     return 0;
 }
+
+// int WINAPI WinMain(
+//     HINSTANCE hInstance,      // Handle to the current instance of the application
+//     HINSTANCE hPrevInstance,  // Handle to the previous instance (always NULL in modern Windows)
+//     LPSTR lpCmdLine,          // Command line arguments as a single string
+//     int nCmdShow              // Flag specifying how the window should be shown
+// )
+// {
+//     // Display a message box as an example
+//     MessageBox(NULL, "Hello, Windows!", "WinMain Example", MB_OK);
+
+//     // Return 0 to indicate success
+//     return 0;
+// }

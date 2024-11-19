@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\bb\CMakeFiles\e4734d093b3f4eeb8cd7f59b73b3e9b8\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0A29A705-8FD0-386C-8B41-A05DB4279104}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
