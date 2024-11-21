@@ -2,3 +2,5 @@ build
 cmake
 .embold
 .vscode
+build-win
+

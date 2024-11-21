@@ -1,8 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDependentOption.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/CheckSymbolExists.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
-C:/Users/abhis/gamedev/Shadow/dependencies/SDL_ttf/CMakeLists.txt
-C:/Users/abhis/gamedev/Shadow/dependencies/SDL_ttf/cmake/PrivateSdlFunctions.cmake

@@ -1,4 +1,0 @@
-C:/Users/abhis/gamedev/Shadow/build-win/dependencies/SDL_mixer/external/opusfile/opusfile.dir/RelWithDebInfo/info.obj
-C:/Users/abhis/gamedev/Shadow/build-win/dependencies/SDL_mixer/external/opusfile/opusfile.dir/RelWithDebInfo/internal.obj
-C:/Users/abhis/gamedev/Shadow/build-win/dependencies/SDL_mixer/external/opusfile/opusfile.dir/RelWithDebInfo/opusfile.obj
-C:/Users/abhis/gamedev/Shadow/build-win/dependencies/SDL_mixer/external/opusfile/opusfile.dir/RelWithDebInfo/stream.obj
