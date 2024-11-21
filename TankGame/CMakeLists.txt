@@ -50,10 +50,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE umbra)
 get_target_property(TANK_INCLUDE_DIRS ${PROJECT_NAME} INCLUDE_DIRECTORIES)
 message(STATUS "TankExample include directories: ${TANK_INCLUDE_DIRS}")
 
-# Link directly to the DLL
-#target_link_libraries(${PROJECT_NAME} PRIVATE "${UmbraEngine_DIR}/Debug/umbrad.dll")
-
-
 
 # Ensure that runtime paths for shared libraries are handled correctly
 if(WIN32)
