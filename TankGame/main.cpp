@@ -1,6 +1,9 @@
-#pragma once
 
 #define SDL_MAIN_HANDLED
+
+#pragma once
+
+
 #include "SDLApp.h"
 
 #include <vector>
