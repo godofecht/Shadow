@@ -1,0 +1,16 @@
+# Opus codec reference implementation pkg-config file
+
+prefix=C:/Program Files (x86)/umbra
+exec_prefix=C:/Program Files (x86)/umbra
+libdir=C:/Program Files (x86)/umbra/lib
+includedir=C:/Program Files (x86)/umbra/include
+
+Name: Opus
+Description: Opus IETF audio codec ( build)
+URL: https://opus-codec.org/
+Version: 1.4
+Requires:
+Conflicts:
+Libs: -LC:/Program Files (x86)/umbra/lib -lopus
+Libs.private: 
+Cflags: -IC:/Program Files (x86)/umbra/include/opus

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\wavpack\CMakeFiles\CheckASM\CMakeFiles\db119e7e2a48c8cd67958513ac467d51\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9732B857-6F44-349A-9DF1-E6779BB0F852}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

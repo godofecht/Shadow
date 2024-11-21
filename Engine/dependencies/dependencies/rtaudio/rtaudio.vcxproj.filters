@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\RtAudio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\rtaudio_c.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\RtAudio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\rtaudio_c.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{745F8799-698D-3C11-A609-5D81630EA2AA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1818F00C-DF54-3B8A-B00E-C4979F6D518B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+prefix=C:/Program Files (x86)/umbra
+exec_prefix=${prefix}
+libdir=C:/Program Files (x86)/umbra/lib
+includedir=C:/Program Files (x86)/umbra/include
+
+Name: libxmp
+Description: Xmp module player library
+Version: 4.6.0
+
+Requires:
+Libs: -L${libdir} -lxmp
+Cflags: -I${includedir}
+Libs.private: 

@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E1E6D301-463C-37E4-AA17-539C8E4FF313}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>SDL2_mixer</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2_mixer.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2_mixerd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2_mixer.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2_mixer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2_mixer.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2_mixer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2_mixer.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2_mixer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-debug\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC="opusfile-0.dll";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC="libxmp.dll";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC="libwavpack-1.dll";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC=\"opusfile-0.dll\";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC=\"libxmp.dll\";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC=\"libwavpack-1.dll\";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-debug\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-debug\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\SDL\Debug\SDL2d.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/Debug/SDL2_mixerd.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/Debug/SDL2_mixerd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-release\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC="opusfile-0.dll";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC="libxmp.dll";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC="libwavpack-1.dll";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC=\"opusfile-0.dll\";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC=\"libxmp.dll\";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC=\"libwavpack-1.dll\";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-release\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-release\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\SDL\Release\SDL2.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/Release/SDL2_mixer.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/Release/SDL2_mixer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-minsizerel\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC="opusfile-0.dll";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC="libxmp.dll";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC="libwavpack-1.dll";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC=\"opusfile-0.dll\";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC=\"libxmp.dll\";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC=\"libwavpack-1.dll\";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-minsizerel\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-minsizerel\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\SDL\MinSizeRel\SDL2.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/MinSizeRel/SDL2_mixer.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/MinSizeRel/SDL2_mixer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-relwithdebinfo\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC="opusfile-0.dll";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC="libxmp.dll";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC="libwavpack-1.dll";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";DLL_EXPORT</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BUILD_SDL;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=8;SDL_BUILD_MICRO_VERSION=0;MUSIC_OPUS;OPUS_DYNAMIC=\"opusfile-0.dll\";MUSIC_OGG;OGG_USE_STB;MUSIC_FLAC_DRFLAC;MUSIC_MOD_XMP;XMP_DYNAMIC=\"libxmp.dll\";MUSIC_MP3_MINIMP3;MUSIC_MID_NATIVE;MUSIC_MID_TIMIDITY;MUSIC_WAV;MUSIC_WAVPACK;HAVE_WAVPACK_H;WAVPACK_DYNAMIC=\"libwavpack-1.dll\";_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";DLL_EXPORT</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-relwithdebinfo\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opusfile\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\ogg\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\opus\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\libxmp\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\include-config-relwithdebinfo\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\SDL\RelWithDebInfo\SDL2.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/RelWithDebInfo/SDL2_mixer.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/RelWithDebInfo/SDL2_mixer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Engine -BC:/Users/abhis/gamedev/Shadow/Engine/dependencies --check-stamp-file C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PkgConfigHelper.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PrivateSdlFunctions.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Engine -BC:/Users/abhis/gamedev/Shadow/Engine/dependencies --check-stamp-file C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PkgConfigHelper.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PrivateSdlFunctions.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Engine -BC:/Users/abhis/gamedev/Shadow/Engine/dependencies --check-stamp-file C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PkgConfigHelper.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PrivateSdlFunctions.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Engine -BC:/Users/abhis/gamedev/Shadow/Engine/dependencies --check-stamp-file C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PkgConfigHelper.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\cmake\PrivateSdlFunctions.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\load_aiff.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\load_voc.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\mp3utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_cmd.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_drflac.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_flac.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_fluidsynth.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_gme.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_minimp3.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_modplug.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_mpg123.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_nativemidi.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_ogg.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_ogg_stb.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_opus.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_timidity.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_wav.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_wavpack.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\music_xmp.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\effect_position.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\effect_stereoreverse.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\effects_internal.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\mixer.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\music.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\utils.c" />
+    <ResourceCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\version.rc" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\native_midi\native_midi_common.c" />
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\native_midi\native_midi_common.h" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\native_midi\native_midi_win32.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\common.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\instrum.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\mix.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\output.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\playmidi.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\readmidi.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\resample.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\tables.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\src\codecs\timidity\timidity.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\ZERO_CHECK.vcxproj">
+      <Project>{60DCC943-BC43-3E05-BB5E-ECFD438050AF}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL\SDL2.vcxproj">
+      <Project>{1DA61B72-18C3-3E9A-B8BE-C01D4A53D007}</Project>
+      <Name>SDL2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\opusfile\opusfile.vcxproj">
+      <Project>{4A42B4FF-7910-358A-9461-BC3830B8E45F}</Project>
+      <Name>opusfile</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\wavpack\wavpack.vcxproj">
+      <Project>{74371EC2-4D66-3532-B6D2-DCE7502BECD7}</Project>
+      <Name>wavpack</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\dependencies\SDL_mixer\external\libxmp\xmp_shared.vcxproj">
+      <Project>{C0B61C61-B105-36BE-8879-DAC89E4E5EE1}</Project>
+      <Name>xmp_shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

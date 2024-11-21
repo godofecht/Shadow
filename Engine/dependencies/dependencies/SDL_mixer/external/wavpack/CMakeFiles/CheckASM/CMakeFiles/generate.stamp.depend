@@ -1,0 +1,32 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeASMCompiler.cmake.in
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeASMInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystem.cmake.in
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestASMCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU-ASM.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU-ASM.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/external/wavpack/CMakeFiles/CheckASM/CMakeFiles/3.30.0/CMakeASMCompiler.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/external/wavpack/CMakeFiles/CheckASM/CMakeFiles/3.30.0/CMakeRCCompiler.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/external/wavpack/CMakeFiles/CheckASM/CMakeFiles/3.30.0/CMakeSystem.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/dependencies/SDL_mixer/external/wavpack/CMakeFiles/CheckASM/CMakeLists.txt
