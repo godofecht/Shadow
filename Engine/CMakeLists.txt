@@ -36,6 +36,8 @@ set(DLLS_TO_COPY
     ${BUILD_DIR}/rtaudio/${BUILD_CONFIG}/rtaudiod.dll
 )
 
+
+
 # Directories for finding the library builds and includes
 set(SDL2_INCLUDE_DIRS       ${LIB_DIR}/SDL/include)
 set(SDL2_IMAGE_INCLUDE_DIRS ${LIB_DIR}/SDL_image/include)
@@ -84,6 +86,8 @@ set(SOURCES
 
 # Add the shared library target
 add_library(umbra SHARED ${SOURCES})
+
+set_target_properties(umbra PROPERTIES DLLS_TO_COPY "${DLLS_TO_COPY}")
 
 # Build the static library (LIB)
 #add_library(umbraStatic STATIC ${SOURCES})

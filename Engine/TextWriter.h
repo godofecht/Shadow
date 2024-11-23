@@ -12,7 +12,9 @@
 #include <SDL_syswm.h>  // Required for SDL_SysWMinfo
 #include "Geometry.h"
 #include <SDL_ttf.h>
-
+#include <string>
+#include <codecvt>
+#include <locale>
 
 class Col 
 {
@@ -68,12 +70,40 @@ public:
     void reset() {  }
 
 
+
+    #include <string>
+    #include <stdexcept>
+    #include <cwchar>
+    #include <vector>
+
+    std::string convertToUTF8(const std::wstring& text)
+    {
+        std::string utf8String;
+        utf8String.reserve(text.size() * 4); // Reserve enough space for UTF-8 worst-case
+        
+        std::mbstate_t state = std::mbstate_t(); // Initialize multibyte conversion state
+        const wchar_t* src = text.c_str();
+        char buffer[4]; // Fixed buffer size for UTF-8 (maximum 4 bytes per character)
+
+        while (*src != L'\0') // Process until end of the wide string
+        {
+            size_t ret = wcrtomb(buffer, *src++, &state);
+            if (ret == static_cast<size_t>(-1))
+            {
+                throw std::runtime_error("Invalid wide character during conversion");
+            }
+            utf8String.append(buffer, ret); // Append converted bytes
+        }
+        return utf8String;
+    }
+
+
     void drawTextToRenderer(std::wstring text, SDL_Renderer* renderer, Rect<float> bounds, TTF_Font* font)
     {
     #ifdef _WIN32
 
         // Convert std::wstring to UTF-8 string for TTF rendering
-        std::string utf8Text(text.begin(), text.end());
+        std::string utf8Text = convertToUTF8(text);
 
         // Calculate the size of the text using SDL_ttf
         int textWidth, textHeight;

@@ -81,5 +81,5 @@ public:
     std::string getId() const { return id; }
     void setId (const std::string& id) { this->id = id; }
 
-    virtual void renderAndRunScripts (Renderer* renderer) = 0;
+    virtual void renderAndRunScripts() = 0;
 };

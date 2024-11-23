@@ -1,0 +1,3 @@
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/ogg/ogg.dir/Debug/bitwise.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/ogg/ogg.dir/Debug/framing.obj
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/ogg/win32/ogg.def

@@ -1,0 +1,13 @@
+prefix=C:/Program Files (x86)/SpriteSheetExample
+exec_prefix=${prefix}
+libdir=C:/Program Files (x86)/SpriteSheetExample/lib
+includedir=C:/Program Files (x86)/SpriteSheetExample/include
+
+Name: libxmp
+Description: Xmp module player library
+Version: 4.6.0
+
+Requires:
+Libs: -L${libdir} -lxmp
+Cflags: -I${includedir}
+Libs.private: 

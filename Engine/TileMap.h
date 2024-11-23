@@ -32,7 +32,7 @@ public:
         this->mapData = mapData;
     }
 
-    void renderAndRunScripts(Renderer* renderer) override
+    void renderAndRunScripts() override
     {
         if (!isActive || !isInitialized)
         {

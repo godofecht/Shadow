@@ -1,0 +1,41 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeASMCompiler.cmake.in
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeASMInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestASMCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLanguage.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU-ASM.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/GNU.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindIconv.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU-ASM.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake/share/cmake-3.30/Templates/CPackConfig.cmake.in
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/CMakeLists.txt
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/cmake/CheckCLinkerFlag.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/cmake/TestLargeFiles.cmake
+C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/cmake/wavpackcpu.cmake
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/CMakeFiles/CheckASM/result.cmake
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build/CMakeFiles/3.30.0/CMakeASMCompiler.cmake

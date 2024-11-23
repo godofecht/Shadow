@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-void Scene::addItem (std::shared_ptr<SimpleSprite> sprite) 
+void Scene::addItem (std::shared_ptr<Sprite> sprite) 
 {
     sprite->setScene (this);   // Associate the sprite with the current scene
     pendingSprites.push_back (sprite); // Add to pending, not main list
@@ -33,7 +33,7 @@ void Scene::render (Renderer* renderer)
 
         try 
         {
-            sprite->renderAndRunScripts (renderer);
+            sprite->renderAndRunScripts();
         }
         catch (const std::exception& e)
         {

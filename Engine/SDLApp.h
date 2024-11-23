@@ -12,6 +12,7 @@
 #include "AudioEngine.h"
 #include "Physics.h"
 #include "TileMap.h"
+#include "Sprite.h"
 
 class Window
 {
@@ -67,8 +68,9 @@ public:
         scenes.push_back (std::move (scene));
     }
     
-    void limitFPS (Uint32 fpsLimit)
+    void limitFPS (Uint32 _fpsLimit)
     {
+        fpsLimit = _fpsLimit;
         static Uint32 frameStart;
         static Uint32 frameTime;
 

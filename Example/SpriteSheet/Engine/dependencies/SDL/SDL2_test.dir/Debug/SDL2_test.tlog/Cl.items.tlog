@@ -1,0 +1,16 @@
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_assert.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_assert.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_common.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_common.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_compare.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_compare.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_crc32.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_crc32.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_font.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_font.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_fuzzer.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_fuzzer.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_harness.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_harness.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_imageBlit.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_imageBlit.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_imageBlitBlend.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_imageBlitBlend.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_imageFace.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_imageFace.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_imagePrimitives.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_imagePrimitives.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_imagePrimitivesBlend.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_imagePrimitivesBlend.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_log.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_log.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_md5.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_md5.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_memory.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_memory.obj
+C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\src\test\SDL_test_random.c;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2_test.dir\Debug\SDL_test_random.obj

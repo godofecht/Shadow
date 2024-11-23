@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BE29E6DE-9D36-3CC7-9F89-07816CD88E40}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>wavpack</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">wavpack.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libwavpack-1</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">wavpack.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libwavpack-1</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">wavpack.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libwavpack-1</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">wavpack.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libwavpack-1</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR="Debug";wavpack_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR=\"Debug\";wavpack_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Debug/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Debug//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/Debug/libwavpack.dll.a</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Debug/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/Debug/libwavpack-1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR="Release";wavpack_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR=\"Release\";wavpack_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Release/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Release//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/Release/libwavpack.dll.a</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/Release/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/Release/libwavpack-1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR="MinSizeRel";wavpack_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR=\"MinSizeRel\";wavpack_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/MinSizeRel/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/MinSizeRel//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/MinSizeRel/libwavpack.dll.a</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/MinSizeRel/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/MinSizeRel/libwavpack-1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR="RelWithDebInfo";wavpack_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ENABLE_DSD;_CRT_SECURE_NO_WARNINGS;RTAUDIO_EXPORTS;CMAKE_INTDIR=\"RelWithDebInfo\";wavpack_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/RelWithDebInfo/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/RelWithDebInfo//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/RelWithDebInfo/libwavpack.dll.a</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/wavpack.dir/RelWithDebInfo/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/RelWithDebInfo/libwavpack-1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeTestASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-FindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindIconv.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\CheckCLinkerFlag.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\TestLargeFiles.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\wavpackcpu.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\CheckASM\result.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\CMakeFiles\3.30.0\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeTestASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-FindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindIconv.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\CheckCLinkerFlag.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\TestLargeFiles.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\wavpackcpu.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\CheckASM\result.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\CMakeFiles\3.30.0\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeTestASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-FindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindIconv.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\CheckCLinkerFlag.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\TestLargeFiles.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\wavpackcpu.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\CheckASM\result.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\CMakeFiles\3.30.0\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/dependencies/SDL_mixer/external/wavpack/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/wavpack/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeTestASMCompiler.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU-FindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindIconv.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-GNU.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\CheckCLinkerFlag.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\TestLargeFiles.cmake;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\cmake\wavpackcpu.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\CheckASM\result.cmake;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\CMakeFiles\3.30.0\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\common_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\decorr_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\entropy_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\extra1.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\extra2.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\open_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\open_filename.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\open_legacy.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\open_raw.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\pack.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\pack_dns.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\pack_floats.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\pack_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\read_words.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\tags.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\tag_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack_floats.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack_seek.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack_utils.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\write_words.c" />
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\decorr_tables.h" />
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack3.h" />
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\wavpack_local.h" />
+    <ClInclude Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\wavpack_version.h" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\pack_dsd.c" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\src\unpack_dsd.c" />
+    <ResourceCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\external\wavpack\wavpackdll\wavpackdll.rc" />
+    <None Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\external\wavpack\libwavpack.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\ZERO_CHECK.vcxproj">
+      <Project>{C2621ED7-32C0-3315-B51C-A68C25245B1C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
