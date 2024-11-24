@@ -41,7 +41,7 @@ public:
         assert (renderer != nullptr);
         assert (texture != nullptr);
 
-        SDL_Rect renderQuad = RenderUtils::createRenderQuad (bounds);
+        SDL_Rect renderQuad = bounds.getSDLRect();
         SDL_Point* center = nullptr;
 
         SDL_RendererFlip flip = SDL_FLIP_NONE;

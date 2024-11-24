@@ -29,7 +29,7 @@ class SpriteSheetExample : public Game
         auto& scene = createScene();
         scene->addItem<Player>("sprite");
 
-        getAssetManager()->getAsset<Player>("sprite")->setBounds (50, 50, 50, 50);
+        getAssetManager()->getAsset<Player>("sprite")->setBounds (50, 50, 125, 125);
         addScene (scene);
     }
 };

@@ -110,6 +110,7 @@ public:
         updatePoints();
     }
 
+    //You can call this function to get the object to calcualte various points on itself.
     void updatePoints()
     {
         topLeft = Point2D (x, y);
@@ -119,22 +120,9 @@ public:
         center = Point2D (x + width / 2.0, y + height / 2.0);
     }
 
+    //Returns an SDL_Rect with integer x, y, width and height values.
+    SDL_Rect getSDLRect() { return SDL_Rect {(int) x, (int) y, (int) width, (int) height}; }
+
     T x, y, width, height;
     Point2D center, topLeft, topRight, bottomLeft, bottomRight;
-};
-
-
-class RenderUtils 
-{
-public:
-    static SDL_Rect createRenderQuad (const Rect<float>& bounds) 
-    {
-        return SDL_Rect 
-        {
-            static_cast<int>(bounds.x),
-            static_cast<int>(bounds.y),
-            static_cast<int>(bounds.width),
-            static_cast<int>(bounds.height)
-        };
-    }
 };

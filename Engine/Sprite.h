@@ -11,6 +11,7 @@
 #include "Texture.h"
 #include "Physics.h"
 #include "Helpers.h"
+#include "Animation.h"
 
 class Scene;
 
@@ -55,64 +56,7 @@ class PhysicsComponent : public Component
     }
 };
 
-class Image
-{
-public:
-    Image (const std::string& imgFilePath) : filePath (imgFilePath), width (0), height (0), texture (nullptr)
-    {
-        // Load the image
-        SDL_Surface* surface = IMG_Load(filePath.c_str());
-        if (!surface)
-        {
-            throw std::runtime_error ("Failed to load image: " + filePath + " Error: " + std::string (IMG_GetError()));
-        }
 
-        // Store width and height
-        width = surface->w;
-        height = surface->h;
-
-        // Clean up the surface after retrieving dimensions (or use it for texture creation)
-        SDL_FreeSurface (surface);
-    }
-
-    ~Image()
-    {
-        if (texture)
-        {
-            SDL_DestroyTexture (texture);
-        }
-    }
-
-    const std::string& getFilePath() const { return filePath; }
-    int getWidth() const { return width; }
-    int getHeight() const { return height; }
-
-    SDL_Texture* getTexture (SDL_Renderer* renderer)
-    {
-        if (!texture)
-        {
-            SDL_Surface* surface = IMG_Load (filePath.c_str());
-            if (!surface)
-            {
-                throw std::runtime_error ("Failed to reload image: " + filePath + " Error: " + std::string(IMG_GetError()));
-            }
-            texture = SDL_CreateTextureFromSurface (renderer, surface);
-            SDL_FreeSurface (surface);
-
-            if (!texture)
-            {
-                throw std::runtime_error ("Failed to create texture: " + std::string (SDL_GetError()));
-            }
-        }
-        return texture;
-    }
-
-private:
-    std::string filePath;
-    int width;
-    int height;
-    SDL_Texture* texture; // Texture for rendering
-};
 
 class AnimationFrameSet
 {
@@ -192,7 +136,19 @@ public:
         if (frameToDraw)
         {
             SDL_Rect destRect = { getPosition().x, getPosition().y, frameToDraw->w, frameToDraw->h }; // Example position
-            SDL_RenderCopy (renderer->renderer, texture, frameToDraw, &destRect);
+
+            // Determine flip mode based on isReverse
+            SDL_RendererFlip flipMode = isReverse ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+
+            SDL_RenderCopyEx (
+                renderer->renderer, // The SDL renderer
+                texture,            // The texture to render
+                frameToDraw,        // The source rectangle (clipping region)
+                &destRect,          // The destination rectangle
+                0.0,                // Rotation angle (degrees)
+                nullptr,            // Center point of rotation (nullptr means the center of destRect)
+                flipMode            // Flip mode: horizontal flip if isReverse is true
+            );
         }
 
         for (const auto& script : scripts)
@@ -201,6 +157,10 @@ public:
         }
     }
 
+
+    bool isReverse = false;
+
+    void setReverse (bool _isReverse) { isReverse = _isReverse; }
     void setActive (bool state) { isActive = state; }
 
     void attachScript (std::shared_ptr<Script> script) { scripts.push_back(script); }
@@ -222,87 +182,143 @@ protected:
     Scene* scene;
 };
 
+// class AnimatedSprite : public Sprite
+// {
+// public:
+//     AnimatedSprite (Renderer* renderer, const std::string& _id)
+//         : Sprite (renderer, _id)
+//     {
+//     }
+
+//     void loadSpriteSheet (Image* image, int frameWidth, int frameHeight, int frameCount)
+//     {
+//         if (!image)
+//         {
+//             throw std::runtime_error ("Image not initialized");
+//         }
+
+//         // Load the sprite sheet into an SDL_Texture
+//         SDL_Surface* surface = IMG_Load (image->getFilePath().c_str());
+//         if (!surface)
+//         {
+//             throw std::runtime_error ("Failed to load image: " + std::string(IMG_GetError()));
+//         }
+
+//         texture = SDL_CreateTextureFromSurface (renderer->renderer, surface);
+//         if (!texture)
+//         {
+//             SDL_FreeSurface (surface);
+//             throw std::runtime_error ("Failed to create texture: " + std::string(SDL_GetError()));
+//         }
+
+//         SDL_FreeSurface (surface);
+
+//         // Create frames
+//         int x = 0;
+//         for (int i = 0; i < frameCount; ++i)
+//         {
+//             SDL_Rect frame;
+//             frame.x = x;
+//             frame.y = 0;
+//             frame.w = frameWidth;
+//             frame.h = frameHeight;
+//             spriteFrames.push_back (frame);
+//             x += frameWidth;
+//         }
+
+//         isInitialized = true;
+//         isActive = true;
+//     }
+
+//     const SDL_Rect* getCurrentImageToDraw() const override
+//     {
+//         if (spriteFrames.empty())
+//             return nullptr;
+//         return &spriteFrames[currentFrameIndex];
+//     }
+
+//     void nextFrame()
+//     {
+//         if (!spriteFrames.empty())
+//         {
+//             currentFrameIndex = (currentFrameIndex + 1) % spriteFrames.size();
+//         }
+//     }
+
+
+//     void renderAndRunScripts() override
+//     {
+//         Sprite::renderAndRunScripts();
+//         nextFrame();
+//     }
+
+//     void setCurrentFrameIndex (int index)
+//     {
+//         if (index >= 0 && index < spriteFrames.size())
+//         {
+//             currentFrameIndex = index;
+//         }
+//     }
+
+// private:
+//     std::vector<SDL_Rect> spriteFrames;
+// };
+
 class AnimatedSprite : public Sprite
 {
 public:
-    AnimatedSprite (Renderer* renderer, const std::string& _id)
-        : Sprite (renderer, _id)
+    AnimatedSprite(Renderer* renderer, const std::string& _id)
+        : Sprite(renderer, _id)
     {
-    }
-
-    void loadSpriteSheet (Image* image, int frameWidth, int frameHeight, int frameCount)
-    {
-        if (!image)
-        {
-            throw std::runtime_error ("Image not initialized");
-        }
-
-        // Load the sprite sheet into an SDL_Texture
-        SDL_Surface* surface = IMG_Load (image->getFilePath().c_str());
-        if (!surface)
-        {
-            throw std::runtime_error ("Failed to load image: " + std::string(IMG_GetError()));
-        }
-
-        texture = SDL_CreateTextureFromSurface (renderer->renderer, surface);
-        if (!texture)
-        {
-            SDL_FreeSurface (surface);
-            throw std::runtime_error ("Failed to create texture: " + std::string(SDL_GetError()));
-        }
-
-        SDL_FreeSurface (surface);
-
-        // Create frames
-        int x = 0;
-        for (int i = 0; i < frameCount; ++i)
-        {
-            SDL_Rect frame;
-            frame.x = x;
-            frame.y = 0;
-            frame.w = frameWidth;
-            frame.h = frameHeight;
-            spriteFrames.push_back (frame);
-            x += frameWidth;
-        }
-
         isInitialized = true;
         isActive = true;
     }
 
-    const SDL_Rect* getCurrentImageToDraw() const override
-    {
-        if (spriteFrames.empty())
-            return nullptr;
-        return &spriteFrames[currentFrameIndex];
+    void addAnimation (const std::string& state, const std::string imageFilePath, int animationWidth, int animationHeight, int numFrames) 
+    { 
+        Animation* animation = new Animation (renderer->renderer, new Image (imageFilePath), animationWidth, animationHeight, numFrames);
+        animationController.addAnimation (state, animation); 
     }
-
-    void nextFrame()
-    {
-        if (!spriteFrames.empty())
-        {
-            currentFrameIndex = (currentFrameIndex + 1) % spriteFrames.size();
-        }
-    }
-
 
     void renderAndRunScripts() override
     {
-        Sprite::renderAndRunScripts();
-        nextFrame();
-    }
-
-    void setCurrentFrameIndex (int index)
-    {
-        if (index >= 0 && index < spriteFrames.size())
+        const SDL_Rect* currentFrame = animationController.getCurrentFrame();
+        if (currentFrame)
         {
-            currentFrameIndex = index;
+            SDL_Rect destRect = { getPosition().x, getPosition().y, getBounds().width, getBounds().height };
+
+            SDL_Texture* texture = animationController.getCurrentTexture();
+
+            // Determine flip mode based on isReverse
+            SDL_RendererFlip flipMode = isReverse ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+
+            SDL_RenderCopyEx(
+                renderer->renderer, // The SDL renderer
+                texture,            // The texture to render
+                currentFrame,       // The source rectangle (clipping region)
+                &destRect,          // The destination rectangle
+                0.0,                // Rotation angle (degrees)
+                nullptr,            // Center point of rotation (nullptr means the center of destRect)
+                flipMode            // Flip mode: horizontal flip if isReverse is true
+            );
+        }
+
+        nextFrame();
+
+        for (const auto& script : scripts)
+        {
+            script->update();
         }
     }
 
+    void nextFrame() { animationController.nextFrame(); }
+    void setAnimationState (const std::string& state) { animationController.setState (state); }
+
+
 private:
-    std::vector<SDL_Rect> spriteFrames;
+    AnimationController animationController;
 };
+
 
 class SimpleSprite : public Sprite
 {
