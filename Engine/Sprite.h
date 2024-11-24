@@ -44,7 +44,7 @@ class PhysicsComponent : public Component
     std::unique_ptr<Body> body;
     public:
 
-    PhysicsComponent(PhysicsManager* _physicsManager) : physicsManager(_physicsManager)
+    PhysicsComponent (PhysicsManager* _physicsManager) : physicsManager (_physicsManager)
     {
         body = std::make_unique<RigidBody>(physicsManager->getWorld());
     }
@@ -58,13 +58,13 @@ class PhysicsComponent : public Component
 class Image
 {
 public:
-    Image(const std::string& imgFilePath) : filePath(imgFilePath), width(0), height(0), texture(nullptr)
+    Image (const std::string& imgFilePath) : filePath (imgFilePath), width (0), height (0), texture (nullptr)
     {
         // Load the image
         SDL_Surface* surface = IMG_Load(filePath.c_str());
         if (!surface)
         {
-            throw std::runtime_error("Failed to load image: " + filePath + " Error: " + std::string(IMG_GetError()));
+            throw std::runtime_error ("Failed to load image: " + filePath + " Error: " + std::string (IMG_GetError()));
         }
 
         // Store width and height
@@ -72,14 +72,14 @@ public:
         height = surface->h;
 
         // Clean up the surface after retrieving dimensions (or use it for texture creation)
-        SDL_FreeSurface(surface);
+        SDL_FreeSurface (surface);
     }
 
     ~Image()
     {
         if (texture)
         {
-            SDL_DestroyTexture(texture);
+            SDL_DestroyTexture (texture);
         }
     }
 
@@ -87,21 +87,21 @@ public:
     int getWidth() const { return width; }
     int getHeight() const { return height; }
 
-    SDL_Texture* getTexture(SDL_Renderer* renderer)
+    SDL_Texture* getTexture (SDL_Renderer* renderer)
     {
         if (!texture)
         {
-            SDL_Surface* surface = IMG_Load(filePath.c_str());
+            SDL_Surface* surface = IMG_Load (filePath.c_str());
             if (!surface)
             {
-                throw std::runtime_error("Failed to reload image: " + filePath + " Error: " + std::string(IMG_GetError()));
+                throw std::runtime_error ("Failed to reload image: " + filePath + " Error: " + std::string(IMG_GetError()));
             }
-            texture = SDL_CreateTextureFromSurface(renderer, surface);
-            SDL_FreeSurface(surface);
+            texture = SDL_CreateTextureFromSurface (renderer, surface);
+            SDL_FreeSurface (surface);
 
             if (!texture)
             {
-                throw std::runtime_error("Failed to create texture: " + std::string(SDL_GetError()));
+                throw std::runtime_error ("Failed to create texture: " + std::string (SDL_GetError()));
             }
         }
         return texture;
@@ -119,7 +119,7 @@ class AnimationFrameSet
 public:
     std::vector<SDL_Rect> frames;
 
-    void loadFramesFromImage(const Image& image, int frameWidth, int frameHeight, int frameCount)
+    void loadFramesFromImage (const Image& image, int frameWidth, int frameHeight, int frameCount)
     {
         int x = 0;
         for (int i = 0; i < frameCount; ++i)
@@ -129,7 +129,7 @@ public:
             frame.y = 0;
             frame.w = frameWidth;
             frame.h = frameHeight;
-            frames.push_back(frame);
+            frames.push_back (frame);
             x += frameWidth;
         }
     }
@@ -138,24 +138,24 @@ public:
 class SpriteSheet
 {
 public:
-    SpriteSheet(const Image& image, int frameWidth, int frameHeight, int frameCount)
-        : image(image)
+    SpriteSheet (const Image& image, int frameWidth, int frameHeight, int frameCount)
+        : image (image)
     {
-        loadAnimations(frameWidth, frameHeight, frameCount);
+        loadAnimations (frameWidth, frameHeight, frameCount);
     }
 
-    void loadAnimations(int frameWidth, int frameHeight, int frameCount)
+    void loadAnimations (int frameWidth, int frameHeight, int frameCount)
     {
         AnimationFrameSet frameSet;
-        frameSet.loadFramesFromImage(image, frameWidth, frameHeight, frameCount);
-        animations.push_back(frameSet);
+        frameSet.loadFramesFromImage (image, frameWidth, frameHeight, frameCount);
+        animations.push_back (frameSet);
     }
 
-    const AnimationFrameSet& getAnimation(int index) const
+    const AnimationFrameSet& getAnimation (int index) const
     {
         if (index >= animations.size())
         {
-            throw std::out_of_range("Invalid animation index");
+            throw std::out_of_range ("Invalid animation index");
         }
         return animations[index];
     }
@@ -168,10 +168,10 @@ private:
 class Sprite : public Object
 {
 public:
-    Sprite(Renderer* renderer, const std::string& _id)
-        : Object(renderer), renderer(renderer), texture(nullptr), isActive(false), currentFrameIndex(0)
+    Sprite (Renderer* renderer, const std::string& _id)
+        : Object (renderer), renderer (renderer), texture (nullptr), isActive (false), currentFrameIndex (0)
     {
-        setId(_id);
+        setId (_id);
         std::cout << "Creating sprite object: " << _id << std::endl;
     }
 
@@ -179,7 +179,7 @@ public:
     {
         if (texture)
         {
-            SDL_DestroyTexture(texture);
+            SDL_DestroyTexture (texture);
         }
     }
 
@@ -191,8 +191,8 @@ public:
         const SDL_Rect* frameToDraw = getCurrentImageToDraw();
         if (frameToDraw)
         {
-            SDL_Rect destRect = { 100, 100, frameToDraw->w, frameToDraw->h }; // Example position
-            SDL_RenderCopy(renderer->renderer, texture, frameToDraw, &destRect);
+            SDL_Rect destRect = { getPosition().x, getPosition().y, frameToDraw->w, frameToDraw->h }; // Example position
+            SDL_RenderCopy (renderer->renderer, texture, frameToDraw, &destRect);
         }
 
         for (const auto& script : scripts)
@@ -201,14 +201,14 @@ public:
         }
     }
 
-    void setActive(bool state) { isActive = state; }
+    void setActive (bool state) { isActive = state; }
 
-    void attachScript(std::shared_ptr<Script> script) { scripts.push_back(script); }
+    void attachScript (std::shared_ptr<Script> script) { scripts.push_back(script); }
     std::vector<std::shared_ptr<Script>>& getScripts() { return scripts; }
 
     virtual const SDL_Rect* getCurrentImageToDraw() const { return nullptr; }
 
-    virtual void setScene(Scene* _scene) { scene = _scene; }
+    virtual void setScene (Scene* _scene) { scene = _scene; }
 
     friend class Scene;
 
@@ -222,37 +222,36 @@ protected:
     Scene* scene;
 };
 
-
 class AnimatedSprite : public Sprite
 {
 public:
-    AnimatedSprite(Renderer* renderer, const std::string& _id)
-        : Sprite(renderer, _id)
+    AnimatedSprite (Renderer* renderer, const std::string& _id)
+        : Sprite (renderer, _id)
     {
     }
 
-    void loadSpriteSheet(Image* image, int frameWidth, int frameHeight, int frameCount)
+    void loadSpriteSheet (Image* image, int frameWidth, int frameHeight, int frameCount)
     {
         if (!image)
         {
-            throw std::runtime_error("Image not initialized");
+            throw std::runtime_error ("Image not initialized");
         }
 
         // Load the sprite sheet into an SDL_Texture
-        SDL_Surface* surface = IMG_Load(image->getFilePath().c_str());
+        SDL_Surface* surface = IMG_Load (image->getFilePath().c_str());
         if (!surface)
         {
-            throw std::runtime_error("Failed to load image: " + std::string(IMG_GetError()));
+            throw std::runtime_error ("Failed to load image: " + std::string(IMG_GetError()));
         }
 
-        texture = SDL_CreateTextureFromSurface(renderer->renderer, surface);
+        texture = SDL_CreateTextureFromSurface (renderer->renderer, surface);
         if (!texture)
         {
-            SDL_FreeSurface(surface);
-            throw std::runtime_error("Failed to create texture: " + std::string(SDL_GetError()));
+            SDL_FreeSurface (surface);
+            throw std::runtime_error ("Failed to create texture: " + std::string(SDL_GetError()));
         }
 
-        SDL_FreeSurface(surface);
+        SDL_FreeSurface (surface);
 
         // Create frames
         int x = 0;
@@ -263,7 +262,7 @@ public:
             frame.y = 0;
             frame.w = frameWidth;
             frame.h = frameHeight;
-            spriteFrames.push_back(frame);
+            spriteFrames.push_back (frame);
             x += frameWidth;
         }
 
@@ -293,7 +292,7 @@ public:
         nextFrame();
     }
 
-    void setCurrentFrameIndex(int index)
+    void setCurrentFrameIndex (int index)
     {
         if (index >= 0 && index < spriteFrames.size())
         {
@@ -308,15 +307,15 @@ private:
 class SimpleSprite : public Sprite
 {
 public:
-    SimpleSprite(Renderer* renderer, const std::string& path, const std::string& _id)
-        : Sprite(renderer, _id)
+    SimpleSprite (Renderer* renderer, const std::string& path, const std::string& _id)
+        : Sprite (renderer, _id)
     {
-        loadBackgroundTexture(path);
+        loadBackgroundTexture (path);
         isInitialized = true;
     }
 
-    SimpleSprite(Renderer* renderer, const std::string& _id)
-        : Sprite(renderer, _id)
+    SimpleSprite (Renderer* renderer, const std::string& _id)
+        : Sprite (renderer, _id)
     {
         isInitialized = false;
     }
@@ -326,32 +325,32 @@ public:
     template <typename T>
     void addComponent(PhysicsManager* physicsManager)
     {
-        components.push_back(new PhysicsComponent(physicsManager));
+        components.push_back (new PhysicsComponent (physicsManager));
         Body* body = static_cast<PhysicsComponent*>(components.back())->getBody();
-        physicsManager->getWorld().addBody(body);
+        physicsManager->getWorld().addBody (body);
     }
 
-    void setImage(const std::string& path)
+    void setImage (const std::string& path)
     {
-        loadBackgroundTexture(path);
+        loadBackgroundTexture (path);
     }
 
     const SDL_Rect* getCurrentImageToDraw() const override
     {
         static SDL_Rect fullImage = { 0, 0, 0, 0 }; // Placeholder dimensions
-        SDL_QueryTexture(texture, nullptr, nullptr, &fullImage.w, &fullImage.h);
+        SDL_QueryTexture (texture, nullptr, nullptr, &fullImage.w, &fullImage.h);
         return &fullImage;
     }
 
     void renderAndRunScripts() override;
 
 private:
-    void loadBackgroundTexture(const std::string& path)
+    void loadBackgroundTexture (const std::string& path)
     {
-        SDL_Surface* surface = IMG_Load(path.c_str());
+        SDL_Surface* surface = IMG_Load (path.c_str());
         if (!surface)
         {
-            throw std::runtime_error("Failed to load image: " + std::string(IMG_GetError()));
+            throw std::runtime_error ("Failed to load image: " + std::string(IMG_GetError()));
         }
 
         texture = SDL_CreateTextureFromSurface(renderer->renderer, surface);
@@ -359,7 +358,7 @@ private:
 
         if (!texture)
         {
-            throw std::runtime_error("Failed to create texture: " + std::string(SDL_GetError()));
+            throw std::runtime_error ("Failed to create texture: " + std::string(SDL_GetError()));
         }
     }
 
@@ -367,7 +366,7 @@ private:
     {
         if (texture)
         {
-            SDL_DestroyTexture(texture);
+            SDL_DestroyTexture (texture);
             texture = nullptr;
         }
     }
@@ -375,8 +374,6 @@ private:
     std::vector<Component*> components;
     std::vector<Part> parts;
 };
-
-
 
 // Utility function to calculate normalized direction from origin to target
 inline Vector2D calculateDirection (const Point2D& origin, const Point2D& target)

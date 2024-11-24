@@ -49,6 +49,14 @@ public:
         return nullptr;
     }
 
+    template <typename T>
+    void addItem (const std::string id) 
+    {
+        auto sprite = assetManager->createAsset<T>(id);
+        sprite->setScene (this);   // Associate the sprite with the current scene
+        pendingSprites.push_back (sprite); // Add to pending, not main list
+    }
+
     void addItem (std::shared_ptr<Sprite> sprite);
     void render (Renderer* renderer);
     void initializePendingSprites();

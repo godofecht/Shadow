@@ -24,6 +24,7 @@ public:
     float getAngle() { return angle; }
     void setTexture (Texture& texture) { this->texture = texture; }
     void setBounds (Rect<float> bounds) { this->bounds = bounds; }
+    void setBounds (float x, float y, float width, float height) { this->bounds = Rect<float>(x, y, width, height); }
     void setAngle (float angle) { this->angle = angle; } //rotation is really in degrees
 
     void setSize (float width, float height)
@@ -47,8 +48,6 @@ public:
         return true;
     }
 
-    void setBounds (float x, float y, float width, float height) { bounds = Rect<float>(x, y, width, height); }
-    Rect<float> getBounds() const { return bounds; }
 
     void setPosition (Point2D position)
     {
@@ -69,6 +68,7 @@ public:
         return {xOut, yOut};
     }
 
+    Rect<float> getBounds() const { return bounds; }
     float getX() const { return bounds.x; }
     float getY() const { return bounds.y; }
     void setX (float x) { bounds.x = x; }

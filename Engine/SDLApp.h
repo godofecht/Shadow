@@ -52,7 +52,7 @@ public:
 class Game
 {
 public:
-    Game(const char* title, int width, int height);
+    Game (const char* title, int width, int height); 
     ~Game();
     void run();
 
@@ -63,10 +63,9 @@ public:
     AssetManager* getAssetManager() {return assetManager.get();}
     AudioEngine* getAudioEngine()    {return audioEngine.get();}
 
-    void addScene (std::unique_ptr<Scene>& scene)
-    {
-        scenes.push_back (std::move (scene));
-    }
+    template <typename T>
+    std::shared_ptr<T> getAsset (const std::string& assetName) const { return getAssetManager()->getAsset<T>(assetName); }
+    void addScene (std::unique_ptr<Scene>& scene) { scenes.push_back (std::move (scene)); }
     
     void limitFPS (Uint32 _fpsLimit)
     {
@@ -86,7 +85,12 @@ public:
         }
     }
 
-    virtual void initializeComponents() {}
+    std::unique_ptr<Scene> createScene()
+    {
+        auto scene = std::make_unique<Scene>();
+        scene->setAssetManager(assetManager.get());
+        return scene; // No need for std::move as it's returned by value
+    }
 
     void drawFPS()
     {
@@ -109,11 +113,12 @@ public:
         // renderer->getTextWriter()->drawTextToRenderer (fpsText, renderer->renderer, bounds, "default.ttf");
     }
     
-    const char* title; //Window title
-
     PhysicsManager* getPhysicsManager() { return physicsManager.get(); }
 
+    const char* getTitle() { return title; }
+
     virtual void onStart() {}
+    virtual void initializeComponents() {}
 
 private:
     bool start();
@@ -136,6 +141,8 @@ private:
 
     Uint32 fpsLimit = 60;
     SDLManager sdlManager;
+
+    const char* title; //Window title
 };
 
 #endif

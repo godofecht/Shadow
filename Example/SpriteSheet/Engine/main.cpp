@@ -21,6 +21,7 @@ class Player : public Sprite
 
 };
 
+
 class TopDownTileGame : public Game
 {
     public:
@@ -36,14 +37,11 @@ class TopDownTileGame : public Game
 
     void initializeComponents() override
     {
-        auto scene = std::make_unique<Scene>();
-        auto assetManager = getAssetManager();
-        scene->setAssetManager(assetManager);
-        scene->addItem(assetManager->createAsset<Player>("sprite"));
-        addScene(std::move(scene));
+        auto& scene = createScene();
+        scene->addItem<Player>("sprite");
+        addScene (scene);
     }
 };
-
 
 
 int main (int argc, char* argv[])

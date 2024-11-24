@@ -24,7 +24,7 @@ void Scene::initializePendingSprites()
 
 void Scene::render (Renderer* renderer)
 {
-    initializePendingSprites(); // Ensure pending sprites are initialized
+    initializePendingSprites(); // Ensure that all sprites have been added, prior to running 'renderAndRunScripts.'
 
     for (auto& sprite : sprites)
     {

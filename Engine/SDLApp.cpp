@@ -63,7 +63,7 @@ void Game::run()
         update();
 
         drawFPS();
-        
+
         presentScreen();
         limitFPS (fpsLimit);
     }
