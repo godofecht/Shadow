@@ -5,12 +5,14 @@
 	path = Engine/dependencies/SDL
 	url = https://github.com/libsdl-org/SDL.git
 	branch = release-2.28.4
+	ignore = dirty
 [submodule "Engine/dependencies/SDL_image"]
 	path = Engine/dependencies/SDL_image
 	url = https://github.com/libsdl-org/SDL_image.git
 [submodule "Engine/dependencies/SDL_mixer"]
 	path = Engine/dependencies/SDL_mixer
 	url = https://github.com/libsdl-org/SDL_mixer.git
+	ignore = dirty
 [submodule "Engine/dependencies/SDL_ttf"]
 	path = Engine/dependencies/SDL_ttf
 	url = https://github.com/libsdl-org/SDL_ttf.git
@@ -20,3 +22,4 @@
 [submodule "Engine/dependencies/rtaudio"]
 	path = Engine/dependencies/rtaudio
 	url = https://github.com/thestk/rtaudio.git
+	ignore = dirty
