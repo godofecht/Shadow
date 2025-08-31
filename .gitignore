@@ -3,4 +3,4 @@ cmake
 .embold
 .vscode
 build-win
-
+.DS_Store
