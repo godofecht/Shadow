@@ -45,7 +45,9 @@ public:
         SDL_Point* center = nullptr;
 
         SDL_RendererFlip flip = SDL_FLIP_NONE;
-        SDL_Point calculatedCenter = { bounds.width / 2, bounds.height / 2 };
+        int boundsWidthBy2 = bounds.width / 2;
+        int boundsHeightBy2 = bounds.height / 2;
+        SDL_Point calculatedCenter = { boundsWidthBy2, boundsHeightBy2 };
         if (center == nullptr) center = &calculatedCenter;
         SDL_RenderCopyEx (renderer, texture, nullptr, &renderQuad, rotation, center, flip);
     }

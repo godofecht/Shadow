@@ -1,0 +1,4 @@
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/opusfile/opusfile.dir/MinSizeRel/info.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/opusfile/opusfile.dir/MinSizeRel/internal.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/opusfile/opusfile.dir/MinSizeRel/opusfile.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/external/opusfile/opusfile.dir/MinSizeRel/stream.obj

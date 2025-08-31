@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\x64\Debug\sdl_headers_copy</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\Debug\SDL2d.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_ttf\Debug\SDL2_ttfd.dll</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

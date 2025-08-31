@@ -1,0 +1,3 @@
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release/Scene.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release/Sprite.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release/SDLApp.obj

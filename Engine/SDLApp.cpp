@@ -2,7 +2,7 @@
 #include <iostream>
 
 Game::Game(const char* _title, int width, int height)
-    : renderer(nullptr), screenWidth(width), screenHeight(height), isRunning(true), assetManager(nullptr)
+    : renderer(nullptr), screenWidth(width), screenHeight(height), isRunning(true)
 {
     renderer = std::make_unique<Renderer>();
     physicsManager = std::make_unique<PhysicsManager>();

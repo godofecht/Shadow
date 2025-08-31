@@ -42,7 +42,6 @@ set(SDL2_INCLUDE_DIRS
     ${LIB_DIR}/SDL_ttf
     ${LIB_DIR}/box2d/include
     ${LIB_DIR}/rtaudio/include
-    PARENT_SCOPE
 )
 
 # Custom command to copy DLLs to the output directory
@@ -53,7 +52,6 @@ set(DLLS_TO_COPY
     ${SDL2_TTF_DLL}
     ${BOX2D_DLL}
     ${RTAUDIO_DLL}
-    PARENT_SCOPE
 )
 
 # Add subdirectories for dynamically linking libraries
@@ -64,6 +62,7 @@ add_subdirectory(box2d)
 add_subdirectory(SDL_image)
 add_subdirectory(rtaudio)
 
+
 # Set libraries to link manually if needed
 set(LIBRARIES_TO_LINK
     SDL2
@@ -72,5 +71,30 @@ set(LIBRARIES_TO_LINK
     SDL2_ttf
     box2d
     rtaudio
-    PARENT_SCOPE
 )
+
+# Platform-specific logic for macOS
+if (APPLE)
+    # Find Box2D installed via Homebrew
+    find_package(Box2D REQUIRED)
+
+    # Include Box2D directories
+    include_directories(${Box2D_INCLUDE_DIRS})
+    
+    # Set the library to link
+    set(LIBRARIES_TO_LINK
+        SDL2
+        SDL2_image
+        SDL2_mixer
+        SDL2_ttf
+        ${Box2D_LIBRARIES}  # Use the found Box2D libraries
+        rtaudio
+    )
+
+    # # Custom command to copy the Box2D DLL to the output directory
+    # add_custom_command(TARGET umbra POST_BUILD
+    #     COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    #     ${Box2D_LIBRARIES}  # This should point to the Box2D DLL
+    #     $<TARGET_FILE_DIR:umbra>  # Output directory of your target
+    # )
+endif()

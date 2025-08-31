@@ -99,8 +99,11 @@ template <typename T>
 class Rect
 {
 public:
-    Rect (T x, T y, T _width, T _height) 
-        : x (x), y (y), width (_width), height (_height)
+    Rect (T x, T y, T w, T h)
+        : x(static_cast<T>(x)), 
+          y(static_cast<T>(y)), 
+          width(static_cast<T>(w)), 
+          height(static_cast<T>(h))
     {
         updatePoints();
     }

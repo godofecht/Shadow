@@ -1,0 +1,1 @@
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/dependencies/SDL_ttf/SDL2_ttf.dir/RelWithDebInfo/SDL_ttf.obj

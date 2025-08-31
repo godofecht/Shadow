@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0CBBBAC0-2162-3B4B-82C4-4392ABBF8846}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>umbra</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">umbra.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">umbra</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">umbra.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">umbra</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">umbra.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">umbra</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">umbra.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">umbra</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-debug\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR="Debug";umbra_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR=\"Debug\";umbra_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-debug\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-debug\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Debug/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Debug//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL/Debug/SDL2d.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_image/Debug/SDL2_imaged.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_mixer/Debug/SDL2_mixerd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_ttf/Debug/SDL2_ttfd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/box2d/src/Debug/box2dd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/rtaudio/Debug/rtaudiod.dll C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>dependencies\SDL_image\Debug\SDL2_imaged.lib;dependencies\SDL_mixer\Debug\SDL2_mixerd.lib;dependencies\SDL_ttf\Debug\SDL2_ttfd.lib;dependencies\box2d\src\Debug\box2dd.lib;d2d1.lib;dwrite.lib;dependencies\SDL\Debug\SDL2d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Debug/umbra.lib</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Debug/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Debug/umbra.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-release\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR="Release";umbra_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR=\"Release\";umbra_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-release\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-release\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL/Debug/SDL2d.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_image/Debug/SDL2_imaged.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_mixer/Debug/SDL2_mixerd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_ttf/Debug/SDL2_ttfd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/box2d/src/Debug/box2dd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/rtaudio/Debug/rtaudiod.dll C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>dependencies\SDL_image\Release\SDL2_image.lib;dependencies\SDL_mixer\Release\SDL2_mixer.lib;dependencies\SDL_ttf\Release\SDL2_ttf.lib;dependencies\box2d\src\Release\box2d.lib;d2d1.lib;dwrite.lib;dependencies\SDL\Release\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Release/umbra.lib</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/Release/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/Release/umbra.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-minsizerel\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR="MinSizeRel";umbra_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;CMAKE_INTDIR=\"MinSizeRel\";umbra_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-minsizerel\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-minsizerel\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/MinSizeRel/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/MinSizeRel//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL/Debug/SDL2d.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_image/Debug/SDL2_imaged.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_mixer/Debug/SDL2_mixerd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_ttf/Debug/SDL2_ttfd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/box2d/src/Debug/box2dd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/rtaudio/Debug/rtaudiod.dll C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>dependencies\SDL_image\MinSizeRel\SDL2_image.lib;dependencies\SDL_mixer\MinSizeRel\SDL2_mixer.lib;dependencies\SDL_ttf\MinSizeRel\SDL2_ttf.lib;dependencies\box2d\src\MinSizeRel\box2d.lib;d2d1.lib;dwrite.lib;dependencies\SDL\MinSizeRel\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/MinSizeRel/umbra.lib</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/MinSizeRel/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/MinSizeRel/umbra.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-relwithdebinfo\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;B2_ENABLE_ASSERT;CMAKE_INTDIR="RelWithDebInfo";umbra_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RTAUDIO_EXPORTS;_CRT_SECURE_NO_WARNINGS;BOX2D_DLL;B2_ENABLE_ASSERT;CMAKE_INTDIR=\"RelWithDebInfo\";umbra_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-relwithdebinfo\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_image\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_mixer\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\SDL_ttf;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\include;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\rtaudio\include;C:\Users\abhis\gamedev\Shadow\Engine;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include\SDL2;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\include-config-relwithdebinfo\SDL2;C:\Users\abhis\gamedev\Shadow\Engine\dependencies\box2d\src\..\include;C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo/exports.def C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL/Debug/SDL2d.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_image/Debug/SDL2_imaged.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_mixer/Debug/SDL2_mixerd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/SDL_ttf/Debug/SDL2_ttfd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/box2d/src/Debug/box2dd.dll C:/Users/abhis/gamedev/Shadow/Engine/build-win/dependencies/rtaudio/Debug/rtaudiod.dll C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>dependencies\SDL_image\RelWithDebInfo\SDL2_image.lib;dependencies\SDL_mixer\RelWithDebInfo\SDL2_mixer.lib;dependencies\SDL_ttf\RelWithDebInfo\SDL2_ttf.lib;dependencies\box2d\src\RelWithDebInfo\box2d.lib;d2d1.lib;dwrite.lib;dependencies\SDL\RelWithDebInfo\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/RelWithDebInfo/umbra.lib</ImportLibrary>
+      <ModuleDefinitionFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/RelWithDebInfo/umbra.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\abhis\gamedev\Shadow\Engine\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/abhis/gamedev/Shadow/Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet -BC:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/build --check-stamp-file C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\Scene.cpp" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\Sprite.cpp" />
+    <ClCompile Include="C:\Users\abhis\gamedev\Shadow\Engine\SDLApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\build\ZERO_CHECK.vcxproj">
+      <Project>{C2621ED7-32C0-3315-B51C-A68C25245B1C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL\SDL2.vcxproj">
+      <Project>{BA697BE1-03DC-38CC-B585-48F0B3435497}</Project>
+      <Name>SDL2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_image\SDL2_image.vcxproj">
+      <Project>{20C4D732-7D33-3A87-BBFC-41B431B13B32}</Project>
+      <Name>SDL2_image</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_mixer\SDL2_mixer.vcxproj">
+      <Project>{9BF33EEF-FE90-3701-9B1E-BF0E84F6EADD}</Project>
+      <Name>SDL2_mixer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\SDL_ttf\SDL2_ttf.vcxproj">
+      <Project>{CF560885-3263-3BB7-92B3-AF41569BAD7A}</Project>
+      <Name>SDL2_ttf</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\abhis\gamedev\Shadow\Example\SpriteSheet\Engine\dependencies\box2d\src\box2d.vcxproj">
+      <Project>{A8B4F96B-8ECA-3B99-962B-9C79E754E991}</Project>
+      <Name>box2d</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

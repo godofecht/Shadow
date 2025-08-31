@@ -1,0 +1,16 @@
+{
+    "name": "punk_character",
+    "folder": "W:/Downloads/Free 3 Cyberpunk Sprites Pixel Art/2 Punk/",
+    "description": "Punk character animation set",
+    "actions" : 
+    {
+        "attack1": "attack1",
+        "attack2": "attack2",
+        "attack3": "attack3",
+        "climb": "climb",
+        "death": "death",
+        "double jump": "double jump",
+        "hurt": "hurt",
+        "run": "run"
+    }
+}

@@ -2,6 +2,8 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
+#include "Geometry.h"
 
 #ifdef _WIN32
 #include <d2d1.h>
@@ -10,8 +12,7 @@
 #include <wincodec.h>  // For IWICBitmap and IWICBitmapLock
 #include <string>
 #include <SDL_syswm.h>  // Required for SDL_SysWMinfo
-#include "Geometry.h"
-#include <SDL_ttf.h>
+
 #include <string>
 #include <codecvt>
 #include <locale>
@@ -243,5 +244,45 @@ private:
         }
         SDL_UnlockTexture (texture);
     }
+};
+#else
+
+//DUMMY
+class D2D1
+{
+    public:
+    struct ColorF{
+
+    };
+};
+
+class TextWriter 
+{
+public:
+    TextWriter(SDL_Renderer* _sdlRenderer){}
+    ~TextWriter(){}
+
+    // Render text to a texture using Direct2D
+    void RenderTextToTexture(const std::wstring& text, SDL_Texture* texture, D2D1::ColorF color){}
+
+    // Convert wide string to UTF-8
+    std::string convertToUTF8(const std::wstring& text){return "";}
+
+    // Draw text directly to SDL renderer
+    void drawTextToRenderer(std::wstring text, SDL_Renderer* renderer, Rect<float> bounds, TTF_Font* font){}
+
+    // Reset method (currently empty)
+    void reset() {}
+
+private:
+    // Direct2D and DirectWrite related members
+    SDL_Renderer* sdlRenderer;
+    int bitmapWidth = 800;
+    int bitmapHeight = 600;
+
+    // Initialization methods (will be left empty or minimally implemented)
+    void InitializeDirectWrite(){}
+    void CreateWICBitmap(){}
+    void CopyWICBitmapToSDLTexture(SDL_Texture* texture){}
 };
 #endif // _WIN32

@@ -1,0 +1,3 @@
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo/Scene.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo/Sprite.obj
+C:/Users/abhis/gamedev/Shadow/Example/SpriteSheet/Engine/umbra.dir/RelWithDebInfo/SDLApp.obj

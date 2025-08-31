@@ -1,0 +1,1141 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		092FFA4B51264EABAF501863 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F4D1F8A6282E4A8890225C0B /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				AAEE74F66C684C68AB00C5FD /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		CB66930784F84191933C0749 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C2967DE30919472B93D5D9DC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				9188D6FE617F8F63F8CE53B1 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		F7D9162B65A24E95BF239A4E /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 344EC8C52A0E4104BD139960 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				E0D1E62DA1F8F86423BF0D21 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				645F411B82754CBD8706E7C7 /* PBXTargetDependency */,
+				206DC55CE7334B509D89E4A1 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		05C355BD3A274C47B091EADD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.h */ = {isa = PBXBuildFile; fileRef = DE2325D3671F4773A29A998A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.h */; };
+		0621EF33EB4842498420EC54 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.h */ = {isa = PBXBuildFile; fileRef = 3D3B44961DF34AC1B5B6F23C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.h */; };
+		0739D4ADF2BC49F4A9AF3C34 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.c */ = {isa = PBXBuildFile; fileRef = 7D8F8D581FBD41C698516E54 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.c */; };
+		0AA86CE8760A476E8CCCD722 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.h */ = {isa = PBXBuildFile; fileRef = E199C56B97314311A71D8037 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.h */; };
+		1158453D8AAF4CD78A27C9DB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/dynamic_tree.c */ = {isa = PBXBuildFile; fileRef = C0B3E61F5B024825B65F6BEF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/dynamic_tree.c */; };
+		120150CF14274F27BFE9E72A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/collision.h */ = {isa = PBXBuildFile; fileRef = C75E4C486F5745D684E1AD9E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/collision.h */; };
+		1F0F50CE80604592A9FBDCAA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/types.h */ = {isa = PBXBuildFile; fileRef = B13BBB2A11624E8B9EC0AC1B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/types.h */; };
+		1F958BE4835A40AD868A7583 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/ctz.h */ = {isa = PBXBuildFile; fileRef = 82619C2861A84846894C42F8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/ctz.h */; };
+		2AAF25C237894E69BEFDDC00 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.c */ = {isa = PBXBuildFile; fileRef = BDB76B8DF5604172A7EF0E60 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.c */; };
+		2C4EE58EF9BE4B44818C8C71 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.h */ = {isa = PBXBuildFile; fileRef = ABEAF4D66E694137B7E00D88 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.h */; };
+		2E7347E7C9234C949C1AFC80 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.h */ = {isa = PBXBuildFile; fileRef = AF33FAB0E2C04F7FAEB523C4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.h */; };
+		3341F83B8B9F4CBAAD304E57 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.c */ = {isa = PBXBuildFile; fileRef = DD18901DD0194774BE70B48D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.c */; };
+		36D6B14A83674524A70DDFC0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.c */ = {isa = PBXBuildFile; fileRef = 45DAC5B0960B443B882AF452 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.c */; };
+		46A366303A18468FA41E3B50 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/timer.c */ = {isa = PBXBuildFile; fileRef = CF870A864DCB4256817536A0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/timer.c */; };
+		4C8A02096513470898482DCA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/geometry.c */ = {isa = PBXBuildFile; fileRef = 7C7E4888EB33407D80AD84DD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/geometry.c */; };
+		51173D98426945ECB3DD0582 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.h */ = {isa = PBXBuildFile; fileRef = 7510EB8E15CF4ACDADC2AD11 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.h */; };
+		52AB754EB21642D4AFA8A2FF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.h */ = {isa = PBXBuildFile; fileRef = 250BB297087F465D9022B18C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.h */; };
+		545CBBAF2B5046BCB51C15A5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/math_functions.c */ = {isa = PBXBuildFile; fileRef = 34290A210A9F4947B67149FA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/math_functions.c */; };
+		566FA1F09EA741D3BEA488C6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/box2d.h */ = {isa = PBXBuildFile; fileRef = 27316E6AF0604E7499C1DDEA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/box2d.h */; };
+		59C9CA07FAC84B74AB2B1D3B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.c */ = {isa = PBXBuildFile; fileRef = 89EFE15B7D05446C90334406 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.c */; };
+		5A3152C94DE4483FB4D8F463 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/math_functions.h */ = {isa = PBXBuildFile; fileRef = 0B3C107E6AFA4F159DD3013D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/math_functions.h */; };
+		5ACF4900880E490CB4BEFC12 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/manifold.c */ = {isa = PBXBuildFile; fileRef = B86C0086204A47E3BAAD59A3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/manifold.c */; };
+		5D4C320C4E2B49B889EB1AE2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.h */ = {isa = PBXBuildFile; fileRef = 3998DA4474BF45FFAE753C71 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.h */; };
+		6373A795BDF6458FA0856217 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.c */ = {isa = PBXBuildFile; fileRef = C53D911DB0754ABD9B878E5C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.c */; };
+		63B6F4D6DF74482CAB39D3D8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.h */ = {isa = PBXBuildFile; fileRef = 2736D1813D5840389541AB68 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.h */; };
+		6E05D462938E4C07ACB10259 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.c */ = {isa = PBXBuildFile; fileRef = EFE350A8D30B495A805A000A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.c */; };
+		797A8333A7A84EB8B6D74B0D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.h */ = {isa = PBXBuildFile; fileRef = 079422ED45EC4568A3F81805 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.h */; };
+		7D14A3E8D0A34A34B3212965 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance_joint.c */ = {isa = PBXBuildFile; fileRef = CC4BA3E7C9E54B1F813DC502 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance_joint.c */; };
+		862C965B34A24A1CAEED407A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance.c */ = {isa = PBXBuildFile; fileRef = D46E9BD665B0466CBEDB5C70 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance.c */; };
+		8990BBD4833A4B67A13EAD7D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.c */ = {isa = PBXBuildFile; fileRef = FECB08AE775C46A6BED98777 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.c */; };
+		8BD8FB4166E149C187E16260 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.h */ = {isa = PBXBuildFile; fileRef = 3C75BCB46EDA4F028CB9879A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.h */; };
+		920DDE25D6384F5B855D8408 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.c */ = {isa = PBXBuildFile; fileRef = A6B0BD91690D4F5F9DC285D7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.c */; };
+		92FDD4BDCB204EF98921B193 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/motor_joint.c */ = {isa = PBXBuildFile; fileRef = 148059FDBC514129A8B2AB6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/motor_joint.c */; };
+		997AD9C9CC874F85A0B6706A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.c */ = {isa = PBXBuildFile; fileRef = C6371F67F6914717B8B13743 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.c */; };
+		9C9281ADF24C4BCDB3105A9B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/id.h */ = {isa = PBXBuildFile; fileRef = E51C3D0ABF264395B2099EF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/id.h */; };
+		9EE88C1F7D2E414993952494 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/prismatic_joint.c */ = {isa = PBXBuildFile; fileRef = 2774D5D28F474BFBBEF33371 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/prismatic_joint.c */; };
+		A1C81789C5D74FB0A10CA7C0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.h */ = {isa = PBXBuildFile; fileRef = 5A09DD71FB434E70AA7EB27A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.h */; };
+		A5D4EF044E6F477CA0C51973 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.c */ = {isa = PBXBuildFile; fileRef = 7318B47B2900441CBACB46F4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.c */; };
+		A6E2526BDC2E48DDB3C50A89 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.h */ = {isa = PBXBuildFile; fileRef = 76FC8F13341148CA8040CD0F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.h */; };
+		A88687D72CC041F79F9C96D7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.c */ = {isa = PBXBuildFile; fileRef = 0957FE48418C4873951086CB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.c */; };
+		AD34156D4BE14A459BF43327 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/base.h */ = {isa = PBXBuildFile; fileRef = F3E6E48294BE411A854AC7A6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/base.h */; };
+		AFE77CBE40244062BFF9D1CE /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.c */ = {isa = PBXBuildFile; fileRef = 53E557EA71144CBE8A5A3E1F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.c */; };
+		B0B1CCCDC0C147A292AF571C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/types.c */ = {isa = PBXBuildFile; fileRef = DF4A3F2A9A9D4BDD856281D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/types.c */; };
+		B256BCA7F370470AA6F2C355 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.h */ = {isa = PBXBuildFile; fileRef = 49AC29A27AEE4282BEDE85BF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.h */; };
+		BAA533BD0CD843C7892324F2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.c */ = {isa = PBXBuildFile; fileRef = 6A2C163C3F52496891CE690C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.c */; };
+		C5490B7F214D4E708335B10F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.c */ = {isa = PBXBuildFile; fileRef = FF6B4DD9025740F49ED19FD7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.c */; };
+		C87888819DF449CF8D4F92D9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 37329FAD17D44DF8B34FC8BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/CMakeLists.txt */; };
+		C938CF8B17004F3F913A63F2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.c */ = {isa = PBXBuildFile; fileRef = 8FC94200F08B4F53AEE32D08 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.c */; };
+		CA9463833C0340E295594C59 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.c */ = {isa = PBXBuildFile; fileRef = C39E353A725D4BCF80CCB250 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.c */; };
+		CC60AE9EB79147B0A7131D0B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.c */ = {isa = PBXBuildFile; fileRef = 4D0AA0F1F9C5432C90C3F19E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.c */; };
+		DD67207E64F04B8EB8E21342 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.h */ = {isa = PBXBuildFile; fileRef = D0F2E58EA23444B2ACBD8880 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.h */; };
+		E296A7B2D506458EA1FA7D29 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.h */ = {isa = PBXBuildFile; fileRef = A11A933729B24D2087C85031 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.h */; };
+		E7C2BF0D7235401B9181BB4D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/wheel_joint.c */ = {isa = PBXBuildFile; fileRef = 2127153F4DEB4BA797259AF6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/wheel_joint.c */; };
+		E8918ED7B77840469EC36007 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/weld_joint.c */ = {isa = PBXBuildFile; fileRef = D23FA0A310F841B79CC37C22 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/weld_joint.c */; };
+		F1B8D1901DB64B81ABF1A7C1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constants.h */ = {isa = PBXBuildFile; fileRef = 24B1C59027E347D48E40B3A7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constants.h */; };
+		F213A57F83CC4185BE891900 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/mouse_joint.c */ = {isa = PBXBuildFile; fileRef = 3D724A4C1C804E479D93AF9A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/mouse_joint.c */; };
+		F2BBBBAFDA7D4D598A98540A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.h */ = {isa = PBXBuildFile; fileRef = F898649CFB7247AA83DA7D8C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.h */; };
+		F2E7486BB3E94C6A9767C748 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/revolute_joint.c */ = {isa = PBXBuildFile; fileRef = B8CC23E475824A46A83A527B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/revolute_joint.c */; };
+		F8C640575662459685A1880D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/hull.c */ = {isa = PBXBuildFile; fileRef = CC91324023974DFB993F7C55 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/hull.c */; };
+		FD4B7AEF587B414BA974790B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.h */ = {isa = PBXBuildFile; fileRef = 9763AB70C6B8477D9F63B260 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		5AFCA460A3684CEBAB96C4E1 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		61B43644F897497E8F82CE60 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		7A9857A3B1544CC898C956F6 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		BDCE25B13D424C7BB64AC17D /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		82CE46DB47C14351AFF98159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7C0016F49AD4161B9280F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA9D4A1F542455A91E9B3B4;
+			remoteInfo = box2d;
+		};
+		DF82574C43C54E8B860BF027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7C0016F49AD4161B9280F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB66930784F84191933C0749;
+			remoteInfo = ZERO_CHECK;
+		};
+		F544D3547BED49009010010A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7C0016F49AD4161B9280F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D9162B65A24E95BF239A4E;
+			remoteInfo = ALL_BUILD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		079422ED45EC4568A3F81805 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = table.h; path = src/table.h; sourceTree = SOURCE_ROOT; };
+		0957FE48418C4873951086CB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = broad_phase.c; path = src/broad_phase.c; sourceTree = SOURCE_ROOT; };
+		0B3C107E6AFA4F159DD3013D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/math_functions.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = math_functions.h; path = include/box2d/math_functions.h; sourceTree = SOURCE_ROOT; };
+		148059FDBC514129A8B2AB6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/motor_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = motor_joint.c; path = src/motor_joint.c; sourceTree = SOURCE_ROOT; };
+		2127153F4DEB4BA797259AF6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/wheel_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = wheel_joint.c; path = src/wheel_joint.c; sourceTree = SOURCE_ROOT; };
+		24B1C59027E347D48E40B3A7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constants.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = constants.h; path = src/constants.h; sourceTree = SOURCE_ROOT; };
+		250BB297087F465D9022B18C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = aabb.h; path = src/aabb.h; sourceTree = SOURCE_ROOT; };
+		27316E6AF0604E7499C1DDEA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/box2d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = box2d.h; path = include/box2d/box2d.h; sourceTree = SOURCE_ROOT; };
+		2736D1813D5840389541AB68 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = solver_set.h; path = src/solver_set.h; sourceTree = SOURCE_ROOT; };
+		2774D5D28F474BFBBEF33371 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/prismatic_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = prismatic_joint.c; path = src/prismatic_joint.c; sourceTree = SOURCE_ROOT; };
+		34290A210A9F4947B67149FA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/math_functions.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = math_functions.c; path = src/math_functions.c; sourceTree = SOURCE_ROOT; };
+		37329FAD17D44DF8B34FC8BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		3998DA4474BF45FFAE753C71 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = id_pool.h; path = src/id_pool.h; sourceTree = SOURCE_ROOT; };
+		3C75BCB46EDA4F028CB9879A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = contact_solver.h; path = src/contact_solver.h; sourceTree = SOURCE_ROOT; };
+		3D3B44961DF34AC1B5B6F23C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = bitset.h; path = src/bitset.h; sourceTree = SOURCE_ROOT; };
+		3D724A4C1C804E479D93AF9A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/mouse_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = mouse_joint.c; path = src/mouse_joint.c; sourceTree = SOURCE_ROOT; };
+		45DAC5B0960B443B882AF452 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = contact.c; path = src/contact.c; sourceTree = SOURCE_ROOT; };
+		49AC29A27AEE4282BEDE85BF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = solver.h; path = src/solver.h; sourceTree = SOURCE_ROOT; };
+		4D0AA0F1F9C5432C90C3F19E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = stack_allocator.c; path = src/stack_allocator.c; sourceTree = SOURCE_ROOT; };
+		53E557EA71144CBE8A5A3E1F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = solver.c; path = src/solver.c; sourceTree = SOURCE_ROOT; };
+		5A09DD71FB434E70AA7EB27A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = body.h; path = src/body.h; sourceTree = SOURCE_ROOT; };
+		6A2C163C3F52496891CE690C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = joint.c; path = src/joint.c; sourceTree = SOURCE_ROOT; };
+		7318B47B2900441CBACB46F4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = bitset.c; path = src/bitset.c; sourceTree = SOURCE_ROOT; };
+		75073EDC396F4C12B78DD2DF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		7510EB8E15CF4ACDADC2AD11 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = broad_phase.h; path = src/broad_phase.h; sourceTree = SOURCE_ROOT; };
+		76FC8F13341148CA8040CD0F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = joint.h; path = src/joint.h; sourceTree = SOURCE_ROOT; };
+		7C7E4888EB33407D80AD84DD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/geometry.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = geometry.c; path = src/geometry.c; sourceTree = SOURCE_ROOT; };
+		7D8F8D581FBD41C698516E54 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = body.c; path = src/body.c; sourceTree = SOURCE_ROOT; };
+		82619C2861A84846894C42F8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/ctz.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ctz.h; path = src/ctz.h; sourceTree = SOURCE_ROOT; };
+		89EFE15B7D05446C90334406 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = shape.c; path = src/shape.c; sourceTree = SOURCE_ROOT; };
+		8FC94200F08B4F53AEE32D08 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = core.c; path = src/core.c; sourceTree = SOURCE_ROOT; };
+		9763AB70C6B8477D9F63B260 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = shape.h; path = src/shape.h; sourceTree = SOURCE_ROOT; };
+		A11A933729B24D2087C85031 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = stack_allocator.h; path = src/stack_allocator.h; sourceTree = SOURCE_ROOT; };
+		A6B0BD91690D4F5F9DC285D7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table.c; path = src/table.c; sourceTree = SOURCE_ROOT; };
+		ABEAF4D66E694137B7E00D88 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = constraint_graph.h; path = src/constraint_graph.h; sourceTree = SOURCE_ROOT; };
+		AF33FAB0E2C04F7FAEB523C4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = contact.h; path = src/contact.h; sourceTree = SOURCE_ROOT; };
+		B13BBB2A11624E8B9EC0AC1B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/types.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = types.h; path = include/box2d/types.h; sourceTree = SOURCE_ROOT; };
+		B86C0086204A47E3BAAD59A3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/manifold.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = manifold.c; path = src/manifold.c; sourceTree = SOURCE_ROOT; };
+		B8CC23E475824A46A83A527B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/revolute_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = revolute_joint.c; path = src/revolute_joint.c; sourceTree = SOURCE_ROOT; };
+		BDB76B8DF5604172A7EF0E60 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = solver_set.c; path = src/solver_set.c; sourceTree = SOURCE_ROOT; };
+		C0B3E61F5B024825B65F6BEF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/dynamic_tree.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = dynamic_tree.c; path = src/dynamic_tree.c; sourceTree = SOURCE_ROOT; };
+		C39E353A725D4BCF80CCB250 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = constraint_graph.c; path = src/constraint_graph.c; sourceTree = SOURCE_ROOT; };
+		C53D911DB0754ABD9B878E5C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = array.c; path = src/array.c; sourceTree = SOURCE_ROOT; };
+		C6371F67F6914717B8B13743 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = contact_solver.c; path = src/contact_solver.c; sourceTree = SOURCE_ROOT; };
+		C75E4C486F5745D684E1AD9E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/collision.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = collision.h; path = include/box2d/collision.h; sourceTree = SOURCE_ROOT; };
+		CC4BA3E7C9E54B1F813DC502 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = distance_joint.c; path = src/distance_joint.c; sourceTree = SOURCE_ROOT; };
+		CC91324023974DFB993F7C55 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/hull.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = hull.c; path = src/hull.c; sourceTree = SOURCE_ROOT; };
+		CF870A864DCB4256817536A0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/timer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = timer.c; path = src/timer.c; sourceTree = SOURCE_ROOT; };
+		D0F2E58EA23444B2ACBD8880 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = core.h; path = src/core.h; sourceTree = SOURCE_ROOT; };
+		D23FA0A310F841B79CC37C22 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/weld_joint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = weld_joint.c; path = src/weld_joint.c; sourceTree = SOURCE_ROOT; };
+		D46E9BD665B0466CBEDB5C70 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = distance.c; path = src/distance.c; sourceTree = SOURCE_ROOT; };
+		DD18901DD0194774BE70B48D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = id_pool.c; path = src/id_pool.c; sourceTree = SOURCE_ROOT; };
+		DE2325D3671F4773A29A998A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = world.h; path = src/world.h; sourceTree = SOURCE_ROOT; };
+		DF4A3F2A9A9D4BDD856281D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/types.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = types.c; path = src/types.c; sourceTree = SOURCE_ROOT; };
+		DF923A23E85243A9B1E1D127 /* box2d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libbox2dd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		E199C56B97314311A71D8037 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = array.h; path = src/array.h; sourceTree = SOURCE_ROOT; };
+		E51C3D0ABF264395B2099EF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/id.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = id.h; path = include/box2d/id.h; sourceTree = SOURCE_ROOT; };
+		EFE350A8D30B495A805A000A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = world.c; path = src/world.c; sourceTree = SOURCE_ROOT; };
+		F3E6E48294BE411A854AC7A6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/base.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = base.h; path = include/box2d/base.h; sourceTree = SOURCE_ROOT; };
+		F898649CFB7247AA83DA7D8C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = island.h; path = src/island.h; sourceTree = SOURCE_ROOT; };
+		FECB08AE775C46A6BED98777 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = island.c; path = src/island.c; sourceTree = SOURCE_ROOT; };
+		FF6B4DD9025740F49ED19FD7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = aabb.c; path = src/aabb.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3CC9F093872494885ACB532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3181E908D9B0449EA6E4F019 /* box2d */ = {
+			isa = PBXGroup;
+			children = (
+				3FA78CAB82FB403DB42297EA /* src */,
+				B7B978DD92D74114995ADE4E /* include */,
+				37329FAD17D44DF8B34FC8BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/CMakeLists.txt */,
+			);
+			name = box2d;
+			sourceTree = "<group>";
+		};
+		3FA78CAB82FB403DB42297EA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FF6B4DD9025740F49ED19FD7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.c */,
+				250BB297087F465D9022B18C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.h */,
+				C53D911DB0754ABD9B878E5C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.c */,
+				E199C56B97314311A71D8037 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.h */,
+				7318B47B2900441CBACB46F4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.c */,
+				3D3B44961DF34AC1B5B6F23C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.h */,
+				7D8F8D581FBD41C698516E54 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.c */,
+				5A09DD71FB434E70AA7EB27A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.h */,
+				0957FE48418C4873951086CB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.c */,
+				7510EB8E15CF4ACDADC2AD11 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.h */,
+				24B1C59027E347D48E40B3A7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constants.h */,
+				C39E353A725D4BCF80CCB250 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.c */,
+				ABEAF4D66E694137B7E00D88 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.h */,
+				45DAC5B0960B443B882AF452 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.c */,
+				AF33FAB0E2C04F7FAEB523C4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.h */,
+				C6371F67F6914717B8B13743 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.c */,
+				3C75BCB46EDA4F028CB9879A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.h */,
+				8FC94200F08B4F53AEE32D08 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.c */,
+				D0F2E58EA23444B2ACBD8880 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.h */,
+				82619C2861A84846894C42F8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/ctz.h */,
+				D46E9BD665B0466CBEDB5C70 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance.c */,
+				CC4BA3E7C9E54B1F813DC502 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance_joint.c */,
+				C0B3E61F5B024825B65F6BEF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/dynamic_tree.c */,
+				7C7E4888EB33407D80AD84DD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/geometry.c */,
+				CC91324023974DFB993F7C55 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/hull.c */,
+				DD18901DD0194774BE70B48D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.c */,
+				3998DA4474BF45FFAE753C71 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.h */,
+				FECB08AE775C46A6BED98777 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.c */,
+				F898649CFB7247AA83DA7D8C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.h */,
+				6A2C163C3F52496891CE690C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.c */,
+				76FC8F13341148CA8040CD0F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.h */,
+				B86C0086204A47E3BAAD59A3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/manifold.c */,
+				34290A210A9F4947B67149FA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/math_functions.c */,
+				148059FDBC514129A8B2AB6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/motor_joint.c */,
+				3D724A4C1C804E479D93AF9A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/mouse_joint.c */,
+				2774D5D28F474BFBBEF33371 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/prismatic_joint.c */,
+				B8CC23E475824A46A83A527B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/revolute_joint.c */,
+				89EFE15B7D05446C90334406 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.c */,
+				9763AB70C6B8477D9F63B260 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.h */,
+				53E557EA71144CBE8A5A3E1F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.c */,
+				49AC29A27AEE4282BEDE85BF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.h */,
+				BDB76B8DF5604172A7EF0E60 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.c */,
+				2736D1813D5840389541AB68 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.h */,
+				4D0AA0F1F9C5432C90C3F19E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.c */,
+				A11A933729B24D2087C85031 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.h */,
+				A6B0BD91690D4F5F9DC285D7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.c */,
+				079422ED45EC4568A3F81805 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.h */,
+				CF870A864DCB4256817536A0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/timer.c */,
+				DF4A3F2A9A9D4BDD856281D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/types.c */,
+				D23FA0A310F841B79CC37C22 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/weld_joint.c */,
+				2127153F4DEB4BA797259AF6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/wheel_joint.c */,
+				EFE350A8D30B495A805A000A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.c */,
+				DE2325D3671F4773A29A998A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		47867407BDAA4364AC5139FD /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				E4AE667070514A8298D6B7CB /* CMake Rules */,
+				75073EDC396F4C12B78DD2DF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		52F41EFF4C6A4C848CCECA8B /* box2d */ = {
+			isa = PBXGroup;
+			children = (
+				F3E6E48294BE411A854AC7A6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/base.h */,
+				27316E6AF0604E7499C1DDEA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/box2d.h */,
+				C75E4C486F5745D684E1AD9E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/collision.h */,
+				E51C3D0ABF264395B2099EF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/id.h */,
+				0B3C107E6AFA4F159DD3013D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/math_functions.h */,
+				B13BBB2A11624E8B9EC0AC1B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/include/box2d/types.h */,
+			);
+			name = box2d;
+			sourceTree = "<group>";
+		};
+		A859BFC886EF40208D628C81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A89A366CF11247E184B2E460 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF923A23E85243A9B1E1D127 /* box2d */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7B978DD92D74114995ADE4E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				52F41EFF4C6A4C848CCECA8B /* box2d */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		E4AE667070514A8298D6B7CB /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		EFC24E09DD3245E9A687AA59 = {
+			isa = PBXGroup;
+			children = (
+				47867407BDAA4364AC5139FD /* ALL_BUILD */,
+				3181E908D9B0449EA6E4F019 /* box2d */,
+				A89A366CF11247E184B2E460 /* Products */,
+				A859BFC886EF40208D628C81 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CA9D4A1F542455A91E9B3B4 /* box2d */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF7854F05DFF4D8EBB530C8A /* Build configuration list for PBXNativeTarget "box2d" */;
+			buildPhases = (
+				09EE50A0270B419C9B20CE5B /* Sources */,
+				B3CC9F093872494885ACB532 /* Frameworks */,
+				9DF6C82208F88D1952A80A63 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = box2d;
+			productName = box2d;
+			productReference = DF923A23E85243A9B1E1D127 /* box2d */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7C0016F49AD4161B9280F55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
+			};
+			buildConfigurationList = AC80807D79A640AA905EA8B9 /* Build configuration list for PBXProject "box2d" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				61B43644F897497E8F82CE60 /* Debug */,
+				7A9857A3B1544CC898C956F6 /* Release */,
+				BDCE25B13D424C7BB64AC17D /* MinSizeRel */,
+				5AFCA460A3684CEBAB96C4E1 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = EFC24E09DD3245E9A687AA59;
+			projectDirPath = /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d;
+			projectRoot = "";
+			targets = (
+				F7D9162B65A24E95BF239A4E /* ALL_BUILD */,
+				CB66930784F84191933C0749 /* ZERO_CHECK */,
+				2CA9D4A1F542455A91E9B3B4 /* box2d */,
+				092FFA4B51264EABAF501863 /* install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		87AF4882E018677E2624B544 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9188D6FE617F8F63F8CE53B1 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9DF6C82208F88D1952A80A63 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Debug/libbox2dd.3.1.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Debug/libbox2dd.3.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Debug/libbox2dd.dylib
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Release/libbox2d.3.1.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Release/libbox2d.3.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/Release/libbox2d.dylib
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/MinSizeRel/libbox2d.3.1.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/MinSizeRel/libbox2d.3.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/MinSizeRel/libbox2d.dylib
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/RelWithDebInfo/libbox2d.3.1.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/RelWithDebInfo/libbox2d.3.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src/RelWithDebInfo/libbox2d.dylib
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		E0D1E62DA1F8F86423BF0D21 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09EE50A0270B419C9B20CE5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5490B7F214D4E708335B10F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/aabb.c */,
+				6373A795BDF6458FA0856217 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/array.c */,
+				A5D4EF044E6F477CA0C51973 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/bitset.c */,
+				0739D4ADF2BC49F4A9AF3C34 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/body.c */,
+				A88687D72CC041F79F9C96D7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/broad_phase.c */,
+				CA9463833C0340E295594C59 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/constraint_graph.c */,
+				36D6B14A83674524A70DDFC0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact.c */,
+				997AD9C9CC874F85A0B6706A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/contact_solver.c */,
+				C938CF8B17004F3F913A63F2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/core.c */,
+				862C965B34A24A1CAEED407A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance.c */,
+				7D14A3E8D0A34A34B3212965 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/distance_joint.c */,
+				1158453D8AAF4CD78A27C9DB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/dynamic_tree.c */,
+				4C8A02096513470898482DCA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/geometry.c */,
+				F8C640575662459685A1880D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/hull.c */,
+				3341F83B8B9F4CBAAD304E57 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/id_pool.c */,
+				8990BBD4833A4B67A13EAD7D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/island.c */,
+				BAA533BD0CD843C7892324F2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/joint.c */,
+				5ACF4900880E490CB4BEFC12 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/manifold.c */,
+				545CBBAF2B5046BCB51C15A5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/math_functions.c */,
+				92FDD4BDCB204EF98921B193 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/motor_joint.c */,
+				F213A57F83CC4185BE891900 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/mouse_joint.c */,
+				9EE88C1F7D2E414993952494 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/prismatic_joint.c */,
+				F2E7486BB3E94C6A9767C748 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/revolute_joint.c */,
+				59C9CA07FAC84B74AB2B1D3B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/shape.c */,
+				AFE77CBE40244062BFF9D1CE /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver.c */,
+				2AAF25C237894E69BEFDDC00 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/solver_set.c */,
+				CC60AE9EB79147B0A7131D0B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/stack_allocator.c */,
+				920DDE25D6384F5B855D8408 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/table.c */,
+				46A366303A18468FA41E3B50 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/timer.c */,
+				B0B1CCCDC0C147A292AF571C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/types.c */,
+				E8918ED7B77840469EC36007 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/weld_joint.c */,
+				E7C2BF0D7235401B9181BB4D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/wheel_joint.c */,
+				6E05D462938E4C07ACB10259 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/world.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		206DC55CE7334B509D89E4A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB66930784F84191933C0749 /* ZERO_CHECK */;
+			targetProxy = DF82574C43C54E8B860BF027 /* PBXContainerItemProxy */;
+		};
+		645F411B82754CBD8706E7C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA9D4A1F542455A91E9B3B4 /* box2d */;
+			targetProxy = 82CE46DB47C14351AFF98159 /* PBXContainerItemProxy */;
+		};
+		AAEE74F66C684C68AB00C5FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D9162B65A24E95BF239A4E /* ALL_BUILD */;
+			targetProxy = F544D3547BED49009010010A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		040236F838C047B3A03C788E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		0A496D210B51459E9E9EE999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		1218879D9022492DAD7ED5D4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		1FF74830499D44D2BC1F6928 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		238EF024793E482496952757 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3610C62C3FED41159AD20112 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		479D283A926149EBBC9C1EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		5050F5A777EE4E848C1BDA9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/build;
+			};
+			name = Release;
+		};
+		50FA64720670467F8B345A75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 3.0.0;
+				DYLIB_CURRENT_VERSION = 3.1.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",box2d_EXPORTS,BOX2D_ENABLE_SIMD,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/../include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("   -fPIC -fvisibility=hidden '-ffp-contract=off' '-std=gnu17' -Werror ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libbox2dd.3.dylib","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = box2dd.3.1.0;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		65448021E5D544BEBD8410CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/build;
+			};
+			name = Debug;
+		};
+		7D0C88DFD1E64C03834022F5 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/build;
+			};
+			name = MinSizeRel;
+		};
+		7D7D8927554E45A8B1836A1A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		7D7E9EFB697F40F0B9FEAC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		8A35E30029B84C85B429C326 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 3.0.0;
+				DYLIB_CURRENT_VERSION = 3.1.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",box2d_EXPORTS,BOX2D_ENABLE_SIMD,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/../include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden '-ffp-contract=off' '-std=gnu17' -Werror ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libbox2d.3.dylib","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = box2d.3.1.0;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		A207D0E74AE9424F825CD4F1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 3.0.0;
+				DYLIB_CURRENT_VERSION = 3.1.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",box2d_EXPORTS,BOX2D_ENABLE_SIMD,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/../include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("       -DNDEBUG -fPIC -fvisibility=hidden '-ffp-contract=off' '-std=gnu17' -Werror ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libbox2d.3.dylib","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = box2d.3.1.0;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		C1880A885BC9432F914063B3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/build;
+			};
+			name = RelWithDebInfo;
+		};
+		DEE075B81735494C947A91C6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		E31D4CDDDF454C9AB3C067CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		EC8E14F3BBAE4EB5B2E8CE39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 3.0.0;
+				DYLIB_CURRENT_VERSION = 3.1.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",box2d_EXPORTS,BOX2D_ENABLE_SIMD,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src/../include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/box2d/src,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden '-ffp-contract=off' '-std=gnu17' -Werror ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libbox2d.3.dylib","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = box2d.3.1.0;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		F18D3245654A4CED9C17484B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/box2d;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		344EC8C52A0E4104BD139960 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				479D283A926149EBBC9C1EF5 /* Debug */,
+				E31D4CDDDF454C9AB3C067CF /* Release */,
+				7D7D8927554E45A8B1836A1A /* MinSizeRel */,
+				1FF74830499D44D2BC1F6928 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AC80807D79A640AA905EA8B9 /* Build configuration list for PBXProject "box2d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65448021E5D544BEBD8410CF /* Debug */,
+				5050F5A777EE4E848C1BDA9F /* Release */,
+				7D0C88DFD1E64C03834022F5 /* MinSizeRel */,
+				C1880A885BC9432F914063B3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BF7854F05DFF4D8EBB530C8A /* Build configuration list for PBXNativeTarget "box2d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50FA64720670467F8B345A75 /* Debug */,
+				EC8E14F3BBAE4EB5B2E8CE39 /* Release */,
+				8A35E30029B84C85B429C326 /* MinSizeRel */,
+				A207D0E74AE9424F825CD4F1 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C2967DE30919472B93D5D9DC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F18D3245654A4CED9C17484B /* Debug */,
+				0A496D210B51459E9E9EE999 /* Release */,
+				238EF024793E482496952757 /* MinSizeRel */,
+				1218879D9022492DAD7ED5D4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F4D1F8A6282E4A8890225C0B /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040236F838C047B3A03C788E /* Debug */,
+				7D7E9EFB697F40F0B9FEAC87 /* Release */,
+				3610C62C3FED41159AD20112 /* MinSizeRel */,
+				DEE075B81735494C947A91C6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7C0016F49AD4161B9280F55 /* Project object */;
+}

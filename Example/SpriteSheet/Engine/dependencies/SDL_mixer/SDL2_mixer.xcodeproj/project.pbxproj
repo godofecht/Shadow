@@ -1,0 +1,1095 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		092FFA4B51264EABAF501863 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D302DBE7B09A4B2D93068C79 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				FBD4B3F4C2484A36A718A29D /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		CB66930784F84191933C0749 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1AD27E994A054C6FB6838E52 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				A3EB71D9B3C510BBBCE793D8 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		F7D9162B65A24E95BF239A4E /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 055C998F1CE94323BE210804 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				26634AC43CDF4FB4A178960A /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				04F67F7C33934B06AF25EC92 /* PBXTargetDependency */,
+				112550B36B374117AA56C30D /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0C66E79C831B44A6A67F1BB5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_drflac.c */ = {isa = PBXBuildFile; fileRef = 7FDFB0E17FD4415C9BBF0B3C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_drflac.c */; };
+		130122ABC7794CDFADB66FB5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/mp3utils.c */ = {isa = PBXBuildFile; fileRef = B86932A643CF4E2A92FE5F0E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/mp3utils.c */; };
+		1B1D7B4C8F1641AB95EFA4E8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/instrum.c */ = {isa = PBXBuildFile; fileRef = F18B162189874DF08E8411B1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/instrum.c */; };
+		1C82815D147E4A84B33C3BC3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_timidity.c */ = {isa = PBXBuildFile; fileRef = 7614D56F1DA1445EBB48E261 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_timidity.c */; };
+		2079512E7DE047AA9B84D618 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_opus.c */ = {isa = PBXBuildFile; fileRef = 4C03000E7FD04C9384C9AA4C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_opus.c */; };
+		235FD0EC38D542FDAA95FE1B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_nativemidi.c */ = {isa = PBXBuildFile; fileRef = 3D048E39EF3A41EF91D2ED3E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_nativemidi.c */; };
+		282C09C1856A4F959AB4D17F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/output.c */ = {isa = PBXBuildFile; fileRef = 1906BAAE44F946CFA4132D4A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/output.c */; };
+		3670770F19A14263912D1428 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wavpack.c */ = {isa = PBXBuildFile; fileRef = 93B034432BCD43E5ABF8681B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wavpack.c */; };
+		3F1D2AB7B986431EAC6D3BE3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_modplug.c */ = {isa = PBXBuildFile; fileRef = A85DE46CD2A84E11808E8B57 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_modplug.c */; };
+		3F4D86FDF02749F78DD056BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/readmidi.c */ = {isa = PBXBuildFile; fileRef = C63729F1BAFF42CFB90451FB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/readmidi.c */; };
+		49BD7759DD13472383E671BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg_stb.c */ = {isa = PBXBuildFile; fileRef = 5AB9BC776825436F802C838C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg_stb.c */; };
+		609932C2D4B74893B771A5F0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_aiff.c */ = {isa = PBXBuildFile; fileRef = AB2BE54ED21D43C99256DDF3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_aiff.c */; };
+		6526C9C2D60A4A3A93D700A7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.c */ = {isa = PBXBuildFile; fileRef = DF4C7A5C9C784807AE630A13 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.c */; };
+		6762B55BC47A4B84911CA833 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/music.c */ = {isa = PBXBuildFile; fileRef = 29963D8361EE43608068329C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/music.c */; };
+		6A5EFA00931542C79FE9B3C2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/tables.c */ = {isa = PBXBuildFile; fileRef = 69EE1F92FCE2481895CF7BFF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/tables.c */; };
+		71DF1981EFC34949968CE17E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effects_internal.c */ = {isa = PBXBuildFile; fileRef = DBB1F018440E4ED59C7B3C7A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effects_internal.c */; };
+		7A9BB7EDECD447C8BCA4A373 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_position.c */ = {isa = PBXBuildFile; fileRef = 5916E24304084AFAAD0CB2D4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_position.c */; };
+		7BBF79888C194A0F95DDBC92 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_flac.c */ = {isa = PBXBuildFile; fileRef = 610F5A0F501D44CDBD413306 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_flac.c */; };
+		86866FEFE60545A8A9FB8F39 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_stereoreverse.c */ = {isa = PBXBuildFile; fileRef = CAFEF33284A54C07812C7824 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_stereoreverse.c */; };
+		8BB839F6BA3F4FAE80140E80 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg.c */ = {isa = PBXBuildFile; fileRef = 859B775B5CD3464287EBCAD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg.c */; };
+		8C1E294D5113447FAA28769E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/mix.c */ = {isa = PBXBuildFile; fileRef = 23ED3566503B4482A22CCAF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/mix.c */; };
+		8F38B706E5E9456085D9213E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_gme.c */ = {isa = PBXBuildFile; fileRef = CD1533B1FED944C1AE7CFAF4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_gme.c */; };
+		956FCE7C42BA40A886113746 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/utils.c */ = {isa = PBXBuildFile; fileRef = 4016611DB955409889003C6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/utils.c */; };
+		95FBB0813DA6479EA0D7AF1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/timidity.c */ = {isa = PBXBuildFile; fileRef = 6DF68D7203104972AF22F09A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/timidity.c */; };
+		9DCB0EA6BDF4442C93A8DAA3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wav.c */ = {isa = PBXBuildFile; fileRef = 442F49D1A2774E85B69830EC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wav.c */; };
+		9EA3BC05DB8C48C5BB6666B8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.h */ = {isa = PBXBuildFile; fileRef = EA7AA18B83F748BB9EABB945 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.h */; };
+		A9C5826173B94191865786A5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 22CB8D7CD8DD45BB9AEEB0AD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */; };
+		AA7951DF0B5E4C6CA09E87AE /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_minimp3.c */ = {isa = PBXBuildFile; fileRef = 19AB9233B82C48E89F2FB630 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_minimp3.c */; };
+		AE2417F44D024453B88C5EC3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_macosx.c */ = {isa = PBXBuildFile; fileRef = 821C0013251E451C93614EA6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_macosx.c */; };
+		B43B7A63C6074266BBB3F7A9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/mixer.c */ = {isa = PBXBuildFile; fileRef = C8612D88CA05435BAEAD1211 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/mixer.c */; };
+		C002701F940242AA8B897BEA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_fluidsynth.c */ = {isa = PBXBuildFile; fileRef = 15BCD7A7C7684A618CFA2373 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_fluidsynth.c */; };
+		D0A9BF53ACF642668EC5965E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_cmd.c */ = {isa = PBXBuildFile; fileRef = 962BD61FC4E1475CB00004BA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_cmd.c */; };
+		D134FD6899F4473AABE49D76 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/playmidi.c */ = {isa = PBXBuildFile; fileRef = BA9401708F3F441BA1847CB4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/playmidi.c */; };
+		DDE5007472CD494B9DDB0FD9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/common.c */ = {isa = PBXBuildFile; fileRef = 702B393F6003467D9691A680 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/common.c */; };
+		DFDE90ABE0694383ADC303E1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_xmp.c */ = {isa = PBXBuildFile; fileRef = 7ED327AF3C4141EEB7A6D77B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_xmp.c */; };
+		E1B73D56203C464FA088D12C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/resample.c */ = {isa = PBXBuildFile; fileRef = 5CA2D13F87BA403EB8BAFAE4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/resample.c */; };
+		E82BC9320D1E49829004BFB4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_voc.c */ = {isa = PBXBuildFile; fileRef = E631A2BC4507432DAC73EB9B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_voc.c */; };
+		F9110EC7A1024D4ABD05A975 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_mpg123.c */ = {isa = PBXBuildFile; fileRef = 32DA121F59444A51B80E3793 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_mpg123.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		2EEED5277DD74F4CBAF2228F /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		BF3E47F913DB4FC8BF851366 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		D84947DA15FF4B0A88B24FE5 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		EEC1CF43DE534525BD1E8C5D /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		30E8C775E04D4B73B7ED7752 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 022E194E408343E583758C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8046E31301A049969E100ACF;
+			remoteInfo = SDL2_mixer;
+		};
+		31E6BDB62240404A8FCA510D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 022E194E408343E583758C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D9162B65A24E95BF239A4E;
+			remoteInfo = ALL_BUILD;
+		};
+		D4C58765CE9D45A29029A35A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 022E194E408343E583758C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB66930784F84191933C0749;
+			remoteInfo = ZERO_CHECK;
+		};
+		E9E57218EB0C499AA4ACDF4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 022E194E408343E583758C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB66930784F84191933C0749;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15BCD7A7C7684A618CFA2373 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_fluidsynth.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_fluidsynth.c; path = src/codecs/music_fluidsynth.c; sourceTree = SOURCE_ROOT; };
+		1906BAAE44F946CFA4132D4A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/output.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = output.c; path = src/codecs/timidity/output.c; sourceTree = SOURCE_ROOT; };
+		19AB9233B82C48E89F2FB630 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_minimp3.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_minimp3.c; path = src/codecs/music_minimp3.c; sourceTree = SOURCE_ROOT; };
+		22CB8D7CD8DD45BB9AEEB0AD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		23ED3566503B4482A22CCAF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/mix.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = mix.c; path = src/codecs/timidity/mix.c; sourceTree = SOURCE_ROOT; };
+		29963D8361EE43608068329C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/music.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music.c; path = src/music.c; sourceTree = SOURCE_ROOT; };
+		32DA121F59444A51B80E3793 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_mpg123.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_mpg123.c; path = src/codecs/music_mpg123.c; sourceTree = SOURCE_ROOT; };
+		3D048E39EF3A41EF91D2ED3E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_nativemidi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_nativemidi.c; path = src/codecs/music_nativemidi.c; sourceTree = SOURCE_ROOT; };
+		4016611DB955409889003C6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/utils.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = utils.c; path = src/utils.c; sourceTree = SOURCE_ROOT; };
+		442F49D1A2774E85B69830EC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wav.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_wav.c; path = src/codecs/music_wav.c; sourceTree = SOURCE_ROOT; };
+		4C03000E7FD04C9384C9AA4C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_opus.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_opus.c; path = src/codecs/music_opus.c; sourceTree = SOURCE_ROOT; };
+		5916E24304084AFAAD0CB2D4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_position.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = effect_position.c; path = src/effect_position.c; sourceTree = SOURCE_ROOT; };
+		5AB9BC776825436F802C838C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg_stb.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_ogg_stb.c; path = src/codecs/music_ogg_stb.c; sourceTree = SOURCE_ROOT; };
+		5CA2D13F87BA403EB8BAFAE4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/resample.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = resample.c; path = src/codecs/timidity/resample.c; sourceTree = SOURCE_ROOT; };
+		610F5A0F501D44CDBD413306 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_flac.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_flac.c; path = src/codecs/music_flac.c; sourceTree = SOURCE_ROOT; };
+		69EE1F92FCE2481895CF7BFF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/tables.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = tables.c; path = src/codecs/timidity/tables.c; sourceTree = SOURCE_ROOT; };
+		6DF68D7203104972AF22F09A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/timidity.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = timidity.c; path = src/codecs/timidity/timidity.c; sourceTree = SOURCE_ROOT; };
+		702B393F6003467D9691A680 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/common.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = common.c; path = src/codecs/timidity/common.c; sourceTree = SOURCE_ROOT; };
+		7614D56F1DA1445EBB48E261 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_timidity.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_timidity.c; path = src/codecs/music_timidity.c; sourceTree = SOURCE_ROOT; };
+		7B41238F9EB14A348962A6D1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		7ED327AF3C4141EEB7A6D77B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_xmp.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_xmp.c; path = src/codecs/music_xmp.c; sourceTree = SOURCE_ROOT; };
+		7FDFB0E17FD4415C9BBF0B3C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_drflac.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_drflac.c; path = src/codecs/music_drflac.c; sourceTree = SOURCE_ROOT; };
+		821C0013251E451C93614EA6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_macosx.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = native_midi_macosx.c; path = src/codecs/native_midi/native_midi_macosx.c; sourceTree = SOURCE_ROOT; };
+		859B775B5CD3464287EBCAD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_ogg.c; path = src/codecs/music_ogg.c; sourceTree = SOURCE_ROOT; };
+		93B034432BCD43E5ABF8681B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wavpack.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_wavpack.c; path = src/codecs/music_wavpack.c; sourceTree = SOURCE_ROOT; };
+		962BD61FC4E1475CB00004BA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_cmd.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_cmd.c; path = src/codecs/music_cmd.c; sourceTree = SOURCE_ROOT; };
+		A85DE46CD2A84E11808E8B57 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_modplug.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_modplug.c; path = src/codecs/music_modplug.c; sourceTree = SOURCE_ROOT; };
+		AB2BE54ED21D43C99256DDF3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_aiff.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = load_aiff.c; path = src/codecs/load_aiff.c; sourceTree = SOURCE_ROOT; };
+		B86932A643CF4E2A92FE5F0E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/mp3utils.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = mp3utils.c; path = src/codecs/mp3utils.c; sourceTree = SOURCE_ROOT; };
+		BA9401708F3F441BA1847CB4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/playmidi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = playmidi.c; path = src/codecs/timidity/playmidi.c; sourceTree = SOURCE_ROOT; };
+		C63729F1BAFF42CFB90451FB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/readmidi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = readmidi.c; path = src/codecs/timidity/readmidi.c; sourceTree = SOURCE_ROOT; };
+		C8612D88CA05435BAEAD1211 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/mixer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = mixer.c; path = src/mixer.c; sourceTree = SOURCE_ROOT; };
+		CAFEF33284A54C07812C7824 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_stereoreverse.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = effect_stereoreverse.c; path = src/effect_stereoreverse.c; sourceTree = SOURCE_ROOT; };
+		CD1533B1FED944C1AE7CFAF4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_gme.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = music_gme.c; path = src/codecs/music_gme.c; sourceTree = SOURCE_ROOT; };
+		DBB1F018440E4ED59C7B3C7A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effects_internal.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = effects_internal.c; path = src/effects_internal.c; sourceTree = SOURCE_ROOT; };
+		DF4C7A5C9C784807AE630A13 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = native_midi_common.c; path = src/codecs/native_midi/native_midi_common.c; sourceTree = SOURCE_ROOT; };
+		E4EF5344366A4AACB5F5054B /* SDL2_mixer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libSDL2_mixer-2.0d.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E631A2BC4507432DAC73EB9B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_voc.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = load_voc.c; path = src/codecs/load_voc.c; sourceTree = SOURCE_ROOT; };
+		EA7AA18B83F748BB9EABB945 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = native_midi_common.h; path = src/codecs/native_midi/native_midi_common.h; sourceTree = SOURCE_ROOT; };
+		F18B162189874DF08E8411B1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/instrum.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = instrum.c; path = src/codecs/timidity/instrum.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1BC9A08313744648F438871 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FFA005BA81B4829908B95A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4EF5344366A4AACB5F5054B /* SDL2_mixer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		293077CA887F4D1797771558 = {
+			isa = PBXGroup;
+			children = (
+				E6BD3DFB28E742118C3D264A /* SDL2_mixer */,
+				3F3C747D0D264547B55E531F /* ALL_BUILD */,
+				1FFA005BA81B4829908B95A4 /* Products */,
+				33134AA9CD0B4E4988CDCACD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		33134AA9CD0B4E4988CDCACD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F3C747D0D264547B55E531F /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				F18C6FD06B0C4DA187B76326 /* CMake Rules */,
+				7B41238F9EB14A348962A6D1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		A36D39AD38264D79AD5602F7 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA7AA18B83F748BB9EABB945 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		E6BD3DFB28E742118C3D264A /* SDL2_mixer */ = {
+			isa = PBXGroup;
+			children = (
+				F242EAD5750C45E9BCE10F5D /* Source Files */,
+				A36D39AD38264D79AD5602F7 /* Header Files */,
+				22CB8D7CD8DD45BB9AEEB0AD /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/CMakeLists.txt */,
+			);
+			name = SDL2_mixer;
+			sourceTree = "<group>";
+		};
+		F18C6FD06B0C4DA187B76326 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		F242EAD5750C45E9BCE10F5D /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB2BE54ED21D43C99256DDF3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_aiff.c */,
+				E631A2BC4507432DAC73EB9B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_voc.c */,
+				B86932A643CF4E2A92FE5F0E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/mp3utils.c */,
+				962BD61FC4E1475CB00004BA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_cmd.c */,
+				7FDFB0E17FD4415C9BBF0B3C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_drflac.c */,
+				610F5A0F501D44CDBD413306 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_flac.c */,
+				15BCD7A7C7684A618CFA2373 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_fluidsynth.c */,
+				CD1533B1FED944C1AE7CFAF4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_gme.c */,
+				19AB9233B82C48E89F2FB630 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_minimp3.c */,
+				A85DE46CD2A84E11808E8B57 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_modplug.c */,
+				32DA121F59444A51B80E3793 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_mpg123.c */,
+				3D048E39EF3A41EF91D2ED3E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_nativemidi.c */,
+				859B775B5CD3464287EBCAD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg.c */,
+				5AB9BC776825436F802C838C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg_stb.c */,
+				4C03000E7FD04C9384C9AA4C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_opus.c */,
+				7614D56F1DA1445EBB48E261 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_timidity.c */,
+				442F49D1A2774E85B69830EC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wav.c */,
+				93B034432BCD43E5ABF8681B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wavpack.c */,
+				7ED327AF3C4141EEB7A6D77B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_xmp.c */,
+				DF4C7A5C9C784807AE630A13 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.c */,
+				821C0013251E451C93614EA6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_macosx.c */,
+				702B393F6003467D9691A680 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/common.c */,
+				F18B162189874DF08E8411B1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/instrum.c */,
+				23ED3566503B4482A22CCAF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/mix.c */,
+				1906BAAE44F946CFA4132D4A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/output.c */,
+				BA9401708F3F441BA1847CB4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/playmidi.c */,
+				C63729F1BAFF42CFB90451FB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/readmidi.c */,
+				5CA2D13F87BA403EB8BAFAE4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/resample.c */,
+				69EE1F92FCE2481895CF7BFF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/tables.c */,
+				6DF68D7203104972AF22F09A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/timidity.c */,
+				5916E24304084AFAAD0CB2D4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_position.c */,
+				CAFEF33284A54C07812C7824 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_stereoreverse.c */,
+				DBB1F018440E4ED59C7B3C7A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effects_internal.c */,
+				C8612D88CA05435BAEAD1211 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/mixer.c */,
+				29963D8361EE43608068329C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/music.c */,
+				4016611DB955409889003C6C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/utils.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8046E31301A049969E100ACF /* SDL2_mixer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DC0D166E0CF4EFABDD52FD0 /* Build configuration list for PBXNativeTarget "SDL2_mixer" */;
+			buildPhases = (
+				CDD10F3BF82548689464038A /* Sources */,
+				E1BC9A08313744648F438871 /* Frameworks */,
+				FC629C5D52772BAC8160F178 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C00A563B060440BAD42FF1A /* PBXTargetDependency */,
+			);
+			name = SDL2_mixer;
+			productName = SDL2_mixer;
+			productReference = E4EF5344366A4AACB5F5054B /* SDL2_mixer */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		022E194E408343E583758C8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
+			};
+			buildConfigurationList = 65A2C914963E46FA850073D7 /* Build configuration list for PBXProject "SDL2_mixer" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				BF3E47F913DB4FC8BF851366 /* Debug */,
+				2EEED5277DD74F4CBAF2228F /* Release */,
+				EEC1CF43DE534525BD1E8C5D /* MinSizeRel */,
+				D84947DA15FF4B0A88B24FE5 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 293077CA887F4D1797771558;
+			projectDirPath = /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer;
+			projectRoot = "";
+			targets = (
+				F7D9162B65A24E95BF239A4E /* ALL_BUILD */,
+				8046E31301A049969E100ACF /* SDL2_mixer */,
+				CB66930784F84191933C0749 /* ZERO_CHECK */,
+				092FFA4B51264EABAF501863 /* install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26634AC43CDF4FB4A178960A /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		87AF4882E018677E2624B544 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		A3EB71D9B3C510BBBCE793D8 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		FC629C5D52772BAC8160F178 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E create_symlink libSDL2_mixer-2.0d.801.0.0.dylib libSDL2_mixerd.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Debug/libSDL2_mixer-2.0d.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Debug/libSDL2_mixer-2.0d.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Debug/libSDL2_mixer-2.0d.dylib
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E create_symlink libSDL2_mixer-2.0.801.0.0.dylib libSDL2_mixer.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Release/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Release/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/Release/libSDL2_mixer-2.0.dylib
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E create_symlink libSDL2_mixer-2.0.801.0.0.dylib libSDL2_mixer.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/MinSizeRel/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/MinSizeRel/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/MinSizeRel/libSDL2_mixer-2.0.dylib
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E create_symlink libSDL2_mixer-2.0.801.0.0.dylib libSDL2_mixer.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/RelWithDebInfo/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/RelWithDebInfo/libSDL2_mixer-2.0.801.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/RelWithDebInfo/libSDL2_mixer-2.0.dylib
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDD10F3BF82548689464038A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				609932C2D4B74893B771A5F0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_aiff.c */,
+				E82BC9320D1E49829004BFB4 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/load_voc.c */,
+				130122ABC7794CDFADB66FB5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/mp3utils.c */,
+				D0A9BF53ACF642668EC5965E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_cmd.c */,
+				0C66E79C831B44A6A67F1BB5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_drflac.c */,
+				7BBF79888C194A0F95DDBC92 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_flac.c */,
+				C002701F940242AA8B897BEA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_fluidsynth.c */,
+				8F38B706E5E9456085D9213E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_gme.c */,
+				AA7951DF0B5E4C6CA09E87AE /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_minimp3.c */,
+				3F1D2AB7B986431EAC6D3BE3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_modplug.c */,
+				F9110EC7A1024D4ABD05A975 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_mpg123.c */,
+				235FD0EC38D542FDAA95FE1B /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_nativemidi.c */,
+				8BB839F6BA3F4FAE80140E80 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg.c */,
+				49BD7759DD13472383E671BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_ogg_stb.c */,
+				2079512E7DE047AA9B84D618 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_opus.c */,
+				1C82815D147E4A84B33C3BC3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_timidity.c */,
+				9DCB0EA6BDF4442C93A8DAA3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wav.c */,
+				3670770F19A14263912D1428 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_wavpack.c */,
+				DFDE90ABE0694383ADC303E1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/music_xmp.c */,
+				6526C9C2D60A4A3A93D700A7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_common.c */,
+				AE2417F44D024453B88C5EC3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/native_midi/native_midi_macosx.c */,
+				DDE5007472CD494B9DDB0FD9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/common.c */,
+				1B1D7B4C8F1641AB95EFA4E8 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/instrum.c */,
+				8C1E294D5113447FAA28769E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/mix.c */,
+				282C09C1856A4F959AB4D17F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/output.c */,
+				D134FD6899F4473AABE49D76 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/playmidi.c */,
+				3F4D86FDF02749F78DD056BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/readmidi.c */,
+				E1B73D56203C464FA088D12C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/resample.c */,
+				6A5EFA00931542C79FE9B3C2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/tables.c */,
+				95FBB0813DA6479EA0D7AF1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs/timidity/timidity.c */,
+				7A9BB7EDECD447C8BCA4A373 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_position.c */,
+				86866FEFE60545A8A9FB8F39 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effect_stereoreverse.c */,
+				71DF1981EFC34949968CE17E /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/effects_internal.c */,
+				B43B7A63C6074266BBB3F7A9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/mixer.c */,
+				6762B55BC47A4B84911CA833 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/music.c */,
+				956FCE7C42BA40A886113746 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/utils.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04F67F7C33934B06AF25EC92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8046E31301A049969E100ACF /* SDL2_mixer */;
+			targetProxy = 30E8C775E04D4B73B7ED7752 /* PBXContainerItemProxy */;
+		};
+		112550B36B374117AA56C30D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB66930784F84191933C0749 /* ZERO_CHECK */;
+			targetProxy = D4C58765CE9D45A29029A35A /* PBXContainerItemProxy */;
+		};
+		3C00A563B060440BAD42FF1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB66930784F84191933C0749 /* ZERO_CHECK */;
+			targetProxy = E9E57218EB0C499AA4ACDF4D /* PBXContainerItemProxy */;
+		};
+		FBD4B3F4C2484A36A718A29D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D9162B65A24E95BF239A4E /* ALL_BUILD */;
+			targetProxy = 31E6BDB62240404A8FCA510D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0428A705BE5F4F9590F674E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		09021A9ECB0F45488835DCF6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/build;
+			};
+			name = RelWithDebInfo;
+		};
+		1577C02692BA4AE29FC7D02A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		22CA3A8F94FA4AC0A8E17EBC /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 801.0.0;
+				DYLIB_CURRENT_VERSION = 801.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=8'","'SDL_BUILD_MICRO_VERSION=0'",MUSIC_OPUS,"'OPUS_DYNAMIC=\"libopusfile.0.dylib\"'",MUSIC_OGG,OGG_USE_STB,MUSIC_FLAC_DRFLAC,MUSIC_MOD_XMP,"'XMP_DYNAMIC=\"libxmp.4.dylib\"'",MUSIC_MP3_MINIMP3,MUSIC_MID_FLUIDSYNTH,"'FLUIDSYNTH_DYNAMIC=\"libfluidsynth.3.dylib\"'",MUSIC_MID_NATIVE,MUSIC_MID_TIMIDITY,MUSIC_WAV,MUSIC_WAVPACK,"'WAVPACK_DYNAMIC=\"libwavpack.1.dylib\"'",RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/include,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs,/opt/homebrew/Cellar/opusfile/0.12_1/include/opus,/opt/homebrew/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-minsizerel/SDL2","$(inherited)");
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/MinSizeRel,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/MinSizeRel/libSDL2-2.0.0.dylib","-Wl,-framework,AudioToolbox","-Wl,-framework,AudioUnit","-Wl,-framework,CoreServices","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_mixer-2.0.801.0.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		283FD54EBC7340BB8535C9D1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		4D31089057E64C26AD461074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		51A299365D1C4A95BC3AFAF4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		560A11D0E6254AEEB754B6FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		614A867C6185411A84692270 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 801.0.0;
+				DYLIB_CURRENT_VERSION = 801.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=8'","'SDL_BUILD_MICRO_VERSION=0'",MUSIC_OPUS,"'OPUS_DYNAMIC=\"libopusfile.0.dylib\"'",MUSIC_OGG,OGG_USE_STB,MUSIC_FLAC_DRFLAC,MUSIC_MOD_XMP,"'XMP_DYNAMIC=\"libxmp.4.dylib\"'",MUSIC_MP3_MINIMP3,MUSIC_MID_FLUIDSYNTH,"'FLUIDSYNTH_DYNAMIC=\"libfluidsynth.3.dylib\"'",MUSIC_MID_NATIVE,MUSIC_MID_TIMIDITY,MUSIC_WAV,MUSIC_WAVPACK,"'WAVPACK_DYNAMIC=\"libwavpack.1.dylib\"'",RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/include,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs,/opt/homebrew/Cellar/opusfile/0.12_1/include/opus,/opt/homebrew/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-relwithdebinfo/SDL2","$(inherited)");
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/RelWithDebInfo,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("       -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/RelWithDebInfo/libSDL2-2.0.0.dylib","-Wl,-framework,AudioToolbox","-Wl,-framework,AudioUnit","-Wl,-framework,CoreServices","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_mixer-2.0.801.0.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		65212997D5F643F386714C5B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		74D781F9A8404691907847CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		90FCE74AB2444C1DA176F4B8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		963301A8E48441D2AD18F67B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		AA0A784D54A04B9490281027 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B527F379D40C453998969348 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/build;
+			};
+			name = MinSizeRel;
+		};
+		B9BA7DF34DFB4DA28FB63856 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 801.0.0;
+				DYLIB_CURRENT_VERSION = 801.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=8'","'SDL_BUILD_MICRO_VERSION=0'",MUSIC_OPUS,"'OPUS_DYNAMIC=\"libopusfile.0.dylib\"'",MUSIC_OGG,OGG_USE_STB,MUSIC_FLAC_DRFLAC,MUSIC_MOD_XMP,"'XMP_DYNAMIC=\"libxmp.4.dylib\"'",MUSIC_MP3_MINIMP3,MUSIC_MID_FLUIDSYNTH,"'FLUIDSYNTH_DYNAMIC=\"libfluidsynth.3.dylib\"'",MUSIC_MID_NATIVE,MUSIC_MID_TIMIDITY,MUSIC_WAV,MUSIC_WAVPACK,"'WAVPACK_DYNAMIC=\"libwavpack.1.dylib\"'",RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/include,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs,/opt/homebrew/Cellar/opusfile/0.12_1/include/opus,/opt/homebrew/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-release/SDL2","$(inherited)");
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Release,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Release/libSDL2-2.0.0.dylib","-Wl,-framework,AudioToolbox","-Wl,-framework,AudioUnit","-Wl,-framework,CoreServices","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_mixer-2.0.801.0.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		DE77F2B25AAC428B9937C1BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 801.0.0;
+				DYLIB_CURRENT_VERSION = 801.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=8'","'SDL_BUILD_MICRO_VERSION=0'",MUSIC_OPUS,"'OPUS_DYNAMIC=\"libopusfile.0.dylib\"'",MUSIC_OGG,OGG_USE_STB,MUSIC_FLAC_DRFLAC,MUSIC_MOD_XMP,"'XMP_DYNAMIC=\"libxmp.4.dylib\"'",MUSIC_MP3_MINIMP3,MUSIC_MID_FLUIDSYNTH,"'FLUIDSYNTH_DYNAMIC=\"libfluidsynth.3.dylib\"'",MUSIC_MID_NATIVE,MUSIC_MID_TIMIDITY,MUSIC_WAV,MUSIC_WAVPACK,"'WAVPACK_DYNAMIC=\"libwavpack.1.dylib\"'",RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/include,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src,/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_mixer/src/codecs,/opt/homebrew/Cellar/opusfile/0.12_1/include/opus,/opt/homebrew/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-debug/SDL2","$(inherited)");
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Debug,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("   -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Debug/libSDL2-2.0d.0.dylib","-Wl,-framework,AudioToolbox","-Wl,-framework,AudioUnit","-Wl,-framework,CoreServices","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_mixer-2.0d.801.0.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		E8FC91E2F3184C7889C642F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/build;
+			};
+			name = Debug;
+		};
+		F18000FD7E7041D1BFD5FA22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		FF6AD86372384A6D954B9C30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_mixer/build;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		055C998F1CE94323BE210804 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D31089057E64C26AD461074 /* Debug */,
+				0428A705BE5F4F9590F674E0 /* Release */,
+				283FD54EBC7340BB8535C9D1 /* MinSizeRel */,
+				AA0A784D54A04B9490281027 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1AD27E994A054C6FB6838E52 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560A11D0E6254AEEB754B6FC /* Debug */,
+				74D781F9A8404691907847CF /* Release */,
+				65212997D5F643F386714C5B /* MinSizeRel */,
+				51A299365D1C4A95BC3AFAF4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		65A2C914963E46FA850073D7 /* Build configuration list for PBXProject "SDL2_mixer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8FC91E2F3184C7889C642F7 /* Debug */,
+				FF6AD86372384A6D954B9C30 /* Release */,
+				B527F379D40C453998969348 /* MinSizeRel */,
+				09021A9ECB0F45488835DCF6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6DC0D166E0CF4EFABDD52FD0 /* Build configuration list for PBXNativeTarget "SDL2_mixer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE77F2B25AAC428B9937C1BD /* Debug */,
+				B9BA7DF34DFB4DA28FB63856 /* Release */,
+				22CA3A8F94FA4AC0A8E17EBC /* MinSizeRel */,
+				614A867C6185411A84692270 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D302DBE7B09A4B2D93068C79 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963301A8E48441D2AD18F67B /* Debug */,
+				F18000FD7E7041D1BFD5FA22 /* Release */,
+				1577C02692BA4AE29FC7D02A /* MinSizeRel */,
+				90FCE74AB2444C1DA176F4B8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 022E194E408343E583758C8F /* Project object */;
+}

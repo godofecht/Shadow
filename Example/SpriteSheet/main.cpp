@@ -26,7 +26,7 @@ class SpriteSheetExample : public Game
 
     void initializeComponents() override
     {
-        auto& scene = createScene();
+        auto scene = createScene();
         scene->addItem<Player>("sprite");
 
         getAssetManager()->getAsset<Player>("sprite")->setBounds (50, 50, 125, 125);

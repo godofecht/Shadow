@@ -3,7 +3,6 @@
 #include <box2d/box2d.h>
 #include <SDL_image.h>
 #include <SDL.h>
-#include <Box2D/Box2D.h>
 #include "Geometry.h"
 
 enum BodyType
@@ -23,7 +22,7 @@ public:
     void setUid (const char* _uid) { uid = _uid; }
     const char* getUid() { return uid; }
     b2BodyId getId() { return bodyId; }
-    b2BodyDef getDef() { return bodyDef; }
+    b2BodyDef& getDef() { return bodyDef; }
     void setId (b2BodyId id) { bodyId = id; }
     void setDef (b2BodyDef def) { bodyDef = def; }
 };

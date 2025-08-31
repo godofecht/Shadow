@@ -1,10 +1,7 @@
+#include "AssetManager.h"
 #include "Scene.h"
+#include "Sprite.h"  // Include any specific sprite types you'll use
 
-void Scene::addItem (std::shared_ptr<Sprite> sprite) 
-{
-    sprite->setScene (this);   // Associate the sprite with the current scene
-    pendingSprites.push_back (sprite); // Add to pending, not main list
-}
 
 void Scene::initializePendingSprites()
 {

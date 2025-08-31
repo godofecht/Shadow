@@ -135,8 +135,8 @@ public:
         const SDL_Rect* frameToDraw = getCurrentImageToDraw();
         if (frameToDraw)
         {
-            SDL_Rect destRect = { getPosition().x, getPosition().y, frameToDraw->w, frameToDraw->h }; // Example position
-
+            Rect<int> rect (getPosition().x, getPosition().y, frameToDraw->w, frameToDraw->h); // Example position
+            SDL_Rect destRect = rect.getSDLRect();
             // Determine flip mode based on isReverse
             SDL_RendererFlip flipMode = isReverse ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 
@@ -285,7 +285,7 @@ public:
         const SDL_Rect* currentFrame = animationController.getCurrentFrame();
         if (currentFrame)
         {
-            SDL_Rect destRect = { getPosition().x, getPosition().y, getBounds().width, getBounds().height };
+            SDL_Rect destRect =  Rect<float> (getPosition().x, getPosition().y, getBounds().width, getBounds().height ).getSDLRect();
 
             SDL_Texture* texture = animationController.getCurrentTexture();
 

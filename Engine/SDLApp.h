@@ -60,7 +60,7 @@ public:
     void update(); //Called repeatedly
 
     Renderer* getRenderer()             {return renderer.get();}
-    AssetManager* getAssetManager() {return assetManager.get();}
+    AssetManager* getAssetManager() const {return assetManager.get();}
     AudioEngine* getAudioEngine()    {return audioEngine.get();}
 
     template <typename T>

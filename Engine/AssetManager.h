@@ -6,10 +6,12 @@
 #include <memory>
 #include <iostream>
 #include <mutex>
-#include "Scene.h"
 #include "Sprite.h"
+#include "Scene.h"
 #include <unordered_map>
 #include <optional>
+
+class Scene;
 
 template <typename Key, typename Value>
 class ThreadSafeUnorderedMap 

@@ -1,0 +1,2 @@
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/CMakeFiles/CheckOBJC/CMakeFiles/ALL_BUILD.dir
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/CMakeFiles/CheckOBJC/CMakeFiles/ZERO_CHECK.dir

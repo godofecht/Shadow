@@ -1,0 +1,1024 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		092FFA4B51264EABAF501863 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B70AD01C5B20415DBC04084E /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				9261232D29864204984217AB /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		CB66930784F84191933C0749 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D79B2FE22E194B6698BB127C /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				9726ED8C44B1B7570156C46D /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		F7D9162B65A24E95BF239A4E /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4C44E5426A8644B7B577F267 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				88B74D24071CFC93A319B3CD /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				7BC422503B1C4D37AD476A86 /* PBXTargetDependency */,
+				52C5081F215841BF80CD2F00 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		032DEF2B615A43FAA58B5A92 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_lbm.c */ = {isa = PBXBuildFile; fileRef = BE0CDEB636B948D29B96A3D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_lbm.c */; };
+		03A47FA1BA914687804D8561 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_ImageIO.m */ = {isa = PBXBuildFile; fileRef = 68F9F38AE7AA4EC1B4FF1D1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_ImageIO.m */; };
+		18AF8CEA8EAA4801B2631821 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_png.c */ = {isa = PBXBuildFile; fileRef = BBE5ECF95B5244308D2C83FF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_png.c */; };
+		18EA21C9A2D2448986BADA1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_WIC.c */ = {isa = PBXBuildFile; fileRef = F09458FA73704A0FA4AAE36F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_WIC.c */; };
+		1931389565DC43739BA642BB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_bmp.c */ = {isa = PBXBuildFile; fileRef = B6B0548583D144B997B9BC23 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_bmp.c */; };
+		3716B97DE9D64585B37B8B77 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_gif.c */ = {isa = PBXBuildFile; fileRef = 9344B7D866F444D0A66799C9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_gif.c */; };
+		4379453A422E4F66B09A9033 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pcx.c */ = {isa = PBXBuildFile; fileRef = 71B4EA50323849408E7D30F0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pcx.c */; };
+		5D0B83376D3C460BB74810B6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xcf.c */ = {isa = PBXBuildFile; fileRef = DC6B05268B3F49CABF0A613C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xcf.c */; };
+		6378D554A4BA466C8B18C740 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_stb.c */ = {isa = PBXBuildFile; fileRef = 28170F4472FA48DCA800646C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_stb.c */; };
+		7184CC59602F4B818BF18AE6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jpg.c */ = {isa = PBXBuildFile; fileRef = 98953357C1234273807AB2F7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jpg.c */; };
+		7F07DBB497174DE98F7245B1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tif.c */ = {isa = PBXBuildFile; fileRef = DCA5E118B5A54D53A24E4F04 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tif.c */; };
+		81E96541EF0946D8A4942413 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_avif.c */ = {isa = PBXBuildFile; fileRef = 8715E8B85AA34C348DA9DA84 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_avif.c */; };
+		8395D538B9D746779D126DDA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xv.c */ = {isa = PBXBuildFile; fileRef = 46F9EBDC7A064CE4BF08C90D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xv.c */; };
+		A4EFB2D5FDF6499B90049DE3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tga.c */ = {isa = PBXBuildFile; fileRef = 4BDEB6AD35754A0E988DB03C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tga.c */; };
+		B2F3EC7DCDC04D8D98F9B7BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_webp.c */ = {isa = PBXBuildFile; fileRef = 054B420F01D64DE3B2432EB7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_webp.c */; };
+		C1110E68E2D64F649818E03F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG.c */ = {isa = PBXBuildFile; fileRef = 590E5194333A45659BF58380 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG.c */; };
+		C184CBDC1C404757BFFBCAF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pnm.c */ = {isa = PBXBuildFile; fileRef = 1696FF009EF8496B95C8ED6D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pnm.c */; };
+		C5133CE95D3C4E478D556E50 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 8457B7BF9EF54C618B2C2BD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */; };
+		DF2EBD488A8E45E18F229D63 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_svg.c */ = {isa = PBXBuildFile; fileRef = 5886836F3BA848E985DE13B3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_svg.c */; };
+		EB45C034B6ED481F80F23050 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_qoi.c */ = {isa = PBXBuildFile; fileRef = 4DD61D57ACCC4B62943CB205 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_qoi.c */; };
+		FAEF55A60BD149C6A0F59992 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jxl.c */ = {isa = PBXBuildFile; fileRef = 9EB1837913104AE08F13F2EB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jxl.c */; };
+		FD97D9DD59E04DB3AD991B24 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xpm.c */ = {isa = PBXBuildFile; fileRef = 4C591C0E44FF44E7B66AD34C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xpm.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		0E841BECC2EA4DB5A4BC09E5 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		576A3DE4A14248049A4E95A8 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		7095071502C24D06BE09D66A /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		7722EF2C9B044DE9A133B794 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		11319429F51B4D34893A0B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608EEF62BBE64C79AC7B2F8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D9162B65A24E95BF239A4E;
+			remoteInfo = ALL_BUILD;
+		};
+		3E20754D2B974C82BF919105 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608EEF62BBE64C79AC7B2F8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 118747737F9146B5A8B954A5;
+			remoteInfo = SDL2_image;
+		};
+		88022A8AEDDB41F2AB3757B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608EEF62BBE64C79AC7B2F8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB66930784F84191933C0749;
+			remoteInfo = ZERO_CHECK;
+		};
+		B5F58EEBEE0F47F28D16E542 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608EEF62BBE64C79AC7B2F8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB66930784F84191933C0749;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		054B420F01D64DE3B2432EB7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_webp.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_webp.c; path = src/IMG_webp.c; sourceTree = SOURCE_ROOT; };
+		1696FF009EF8496B95C8ED6D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pnm.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_pnm.c; path = src/IMG_pnm.c; sourceTree = SOURCE_ROOT; };
+		28170F4472FA48DCA800646C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_stb.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_stb.c; path = src/IMG_stb.c; sourceTree = SOURCE_ROOT; };
+		46F9EBDC7A064CE4BF08C90D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xv.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_xv.c; path = src/IMG_xv.c; sourceTree = SOURCE_ROOT; };
+		4BDEB6AD35754A0E988DB03C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tga.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_tga.c; path = src/IMG_tga.c; sourceTree = SOURCE_ROOT; };
+		4C591C0E44FF44E7B66AD34C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xpm.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_xpm.c; path = src/IMG_xpm.c; sourceTree = SOURCE_ROOT; };
+		4DD61D57ACCC4B62943CB205 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_qoi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_qoi.c; path = src/IMG_qoi.c; sourceTree = SOURCE_ROOT; };
+		5886836F3BA848E985DE13B3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_svg.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_svg.c; path = src/IMG_svg.c; sourceTree = SOURCE_ROOT; };
+		590E5194333A45659BF58380 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG.c; path = src/IMG.c; sourceTree = SOURCE_ROOT; };
+		5DC50A97050340AEA7F6E7B4 /* SDL2_image */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libSDL2_image-2.0d.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F9F38AE7AA4EC1B4FF1D1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_ImageIO.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = IMG_ImageIO.m; path = src/IMG_ImageIO.m; sourceTree = SOURCE_ROOT; };
+		71B4EA50323849408E7D30F0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pcx.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_pcx.c; path = src/IMG_pcx.c; sourceTree = SOURCE_ROOT; };
+		8457B7BF9EF54C618B2C2BD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8715E8B85AA34C348DA9DA84 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_avif.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_avif.c; path = src/IMG_avif.c; sourceTree = SOURCE_ROOT; };
+		9344B7D866F444D0A66799C9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_gif.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_gif.c; path = src/IMG_gif.c; sourceTree = SOURCE_ROOT; };
+		98953357C1234273807AB2F7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jpg.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_jpg.c; path = src/IMG_jpg.c; sourceTree = SOURCE_ROOT; };
+		9994B6AF8843427693479165 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		9EB1837913104AE08F13F2EB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jxl.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_jxl.c; path = src/IMG_jxl.c; sourceTree = SOURCE_ROOT; };
+		B6B0548583D144B997B9BC23 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_bmp.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_bmp.c; path = src/IMG_bmp.c; sourceTree = SOURCE_ROOT; };
+		BBE5ECF95B5244308D2C83FF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_png.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_png.c; path = src/IMG_png.c; sourceTree = SOURCE_ROOT; };
+		BE0CDEB636B948D29B96A3D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_lbm.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_lbm.c; path = src/IMG_lbm.c; sourceTree = SOURCE_ROOT; };
+		DC6B05268B3F49CABF0A613C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xcf.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_xcf.c; path = src/IMG_xcf.c; sourceTree = SOURCE_ROOT; };
+		DCA5E118B5A54D53A24E4F04 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tif.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_tif.c; path = src/IMG_tif.c; sourceTree = SOURCE_ROOT; };
+		F09458FA73704A0FA4AAE36F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_WIC.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = IMG_WIC.c; path = src/IMG_WIC.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6225021A2124DA68DFFB1B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A6053451C8E433A8ADB9352 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A8D10EB34E9489988416764 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		5E7E2A20777447FFAB0626EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DC50A97050340AEA7F6E7B4 /* SDL2_image */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		758E184530B84F7EB3F19F71 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D10EB34E9489988416764 /* CMake Rules */,
+				9994B6AF8843427693479165 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		B53149099B9B4A34ACAE3EDE = {
+			isa = PBXGroup;
+			children = (
+				D8F251DB92DC4C839FBFDC2B /* SDL2_image */,
+				758E184530B84F7EB3F19F71 /* ALL_BUILD */,
+				5E7E2A20777447FFAB0626EA /* Products */,
+				1A6053451C8E433A8ADB9352 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D248AD768D824628BA2B15DE /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				590E5194333A45659BF58380 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG.c */,
+				68F9F38AE7AA4EC1B4FF1D1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_ImageIO.m */,
+				F09458FA73704A0FA4AAE36F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_WIC.c */,
+				8715E8B85AA34C348DA9DA84 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_avif.c */,
+				B6B0548583D144B997B9BC23 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_bmp.c */,
+				9344B7D866F444D0A66799C9 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_gif.c */,
+				98953357C1234273807AB2F7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jpg.c */,
+				9EB1837913104AE08F13F2EB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jxl.c */,
+				BE0CDEB636B948D29B96A3D2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_lbm.c */,
+				71B4EA50323849408E7D30F0 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pcx.c */,
+				BBE5ECF95B5244308D2C83FF /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_png.c */,
+				1696FF009EF8496B95C8ED6D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pnm.c */,
+				4DD61D57ACCC4B62943CB205 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_qoi.c */,
+				28170F4472FA48DCA800646C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_stb.c */,
+				5886836F3BA848E985DE13B3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_svg.c */,
+				4BDEB6AD35754A0E988DB03C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tga.c */,
+				DCA5E118B5A54D53A24E4F04 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tif.c */,
+				054B420F01D64DE3B2432EB7 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_webp.c */,
+				DC6B05268B3F49CABF0A613C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xcf.c */,
+				4C591C0E44FF44E7B66AD34C /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xpm.c */,
+				46F9EBDC7A064CE4BF08C90D /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xv.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D8F251DB92DC4C839FBFDC2B /* SDL2_image */ = {
+			isa = PBXGroup;
+			children = (
+				D248AD768D824628BA2B15DE /* Source Files */,
+				8457B7BF9EF54C618B2C2BD2 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/CMakeLists.txt */,
+			);
+			name = SDL2_image;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		118747737F9146B5A8B954A5 /* SDL2_image */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F1CDAD2641A44E7BF9FD626 /* Build configuration list for PBXNativeTarget "SDL2_image" */;
+			buildPhases = (
+				C6A8A4DAA16F4A5297EEF1E0 /* Sources */,
+				C6225021A2124DA68DFFB1B9 /* Frameworks */,
+				2E48FFBE7A841D8E345833DF /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D87F34F07FF3465E91879072 /* PBXTargetDependency */,
+			);
+			name = SDL2_image;
+			productName = SDL2_image;
+			productReference = 5DC50A97050340AEA7F6E7B4 /* SDL2_image */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		608EEF62BBE64C79AC7B2F8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
+			};
+			buildConfigurationList = 9BF55FA53D4A4460BDAD41FF /* Build configuration list for PBXProject "SDL2_image" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				7095071502C24D06BE09D66A /* Debug */,
+				576A3DE4A14248049A4E95A8 /* Release */,
+				0E841BECC2EA4DB5A4BC09E5 /* MinSizeRel */,
+				7722EF2C9B044DE9A133B794 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = B53149099B9B4A34ACAE3EDE;
+			projectDirPath = /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image;
+			projectRoot = "";
+			targets = (
+				F7D9162B65A24E95BF239A4E /* ALL_BUILD */,
+				118747737F9146B5A8B954A5 /* SDL2_image */,
+				CB66930784F84191933C0749 /* ZERO_CHECK */,
+				092FFA4B51264EABAF501863 /* install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E48FFBE7A841D8E345833DF /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E create_symlink libSDL2_image-2.0d.0.dylib libSDL2_imaged.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Debug/libSDL2_image-2.0d.0.900.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Debug/libSDL2_image-2.0d.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Debug/libSDL2_image-2.0d.dylib
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E create_symlink libSDL2_image-2.0.0.dylib libSDL2_image.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Release/libSDL2_image-2.0.0.900.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Release/libSDL2_image-2.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/Release/libSDL2_image-2.0.dylib
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E create_symlink libSDL2_image-2.0.0.dylib libSDL2_image.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/MinSizeRel/libSDL2_image-2.0.0.900.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/MinSizeRel/libSDL2_image-2.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/MinSizeRel/libSDL2_image-2.0.dylib
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E create_symlink libSDL2_image-2.0.0.dylib libSDL2_image.dylib
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -E cmake_symlink_library /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/RelWithDebInfo/libSDL2_image-2.0.0.900.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/RelWithDebInfo/libSDL2_image-2.0.0.dylib /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/RelWithDebInfo/libSDL2_image-2.0.dylib
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		87AF4882E018677E2624B544 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		88B74D24071CFC93A319B3CD /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  /opt/local/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9726ED8C44B1B7570156C46D /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image
+  make -f /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6A8A4DAA16F4A5297EEF1E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1110E68E2D64F649818E03F /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG.c */,
+				03A47FA1BA914687804D8561 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_ImageIO.m */,
+				18EA21C9A2D2448986BADA1A /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_WIC.c */,
+				81E96541EF0946D8A4942413 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_avif.c */,
+				1931389565DC43739BA642BB /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_bmp.c */,
+				3716B97DE9D64585B37B8B77 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_gif.c */,
+				7184CC59602F4B818BF18AE6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jpg.c */,
+				FAEF55A60BD149C6A0F59992 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_jxl.c */,
+				032DEF2B615A43FAA58B5A92 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_lbm.c */,
+				4379453A422E4F66B09A9033 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pcx.c */,
+				18AF8CEA8EAA4801B2631821 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_png.c */,
+				C184CBDC1C404757BFFBCAF5 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_pnm.c */,
+				EB45C034B6ED481F80F23050 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_qoi.c */,
+				6378D554A4BA466C8B18C740 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_stb.c */,
+				DF2EBD488A8E45E18F229D63 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_svg.c */,
+				A4EFB2D5FDF6499B90049DE3 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tga.c */,
+				7F07DBB497174DE98F7245B1 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_tif.c */,
+				B2F3EC7DCDC04D8D98F9B7BC /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_webp.c */,
+				5D0B83376D3C460BB74810B6 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xcf.c */,
+				FD97D9DD59E04DB3AD991B24 /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xpm.c */,
+				8395D538B9D746779D126DDA /* /Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/src/IMG_xv.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52C5081F215841BF80CD2F00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB66930784F84191933C0749 /* ZERO_CHECK */;
+			targetProxy = 88022A8AEDDB41F2AB3757B7 /* PBXContainerItemProxy */;
+		};
+		7BC422503B1C4D37AD476A86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 118747737F9146B5A8B954A5 /* SDL2_image */;
+			targetProxy = 3E20754D2B974C82BF919105 /* PBXContainerItemProxy */;
+		};
+		9261232D29864204984217AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D9162B65A24E95BF239A4E /* ALL_BUILD */;
+			targetProxy = 11319429F51B4D34893A0B60 /* PBXContainerItemProxy */;
+		};
+		D87F34F07FF3465E91879072 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB66930784F84191933C0749 /* ZERO_CHECK */;
+			targetProxy = B5F58EEBEE0F47F28D16E542 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03BE42AF9FA14B0098CFC0F7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 901.0.0;
+				DYLIB_CURRENT_VERSION = 901.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=9'","'SDL_BUILD_MICRO_VERSION=0'",USE_STBIMAGE,LOAD_AVIF,"'LOAD_AVIF_DYNAMIC=\"libavif.16.dylib\"'",LOAD_BMP,LOAD_GIF,LOAD_JPG,"'SDL_IMAGE_SAVE_JPG=1'",LOAD_LBM,LOAD_PCX,LOAD_PNG,"'SDL_IMAGE_SAVE_PNG=1'",LOAD_PNM,LOAD_QOI,LOAD_SVG,LOAD_TGA,LOAD_TIF,"'LOAD_TIF_DYNAMIC=\"libtiff.6.dylib\"'",LOAD_WEBP,"'LOAD_WEBPDEMUX_DYNAMIC=\"libwebpdemux.2.dylib\"'","'LOAD_WEBP_DYNAMIC=\"libwebp.7.dylib\"'",LOAD_XCF,LOAD_XPM,LOAD_XV,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/include,/opt/homebrew/include,/opt/local/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-minsizerel/SDL2","$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/MinSizeRel,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libSDL2_image-2.0.0.dylib","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/MinSizeRel/libSDL2-2.0.0.dylib","-Wl,-framework,ApplicationServices","-lobjc","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_image-2.0.0.900.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		0AA3730EEBD043CEA39E99D5 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 901.0.0;
+				DYLIB_CURRENT_VERSION = 901.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=9'","'SDL_BUILD_MICRO_VERSION=0'",USE_STBIMAGE,LOAD_AVIF,"'LOAD_AVIF_DYNAMIC=\"libavif.16.dylib\"'",LOAD_BMP,LOAD_GIF,LOAD_JPG,"'SDL_IMAGE_SAVE_JPG=1'",LOAD_LBM,LOAD_PCX,LOAD_PNG,"'SDL_IMAGE_SAVE_PNG=1'",LOAD_PNM,LOAD_QOI,LOAD_SVG,LOAD_TGA,LOAD_TIF,"'LOAD_TIF_DYNAMIC=\"libtiff.6.dylib\"'",LOAD_WEBP,"'LOAD_WEBPDEMUX_DYNAMIC=\"libwebpdemux.2.dylib\"'","'LOAD_WEBP_DYNAMIC=\"libwebp.7.dylib\"'",LOAD_XCF,LOAD_XPM,LOAD_XV,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/include,/opt/homebrew/include,/opt/local/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-relwithdebinfo/SDL2","$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/RelWithDebInfo,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("       -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libSDL2_image-2.0.0.dylib","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/RelWithDebInfo/libSDL2-2.0.0.dylib","-Wl,-framework,ApplicationServices","-lobjc","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_image-2.0.0.900.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		29B0150438BF48BDAFF9A50B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2D0841680DB9401DABFCD95F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		30C951DE72DC441396BC8A15 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		355DB8E42BB747D9B428F6BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 901.0.0;
+				DYLIB_CURRENT_VERSION = 901.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=9'","'SDL_BUILD_MICRO_VERSION=0'",USE_STBIMAGE,LOAD_AVIF,"'LOAD_AVIF_DYNAMIC=\"libavif.16.dylib\"'",LOAD_BMP,LOAD_GIF,LOAD_JPG,"'SDL_IMAGE_SAVE_JPG=1'",LOAD_LBM,LOAD_PCX,LOAD_PNG,"'SDL_IMAGE_SAVE_PNG=1'",LOAD_PNM,LOAD_QOI,LOAD_SVG,LOAD_TGA,LOAD_TIF,"'LOAD_TIF_DYNAMIC=\"libtiff.6.dylib\"'",LOAD_WEBP,"'LOAD_WEBPDEMUX_DYNAMIC=\"libwebpdemux.2.dylib\"'","'LOAD_WEBP_DYNAMIC=\"libwebp.7.dylib\"'",LOAD_XCF,LOAD_XPM,LOAD_XV,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/include,/opt/homebrew/include,/opt/local/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-release/SDL2","$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Release,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("    -DNDEBUG -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libSDL2_image-2.0.0.dylib","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Release/libSDL2-2.0.0.dylib","-Wl,-framework,ApplicationServices","-lobjc","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_image-2.0.0.900.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		3B0CDDDC4EB94844876B951D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		3EE8864AA39A4A418759330A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/build;
+			};
+			name = Release;
+		};
+		45BE1F9B84F84007ABD23E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		48FBFA54DA94441D9E3D3555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 901.0.0;
+				DYLIB_CURRENT_VERSION = 901.0.0;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",DLL_EXPORT,BUILD_SDL,"'SDL_BUILD_MAJOR_VERSION=2'","'SDL_BUILD_MINOR_VERSION=9'","'SDL_BUILD_MICRO_VERSION=0'",USE_STBIMAGE,LOAD_AVIF,"'LOAD_AVIF_DYNAMIC=\"libavif.16.dylib\"'",LOAD_BMP,LOAD_GIF,LOAD_JPG,"'SDL_IMAGE_SAVE_JPG=1'",LOAD_LBM,LOAD_PCX,LOAD_PNG,"'SDL_IMAGE_SAVE_PNG=1'",LOAD_PNM,LOAD_QOI,LOAD_SVG,LOAD_TGA,LOAD_TIF,"'LOAD_TIF_DYNAMIC=\"libtiff.6.dylib\"'",LOAD_WEBP,"'LOAD_WEBPDEMUX_DYNAMIC=\"libwebpdemux.2.dylib\"'","'LOAD_WEBP_DYNAMIC=\"libwebp.7.dylib\"'",LOAD_XCF,LOAD_XPM,LOAD_XV,RTAUDIO_EXPORTS,_CRT_SECURE_NO_WARNINGS,"$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Engine/dependencies/SDL_image/include,/opt/homebrew/include,/opt/local/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include,/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include/SDL2,"/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/include-config-debug/SDL2","$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = (/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Debug,"$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("   -fPIC -fvisibility=hidden ","$(inherited)");
+				OTHER_LDFLAGS = ("-L/opt/homebrew/lib '-Wl,-undefined,error' -dynamiclib -Wl,-headerpad_max_install_names -install_name @rpath/libSDL2_image-2.0d.0.dylib","/Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL/Debug/libSDL2-2.0d.0.dylib","-Wl,-framework,ApplicationServices","-lobjc","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "SDL2_image-2.0d.0.900.0";
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		4FDF0246FA71476C99290303 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		52EED3652AC3435F8060117F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		60B23B3EF9C7478CA273BD44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		73DF0BE150764D5881612652 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		81B9DBDA5B6242808AE59EA1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/build;
+			};
+			name = RelWithDebInfo;
+		};
+		9D06C82EEE924D9F984684F5 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9EF18E62E5D248258FF6C560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		D28C192785134B7C9FF52C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/build;
+			};
+			name = Debug;
+		};
+		F341C4B7CE064FB48842A495 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		F3CCDCEE3A084F7EB5FEDD84 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk;
+				SYMROOT = /Users/abhishekshivakumar/gamedev/shadow/Example/SpriteSheet/Engine/dependencies/SDL_image/build;
+			};
+			name = MinSizeRel;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C44E5426A8644B7B577F267 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EF18E62E5D248258FF6C560 /* Debug */,
+				45BE1F9B84F84007ABD23E46 /* Release */,
+				30C951DE72DC441396BC8A15 /* MinSizeRel */,
+				73DF0BE150764D5881612652 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5F1CDAD2641A44E7BF9FD626 /* Build configuration list for PBXNativeTarget "SDL2_image" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48FBFA54DA94441D9E3D3555 /* Debug */,
+				355DB8E42BB747D9B428F6BC /* Release */,
+				03BE42AF9FA14B0098CFC0F7 /* MinSizeRel */,
+				0AA3730EEBD043CEA39E99D5 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9BF55FA53D4A4460BDAD41FF /* Build configuration list for PBXProject "SDL2_image" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D28C192785134B7C9FF52C64 /* Debug */,
+				3EE8864AA39A4A418759330A /* Release */,
+				F3CCDCEE3A084F7EB5FEDD84 /* MinSizeRel */,
+				81B9DBDA5B6242808AE59EA1 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B70AD01C5B20415DBC04084E /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29B0150438BF48BDAFF9A50B /* Debug */,
+				60B23B3EF9C7478CA273BD44 /* Release */,
+				F341C4B7CE064FB48842A495 /* MinSizeRel */,
+				9D06C82EEE924D9F984684F5 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D79B2FE22E194B6698BB127C /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EED3652AC3435F8060117F /* Debug */,
+				3B0CDDDC4EB94844876B951D /* Release */,
+				2D0841680DB9401DABFCD95F /* MinSizeRel */,
+				4FDF0246FA71476C99290303 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 608EEF62BBE64C79AC7B2F8A /* Project object */;
+}
