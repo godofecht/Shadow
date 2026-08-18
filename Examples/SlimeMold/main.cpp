@@ -338,13 +338,10 @@ public:
         createText(config.width - 92, 9, "[P] Show Panel");
         
         // Store panel metrics for dynamic text positioning
-        panelMetrics = {
-            .px = px,
-            .slidersEndY = slidersEndY,
-            .buttonsRow1EndY = buttonsRow1EndY,
-            .colorRowY = colorRowY,
-            .presetsEndY = presetsEndY
-        };
+        // Aggregate init in declaration order (designated initializers are
+        // C++20; the project builds at C++17 and MSVC rejects the extension
+        // GCC/Clang allow).
+        panelMetrics = { px, slidersEndY, buttonsRow1EndY, colorRowY, presetsEndY };
         
         // Create text labels with relative positioning
         createTextLabels();

@@ -655,6 +655,11 @@ if(UMBRA_BUILD_EXAMPLES)
         # UMBRA_WARN_FLAGS is defined before the examples section, so applying
         # it here keeps new examples covered with zero list maintenance.
         target_compile_options(${TARGET_NAME} PRIVATE ${UMBRA_WARN_FLAGS})
+        # SDL.h renames main -> SDL_main, so on Windows every executable
+        # target (not just sdl_app) must link SDL2main.lib for the real main.
+        if(TARGET SDL2::SDL2main)
+            target_link_libraries(${TARGET_NAME} PRIVATE SDL2::SDL2main)
+        endif()
         if(EMSCRIPTEN)
             target_link_libraries(${TARGET_NAME} PRIVATE box2d)
         endif()
@@ -774,6 +779,11 @@ function(add_umbra_game TARGET_NAME SOURCE_PATH)
     add_executable(${TARGET_NAME} ${SOURCE_PATH})
     target_link_libraries(${TARGET_NAME} PRIVATE umbra_engine)
     target_compile_options(${TARGET_NAME} PRIVATE ${UMBRA_WARN_FLAGS})
+    # SDL.h renames main -> SDL_main, so on Windows every executable
+    # target (not just sdl_app) must link SDL2main.lib for the real main.
+    if(TARGET SDL2::SDL2main)
+        target_link_libraries(${TARGET_NAME} PRIVATE SDL2::SDL2main)
+    endif()
     if(EMSCRIPTEN)
         target_link_libraries(${TARGET_NAME} PRIVATE box2d)
     endif()

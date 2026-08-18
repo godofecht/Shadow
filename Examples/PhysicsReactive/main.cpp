@@ -50,10 +50,10 @@ public:
         particles = std::make_shared<ParticleSystem>(2000);
 
         // Walls
-        walls.push_back(std::make_unique<PhysicsObject>(*world, 10, 350, 20, 700, false));
-        walls.push_back(std::make_unique<PhysicsObject>(*world, 690, 350, 20, 700, false));
-        walls.push_back(std::make_unique<PhysicsObject>(*world, 350, 10, 700, 20, false));
-        walls.push_back(std::make_unique<PhysicsObject>(*world, 350, 690, 700, 20, false));
+        walls.push_back(std::make_unique<PhysicsObject>(*world, 10.0f, 350.0f, 20.0f, 700.0f, false));
+        walls.push_back(std::make_unique<PhysicsObject>(*world, 690.0f, 350.0f, 20.0f, 700.0f, false));
+        walls.push_back(std::make_unique<PhysicsObject>(*world, 350.0f, 10.0f, 700.0f, 20.0f, false));
+        walls.push_back(std::make_unique<PhysicsObject>(*world, 350.0f, 690.0f, 700.0f, 20.0f, false));
 
         balls.push_back(std::make_unique<Ball>(*world, 350, 350, 15.0f, particles));
     }

@@ -60,7 +60,7 @@ public:
         // Create some world space points (a grid)
         for (int x = -500; x <= 500; x += 100) {
             for (int y = -500; y <= 500; y += 100) {
-                worldPoints.emplace_back(x, y);
+                worldPoints.emplace_back((float)x, (float)y);
             }
         }
     }
