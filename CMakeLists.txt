@@ -164,12 +164,17 @@ if(EMSCRIPTEN)
     # "'SDL2/SDL.h' file not found". Placed here (before any target is
     # created) so umbra_engine, sdl_app, examples, games, and tests all
     # inherit the flags.
+    #
+    # IMPORTANT: use the attached -sKEY=VALUE form. The spaced "-s KEY=VALUE"
+    # form splits into separate argv entries, and CMake deduplicates the
+    # repeated "-s" tokens so the KEY=VALUE words reach clang as bare
+    # filenames ("no such file or directory: 'USE_SDL_IMAGE=2'").
     add_compile_options(
-        -s USE_SDL=2
-        -s USE_SDL_IMAGE=2
-        -s SDL2_IMAGE_FORMATS=png
-        -s USE_SDL_TTF=2
-        -s USE_SDL_MIXER=2
+        -sUSE_SDL=2
+        -sUSE_SDL_IMAGE=2
+        -sSDL2_IMAGE_FORMATS=png
+        -sUSE_SDL_TTF=2
+        -sUSE_SDL_MIXER=2
     )
 elseif(MYGAME_VENDORED)
     # Vendored SDL2 (dependencies/ is the single canonical vendored location
