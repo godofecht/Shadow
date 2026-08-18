@@ -484,8 +484,12 @@ if(UMBRA_BUILD_TESTS)
         target_compile_definitions(sdl_app_backend_tests PRIVATE SHADOW_SOURCE_DIR="/")
         target_link_libraries(sdl_app_tests PRIVATE box2d)
         target_link_libraries(sdl_app_backend_tests PRIVATE box2d)
+        # MAXIMUM_MEMORY is 2 GiB because the ASan-instrumented tests add
+        # shadow-memory and redzone overhead; the previous 512 MiB cap made
+        # the Node run die with "Cannot enlarge memory ... limit is
+        # 536870912 bytes" (AddressSanitizer: out of memory).
         set(EMSCRIPTEN_TEST_LINK_FLAGS
-            "-fexceptions -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS=png -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=268435456 -s MAXIMUM_MEMORY=536870912 --preload-file ${CMAKE_CURRENT_SOURCE_DIR}/Examples@/Examples")
+            "-fexceptions -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS=png -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=268435456 -s MAXIMUM_MEMORY=2147483648 --preload-file ${CMAKE_CURRENT_SOURCE_DIR}/Examples@/Examples")
         set_target_properties(sdl_app_tests PROPERTIES
             LINK_FLAGS "${EMSCRIPTEN_TEST_LINK_FLAGS}"
             SUFFIX ".js"
@@ -815,7 +819,7 @@ endif()
 # Emscripten WASM build support
 # ============================================
 if(EMSCRIPTEN)
-    set(EMSCRIPTEN_LINK_FLAGS "-s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS=png -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=268435456 -s MAXIMUM_MEMORY=536870912 --preload-file ${CMAKE_SOURCE_DIR}/web/default.ttf@/default.ttf")
+    set(EMSCRIPTEN_LINK_FLAGS "-s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS=png -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=268435456 -s MAXIMUM_MEMORY=2147483648 --preload-file ${CMAKE_SOURCE_DIR}/web/default.ttf@/default.ttf")
 
     if(TARGET sdl_app)
         set_target_properties(sdl_app PROPERTIES
