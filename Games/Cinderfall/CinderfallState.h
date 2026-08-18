@@ -880,7 +880,7 @@ inline std::string State::serialize() const {
 }
 
 inline bool State::load(const std::string& data) {
-    int floor = 1, maxFloor = kMaxFloors, hp = kDefaultMaxHp, maxHp = kDefaultMaxHp, gold = 0, keys = 0;
+    int floor = 1, maxFloors = kMaxFloors, hp = kDefaultMaxHp, maxHp = kDefaultMaxHp, gold = 0, keys = 0;
     uint32_t seed = 0;
     std::istringstream iss(data);
     std::string line;
@@ -892,14 +892,14 @@ inline bool State::load(const std::string& data) {
         const std::string v = line.substr(eq + 1);
         if (k == "seed") seed = (uint32_t)std::stoul(v);
         else if (k == "floor") floor = std::stoi(v);
-        else if (k == "maxfloor") maxFloor = std::stoi(v);
+        else if (k == "maxfloor") maxFloors = std::stoi(v);
         else if (k == "hp") hp = std::stoi(v);
         else if (k == "maxhp") maxHp = std::stoi(v);
         else if (k == "gold") gold = std::stoi(v);
         else if (k == "keys") keys = std::stoi(v);
     }
     seed_ = seed;
-    this->maxFloor = maxFloor;
+    this->maxFloor = maxFloors;
     floorNum = std::max(1, floor);
     p.hp = std::max(0, hp);
     p.maxHp = std::max(1, maxHp);

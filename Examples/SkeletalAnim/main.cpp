@@ -52,14 +52,14 @@ public:
 
             // Backward pass
             joints[0] = origin;
-            for (std::size_t i = 0; i + 1 < n; i++) {
-                const std::size_t next = i + 1;
-                float dx = joints[next].x - joints[i].x;
-                float dy = joints[next].y - joints[i].y;
+            for (std::size_t j = 0; j + 1 < n; j++) {
+                const std::size_t next = j + 1;
+                float dx = joints[next].x - joints[j].x;
+                float dy = joints[next].y - joints[j].y;
                 float d = sqrt(dx*dx + dy*dy);
-                float r = lengths[i] / d;
-                joints[next].x = joints[i].x + dx * r;
-                joints[next].y = joints[i].y + dy * r;
+                float r = lengths[j] / d;
+                joints[next].x = joints[j].x + dx * r;
+                joints[next].y = joints[j].y + dy * r;
             }
 
             float lastDx = joints[n-1].x - targetX;

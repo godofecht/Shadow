@@ -314,7 +314,7 @@ public:
 
     void render(SDL_Renderer* sdl, int offsetX = 0, int offsetY = 0) const {
         for (const Particle& p : ps_) {
-            const int a = (int)(255.0f * (p.life / p.maxLife));
+            const Uint8 a = (Uint8)(255.0f * (p.life / p.maxLife));
             SDL_SetRenderDrawColor(sdl, p.color.r, p.color.g, p.color.b, a);
             const int s = (int)p.size;
             SDL_Rect r = {(int)p.x + offsetX - s / 2,

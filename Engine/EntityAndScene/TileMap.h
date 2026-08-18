@@ -15,8 +15,8 @@ class TileMap : public SimpleSprite
 public:
 
     // New constructor for (Renderer*, std::string)
-    TileMap(Renderer* renderer, const std::string& mapIdentifier)
-        : SimpleSprite(renderer, mapIdentifier)
+    TileMap(Renderer* _renderer, const std::string& mapIdentifier)
+        : SimpleSprite(_renderer, mapIdentifier)
     {
         // Initialize tileWidth, tileHeight, or load the map based on `mapIdentifier` as needed
         tileWidth = 32;  // Example default
@@ -33,7 +33,7 @@ public:
         this->mapData = _mapData;
     }
 
-    void renderAndRunScripts(Renderer* renderer) override
+    void renderAndRunScripts(Renderer* _renderer) override
     {
         if (!isActive || !isInitialized)
         {
@@ -43,7 +43,7 @@ public:
         tileWidth = static_cast<int>(getBounds().width / mapData[0].size());
         tileHeight = static_cast<int>(getBounds().height / mapData.size());
 
-        SDL_Renderer* sdlRenderer = renderer->renderer;
+        SDL_Renderer* sdlRenderer = _renderer->renderer;
         for (size_t i = 0; i < mapData.size(); ++i)
         {
             for (size_t j = 0; j < mapData[i].size(); ++j)

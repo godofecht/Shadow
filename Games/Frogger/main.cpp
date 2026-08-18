@@ -62,10 +62,10 @@ class Frogger : public Game2D {
     static constexpr float BOT_INTERVAL = 0.5f; // matches BFS time bucket
     static constexpr float BFS_STEP = 0.5f;
     static constexpr int BFS_STEPS = 20;       // 10s planning horizon
-    static constexpr float RIVER_TOP = 1;      // river rows 1..3
-    static constexpr float RIVER_BOT = 3;
-    static constexpr float ROAD_TOP = 5;       // road rows 5..9
-    static constexpr float ROAD_BOT = 9;
+    static constexpr int RIVER_TOP = 1;      // river rows 1..3
+    static constexpr int RIVER_BOT = 3;
+    static constexpr int ROAD_TOP = 5;       // road rows 5..9
+    static constexpr int ROAD_BOT = 9;
     static constexpr float FROG_HALF = CELL * 0.38f; // forgiving hitbox
 
     // ---- Feel (GameJuice) --------------------------------------------------

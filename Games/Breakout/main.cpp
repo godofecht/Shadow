@@ -213,7 +213,7 @@ public:
                 SDL_Rect rect = {x + sx + 1, y + sy + 1,
                                  tileSize * ((GRID_W - 4) / BRICK_COLS) - 2,
                                  tileSize - 2};
-                SDL_SetRenderDrawColor(sdl, 255, 90 + r * 30, 90 + r * 20, 255);
+                SDL_SetRenderDrawColor(sdl, 255, (Uint8)(90 + r * 30), (Uint8)(90 + r * 20), 255);
                 SDL_RenderFillRect(sdl, &rect);
             }
         }

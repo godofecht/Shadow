@@ -19,16 +19,16 @@ class Part : public Object
 {
 public:
 
-    Part (Renderer* renderer) : Object (renderer)
+    Part (Renderer* _renderer) : Object (_renderer)
     {
         
     }
 
     ~Part() override = default;
 
-    void renderAndRunScripts (Renderer* renderer) override
+    void renderAndRunScripts (Renderer* _renderer) override
     {
-        (void)renderer;
+        (void)_renderer;
     };
 };
 
@@ -61,8 +61,8 @@ class PhysicsComponent : public Component
 class SimpleSprite : public Object
 {
 public:
-    SimpleSprite (Renderer* renderer, const std::string& path, const std::string& _id)
-        : Object (renderer)
+    SimpleSprite (Renderer* _renderer, const std::string& path, const std::string& _id)
+        : Object (_renderer)
     {
         setId (_id);
         std::cout << "Creating object: " << _id << '\n';
@@ -71,8 +71,8 @@ public:
         isInitialized = true;
     }
 
-    SimpleSprite (Renderer* renderer, const std::string& _id)
-        : Object (renderer)
+    SimpleSprite (Renderer* _renderer, const std::string& _id)
+        : Object (_renderer)
     {
         setId (_id);
         std::cout << "Creating object: " << _id << '\n';
@@ -96,7 +96,7 @@ public:
     void attachScript (std::shared_ptr<Script> script) { scripts.push_back (std::move(script)); }
     std::vector<std::shared_ptr<Script>>& getScripts() { return scripts; }
 
-    void renderAndRunScripts (Renderer* renderer) override;
+    void renderAndRunScripts (Renderer* _renderer) override;
     void setActive (bool state) { isActive = state; }
     void destroy();
 
@@ -105,21 +105,21 @@ public:
 
     virtual void update (float deltaTime) { (void)deltaTime; }
 
-    Part* addPart (const std::string& path, const std::string& id)
+    Part* addPart (const std::string& path, const std::string& _id)
     {
         std::shared_ptr<Part> part = std::make_shared<Part>(getRenderer());
         part->loadBackgroundTexture (path);
-        part->setId (id);
+        part->setId (_id);
         // part->setScene (scene);
         parts.push_back (part);
         return parts.back().get();
     }
 
-    Part* getPart (const std::string& id)
+    Part* getPart (const std::string& _id)
     {
         for (auto& part : parts)
         {
-            if (part->getId() == id)
+            if (part->getId() == _id)
             {
                 return part.get();
             }

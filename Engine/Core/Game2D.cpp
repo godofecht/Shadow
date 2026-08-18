@@ -126,8 +126,8 @@ void Game2D::onStart() {
 void Game2D::initializeComponents() {
     // No TileMap needed - we render the grid directly
     auto scene = std::make_unique<Scene>();
-    auto assetManager = getAssetManager();
-    scene->setAssetManager(assetManager);
+    auto assetMgr = getAssetManager();
+    scene->setAssetManager(assetMgr);
     addScene(std::move(scene));
     
     lastFrameTime = SDL_GetTicks();

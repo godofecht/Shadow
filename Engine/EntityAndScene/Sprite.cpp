@@ -19,11 +19,11 @@ void SimpleSprite::setImage (const std::string& path)
     isInitialized = true;
 }
 
-void SimpleSprite::renderAndRunScripts (Renderer* renderer) // This not only renders but also runs the script
+void SimpleSprite::renderAndRunScripts (Renderer* _renderer) // This not only renders but also runs the script
 {
     if (!isActive) return;
 
-    renderer->copyTexture (getBackgroundTexture().texture, getBounds(), 0);
+    _renderer->copyTexture (getBackgroundTexture().texture, getBounds(), 0);
 
     for (auto& part : parts) // Render parts
     {
@@ -31,7 +31,7 @@ void SimpleSprite::renderAndRunScripts (Renderer* renderer) // This not only ren
         Rect<float> partBounds = part->getBounds();
         partBounds.x += parentBounds.x;
         partBounds.y += parentBounds.y;
-        renderer->copyTexture (part->getBackgroundTexture().texture, partBounds, part->getAngle() + getAngle());
+        _renderer->copyTexture (part->getBackgroundTexture().texture, partBounds, part->getAngle() + getAngle());
     }
     
     // if (texture.texture == nullptr)
