@@ -154,6 +154,23 @@ if(EMSCRIPTEN)
     set(SDL2_IMAGE_INCLUDE_DIRS "")
     set(SDL2_TTF_INCLUDE_DIRS "")
     set(SDL2_MIXER_INCLUDE_DIRS "")
+
+    # The SDL2/SDL2_image/SDL2_ttf/SDL2_mixer ports must be declared at
+    # COMPILE time, not just at link time. emcc only installs the port
+    # headers (sysroot/include/SDL2/ etc.) and adds -isystem for them when
+    # it sees the -s USE_* flags in the compile invocation. The engine and
+    # every example/game/test include <SDL2/SDL_*.h>, so with the flags
+    # confined to LINK_FLAGS the first compile failed with
+    # "'SDL2/SDL.h' file not found". Placed here (before any target is
+    # created) so umbra_engine, sdl_app, examples, games, and tests all
+    # inherit the flags.
+    add_compile_options(
+        -s USE_SDL=2
+        -s USE_SDL_IMAGE=2
+        -s SDL2_IMAGE_FORMATS=png
+        -s USE_SDL_TTF=2
+        -s USE_SDL_MIXER=2
+    )
 elseif(MYGAME_VENDORED)
     # Vendored SDL2 (dependencies/ is the single canonical vendored location
     # for all four SDL libraries: sdl, sdl-image, SDL_ttf, SDL2_mixer)

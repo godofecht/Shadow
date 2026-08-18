@@ -162,13 +162,13 @@ public:
         return mat;
     }
 
-    static Matrix4x4 projection (float fov, float aspect, float near, float far) {
+    static Matrix4x4 projection (float fov, float aspect, float nearPlane, float farPlane) {
         Matrix4x4 mat;
         float f = 1.0f / std::tan (fov / 2.0f);
         mat.m[0][0] = f / aspect;
         mat.m[1][1] = f;
-        mat.m[2][2] = (far + near) / (near - far);
-        mat.m[2][3] = (2.0f * far * near) / (near - far);
+        mat.m[2][2] = (farPlane + nearPlane) / (nearPlane - farPlane);
+        mat.m[2][3] = (2.0f * farPlane * nearPlane) / (nearPlane - farPlane);
         mat.m[3][2] = -1.0f;
         mat.m[3][3] = 0.0f;
         return mat;
