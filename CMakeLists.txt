@@ -387,7 +387,12 @@ add_executable(sdl_app main.cpp)
 target_link_libraries(sdl_app PRIVATE umbra_engine)
 target_compile_options(sdl_app PRIVATE ${UMBRA_WARN_FLAGS})
 if(EMSCRIPTEN)
-    target_link_libraries(sdl_app PRIVATE box2d SDL2 SDL2_image SDL2_ttf SDL2_mixer freetype harfbuzz z)
+    # SDL2/SDL2_image/SDL2_ttf/SDL2_mixer are pulled in by the -s USE_SDL*
+    # link flags (set below), NOT by explicit -lSDL2* names: the image/mixer
+    # ports are emitted with -png/-ogg suffixes, so -lSDL2_image would fail
+    # to resolve. box2d is the vendored static lib and still needs a direct
+    # link (umbra_engine links it PUBLIC, but explicit is harmless).
+    target_link_libraries(sdl_app PRIVATE box2d)
 endif()
 if(RTAUDIO_LIB)
     target_link_libraries(sdl_app PRIVATE ${RTAUDIO_LIB})
@@ -477,8 +482,8 @@ if(UMBRA_BUILD_TESTS)
         target_compile_options(sdl_app_backend_tests PRIVATE -fexceptions)
         target_compile_definitions(sdl_app_tests PRIVATE SHADOW_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
         target_compile_definitions(sdl_app_backend_tests PRIVATE SHADOW_SOURCE_DIR="/")
-        target_link_libraries(sdl_app_tests PRIVATE box2d SDL2 SDL2_image SDL2_ttf SDL2_mixer freetype harfbuzz z)
-        target_link_libraries(sdl_app_backend_tests PRIVATE box2d SDL2 SDL2_image SDL2_ttf SDL2_mixer freetype harfbuzz z)
+        target_link_libraries(sdl_app_tests PRIVATE box2d)
+        target_link_libraries(sdl_app_backend_tests PRIVATE box2d)
         set(EMSCRIPTEN_TEST_LINK_FLAGS
             "-fexceptions -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS=png -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=268435456 -s MAXIMUM_MEMORY=536870912 --preload-file ${CMAKE_CURRENT_SOURCE_DIR}/Examples@/Examples")
         set_target_properties(sdl_app_tests PROPERTIES
@@ -636,16 +641,7 @@ if(UMBRA_BUILD_EXAMPLES)
         # it here keeps new examples covered with zero list maintenance.
         target_compile_options(${TARGET_NAME} PRIVATE ${UMBRA_WARN_FLAGS})
         if(EMSCRIPTEN)
-            target_link_libraries(${TARGET_NAME} PRIVATE
-                box2d
-                SDL2
-                SDL2_image
-                SDL2_ttf
-                SDL2_mixer
-                freetype
-                harfbuzz
-                z
-            )
+            target_link_libraries(${TARGET_NAME} PRIVATE box2d)
         endif()
         list(APPEND UMBRA_EXAMPLE_TARGETS "${TARGET_NAME}")
         set(UMBRA_EXAMPLE_TARGETS "${UMBRA_EXAMPLE_TARGETS}" PARENT_SCOPE)
@@ -764,16 +760,7 @@ function(add_umbra_game TARGET_NAME SOURCE_PATH)
     target_link_libraries(${TARGET_NAME} PRIVATE umbra_engine)
     target_compile_options(${TARGET_NAME} PRIVATE ${UMBRA_WARN_FLAGS})
     if(EMSCRIPTEN)
-        target_link_libraries(${TARGET_NAME} PRIVATE
-            box2d
-            SDL2
-            SDL2_image
-            SDL2_ttf
-            SDL2_mixer
-            freetype
-            harfbuzz
-            z
-        )
+        target_link_libraries(${TARGET_NAME} PRIVATE box2d)
     endif()
 endfunction()
 
