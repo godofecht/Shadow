@@ -1,4 +1,8 @@
-#include <SDL.h>
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
+#pragma once
+
+#include <SDL2/SDL.h>
 
 class FPSCounter 
 {

@@ -1,8 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
-#include "Renderer.h"
-#include "Helpers.h"
-#include "Object.h"
-
+#include "Engine/Rendering/Renderer.h"
+#include "Engine/Core/Helpers.h"
+#include "Engine/EntityAndScene/Sprite.h"
 class TileMap : public SimpleSprite
 {
     std::vector<std::vector<float>> mapData;
@@ -27,9 +28,9 @@ public:
         isInitialized = true;
     }
 
-    void setTileMapData(const std::vector<std::vector<float>>& mapData)
+    void setTileMapData(const std::vector<std::vector<float>>& _mapData)
     {
-        this->mapData = mapData;
+        this->mapData = _mapData;
     }
 
     void renderAndRunScripts(Renderer* renderer) override
@@ -48,8 +49,8 @@ public:
             for (size_t j = 0; j < mapData[i].size(); ++j)
             {
                 SDL_Rect tileRect = {
-                    static_cast<int>(j * tileWidth),
-                    static_cast<int>(i * tileHeight),
+                    static_cast<int>(j * static_cast<std::size_t>(tileWidth)),
+                    static_cast<int>(i * static_cast<std::size_t>(tileHeight)),
                     tileWidth,
                     tileHeight
                 };

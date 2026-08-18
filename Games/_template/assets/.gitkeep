@@ -1,0 +1,3 @@
+# Game assets go here: PNG sprites, WAV/OGG audio, fonts.
+# Loaded from the working directory at runtime (run games from the
+# repo root, e.g. ./build/CoinCollector_game, so relative paths resolve).

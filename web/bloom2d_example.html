@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bloom 2d — Umbra Engine</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --text: #a0a0b0;
+            --text-bright: #e0e0e0;
+            --accent: #00ff88;
+            --accent-dim: #00ff8820;
+            --accent-border: #00ff8840;
+            --secondary: #00d9ff;
+            --code-bg: #11111a;
+        }
+
+        html, body {
+            height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            overflow: hidden;
+        }
+
+        .shell {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 1rem 1.25rem;
+            gap: 0.75rem;
+        }
+
+        /* ── header bar ── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .demo-title {
+            font-size: 0.9rem;
+            color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .demo-title .icon { opacity: 0.6; }
+
+        .status-badge {
+            font-size: 0.72rem;
+            color: var(--text);
+            padding: 0.2rem 0.55rem;
+            background: var(--code-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .status-badge.ready {
+            color: var(--accent);
+            border-color: var(--accent-border);
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav a {
+            font-size: 0.75rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.25rem 0.65rem;
+            background: var(--code-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+
+        .nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ── canvas frame ── */
+        .canvas-frame {
+            flex: 1;
+            position: relative;
+            border: 1px solid var(--accent-border);
+            border-radius: 6px;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+        }
+
+        canvas {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            outline: none;
+        }
+
+        /* loading overlay */
+        .loader {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: #000;
+            transition: opacity 0.4s;
+            z-index: 10;
+        }
+
+        .loader.hidden { opacity: 0; pointer-events: none; }
+
+        .loader-ring {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--accent-border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loader-text {
+            font-size: 0.75rem;
+            color: var(--text);
+        }
+
+        .progress-bar {
+            width: 180px;
+            height: 2px;
+            background: var(--accent-border);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.2s;
+        }
+
+        /* ── footer ── */
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            color: var(--text);
+            opacity: 0.6;
+        }
+
+        .footer-hint { font-size: 0.68rem; }
+    </style>
+</head>
+<body>
+    <div class="shell">
+
+        <div class="topbar">
+            <div class="demo-title">
+                <span class="icon">◈</span>
+                <span>Bloom 2d</span>
+                <span class="status-badge" id="status-badge">loading…</span>
+            </div>
+            <nav class="nav">
+                <a href="/Umbra/?v=2">← examples</a>
+                <a href="/" >home</a>
+            </nav>
+        </div>
+
+        <div class="canvas-frame" id="canvas-frame">
+            <div class="loader" id="loader">
+                <div class="loader-ring"></div>
+                <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+                <div class="loader-text" id="loader-text">downloading…</div>
+            </div>
+            <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+        </div>
+
+        <div class="footer">
+            <span>umbra engine · webassembly + webgl</span>
+            <span class="footer-hint">click canvas to capture input</span>
+        </div>
+
+    </div>
+
+    <script>
+        const statusBadge  = document.getElementById('status-badge');
+        const loader       = document.getElementById('loader');
+        const loaderText   = document.getElementById('loader-text');
+        const progressFill = document.getElementById('progress-fill');
+        const canvas       = document.getElementById('canvas');
+
+        canvas.addEventListener('webglcontextlost', e => {
+            alert('WebGL context lost — please reload.');
+            e.preventDefault();
+        }, false);
+
+        function setStatus(msg) {
+            if (!msg) {
+                // done loading
+                loader.classList.add('hidden');
+                statusBadge.textContent = 'running';
+                statusBadge.classList.add('ready');
+                return;
+            }
+            const match = msg.match(/([^(]+)\((\d+(\.\d+)?)\/((\d+))\)/);
+            if (match) {
+                const done  = parseFloat(match[2]);
+                const total = parseFloat(match[4]);
+                progressFill.style.width = (done / total * 100) + '%';
+                loaderText.textContent = match[1].trim();
+            } else {
+                loaderText.textContent = msg;
+            }
+        }
+
+        var Module = {
+            canvas: canvas,
+            setStatus: setStatus,
+            totalDependencies: 0,
+            monitorRunDependencies(remaining) {
+                this.totalDependencies = Math.max(this.totalDependencies, remaining);
+                setStatus(remaining
+                    ? 'Preparing… (' + (this.totalDependencies - remaining) + '/' + this.totalDependencies + ')'
+                    : '');
+            },
+            print(...args) { console.log(...args); },
+            printErr(...args) { console.error(...args); }
+        };
+
+        setStatus('Downloading…');
+        window.onerror = () => {
+            setStatus('error — see console');
+            statusBadge.textContent = 'error';
+        };
+    </script>
+    <script async src="bloom2d_example.js"></script>
+</body>
+</html>

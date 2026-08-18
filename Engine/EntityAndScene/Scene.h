@@ -1,12 +1,11 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
 #include <vector>
 #include <memory>
 #include <cassert>
-#include "AssetManager.h"
-#include "Object.h"
-#include "Sprite.h"
-
-class SimpleSprite;
+#include "Engine/Core/Object.h"
+#include "Engine/EntityAndScene/Sprite.h"
 class AssetManager;
 
 class Scene 
@@ -20,7 +19,7 @@ public:
 
     Scene() { initialize(); }
 
-    void setAssetManager (AssetManager* assetManager) { this->assetManager = assetManager; }
+    void setAssetManager (AssetManager* _assetManager) { this->assetManager = _assetManager; }
     AssetManager* getAssetManager() { return assetManager; }
     int getAssetCount() { return (int) sprites.size(); }
 

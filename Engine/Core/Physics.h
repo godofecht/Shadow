@@ -1,11 +1,15 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
 
 #include <box2d/box2d.h>
-#include <SDL_image.h>
-#include <SDL.h>
-#include <Box2D/Box2D.h>
-#include "Geometry.h"
-
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL.h>
+#include <vector>
+#include <iostream>
+#include <functional>
+#include <string>
+#include "Engine/Core/Geometry.h"
 enum BodyType
 {
     Static,
@@ -15,13 +19,15 @@ enum BodyType
 
 class Body
 {
-    const char* uid;
+    std::string uid;
 
-    b2BodyId bodyId;
-    b2BodyDef bodyDef;    
 public:
-    void setUid (const char* _uid) { uid = _uid; }
-    const char* getUid() { return uid; }
+    b2BodyId bodyId;
+    b2BodyDef bodyDef;
+    std::function<void()> onCollision;
+    
+    void setUid (const std::string& _uid) { uid = _uid; }
+    std::string getUid() { return uid; }
     b2BodyId getId() { return bodyId; }
     b2BodyDef getDef() { return bodyDef; }
     void setId (b2BodyId id) { bodyId = id; }
@@ -46,27 +52,51 @@ public:
     World()
     {
         def = b2DefaultWorldDef();
-        id = b2CreateWorld (&def);  
+        def.gravity.y = 10.0f;  // Set gravity
+        id = b2CreateWorld(&def);
+        
+        // Validate world creation (b2_maxWorlds = 128 in Box2D v3)
+        if (id.index1 == 0 || id.index1 > 128) {
+            std::cerr << "Box2D ERROR: World creation failed!" << '\n';
+            std::cerr << "  id.index1 = " << id.index1 << '\n';
+        }
     }
 
     void simulateStep()
     {
-        for (auto body : bodies)
-        {
-            b2Vec2 position = b2Body_GetPosition (body->getId());
-            b2Rot rotation = b2Body_GetRotation (body->getId());
-            printf ("%4.2f %4.2f %4.2f\n", position.x, position.y, b2Rot_GetAngle (rotation));     
+        // Only step if world is valid
+        if (id.index1 == 0 || id.index1 > 128) {
+            return;  // Skip simulation if world is invalid
         }
+        
         b2World_Step (id, timeStep, subStepCount);
+
+        // Basic Box2D v3 contact processing
+        b2ContactEvents events = b2World_GetContactEvents(id);
+        for (int i = 0; i < events.beginCount; ++i) {
+            b2ContactBeginTouchEvent* event = &events.beginEvents[i];
+
+            b2BodyId bodyA = b2Shape_GetBody(event->shapeIdA);
+            b2BodyId bodyB = b2Shape_GetBody(event->shapeIdB);
+
+            // Find bodies and trigger collision callbacks if they exist
+            for (auto body : bodies) {
+                if (body->bodyId.index1 == bodyA.index1 || 
+                    body->bodyId.index1 == bodyB.index1) {
+                    if (body->onCollision) body->onCollision();
+                }
+            }
+        }
+
     }
 
     void addBody (Body* body) { bodies.push_back (body); }
 
-    void deleteBodyWithId (const char* id)
+    void deleteBodyWithId (const std::string& _id)
     {
         for (auto it = bodies.begin(); it != bodies.end(); ++it)
         {
-            if ((*it)->getUid() == id)
+            if ((*it)->getUid() == _id)
             {
                 bodies.erase (it);
                 break;
@@ -83,19 +113,21 @@ public:
     {
         b2Vec2 origin = {0.0f, 0.0f};
 
-        auto bodyDef = b2DefaultBodyDef();
+        bodyDef = b2DefaultBodyDef();
         bodyDef.type = b2_dynamicBody;
         bodyDef.position = origin;
 
         setDef (bodyDef);
-        setId (b2CreateBody (world.getId(), &getDef()));
+        bodyId = b2CreateBody (world.getId(), &bodyDef);
 
         b2Polygon dynamicBox = b2MakeBox (1.0f, 1.0f);
         b2ShapeDef shapeDef = b2DefaultShapeDef();
         shapeDef.density = 1.0f;
         shapeDef.friction = 0.3f;
+        shapeDef.enableContactEvents = true;
 
-        b2CreatePolygonShape (getId(), &shapeDef, &dynamicBox);
+        b2CreatePolygonShape (bodyId, &shapeDef, &dynamicBox);
+        world.addBody(this);
     }
 };
 
@@ -108,6 +140,23 @@ public:
 
     PhysicsManager()
     {
-        std::cout << "Creating PhysicsManager" << std::endl;
+        std::cout << "Creating PhysicsManager" << '\n';
+    }
+};
+
+// For the showcase
+class PhysicsObject : public Body {
+public:
+    PhysicsObject(World& world, float x, float y, float w, float h, bool isDynamic) {
+        bodyDef = b2DefaultBodyDef();
+        bodyDef.type = isDynamic ? b2_dynamicBody : b2_staticBody;
+        bodyDef.position = { x, y };
+        bodyId = b2CreateBody(world.getId(), &bodyDef);
+
+        b2Polygon box = b2MakeBox(w / 2.0f, h / 2.0f);
+        b2ShapeDef shapeDef = b2DefaultShapeDef();
+        shapeDef.enableContactEvents = true;
+        b2CreatePolygonShape(bodyId, &shapeDef, &box);
+        world.addBody(this);
     }
 };

@@ -1,0 +1,59 @@
+# Valgrind memcheck suppressions for the Umbra (Shadow) game engine.
+#
+# Scope: third-party library allocation noise that valgrind's pointer
+# heuristics classify as "possibly lost" but that is not a real defect in
+# engine or test code. Used by the `linux-valgrind` CI job (see
+# .github/workflows/ci.yml), which on a TRIAL basis treats "possibly lost"
+# as an error so no real leak class can slip past both valgrind and LSan.
+#
+# Policy baked into every entry below:
+#   * match-leak-kinds: possible
+# Definite and indirect leaks are NEVER suppressed here - a real leak in
+# engine, test, or library code still fails the job. These blocks only
+# narrow the "possibly lost" class to the known SDL2/box2d allocation
+# paths, so genuine possible-loss bugs in first-party code still red.
+#
+# These were written from the well-known SDL2 / box2d allocation sites
+# (box2d routes all of its allocations through b2Alloc -> malloc; SDL2's
+# thread-local error buffer is allocated lazily by SDL_GetErrBuf and is
+# intentionally never freed). After the first real Linux CI run, refine
+# the frames to match the exact stacks valgrind reports if new library
+# noise appears:
+#
+#   make memcheck-suppressions    # Linux; runs --gen-suppressions=all and
+#                                 # appends new possible-only blocks here
+#
+# Manual equivalent (used only when the automated harvest is not enough):
+#
+#   valgrind --leak-check=full --show-leak-kinds=all --gen-suppressions=all \
+#       ./build-valgrind/sdl_app_tests
+#
+# then trim the generated blocks to the library frames only (never to
+# engine/test frames) and keep match-leak-kinds: possible. The automated
+# helper applies exactly that policy (possible-only, deduped, validated).
+
+# SDL2 thread-local error buffer - allocated on first SDL_SetError and
+# intentionally never freed (thread-exit cleanup only). Classified
+# "possibly lost" by valgrind; not a real leak.
+{
+   sdl2_threadlocal_error_buffer
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:SDL_GetErrBuf
+   ...
+}
+
+# box2d internal allocation via b2Alloc - the vendored box2d allocator
+# (b2BlockAllocator / b2ArenaAllocator chunk arenas and per-world pools).
+# Freed with the owning b2World; valgrind's interior-pointer heuristics
+# can classify the chunk arenas "possibly lost" at process exit.
+# Suppressed only for the "possible" kind.
+{
+   box2d_internal_b2Alloc_arena_chunks
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:b2Alloc
+   ...
+}

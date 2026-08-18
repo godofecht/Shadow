@@ -1,15 +1,15 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
 
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
-#include "TextWriter.h"
-#include "Geometry.h"
+#include "Engine/Core/Geometry.h"
 #include <cassert>
-#include "SDLManager.h"
-#include "Texture.h"
-
-class TextWriter;
+#include "Engine/Core/SDLManager.h"
+#include "Engine/ResourceHandling/Texture.h"
+#include "Engine/Text/TextWriter.h"
 class Renderer
 {
     std::unique_ptr<TextWriter> textWriter;
@@ -26,7 +26,7 @@ public:
 
         if (renderer == nullptr)
         {
-            std::cerr << "Renderer could not be created! SDL_Error: " << SDL_GetError() << std::endl;
+            std::cerr << "Renderer could not be created! SDL_Error: " << SDL_GetError() << '\n';
             return false;
         }
 
@@ -36,7 +36,7 @@ public:
         return true;
     }
 
-    void copyTexture (SDL_Texture* texture, Rect<float>& bounds, float rotation)
+    void copyTexture (SDL_Texture* texture, const Rect<float>& bounds, float rotation)
     {
         assert (renderer != nullptr);
         assert (texture != nullptr);
@@ -45,7 +45,7 @@ public:
         SDL_Point* center = nullptr;
 
         SDL_RendererFlip flip = SDL_FLIP_NONE;
-        SDL_Point calculatedCenter = { bounds.width / 2, bounds.height / 2 };
+        SDL_Point calculatedCenter = { static_cast<int>(bounds.width / 2), static_cast<int>(bounds.height / 2) };
         if (center == nullptr) center = &calculatedCenter;
         SDL_RenderCopyEx (renderer, texture, nullptr, &renderQuad, rotation, center, flip);
     }
@@ -66,7 +66,7 @@ public:
 
     void destroy() { SDL_DestroyRenderer (renderer); }
     void present() { SDL_RenderPresent (renderer); }
-    void reset()   { textWriter.reset(); }
+    void reset()   { textWriter = nullptr; }
 
     SDL_Renderer* renderer;
 };

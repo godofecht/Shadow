@@ -23,7 +23,7 @@
 
 #ifdef SDL_VIDEO_DRIVER_NGAGE
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "../SDL_sysvideo.h"
 #include "SDL_ngagevideo.h"

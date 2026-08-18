@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
-#include "Renderer.h"
-#include "Helpers.h"
-
+#include "Engine/Rendering/Renderer.h"
+#include "Engine/Core/Helpers.h"
 class Object
 {
     std::string id;
@@ -17,14 +18,15 @@ public:
     bool isActive = true;
 
     Object (Renderer* _renderer) : renderer (_renderer){}
+    virtual ~Object() = default;
 
     Renderer* getRenderer() { return renderer; }
     Texture& getBackgroundTexture() { return backgroundTexture; }
     Rect<float> getBounds() { return bounds; }
     float getAngle() { return angle; }
-    void setTexture (Texture& texture) { this->texture = texture; }
-    void setBounds (Rect<float> bounds) { this->bounds = bounds; }
-    void setAngle (float angle) { this->angle = angle; } //rotation is really in degrees
+    void setTexture (Texture& _texture) { this->texture = _texture; }
+    void setBounds (Rect<float> _bounds) { this->bounds = _bounds; }
+    void setAngle (float _angle) { this->angle = _angle; } //rotation is really in degrees
 
     void setSize (float width, float height)
     {
@@ -39,7 +41,7 @@ public:
         auto loadedSurface = loadSurfaceFromRenderer (path);
         if (loadedSurface == nullptr)
         {
-            std::cerr << "Unable to load image " << path << "! SDL_image Error: " << IMG_GetError() << std::endl;
+            std::cerr << "Unable to load image " << path << "! SDL_image Error: " << IMG_GetError() << '\n';
             return false;
         }
 
@@ -79,7 +81,7 @@ public:
     float getHeight() const { return bounds.height; }
 
     std::string getId() const { return id; }
-    void setId (const std::string& id) { this->id = id; }
+    void setId (const std::string& _id) { this->id = _id; }
 
     virtual void renderAndRunScripts (Renderer* renderer) = 0;
 };

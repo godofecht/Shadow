@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FLOW — Programming Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root { --bg-primary: #0d1117; --bg-secondary: #161b22; --bg-tertiary: #21262d; --border: #30363d; --text-primary: #e6edf3; --text-secondary: #8b949e; --accent: #58a6ff; --accent-hover: #79c0ff; --success: #3fb950; --error: #f85149; --purple: #a371f7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text-primary); }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+        .logo-text { font-weight: 600; font-size: 1.25rem; }
+        .logo-badge { background: var(--bg-tertiary); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; color: var(--text-secondary); border: 1px solid var(--border); }
+        .btn { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); font-family: inherit; font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.15s ease; }
+        .btn:hover { background: var(--border); }
+        .btn-primary { background: var(--accent); border-color: var(--accent); color: #000; }
+        .btn-primary:hover { background: var(--accent-hover); }
+        main { flex: 1; display: flex; }
+        .sidebar { width: 280px; background: var(--bg-secondary); border-right: 1px solid var(--border); padding: 1.5rem; overflow-y: auto; height: calc(100vh - 60px); position: sticky; top: 60px; }
+        .sidebar h3 { color: var(--text-secondary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600; }
+        .sidebar ul { list-style: none; margin-bottom: 1.5rem; }
+        .sidebar li { margin: 0.25rem 0; }
+        .sidebar a { color: var(--text-primary); text-decoration: none; font-size: 0.875rem; padding: 0.4rem 0; display: block; transition: color 0.15s; }
+        .sidebar a:hover { color: var(--accent); }
+        .content { flex: 1; padding: 2rem; max-width: 900px; }
+        .markdown-body { font-size: 1rem; line-height: 1.6; }
+        .markdown-body h1 { font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .markdown-body h2 { font-size: 1.5rem; margin: 2rem 0 1rem; }
+        .markdown-body h3 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; }
+        .markdown-body p { margin-bottom: 1rem; }
+        .markdown-body code { background: var(--bg-tertiary); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+        .markdown-body pre { background: var(--bg-tertiary); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; }
+        .markdown-body pre code { background: none; padding: 0; }
+        .markdown-body a { color: var(--accent); text-decoration: none; }
+        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body ul, .markdown-body ol { margin: 1rem 0; padding-left: 2rem; }
+        .markdown-body blockquote { border-left: 4px solid var(--border); padding-left: 1rem; margin: 1rem 0; color: var(--text-secondary); }
+        .file-viewer { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; min-height: 400px; }
+        @media (max-width: 768px) { main { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            <div class="logo-icon">F</div>
+            <span class="logo-text">FLOW</span>
+            <span class="logo-badge">v0.7.0</span>
+        </a>
+        <div class="header-actions">
+            <a href="/" class="btn">← Back</a>
+            <a href="https://github.com/godofecht" class="btn" target="_blank">GitHub</a>
+        </div>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('README.md'); return false;">📖 README</a></li>
+                <li><a href="#" onclick="loadDoc('getting-started.md'); return false;">🚀 Getting Started</a></li>
+                <li><a href="#" onclick="loadDoc('NEXT.md'); return false;">📋 What's Next</a></li>
+            </ul>
+            <h3>Language</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('LANGUAGE_SPEC.md'); return false;">Language Spec</a></li>
+                <li><a href="#" onclick="loadDoc('grammar.ebnf'); return false;">Grammar (EBNF)</a></li>
+                <li><a href="#" onclick="loadDoc('language/overview.md'); return false;">Overview</a></li>
+                <li><a href="#" onclick="loadDoc('language/syntax.md'); return false;">Syntax</a></li>
+                <li><a href="#" onclick="loadDoc('language/types.md'); return false;">Types</a></li>
+                <li><a href="#" onclick="loadDoc('language/functions.md'); return false;">Functions</a></li>
+                <li><a href="#" onclick="loadDoc('language/graphics.md'); return false;">Graphics API</a></li>
+            </ul>
+            <h3>Library</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('library/core.md'); return false;">Core</a></li>
+                <li><a href="#" onclick="loadDoc('library/autodiff.md'); return false;">Autodiff</a></li>
+                <li><a href="#" onclick="loadDoc('library/audio.md'); return false;">Audio DSP</a></li>
+                <li><a href="#" onclick="loadDoc('library/memory.md'); return false;">Memory</a></li>
+            </ul>
+            <h3>Tutorials</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('tutorials/beginner.md'); return false;">Beginner</a></li>
+                <li><a href="#" onclick="loadDoc('tutorials/intermediate.md'); return false;">Intermediate</a></li>
+                <li><a href="#" onclick="loadDoc('tutorials/advanced.md'); return false;">Advanced</a></li>
+            </ul>
+            <h3>Project</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('DEVELOPMENT.md'); return false;">Development</a></li>
+                <li><a href="#" onclick="loadDoc('project/CONTRIBUTING.md'); return false;">Contributing</a></li>
+                <li><a href="#" onclick="loadDoc('project/CHANGELOG.md'); return false;">Changelog</a></li>
+                <li><a href="#" onclick="loadDoc('project/AUDIT_2026-02-10.md'); return false;">Audit Report</a></li>
+            </ul>
+            <h3>Research</h3>
+            <ul>
+                <li><a href="#" onclick="loadDoc('research/FLOW_RESEARCH_PAPER.md'); return false;">Research Paper</a></li>
+                <li><a href="#" onclick="loadDoc('research/turing_proof.md'); return false;">Turing Proof</a></li>
+            </ul>
+        </aside>
+        <div class="content">
+            <div class="file-viewer" id="docViewer">
+                <div class="markdown-body" id="markdownContent">Loading...</div>
+            </div>
+        </div>
+    </main>
+    <script>
+        async function loadDoc(path) {
+            const content = document.getElementById('markdownContent');
+            content.innerHTML = '<p>Loading...</p>';
+            try {
+                const response = await fetch('docs/' + path);
+                if (!response.ok) throw new Error('Not found');
+                const text = await response.text();
+                content.innerHTML = marked.parse(text);
+            } catch (err) {
+                content.innerHTML = '<p style="color: var(--error)">Error: ' + err.message + '</p>';
+            }
+        }
+        loadDoc('README.md');
+    </script>
+</body>
+</html>

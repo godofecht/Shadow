@@ -1,22 +1,20 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #ifndef SDLAPP_H
 #define SDLAPP_H
 
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <memory>
 #include <string>
-#include "AssetManager.h"
-#include "CharacterControllerScript.h"
-#include "FlyControllerScript.h"
-#include "TextWriter.h"
-#include "SDLManager.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "FPSCounter.h"
-#include "AudioEngine.h"
-#include "Physics.h"
-#include "TileMap.h"
-
+#include "Engine/Core/AssetManager.h"
+#include "Engine/Text/TextWriter.h"
+#include "Engine/Core/SDLManager.h"
+#include "Engine/Core/FPSCounter.h"
+#include "Engine/Audio/AudioEngine.h"
+#include "Engine/Core/Physics.h"
+#include "Engine/EntityAndScene/Scene.h"
+#include "Engine/EntityAndScene/TileMap.h"
 class Window
 {
 public:
@@ -28,18 +26,18 @@ public:
 
     Window(){}
 
-    bool initialize (const char* title, int width, int height)
+    bool initialize (const char* _title, int width, int height)
     {
-        window = SDL_CreateWindow (title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow (_title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
         if (window == nullptr)
         {
-            std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
+            std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << '\n';
             return false;
         }
         screenWidth = (float) width;
         screenHeight = (float) height;
 
-        std::cout << "Window created." << std::endl;
+        std::cout << "Window created." << '\n';
         return true;
     }
 
@@ -52,27 +50,40 @@ public:
     }
 };
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+#endif
+
 class Game
 {
 public:
     Game(const char* title, int width, int height);
-    ~Game();
+    virtual ~Game();
     void run();
 
+    // Loop callback for Emscripten
+    static void loop(void* arg);
+    void mainLoop();
+
     void init();
-    void update(); //Called repeatedly
+    virtual void update(); //Called repeatedly
+    virtual void renderPostFX() {} // Called after update for full-screen effects
 
     Renderer* getRenderer()             {return renderer.get();}
     AssetManager* getAssetManager() {return assetManager.get();}
     AudioEngine* getAudioEngine()    {return audioEngine.get();}
 
-    void addScene (std::unique_ptr<Scene>& scene)
+    void addScene (std::unique_ptr<Scene>&& scene)
     {
         scenes.push_back (std::move (scene));
     }
     
-    void limitFPS (Uint32 fpsLimit)
+    void limitFPS (Uint32 _fpsLimit)
     {
+#ifdef __EMSCRIPTEN__
+        (void)_fpsLimit;
+        return;
+#else
         static Uint32 frameStart;
         static Uint32 frameTime;
 
@@ -82,10 +93,11 @@ public:
         frameTime = SDL_GetTicks() - frameStart;
 
         // If frame time is less than the desired frame time, delay the difference
-        if (frameTime < (1000 / fpsLimit))
+        if (frameTime < (1000 / _fpsLimit))
         {
-            SDL_Delay ((1000 / fpsLimit) - frameTime);
+            SDL_Delay ((1000 / _fpsLimit) - frameTime);
         }
+#endif
     }
 
     virtual void initializeComponents() {}
@@ -93,22 +105,7 @@ public:
     void drawFPS()
     {
         float fps = fpsCounter.getFPS();
-        std::wstring fpsText = L"FPS: " + std::to_wstring(fps);
-
-        int textHeight = 300;  // Adjust this value for the text box height
-
-        // Get the width and height of the text box
-        int textWidth = textHeight * 8.0f / 6.0f;  // Adjust this value as needed for the text box width
-
-        // Calculate the position for the top-right corner
-        float xPosition = screenWidth - textWidth; // 10-pixel margin from the right edge
-        float yPosition = textHeight; // 10-pixel margin from the top edge
-
-        // Set the bounds for the text
-        Rect<float> bounds(0, 0, textWidth, textHeight);
-
-        // Draw the text
-        // renderer->getTextWriter()->drawTextToRenderer (fpsText, renderer->renderer, bounds, "default.ttf");
+        (void)fps;
     }
     
     const char* title; //Window title
@@ -137,7 +134,7 @@ private:
     bool isInitialized = false;
 
     Uint32 fpsLimit = 60;
-    SDLManager sdlManager;
+    [[maybe_unused]] SDLManager sdlManager;
 };
 
 #endif

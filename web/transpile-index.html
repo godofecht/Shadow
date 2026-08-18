@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transpile — Documentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown-dark.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f; color: #a0a0b0; line-height: 1.6;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            margin-bottom: 2rem; padding-bottom: 1rem;
+            border-bottom: 1px solid #00ff8833;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+        }
+        h1 { color: #e0e0e0; font-size: 1.4rem; }
+        .tagline { color: #00ff88; opacity: 0.8; font-size: 0.9rem; }
+        .back-link {
+            display: inline-block; padding: 0.4rem 0.8rem;
+            background: #11111a; border: 1px solid #00ff8833;
+            border-radius: 4px; font-size: 0.8rem;
+            color: #a0a0b0; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .back-link:hover { color: #00ff88; border-color: #00ff88; }
+        .docs-layout { display: grid; grid-template-columns: 250px 1fr; gap: 2rem; }
+        .sidebar {
+            background: #11111a; border: 1px solid #00ff8833;
+            border-radius: 6px; padding: 1.5rem; height: fit-content;
+            position: sticky; top: 2rem;
+        }
+        .sidebar h3 { color: #e0e0e0; font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { margin: 0.5rem 0; }
+        .sidebar a {
+            color: #a0a0b0; text-decoration: none; font-size: 0.85rem;
+            display: block; padding: 0.4rem 0;
+            transition: color 0.2s;
+        }
+        .sidebar a:hover { color: #00ff88; }
+        .content {
+            background: #11111a; border: 1px solid #00ff8833;
+            border-radius: 6px; padding: 2rem;
+        }
+        .markdown-body { background: transparent !important; }
+        .markdown-body pre { background: #0a0a0f !important; }
+        .file-viewer {
+            background: #0a0a0f; border: 1px solid #00ff8833;
+            border-radius: 6px; padding: 1.5rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem; white-space: pre-wrap;
+            max-height: 600px; overflow: auto;
+        }
+        @media (max-width: 768px) {
+            .docs-layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>⚡ Transpile</h1>
+                <p class="tagline">Next-generation development tools</p>
+            </div>
+            <a href="/" class="back-link">← abhishek.shivakumar</a>
+        </header>
+
+        <div class="docs-layout">
+            <aside class="sidebar">
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="#" onclick="loadFile('README.md'); return false;">📖 README</a></li>
+                    <li><a href="#" onclick="loadFile('getting-started.md'); return false;">🚀 Getting Started</a></li>
+                    <li><a href="#" onclick="loadFile('LANGUAGE_SPEC.md'); return false;">📘 Language Spec</a></li>
+                    <li><a href="#" onclick="loadFile('comparison.md'); return false;">⚖️ Comparisons</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Tutorials</h3>
+                <ul>
+                    <li><a href="#" onclick="loadFile('tutorials/beginner.md'); return false;">Beginner</a></li>
+                    <li><a href="#" onclick="loadFile('tutorials/intermediate.md'); return false;">Intermediate</a></li>
+                    <li><a href="#" onclick="loadFile('tutorials/advanced.md'); return false;">Advanced</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Research</h3>
+                <ul>
+                    <li><a href="#" onclick="loadFile('research/FLOW_RESEARCH_PAPER.md'); return false;">Flow Paper</a></li>
+                    <li><a href="#" onclick="loadFile('research/turing_proof.md'); return false;">Turing Proof</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Project</h3>
+                <ul>
+                    <li><a href="#" onclick="loadFile('DEVELOPMENT.md'); return false;">Development</a></li>
+                    <li><a href="#" onclick="loadFile('CONTRIBUTING.md'); return false;">Contributing</a></li>
+                    <li><a href="#" onclick="loadFile('CHANGELOG.md'); return false;">Changelog</a></li>
+                </ul>
+            </aside>
+
+            <main class="content">
+                <div id="contentArea">
+                    <div class="file-viewer" id="fileViewer">
+Select a document from the sidebar to view...
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        async function loadFile(path) {
+            const viewer = document.getElementById('fileViewer');
+            viewer.textContent = 'Loading...';
+            
+            try {
+                const response = await fetch(path);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                viewer.textContent = text;
+            } catch (err) {
+                viewer.textContent = 'Error loading file: ' + err.message;
+            }
+        }
+
+        // Load README by default
+        loadFile('README.md');
+    </script>
+</body>
+</html>

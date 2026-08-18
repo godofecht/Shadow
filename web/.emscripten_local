@@ -1,0 +1,13 @@
+import os
+
+# Updated Emscripten configuration for Homebrew (macOS)
+LLVM_ROOT = '/opt/homebrew/opt/llvm/bin'
+BINARYEN_ROOT = '/opt/homebrew/opt/binaryen'
+NODE_JS = '/opt/homebrew/bin/node'
+
+EMSCRIPTEN_ROOT = '/opt/homebrew/Cellar/emscripten/5.0.0/libexec'
+SPIDERMONKEY_BIN = ''
+V8_ENGINE = ''
+TEMP_DIR = '/tmp'
+COMPILER_ENGINE = NODE_JS
+JS_ENGINES = [NODE_JS]

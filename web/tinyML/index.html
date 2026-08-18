@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tinyML - Neural Network Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --text: #a0a0b0;
+            --text-bright: #e0e0e0;
+            --accent: #00ff88;
+            --accent-dim: #00ff8833;
+            --secondary: #00d9ff;
+            --code-bg: #11111a;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent-dim);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-bright);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--accent);
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+
+        .back-link {
+            font-size: 0.8rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            background: var(--code-bg);
+            border: 1px solid var(--accent-dim);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--code-bg);
+            border: 1px solid var(--accent-dim);
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            color: var(--text-bright);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--accent-dim);
+        }
+
+        canvas {
+            width: 100%;
+            background: #000;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            background: rgba(0,0,0,0.3);
+            padding: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            margin-top: 0.25rem;
+        }
+
+        .xor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .xor-table th,
+        .xor-table td {
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--accent-dim);
+        }
+
+        .xor-table th {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .xor-table td {
+            color: var(--text-bright);
+        }
+
+        .xor-table td.expected {
+            color: var(--text);
+        }
+
+        .xor-table td.actual {
+            color: var(--accent);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--accent-dim);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>◈ tinyML</h1>
+                <p class="tagline">Neural Network from Scratch - XOR Problem</p>
+            </div>
+            <a href="/" class="back-link">← abhishek.shivakumar</a>
+        </header>
+
+        <div class="demo-grid">
+            <div class="card">
+                <h2>Network Architecture</h2>
+                <canvas id="networkCanvas" width="280" height="200"></canvas>
+                <div class="controls">
+                    <button id="trainBtn">Train 100 epochs</button>
+                    <button id="resetBtn">Reset</button>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-label">Epochs</div>
+                        <div class="stat-value" id="epochsStat">0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Error</div>
+                        <div class="stat-value" id="errorStat">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>XOR Predictions</h2>
+                <table class="xor-table">
+                    <thead>
+                        <tr>
+                            <th>Input A</th>
+                            <th>Input B</th>
+                            <th>Expected</th>
+                            <th>Output</th>
+                        </tr>
+                    </thead>
+                    <tbody id="xorTable">
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td class="expected">0</td>
+                            <td class="actual" id="out00">-</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td class="expected">1</td>
+                            <td class="actual" id="out01">-</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="expected">1</td>
+                            <td class="actual" id="out10">-</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td class="expected">0</td>
+                            <td class="actual" id="out11">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="controls">
+                    <button id="predictBtn">Update Predictions</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Decision Boundary</h2>
+            <canvas id="boundaryCanvas" width="400" height="300"></canvas>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading WASM module...</p>
+    </div>
+
+    <script>
+        // Network visualization
+        function drawNetwork() {
+            const canvas = document.getElementById('networkCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            // Simple static network diagram
+            const layerX = [60, width / 2, width - 60];
+            const layerSizes = [2, 4, 1];
+
+            // Draw connections
+            ctx.strokeStyle = '#00ff8833';
+            ctx.lineWidth = 1;
+
+            // Input to hidden
+            for (let i = 0; i < layerSizes[0]; i++) {
+                for (let h = 0; h < layerSizes[1]; h++) {
+                    ctx.beginPath();
+                    ctx.moveTo(layerX[0], height / 2 - (i - 0.5) * 60);
+                    ctx.lineTo(layerX[1], height / 2 - (h - 1.5) * 35);
+                    ctx.stroke();
+                }
+            }
+
+            // Hidden to output
+            for (let h = 0; h < layerSizes[1]; h++) {
+                ctx.beginPath();
+                ctx.moveTo(layerX[1], height / 2 - (h - 1.5) * 35);
+                ctx.lineTo(layerX[2], height / 2);
+                ctx.stroke();
+            }
+
+            // Draw neurons
+            layerSizes.forEach((size, layerIdx) => {
+                for (let i = 0; i < size; i++) {
+                    const x = layerX[layerIdx];
+                    const y = height / 2 - (i - (size - 1) / 2) * (layerIdx === 1 ? 35 : 60);
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, 12, 0, Math.PI * 2);
+                    ctx.fillStyle = '#11111a';
+                    ctx.fill();
+                    ctx.strokeStyle = '#00d9ff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    // Label
+                    ctx.fillStyle = '#e0e0e0';
+                    ctx.font = '10px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    const labels = [['A', 'B'], ['H1', 'H2', 'H3', 'H4'], ['Out']];
+                    if (labels[layerIdx] && labels[layerIdx][i]) {
+                        ctx.fillText(labels[layerIdx][i], x, y);
+                    }
+                }
+            });
+        }
+
+        // Decision boundary visualization
+        function drawBoundary() {
+            const canvas = document.getElementById('boundaryCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const resolution = 50;
+
+            for (let x = 0; x < resolution; x++) {
+                for (let y = 0; y < resolution; y++) {
+                    const inputX = x / resolution;
+                    const inputY = y / resolution;
+                    const output = parseFloat(Module.predict(inputX, inputY));
+
+                    const intensity = Math.floor(output * 255);
+                    ctx.fillStyle = `rgb(${intensity}, ${255 - intensity}, ${136})`;
+                    ctx.fillRect(x * (width / resolution), y * (height / resolution),
+                                width / resolution + 1, height / resolution + 1);
+                }
+            }
+
+            // Draw XOR points
+            const points = [[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]];
+            points.forEach(([x, y, label]) => {
+                ctx.beginPath();
+                ctx.arc(x * width, y * height, 8, 0, Math.PI * 2);
+                ctx.fillStyle = label ? '#00ff88' : '#ff6464';
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            });
+        }
+
+        // Update XOR table
+        function updateTable() {
+            document.getElementById('out00').textContent = Module.predict(0, 0).toFixed(4);
+            document.getElementById('out01').textContent = Module.predict(0, 1).toFixed(4);
+            document.getElementById('out10').textContent = Module.predict(1, 0).toFixed(4);
+            document.getElementById('out11').textContent = Module.predict(1, 1).toFixed(4);
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('epochsStat').textContent = Module.getEpochs();
+            document.getElementById('errorStat').textContent = Module.getError().toFixed(6);
+        }
+
+        // Training
+        function train() {
+            Module.trainStep(100, 0.1);
+            updateStats();
+            updateTable();
+            drawNetwork();
+            drawBoundary();
+        }
+
+        // Initialize
+        function init() {
+            Module.initNetwork();
+            updateStats();
+            updateTable();
+            drawNetwork();
+            drawBoundary();
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Event listeners
+        document.getElementById('trainBtn').addEventListener('click', train);
+        document.getElementById('resetBtn').addEventListener('click', init);
+        document.getElementById('predictBtn').addEventListener('click', updateTable);
+
+        // Auto-train every second
+        let autoTrain = setInterval(() => {
+            if (Module && Module.initNetwork) {
+                train();
+            }
+        }, 1000);
+    </script>
+    <script async src="nn_demo.js" onload="init()"></script>
+</body>
+</html>

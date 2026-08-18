@@ -1,0 +1,55 @@
+# One headless-capable target per line - the canonical SMOKE_TARGETS list.
+#
+# Single source of truth for the 24-name set that is otherwise duplicated
+# across the tree. Consumed by:
+#   - CMakeLists.txt, via file(STRINGS ... REGEX "^[A-Za-z0-9_]+$") at the
+#     top of the file (skips this header). It drives the smoke_* ctest
+#     entries (UMBRA_SANITIZE + UMBRA_BUILD_EXAMPLES), the
+#     sanitize_smoke_binaries build target, and the memcheck-examples
+#     target / memcheck_example_* ctest entries (Linux, valgrind).
+#   - The linux-sanitize and linux-ubsan CI jobs' "Assert smoke_* tests are
+#     registered (ctest -N)" steps, which read this file with
+#     `grep -v '^#'`, so the asserted names can never drift from what CMake
+#     actually registers.
+#   - The emscripten and emscripten-sanitize CI jobs, which derive their
+#     game build/smoke/artifact lists with `grep -v '^#' | grep '_game$'`,
+#     and tools/browser_smoke.py --targets-file (which filters to *_game),
+#     so the browser game list can never drift from the native one.
+#   - The *_example entries are validated by tools/check_example_registration.sh
+#     and the CMake examples gate: every entry must be a registered
+#     add_umbra_example target.
+#
+# tools/new_game.sh appends new games here automatically (the name must be
+# dash-free so it matches this file's read regex). CMake's configure gate
+# and tools/check_game_registration.sh both fail if a registered game is
+# missing from this list.
+#
+# Add a new headless-capable example or shipped game here and it is
+# automatically built, smoke-run (ASan+UBSan and UBSan-only), memchecked,
+# browser-built, browser-smoked, and asserted in CI.
+game_of_life_example
+fixed_timestep_example
+tictactoe_example
+minesweeper_example
+snake_example
+roguelike_example
+perlin_noise_example
+tank_and_bullet_example
+template_game
+Pong_game
+Breakout_game
+SpaceInvaders_game
+Tetris_game
+FlappyBird_game
+DoodleJump_game
+Asteroids_game
+PacMan_game
+MemoryMatch_game
+SimonSays_game
+WhackAMole_game
+Frogger_game
+PortalSnake_game
+Galaga_game
+2048_game
+BrickBreakerPlus_game
+Cinderfall_game

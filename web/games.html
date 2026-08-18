@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UMBRA ARCADE — 100 Game Program</title>
+<style>
+    :root {
+        --bg: #0a0a0f;
+        --panel: #10101a;
+        --panel-2: #151522;
+        --text: #a0a0b0;
+        --text-bright: #e8e8f0;
+        --accent: #00ff88;
+        --accent-dim: rgba(0, 255, 136, 0.12);
+        --cyan: #00d9ff;
+        --gold: #ffd257;
+        --red: #ff5c6c;
+        --dim: #55556a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'SF Mono', 'Fira Code', 'Consolas', ui-monospace, monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+        min-height: 100vh;
+        background-image:
+            radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,255,136,0.06), transparent),
+            radial-gradient(ellipse 60% 40% at 90% 110%, rgba(0,217,255,0.05), transparent);
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ---- header ---- */
+    header { margin-bottom: 2.2rem; }
+    .eyebrow {
+        font-size: 0.72rem; letter-spacing: 0.28em; color: var(--accent);
+        opacity: 0.85; margin-bottom: 0.6rem; text-transform: uppercase;
+    }
+    h1 {
+        font-size: 1.7rem; font-weight: 700; color: var(--text-bright);
+        letter-spacing: -0.5px;
+    }
+    h1 .mark { color: var(--accent); }
+    .sub { font-size: 0.85rem; margin-top: 0.5rem; max-width: 60ch; }
+    .sub b { color: var(--text-bright); font-weight: 600; }
+
+    /* ---- progress ---- */
+    .progress {
+        margin: 1.4rem 0 0.4rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    .progress .label { font-size: 0.78rem; color: var(--text); white-space: nowrap; }
+    .progress .bar {
+        flex: 1; height: 8px; border-radius: 4px; background: #181826;
+        overflow: hidden;
+    }
+    .progress .fill {
+        height: 100%; border-radius: 4px; width: 16%;
+        background: linear-gradient(90deg, var(--accent), var(--cyan));
+        box-shadow: 0 0 12px rgba(0,255,136,0.5);
+        transition: width 0.6s ease;
+    }
+    .progress .pct { font-size: 0.78rem; color: var(--accent); white-space: nowrap; }
+
+    /* ---- controls ---- */
+    .controls {
+        display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+        margin: 1.6rem 0 1.6rem;
+    }
+    .search {
+        flex: 1 1 240px; background: var(--panel); border: 1px solid #23233a;
+        border-radius: 8px; padding: 0.55rem 0.9rem; color: var(--text-bright);
+        font-family: inherit; font-size: 0.85rem; outline: none;
+    }
+    .search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+    .search::placeholder { color: var(--dim); }
+    .chip {
+        background: var(--panel); border: 1px solid #23233a; color: var(--text);
+        border-radius: 999px; padding: 0.45rem 0.85rem; font-size: 0.75rem;
+        font-family: inherit; cursor: pointer; transition: all 0.15s;
+    }
+    .chip:hover { border-color: #3a3a5a; color: var(--text-bright); }
+    .chip.on { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+    .count { margin-left: auto; font-size: 0.75rem; color: var(--dim); }
+
+    /* ---- sections ---- */
+    h2 {
+        font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--dim); margin: 2rem 0 1rem; display: flex; align-items: center;
+        gap: 0.7rem;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: #1c1c2c; }
+    h2 .n { color: var(--accent); }
+
+    .grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    /* ---- game card ---- */
+    .card {
+        background: var(--panel); border: 1px solid #1e1e30; border-radius: 12px;
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover {
+        transform: translateY(-3px); border-color: #2e2e4a;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px var(--accent-dim);
+    }
+    .card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+    .tile {
+        height: 110px; display: flex; align-items: center; justify-content: center;
+        position: relative; overflow: hidden;
+    }
+    .tile .icon { font-size: 2.6rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)); }
+    .tile .num {
+        position: absolute; top: 8px; left: 10px; font-size: 0.68rem;
+        letter-spacing: 0.1em; color: rgba(255,255,255,0.85);
+        background: rgba(0,0,0,0.35); padding: 2px 7px; border-radius: 999px;
+    }
+    .tile .flag {
+        position: absolute; top: 8px; right: 10px; font-size: 0.6rem;
+        letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+        background: rgba(0,0,0,0.4); padding: 2px 7px; border-radius: 999px;
+        border: 1px solid rgba(255,210,87,0.4);
+    }
+    .tile::after {
+        content: ""; position: absolute; inset: 0;
+        background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35));
+    }
+    .body { padding: 0.85rem 1rem 1rem; display: flex; flex-direction: column; flex: 1; gap: 0.45rem; }
+    .name { font-size: 0.95rem; font-weight: 700; color: var(--text-bright); }
+    .stars { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.15em; }
+    .pitch { font-size: 0.76rem; color: var(--text); flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.2rem; }
+    .tag {
+        font-size: 0.62rem; color: var(--cyan); background: rgba(0,217,255,0.08);
+        border: 1px solid rgba(0,217,255,0.2); padding: 2px 7px; border-radius: 999px;
+    }
+    .play {
+        margin-top: 0.6rem; text-align: center; padding: 0.5rem 0;
+        border-radius: 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+        color: #04140c; background: var(--accent); transition: filter 0.15s;
+    }
+    .card a:hover .play { filter: brightness(1.15); }
+    .play.disabled {
+        background: #1c1c2c; color: var(--dim); cursor: default; pointer-events: none;
+    }
+
+    /* ---- footer ---- */
+    footer { margin-top: 3rem; font-size: 0.72rem; color: var(--dim); line-height: 1.7; }
+    footer code {
+        background: var(--panel); border: 1px solid #1e1e30; padding: 1px 6px;
+        border-radius: 4px; color: var(--text);
+    }
+    .empty { text-align: center; padding: 3rem 0; color: var(--dim); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+    <div class="eyebrow">Umbra Engine · 100-game program</div>
+    <h1>UMBRA <span class="mark">ARCADE</span></h1>
+    <p class="sub">Every game ships to the <b>AAA-feel bar</b>: particles, screen shake, hit-stop,
+    floating text, and procedurally synthesized sound — plus a full <b>LLM action surface</b> for
+    agents to play them. Click <b>PLAY</b> to launch a game in your browser (WASM).</p>
+    <div class="progress">
+        <span class="label">PROGRESS</span>
+        <div class="bar"><div class="fill" id="progFill"></div></div>
+        <span class="pct" id="progPct"></span>
+    </div>
+</header>
+
+<div class="controls">
+    <input class="search" id="search" type="text" placeholder="Search games… (snake, puzzle, shooter, audio…)" autocomplete="off">
+    <button class="chip on" data-diff="all">All</button>
+    <button class="chip" data-diff="1">★ quick</button>
+    <button class="chip" data-diff="2">★★ afternoon</button>
+    <button class="chip" data-diff="3">★★★ weekend</button>
+    <span class="count" id="count"></span>
+</div>
+
+<div id="sections"></div>
+
+<footer>
+    <p>Play links expect the WASM builds in <code>web/</code> (games land in <code>web/games/&lt;name&gt;/index.html</code>).
+    Build everything with <code>./build_wasm.sh</code> or <code>make wasm</code>, then serve the folder:</p>
+    <p><code>cd web && python3 -m http.server 8000</code> → <code>http://localhost:8000/games.html</code></p>
+    <p>Every shipped game also exposes <code>getState()</code> + named actions (e.g. <code>move_left</code>, <code>place</code>,
+    <code>restart</code>) so LLM agents can play the exact same build. Pause with <b>P</b>, restart with <b>R</b>.</p>
+</footer>
+
+</div>
+
+<script>
+// ---------------------------------------------------------------------------
+// Game data. `href` is relative to web/; "" = not yet playable (greyed card).
+// `cat`: "flagship" | "shipped" | "next".
+// ---------------------------------------------------------------------------
+const GAMES = [
+    // ---- flagship ----------------------------------------------------------
+    { n: 0, name: "Cinderfall", href: "games/Cinderfall/index.html", cat: "flagship",
+      icon: "⚔️", diff: 3, pitch: "Top-down action roguelite: sword + dodge roll, three enemy types, locked doors and procedural floors.",
+      features: ["action", "roguelite", "procedural", "audio"], c: ["#e74c3c", "#8e2b1f"] },
+
+    // ---- shipped (15 of the 100) --------------------------------------------
+    { n: 1, name: "Snake", href: "snake.html", cat: "shipped",
+      icon: "🐍", diff: 1, pitch: "The arcade classic: eat, grow, speed up — walls and your own tail kill.",
+      features: ["grid", "arcade", "classic", "audio"], c: ["#2ecc71", "#14532d"] },
+    { n: 2, name: "Tic Tac Toe", href: "tictactoe.html", cat: "shipped",
+      icon: "✖️", diff: 1, pitch: "The duel classic: three in a row wins, with a session streak tally.",
+      features: ["grid", "duel", "classic", "audio"], c: ["#3498db", "#1b4a6b"] },
+    { n: 3, name: "Minesweeper", href: "minesweeper.html", cat: "shipped",
+      icon: "💣", diff: 1, pitch: "Flood-fill reveal, flags, chording, first-click safety and a sweep autopilot.",
+      features: ["grid", "logic", "mouse", "audio"], c: ["#9b59b6", "#4a235a"] },
+    { n: 4, name: "Roguelike", href: "roguelike.html", cat: "shipped",
+      icon: "⚔️", diff: 2, pitch: "Turn-based dungeon crawl: carve rooms, fight, hoard gold, descend to escape.",
+      features: ["tilemap", "rpg", "turn-based", "audio"], c: ["#e67e22", "#5e2e0f"] },
+    { n: 5, name: "Coin Collector", href: "", cat: "shipped",
+      icon: "🪙", diff: 1, pitch: "The starter template (native only): chase coins, avoid hazards, restart fast.",
+      features: ["template", "arcade", "classic"], c: ["#f1c40f", "#7d5a00"] },
+    { n: 6, name: "Pong", href: "games/Pong/index.html", cat: "shipped",
+      icon: "🏓", diff: 1, pitch: "Two paddles, one ball, first to 11 — serve, rally, score.",
+      features: ["physics", "duel", "classic", "audio"], c: ["#00d9ff", "#064e5c"] },
+    { n: 7, name: "Breakout", href: "games/Breakout/index.html", cat: "shipped",
+      icon: "🧱", diff: 1, pitch: "Bounce through a brick wall with full juice: shatter, shake, hit-stop.",
+      features: ["physics", "arcade", "classic", "audio"], c: ["#e84393", "#5c1a3f"] },
+    { n: 8, name: "Space Invaders", href: "games/SpaceInvaders/index.html", cat: "shipped",
+      icon: "👾", diff: 1, pitch: "Marching invaders, a player shooter, shields, saucer payoffs.",
+      features: ["shooter", "waves", "classic", "audio"], c: ["#00ff88", "#065c36"] },
+    { n: 9, name: "Tetris", href: "games/Tetris/index.html", cat: "shipped",
+      icon: "🧩", diff: 1, pitch: "SRS-style rotation and wall kicks, a hold queue, and line-clear fanfare.",
+      features: ["grid", "puzzle", "classic", "audio"], c: ["#8e44ad", "#3d1755"] },
+    { n: 10, name: "Flappy Bird", href: "games/FlappyBird/index.html", cat: "shipped",
+      icon: "🐦", diff: 1, pitch: "One button, one gap: gravity, procedural pipes, an autopilot smoke mode.",
+      features: ["arcade", "physics", "endless", "audio"], c: ["#f39c12", "#5e3a08"] },
+    { n: 11, name: "Doodle Jump", href: "games/DoodleJump/index.html", cat: "shipped",
+      icon: "🦘", diff: 1, pitch: "Bounce ever upward on procedural platforms, springs, and one-way pads.",
+      features: ["platform", "endless", "physics", "audio"], c: ["#1abc9c", "#0a4d42"] },
+    { n: 12, name: "Asteroids", href: "games/Asteroids/index.html", cat: "shipped",
+      icon: "🪐", diff: 1, pitch: "Thrust, drift, wrap: split rocks, a saucer, respawn-with-blink.",
+      features: ["shooter", "space", "physics", "audio"], c: ["#7f8c8d", "#2c3e50"] },
+    { n: 13, name: "Pac-Man", href: "games/PacMan/index.html", cat: "shipped",
+      icon: "👻", diff: 2, pitch: "A real maze, 197 pellets, and ghosts with scatter/chase/frightened AI.",
+      features: ["maze", "ghost-ai", "arcade", "audio"], c: ["#f1c40f", "#7d5a00"] },
+    { n: 14, name: "Memory Match", href: "games/MemoryMatch/index.html", cat: "shipped",
+      icon: "🃏", diff: 1, pitch: "Flip tiles, find pairs: combo streaks, three levels, a perfect-memory bot.",
+      features: ["grid", "memory", "mouse", "audio"], c: ["#16a085", "#0a4637"] },
+    { n: 15, name: "Simon Says", href: "games/SimonSays/index.html", cat: "shipped",
+      icon: "🎵", diff: 1, pitch: "Four tiles, four pitches: watch the growing sequence, replay it exactly.",
+      features: ["audio", "memory", "timing", "state-machine"], c: ["#e74c3c", "#5e1420"] },
+
+    // ---- up next ------------------------------------------------------------
+    { n: 16, name: "Whack-a-Mole", href: "games/WhackAMole/index.html", cat: "shipped",
+      icon: "🔨", diff: 1, pitch: "Whack moles before they hide: combos, lives, and a ramping pace.",
+      features: ["timers", "arcade", "classic", "audio"], c: ["#8e44ad", "#3d1755"] },
+    { n: 17, name: "Portal Snake", href: "games/PortalSnake/index.html", cat: "shipped",
+      icon: "🌀", diff: 1, pitch: "Snake where the edges are portals — slide through, grab the bonus.",
+      features: ["grid", "teleport", "classic", "audio"], c: ["#1abc9c", "#0a4d42"] },
+    { n: 18, name: "Frogger", href: "games/Frogger/index.html", cat: "shipped",
+      icon: "🐸", diff: 1, pitch: "Dodge traffic, ride logs, fill the goals — the BFS bot plays it too.",
+      features: ["movement", "colliders", "classic", "audio"], c: ["#27ae60", "#14532d"] },
+    { n: 19, name: "Brick Breaker+", href: "games/BrickBreakerPlus/index.html", cat: "shipped",
+      icon: "🧱", diff: 1, pitch: "Breakout with a drop/catch power-up economy — widen, split, slow, sticky catch, laser.",
+      features: ["power-ups", "arcade", "classic", "audio"], c: ["#e84393", "#4a0e2e"] },
+    { n: 20, name: "Galaga", href: "games/Galaga/index.html", cat: "shipped",
+      icon: "🛸", diff: 1, pitch: "Marching formation, diving bugs, and a two-shot ship: clear three waves.",
+      features: ["shooter", "waves", "formation", "audio"], c: ["#8e44ad", "#2a0f42"] },
+    { n: 21, name: "Split-Screen Pong", href: "", cat: "next",
+      icon: "🏓", diff: 1, pitch: "Two players, one keyboard.", features: ["dual-input"] },
+    { n: 22, name: "2048", href: "games/2048/index.html", cat: "shipped",
+      icon: "🔢", diff: 1, pitch: "Slide tiles, merge powers of two — pitched merges and a corner-seeking bot.",
+      features: ["grid", "swipe", "merge", "audio"], c: ["#e67e22", "#5e2e0f"] },
+    { n: 23, name: "Color Switch", href: "", cat: "next",
+      icon: "🌈", diff: 1, pitch: "Pass through same-colored rings.", features: ["color", "timing"] },
+    { n: 24, name: "Stacker", href: "", cat: "next",
+      icon: "📦", diff: 1, pitch: "Stack a shrinking row.", features: ["grid", "timing"] },
+    { n: 25, name: "Memory Simon", href: "", cat: "next",
+      icon: "🎹", diff: 1, pitch: "Simon with visual tiles.", features: ["audio", "visuals"] },
+];
+
+// ---------------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------------
+const CATS = [
+    { id: "flagship", title: "Flagship", show: g => g.cat === "flagship" },
+    { id: "shipped",  title: "Shipped",  show: g => g.cat === "shipped" },
+    { id: "next",     title: "Up next",  show: g => g.cat === "next" },
+];
+const shippedCount = GAMES.filter(g => g.cat === "shipped" || g.cat === "flagship").length;
+const total = 100;
+
+function stars(n) { return "★".repeat(n) + "☆".repeat(3 - n); }
+function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function cardHtml(g) {
+    const playable = !!g.href;
+    const num = g.n > 0 ? `#${g.n}` : "";
+    const flag = g.cat === "flagship" ? '<span class="flag">flagship</span>' : "";
+    const tags = g.features.map(t => `<span class="tag">${esc(t)}</span>`).join("");
+    const tileStyle = g.c ? `background:linear-gradient(135deg, ${g.c[0]}, ${g.c[1]})` : "background:#161622";
+    const body = `
+        <div class="tile" style="${tileStyle}">
+            <span class="icon">${g.icon}</span>
+            <span class="num">${num}</span>${flag}
+        </div>
+        <div class="body">
+            <div class="name">${esc(g.name)}</div>
+            ${g.diff ? `<div class="stars">${stars(g.diff)}</div>` : ""}
+            <div class="pitch">${esc(g.pitch)}</div>
+            <div class="tags">${tags}</div>
+            <div class="play ${playable ? "" : "disabled"}">${playable ? "▶ PLAY" : "in production"}</div>
+        </div>`;
+    if (playable) {
+        return `<div class="card"><a href="${g.href}" target="_blank" rel="noopener">${body}</a></div>`;
+    }
+    return `<div class="card">${body}</div>`;
+}
+
+let diffFilter = "all";
+let query = "";
+
+function render() {
+    const q = query.trim().toLowerCase();
+    const secs = document.getElementById("sections");
+    secs.innerHTML = "";
+    let shown = 0;
+
+    for (const cat of CATS) {
+        const games = GAMES.filter(g => cat.show(g) && (diffFilter === "all" || g.diff === +diffFilter)
+            && (!q || (g.name + " " + g.pitch + " " + g.features.join(" ")).toLowerCase().includes(q)));
+        if (games.length === 0) continue;
+        shown += games.length;
+        const sec = document.createElement("section");
+        sec.innerHTML = `<h2>${cat.title} <span class="n">${games.length}</span></h2><div class="grid">${games.map(cardHtml).join("")}</div>`;
+        secs.appendChild(sec);
+    }
+    if (shown === 0) {
+        secs.innerHTML = '<div class="empty">No games match — try clearing the filters.</div>';
+    }
+    document.getElementById("count").textContent = `${shown} shown`;
+}
+
+// Progress header.
+document.getElementById("progFill").style.width = (shippedCount / total * 100) + "%";
+document.getElementById("progPct").textContent = `${shippedCount} / ${total} shipped`;
+
+// Controls.
+document.getElementById("search").addEventListener("input", e => {
+    query = e.target.value;
+    render();
+});
+document.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+        document.querySelectorAll(".chip").forEach(c => c.classList.remove("on"));
+        chip.classList.add("on");
+        diffFilter = chip.dataset.diff;
+        render();
+    });
+});
+
+render();
+</script>
+</body>
+</html>

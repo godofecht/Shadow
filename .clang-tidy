@@ -1,0 +1,81 @@
+# clang-tidy configuration for the Umbra (Shadow) engine.
+#
+# Curated checkset: the bugprone, performance, modernize, and readability
+# families, minus the high-noise / pure-style checks (magic numbers, identifier
+# renaming, trailing return types, brace style, math-parenthesis pedantry,
+# const-correctness churn, etc.) so the remaining findings are actionable
+# bugs, safety issues, and clear wins.
+#
+# To run the whole tree (requires a compile database):
+#
+#   cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+#   run-clang-tidy -p build Engine Examples
+#
+# macOS note: brew's clang-tidy needs the Apple SDK passed explicitly,
+# otherwise SDL headers fail to find AvailabilityMacros.h and the corrupted
+# AST produces false positives (e.g. bogus bugprone-infinite-loop). Use the
+# two-argument form (NOT -isysroot=/path, which mangles into a missing
+# '=/path' sysroot):
+#
+#   SYSROOT=$(xcrun --show-sdk-path)
+#   run-clang-tidy -p build -extra-arg=-isysroot -extra-arg=$SYSROOT Engine Examples
+#
+# For a single file instead:
+#
+#   clang-tidy -p build -extra-arg=-isysroot -extra-arg=$SYSROOT Engine/Core/SDLApp.cpp
+#
+# CI should pin the clang-tidy version (verified against LLVM 22); findings
+# vary across clang-tidy releases.
+#
+# HeaderFilterRegex scopes diagnostics to our own headers - vendored
+# third-party code (box2d, SDL2, AudioFile.h) is only used for context,
+# never flagged. The default build (UMBRA_WERROR=ON) already fails on
+# compiler warnings; clang-tidy is a deeper, complementary pass.
+#
+# Known future work (intentionally excluded to keep default runs quiet):
+#   - modernize-avoid-c-style-cast      ~125 sites of (int)/(float) casts
+#   - readability-make-member-function-const  const-correctness churn
+#   - readability-simplify-boolean-expr / readability-implicit-bool-conversion
+---
+FormatStyle: none
+HeaderFilterRegex: 'Engine/.*|Examples/.*'
+WarningsAsErrors: ''
+Checks: >
+  bugprone-*,
+  performance-*,
+  modernize-*,
+  readability-*,
+  -bugprone-branch-clone,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-multi-level-implicit-pointer-conversion,
+  -bugprone-narrowing-conversions,
+  -bugprone-reserved-identifier,
+  -modernize-avoid-c-arrays,
+  -modernize-avoid-c-style-cast,
+  -modernize-pass-by-value,
+  -modernize-return-braced-init-list,
+  -modernize-use-auto,
+  -modernize-use-default-member-init,
+  -modernize-use-equals-default,
+  -modernize-use-nodiscard,
+  -modernize-use-trailing-return-type,
+  -performance-enum-size,
+  -readability-avoid-nested-conditional-operator,
+  -readability-braces-around-statements,
+  -readability-convert-member-functions-to-static,
+  -readability-else-after-return,
+  -readability-function-cognitive-complexity,
+  -readability-identifier-length,
+  -readability-identifier-naming,
+  -readability-implicit-bool-conversion,
+  -readability-inconsistent-declaration-parameter-name,
+  -readability-inconsistent-ifelse-braces,
+  -readability-isolate-declaration,
+  -readability-magic-numbers,
+  -readability-make-member-function-const,
+  -readability-math-missing-parentheses,
+  -readability-named-parameter,
+  -readability-qualified-auto,
+  -readability-simplify-boolean-expr,
+  -readability-uppercase-literal-suffix,
+  -readability-use-concise-preprocessor-directives

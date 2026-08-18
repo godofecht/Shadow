@@ -1,15 +1,20 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <string>
 #include <memory>
 #include <iostream>
 #include <mutex>
-#include "Scene.h"
-#include "Sprite.h"
 #include <unordered_map>
 #include <optional>
+
+class Scene;
+class SimpleSprite;
+class Object;
+class Renderer;
 
 template <typename Key, typename Value>
 class ThreadSafeUnorderedMap 
@@ -18,21 +23,21 @@ public:
     // Inserts or updates a key-value pair in the map
     void insert (const Key& key, const Value& value) 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         map_[key] = value;
     }
 
     // Erases an element by key if it exists
     void erase (const Key& key) 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         map_.erase (key);
     }
 
     // Retrieves the value associated with a key if it exists
     std::optional<Value> get (const Key& key) const 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         auto it = map_.find (key);
         if (it != map_.end()) 
         {
@@ -44,21 +49,21 @@ public:
     // Checks if a key exists in the map
     bool contains (const Key& key) const 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         return map_.find (key) != map_.end();
     }
 
     // Retrieves the current size of the map
     size_t size() const 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         return map_.size();
     }
 
     // Clears all elements from the map
     void clear() 
     {
-        std::lock_guard<std::mutex> lock (mutex_);
+        std::scoped_lock lock (mutex_);
         map_.clear();
     }
 
@@ -89,7 +94,7 @@ public:
     {
         auto existingAsset = assets.get(assetName);
         if (existingAsset) {
-            std::cerr << "Asset '" << assetName << "' already exists. Returning existing asset." << std::endl;
+            std::cerr << "Asset '" << assetName << "' already exists. Returning existing asset." << '\n';
             return std::dynamic_pointer_cast<T>(existingAsset.value());
         }
 
@@ -107,7 +112,7 @@ public:
         {
             return std::dynamic_pointer_cast<T>(asset.value());
         }
-        std::cerr << "Asset '" << assetName << "' not found." << std::endl;
+        std::cerr << "Asset '" << assetName << "' not found." << '\n';
         return nullptr;
     }
 

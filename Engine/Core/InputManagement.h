@@ -8,12 +8,13 @@
    - Hopefully Android!?
  */
 
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
 #include <unordered_map>
 #include <string>
-#include <SDL.h>
-#include "Geometry.h"
-
+#include <SDL2/SDL.h>
+#include "Engine/Core/Geometry.h"
 class Keys
 {
 public:
@@ -314,7 +315,7 @@ public:
     GamePad()
     {
         if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) != 0) {
-            std::cerr << "Failed to initialize SDL GameController: " << SDL_GetError() << std::endl;
+            std::cerr << "Failed to initialize SDL GameController: " << SDL_GetError() << '\n';
         }
 
         // Open all available controllers
@@ -324,9 +325,9 @@ public:
                 SDL_GameController* controller = SDL_GameControllerOpen(i);
                 if (controller) {
                     controllers.push_back(controller);
-                    std::cout << "Opened game controller: " << SDL_GameControllerName(controller) << std::endl;
+                    std::cout << "Opened game controller: " << SDL_GameControllerName(controller) << '\n';
                 } else {
-                    std::cerr << "Could not open game controller " << i << ": " << SDL_GetError() << std::endl;
+                    std::cerr << "Could not open game controller " << i << ": " << SDL_GetError() << '\n';
                 }
             }
         }
@@ -342,7 +343,7 @@ public:
 
     bool isButtonPressed(int controllerIndex, SDL_GameControllerButton button)
     {
-        if (controllerIndex < controllers.size() && controllers[controllerIndex]) {
+        if (controllerIndex >= 0 && static_cast<size_t>(controllerIndex) < controllers.size() && controllers[controllerIndex]) {
             return SDL_GameControllerGetButton(controllers[controllerIndex], button);
         }
         return false;
@@ -350,7 +351,7 @@ public:
 
     Sint16 getAxisState(int controllerIndex, SDL_GameControllerAxis axis)
     {
-        if (controllerIndex < controllers.size() && controllers[controllerIndex]) {
+        if (controllerIndex >= 0 && static_cast<size_t>(controllerIndex) < controllers.size() && controllers[controllerIndex]) {
             return SDL_GameControllerGetAxis(controllers[controllerIndex], axis);
         }
         return 0; // Neutral position if the controller or axis is not available
@@ -358,9 +359,9 @@ public:
 
     void printControllerInfo()
     {
-        for (int i = 0; i < controllers.size(); ++i) {
+        for (size_t i = 0; i < controllers.size(); ++i) {
             if (controllers[i]) {
-                std::cout << "Controller " << i << ": " << SDL_GameControllerName(controllers[i]) << std::endl;
+                std::cout << "Controller " << i << ": " << SDL_GameControllerName(controllers[i]) << '\n';
             }
         }
     }

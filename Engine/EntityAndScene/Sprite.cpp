@@ -1,12 +1,15 @@
-#include "Sprite.h"
-#include <SDL_image.h>
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
+
+#include "Engine/EntityAndScene/Sprite.h"
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include <cassert>
 
 void SimpleSprite::destroy()
 {
     //remove object from assetmanager
-    std::cout << "Destroying object: " << getId() << std::endl;
+    std::cout << "Destroying object: " << getId() << '\n';
     setActive (false);
 }
 
@@ -24,8 +27,8 @@ void SimpleSprite::renderAndRunScripts (Renderer* renderer) // This not only ren
 
     for (auto& part : parts) // Render parts
     {
-        auto& parentBounds = getBounds();
-        auto& partBounds = part->getBounds();
+        Rect<float> parentBounds = getBounds();
+        Rect<float> partBounds = part->getBounds();
         partBounds.x += parentBounds.x;
         partBounds.y += parentBounds.y;
         renderer->copyTexture (part->getBackgroundTexture().texture, partBounds, part->getAngle() + getAngle());

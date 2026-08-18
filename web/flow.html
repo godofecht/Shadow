@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flow — Programming Language</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0f; --text: #a0a0b0; --text-bright: #e0e0e0; --accent: #00ff88; --accent-dim: #00ff8833; --secondary: #00d9ff; --code-bg: #11111a; }
+        body { font-family: 'SF Mono', 'Fira Code', monospace; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent-dim); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+        h1 { font-size: 1.8rem; font-weight: 400; color: var(--text-bright); }
+        .tagline { font-size: 1rem; color: var(--accent); opacity: 0.8; margin-top: 0.25rem; }
+        .back-link { font-size: 0.8rem; color: var(--text); text-decoration: none; padding: 0.4rem 0.8rem; background: var(--code-bg); border: 1px solid var(--accent-dim); border-radius: 4px; transition: all 0.2s; }
+        .back-link:hover { color: var(--accent); border-color: var(--accent); }
+        .hero { text-align: center; padding: 3rem 0; }
+        .hero h2 { font-size: 2rem; color: var(--text-bright); margin-bottom: 0.5rem; }
+        .hero p { font-size: 1rem; opacity: 0.8; }
+        .docs-layout { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; margin-top: 2rem; }
+        .sidebar { background: var(--code-bg); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 1.5rem; height: fit-content; position: sticky; top: 2rem; }
+        .sidebar h3 { color: var(--text-bright); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { margin: 0.5rem 0; }
+        .sidebar a { color: var(--text); text-decoration: none; font-size: 0.85rem; display: block; padding: 0.4rem 0; transition: color 0.2s; }
+        .sidebar a:hover { color: var(--accent); }
+        .content { background: var(--code-bg); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 2rem; }
+        .content h2 { color: var(--text-bright); font-size: 1.2rem; margin-bottom: 1rem; }
+        .content p { margin-bottom: 1rem; opacity: 0.9; }
+        .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .quick-link { display: block; padding: 1.25rem; background: rgba(0,0,0,0.3); border: 1px solid var(--accent-dim); border-radius: 6px; text-decoration: none; color: var(--text-bright); transition: all 0.2s; }
+        .quick-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .quick-link h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .quick-link span { font-size: 0.75rem; opacity: 0.7; }
+        .file-viewer { background: #0a0a0f; border: 1px solid var(--accent-dim); border-radius: 6px; padding: 1.5rem; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85rem; white-space: pre-wrap; max-height: 70vh; overflow: auto; }
+        @media (max-width: 768px) { .docs-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>🌊 Flow</h1>
+                <p class="tagline">High-performance programming language</p>
+            </div>
+            <a href="/" class="back-link">← abhishek.shivakumar</a>
+        </header>
+
+        <div class="hero">
+            <h2>Welcome to Flow</h2>
+            <p>A modern programming language designed for performance, safety, and developer productivity.</p>
+        </div>
+
+        <div class="quick-links">
+            <a href="#viewer" onclick="loadFile('docs/README.md'); return false;" class="quick-link">
+                <h4>📖 Getting Started</h4>
+                <span>Installation & first program</span>
+            </a>
+            <a href="#viewer" onclick="loadFile('docs/LANGUAGE_SPEC.md'); return false;" class="quick-link">
+                <h4>📘 Language Spec</h4>
+                <span>Complete reference</span>
+            </a>
+            <a href="#viewer" onclick="loadFile('docs/grammar.ebnf'); return false;" class="quick-link">
+                <h4>📐 Grammar</h4>
+                <span>Formal EBNF specification</span>
+            </a>
+            <a href="#viewer" onclick="loadFile('docs/tutorials/beginner.md'); return false;" class="quick-link">
+                <h4>🎓 Tutorials</h4>
+                <span>Learn by doing</span>
+            </a>
+        </div>
+
+        <div class="docs-layout">
+            <aside class="sidebar">
+                <h3>Quick Start</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/README.md'); return false;">📖 README</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/getting-started.md'); return false;">🚀 Getting Started</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/NEXT.md'); return false;">📋 What's Next</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Language</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/LANGUAGE_SPEC.md'); return false;">Language Spec</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/grammar.ebnf'); return false;">Grammar (EBNF)</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/language/overview.md'); return false;">Overview</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/language/syntax.md'); return false;">Syntax</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/language/types.md'); return false;">Types</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/language/functions.md'); return false;">Functions</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/language/graphics.md'); return false;">Graphics API</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Library</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/library/core.md'); return false;">Core</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/library/autodiff.md'); return false;">Autodiff</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/library/audio.md'); return false;">Audio DSP</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/library/memory.md'); return false;">Memory</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Tutorials</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/tutorials/beginner.md'); return false;">Beginner</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/tutorials/intermediate.md'); return false;">Intermediate</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/tutorials/advanced.md'); return false;">Advanced</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Project</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/DEVELOPMENT.md'); return false;">Development</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/project/CONTRIBUTING.md'); return false;">Contributing</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/project/CHANGELOG.md'); return false;">Changelog</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/project/AUDIT_2026-02-10.md'); return false;">Audit Report</a></li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">Research</h3>
+                <ul>
+                    <li><a href="#viewer" onclick="loadFile('docs/research/FLOW_RESEARCH_PAPER.md'); return false;">Research Paper</a></li>
+                    <li><a href="#viewer" onclick="loadFile('docs/research/turing_proof.md'); return false;">Turing Proof</a></li>
+                </ul>
+            </aside>
+
+            <main class="content" id="viewer">
+                <div class="file-viewer" id="fileViewer">
+Select a document from the sidebar to view...
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        async function loadFile(path) {
+            const viewer = document.getElementById('fileViewer');
+            viewer.textContent = 'Loading...';
+            try {
+                const response = await fetch(path);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                viewer.textContent = text;
+                window.location.hash = 'viewer';
+            } catch (err) {
+                viewer.textContent = 'Error loading file: ' + err.message;
+            }
+        }
+        // Load README by default
+        loadFile('docs/README.md');
+    </script>
+</body>
+</html>

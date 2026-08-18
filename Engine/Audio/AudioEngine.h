@@ -304,9 +304,12 @@
 //     }
 // };
 
-#include "AudioFile.h" // For WAV file loading
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
+
+#include "Engine/Audio/AudioFile.h"  // For WAV file loading
 #include <SDL2/SDL.h>
-#include <SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -320,12 +323,12 @@ class AudioPlayer
 public:
     AudioPlayer (const std::string &filePath, const std::string &_id) : id (_id)
     {
-        if (filePath.substr (filePath.find_last_of (".") + 1) == "mp3" || filePath.substr(filePath.find_last_of(".") + 1) == "ogg") {
+        if (filePath.substr (filePath.find_last_of ('.') + 1) == "mp3" || filePath.substr(filePath.find_last_of('.') + 1) == "ogg") {
             isMusic = true;
             music = Mix_LoadMUS (filePath.c_str());
             if (!music) 
             {
-                std::cerr << "Failed to load music file: " << Mix_GetError() << std::endl;
+                std::cerr << "Failed to load music file: " << Mix_GetError() << '\n';
             }
         } 
         else 
@@ -334,7 +337,7 @@ public:
             chunk = Mix_LoadWAV (filePath.c_str());
             if (!chunk) 
             {
-                std::cerr << "Failed to load WAV file: " << Mix_GetError() << std::endl;
+                std::cerr << "Failed to load WAV file: " << Mix_GetError() << '\n';
             }
         }
     }
@@ -390,27 +393,27 @@ public:
 
     AudioMediaGroup (const std::string &_id) : id(_id) {}
 
-    void addAudioPlayer (const std::string &filePath, const std::string &id)
+    void addAudioPlayer (const std::string &filePath, const std::string &_id)
     {
-        audioPlayers.emplace_back (filePath, id);
+        audioPlayers.emplace_back (filePath, _id);
     }
 
-    void playAudio (const std::string &id, bool loop = false)
+    void playAudio (const std::string &_id, bool loop = false)
     {
         for (auto &player : audioPlayers)
         {
-            if (player.getId() == id)
+            if (player.getId() == _id)
             {
                 player.play(loop);
             }
         }
     }
 
-    void stopAudio(const std::string &id)
+    void stopAudio(const std::string &_id)
     {
         for (auto &player : audioPlayers)
         {
-            if (player.getId() == id)
+            if (player.getId() == _id)
             {
                 player.stop();
             }
@@ -433,12 +436,12 @@ public:
         // Initialize SDL and SDL_mixer
         if (SDL_Init (SDL_INIT_AUDIO) < 0) 
         {
-            std::cerr << "Failed to initialize SDL: " << SDL_GetError() << std::endl;
+            std::cerr << "Failed to initialize SDL: " << SDL_GetError() << '\n';
             return false;
         }
         if (Mix_OpenAudio (44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) 
         {
-            std::cerr << "Failed to initialize SDL_mixer: " << Mix_GetError() << std::endl;
+            std::cerr << "Failed to initialize SDL_mixer: " << Mix_GetError() << '\n';
             return false;
         }
         return true;
@@ -471,7 +474,7 @@ public:
 
     AudioMediaGroup& getAudioMediaGroupByIndex (int index)
     {
-        return audioMediaGroups[index];
+        return audioMediaGroups[static_cast<std::size_t>(index)];
     }
 
     void playAudioInGroup (const std::string &groupId, const std::string &audioId, bool loop = false)

@@ -1,0 +1,851 @@
+# CI for the Umbra (Shadow) game engine.
+#
+# Native jobs build the engine, ALL example games, and the test suite on
+# Linux, macOS and Windows, then run ctest. Five memory passes cover what
+# compiler warnings cannot find:
+#   - linux-sanitize: ASan + UBSan over the unit tests PLUS a few headless
+#     example binaries (SDL dummy video/audio drivers, killed after a few
+#     seconds) so example code paths the unit tests never touch are checked.
+#   - linux-ubsan: UBSan alone with -fno-sanitize-recover=all so
+#     signed-integer-overflow / float-cast-overflow bugs that ASan+UBSan's
+#     halt_on_error might mask get caught separately - runs the same
+#     headless smoke binaries as linux-sanitize, so example code paths get
+#     both memory checkers AND both sanitizer configurations.
+#   - linux-valgrind: Valgrind memcheck over the unit tests - a different
+#     mechanism (dynamic binary instrumentation vs. compiler
+#     instrumentation) that catches uninitialized reads and definite /
+#     indirect / possibly-lost leaks ASan does not (possible-loss noise
+#     from SDL2/box2d is suppressed via valgrind.supp).
+#   - linux-valgrind-examples: the same headless example binaries as
+#     linux-sanitize run under Valgrind memcheck with SDL dummy drivers, so
+#     example code paths get BOTH memory checkers.
+#   - emscripten-sanitize: the WASM build path compiled with Emscripten ASan,
+#     unit tests executed headless in Node to catch memory errors in the
+#     browser build path.
+#
+# The Emscripten job verifies the WASM build path (which needs emsdk and
+# can't run natively).
+#
+# UMBRA_WERROR is pinned ON everywhere (it is also the CMake default): GCC /
+# Clang build with -Werror and MSVC with /WX, so a new compiler warning
+# anywhere in the engine, app, examples, or tests fails CI instead of
+# silently creeping back in.
+#
+# System SDL2 packages are used everywhere:
+#   - Linux:  apt (Ubuntu 24.04 ships CMake configs for all four SDL2 libs)
+#   - macOS:  Homebrew
+#   - Windows: vcpkg (manifest mode via vcpkg.json)
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    name: Linux (GCC)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run pre-commit sanity gates (make verify-all)
+        # The exact combined command contributors run locally before every
+        # commit - make verify-all chains check-games (every shipped Games/
+        # dir in cmake/smoke_targets.txt), check-examples (every Examples/
+        # dir registered via add_umbra_example), check-layout (no
+        # root-level vendored dirs and no stale vendored path references -
+        # dependencies/ is the single canonical vendored location),
+        # check-docs (every 'make <target>' documented in CONTRIBUTING.md's
+        # recipe must exist in the Makefile - the docs can't drift from the
+        # build surface), and check-github (every CI job referenced in the
+        # .github/*.md templates exists as a job, and every CODEOWNERS
+        # handle is declared in MAINTAINERS). check-github also pins both
+        # required-check lists to EXPECTED_CHECK_COUNT entries (default-on,
+        # single source of truth in the script). Each gate mirrors a CMake
+        # configure-time guard but
+        # runs BEFORE configure, so a PR that breaks any of them fails in
+        # seconds with a full diagnosis instead of a mid-configure
+        # FATAL_ERROR. make stops on the first failing gate.
+        run: make verify-all
+
+      - name: Run check-github regression harness (make test-github)
+        # The gate's own offline test suite: rebuilds a scratch fixture from
+        # the real .github/ metadata and asserts the pristine tree passes
+        # while three mutations (missing job, wrong count, set disagreement)
+        # each fail the gate. A regression in check_github_meta.sh itself -
+        # or an accidental drift in the real files it reads - fails here in
+        # seconds instead of silently weakening the pre-commit gates. Needs
+        # no build and no network, so it runs before configure like
+        # verify-all.
+        run: make test-github
+
+      - name: Install SDL2 dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DUMBRA_WERROR=ON
+
+      - name: Assert gate_regression test is registered (ctest -N)
+        # Mirrors the sanitize_path_*/smoke_*/memcheck_path_* guards: a
+        # registration regression (e.g. the add_test block getting re-nested
+        # or accidentally re-gated) would otherwise silently drop the
+        # shell-level gate regression from the plain ctest run while the job
+        # stays green. ctest -N lists registered tests without running them;
+        # the actual run happens in the "Run tests" step below.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build -N)"
+          if ! grep -qF "gate_regression" <<<"${listed}"; then
+            echo "::error::gate_regression test not found in ctest -N - the add_test in CMakeLists.txt was dropped or re-gated" >&2
+            echo "${listed}" >&2
+            exit 1
+          fi
+          echo "OK: gate_regression registered"
+
+      - name: Build engine, all examples, and tests
+        run: cmake --build build --parallel 4
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure
+
+  test-coverage:
+    # PR-only gate: a PR that changes engine or game code must also touch a
+    # test file, so new behavior lands with coverage instead of being found
+    # later by a failing build. Its own job (full-history checkout, no build)
+    # so it fails in seconds and doesn't force the linux job into a deep
+    # fetch. Only meaningful on pull_request: a push to main has no PR base
+    # to diff against.
+    name: Test coverage gate (PR only)
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so the PR base SHA is resolvable
+
+      - name: Assert code changes come with tests
+        # git diff --diff-filter=ACMR (added/modified/renamed only) over the
+        # three-dot base...head range = exactly what this PR changed. Fails
+        # if Engine/ or Games/ source changed but no tests/ file did; a
+        # broken diff (missing base ref) fails loudly instead of silently
+        # passing.
+        run: tools/check_test_coverage.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
+
+  linux-sanitize:
+    # ASan + UBSan pass: catches memory errors and undefined behavior in the
+    # engine, tests, AND a few headless example binaries the unit tests never
+    # touch. UMBRA_SANITIZE wires the sanitizer set into every first-party
+    # target and is GCC/Clang-only. Example runs use SDL's dummy video/audio
+    # drivers (the engine falls back to the software renderer when no
+    # accelerated driver exists) and are killed after a few seconds - a clean
+    # timeout means the example looped through its update/render paths
+    # without crashing.
+    name: Linux (ASan+UBSan)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Install SDL2 dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
+      - name: Configure (Debug + sanitizers)
+        # Debug keeps -fno-omit-frame-pointer stack traces readable.
+        run: cmake -S . -B build-sanitize -G Ninja -DCMAKE_BUILD_TYPE=Debug -DUMBRA_SANITIZE=ON -DUMBRA_WERROR=ON -DUMBRA_BUILD_EXAMPLES=ON
+
+      - name: Build engine, tests, headless examples, and games (instrumented)
+        # sanitize_smoke_binaries (registered in CMakeLists when
+        # UMBRA_SANITIZE=ON + UMBRA_BUILD_EXAMPLES=ON) depends on exactly the
+        # headless-capable examples plus the 100-game program's shipped games
+        # (template_game + every Games/* game, which have PONG_SMOKE=1
+        # autoplay hooks) - one list in CMake instead of a duplicated CI
+        # target list.
+        run: cmake --build build-sanitize --parallel 4 --target sdl_app_tests sdl_app_backend_tests sanitize_smoke_binaries
+
+      - name: Assert sanitize_path_* tests are registered (ctest -N)
+        # The four sanitize_path_* entries pin the exact code paths whose
+        # bugs the sanitizers caught (GameJuice floating-text alpha, Space
+        # Invaders bomb-hit clear, Pac-Man no-heading ghost targeting,
+        # InputManager mouse-button bounds).
+        # `ctest --output-on-failure` below runs them, but ctest silently
+        # succeeds when a registration is missing - this guard lists the
+        # registered tests and fails if any name is absent, mirroring the
+        # linux-valgrind assertion.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-sanitize -N)"
+          for t in \
+              sanitize_path_gamejuice_floating_text \
+              sanitize_path_invaders_bombs \
+              sanitize_path_pacman_ghost_target \
+              sanitize_path_input_mouse_bounds; do
+            if ! grep -qF "${t}" <<<"${listed}"; then
+              echo "::error::sanitize ctest entry '${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: ${t}"
+          done
+
+      - name: Assert smoke_* tests are registered (ctest -N)
+        # Same guard as sanitize_path_* above, for the smoke_* entries: a
+        # registration regression (e.g. the block getting re-nested) would
+        # otherwise silently lose example/game sanitizer coverage while ctest
+        # stays green. The asserted names are NOT hardcoded here - they are
+        # read from cmake/smoke_targets.txt, the single source that
+        # CMakeLists.txt reads into SMOKE_TARGETS, so the assertion can never
+        # drift from what CMake actually registers.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-sanitize -N)"
+          while IFS= read -r t; do
+            [ -z "${t}" ] && continue
+            if ! grep -qF "smoke_${t}" <<<"${listed}"; then
+              echo "::error::smoke ctest entry 'smoke_${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: smoke_${t}"
+          done < <(grep -v '^#' cmake/smoke_targets.txt)
+
+      - name: Run tests under ASan+UBSan
+        # halt_on_error makes the first UB violation abort (non-zero exit);
+        # detect_leaks=1 is supported on Linux (macOS lacks LSan). -E '^smoke'
+        # excludes the smoke_* entries - they have their own step below with
+        # the same sanitizer env (set inside cmake/smoke.cmake).
+        env:
+          ASAN_OPTIONS: detect_leaks=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        run: ctest --test-dir build-sanitize -E '^smoke' --output-on-failure
+
+      - name: Run headless examples and games under ASan+UBSan
+        # Each example/game binary runs for 5s under SDL's dummy video/audio
+        # drivers (the engine falls back to the software renderer) and is
+        # killed by GNU timeout; games run with PONG_SMOKE=1 so autoplay
+        # drives the real physics. The acceptance rule lives in
+        # cmake/smoke.cmake (driven by the smoke_* ctest entries registered
+        # when UMBRA_SANITIZE=ON): exit 124 (killed after the full window) =
+        # the app looped update/render without crashing; an immediate exit 0
+        # is treated as failure (start() failed = zero code paths covered), so
+        # exit 0 only counts when the process ran for at least 2s; anything
+        # else is a crash or sanitizer finding (ASan aborts non-zero). The
+        # script sets the sanitizer env (detect_leaks=1 etc.) exactly as this
+        # job does.
+        run: ctest --test-dir build-sanitize -R '^smoke' --output-on-failure
+
+  linux-ubsan:
+    # UBSan-only pass with -fno-sanitize-recover=all. ASan+UBSan's
+    # halt_on_error=1 aborts on the FIRST reported fault, which can mask an
+    # integer-overflow/float-cast-overflow UB bug if an ASan-recoverable
+    # fault is reported first. Running UBSan alone (UMBRA_SANITIZER_SET=
+    # undefined) makes every UB violation - including signed-integer-overflow
+    # and float-cast-overflow, which are part of the default "undefined"
+    # group - abort the run so each class gets caught on its own.
+    name: Linux (UBSan only)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Install SDL2 dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
+      - name: Configure (Debug + UBSan only)
+        # UMBRA_BUILD_EXAMPLES=ON so the smoke_* ctest entries register
+        # (gated on UMBRA_SANITIZE + UMBRA_BUILD_EXAMPLES in CMakeLists) and
+        # the headless binaries get UBSan-only coverage, mirroring
+        # linux-sanitize's smoke step.
+        run: cmake -S . -B build-ubsan -G Ninja -DCMAKE_BUILD_TYPE=Debug -DUMBRA_SANITIZE=ON -DUMBRA_SANITIZER_SET=undefined -DUMBRA_WERROR=ON -DUMBRA_BUILD_EXAMPLES=ON
+
+      - name: Build engine, tests, and smoke binaries (instrumented)
+        run: cmake --build build-ubsan --parallel 4 --target sdl_app_tests sdl_app_backend_tests sanitize_smoke_binaries
+
+      - name: Assert sanitize_path_* tests are registered (ctest -N)
+        # Same guard as linux-sanitize: the four focused entries must exist
+        # in ctest -N, or the UBSan-only run silently loses named coverage.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-ubsan -N)"
+          for t in \
+              sanitize_path_gamejuice_floating_text \
+              sanitize_path_invaders_bombs \
+              sanitize_path_pacman_ghost_target \
+              sanitize_path_input_mouse_bounds; do
+            if ! grep -qF "${t}" <<<"${listed}"; then
+              echo "::error::sanitize ctest entry '${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: ${t}"
+          done
+
+      - name: Assert smoke_* tests are registered (ctest -N)
+        # Same guard as linux-sanitize, for the smoke_* entries: a
+        # registration regression (block re-nested) would otherwise silently
+        # lose UBSan-only smoke coverage while ctest stays green. The
+        # asserted names are NOT hardcoded here - they are read from
+        # cmake/smoke_targets.txt, the single source that CMakeLists.txt
+        # reads into SMOKE_TARGETS, so the assertion can never drift from
+        # what CMake actually registers.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-ubsan -N)"
+          while IFS= read -r t; do
+            [ -z "${t}" ] && continue
+            if ! grep -qF "smoke_${t}" <<<"${listed}"; then
+              echo "::error::smoke ctest entry 'smoke_${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: smoke_${t}"
+          done < <(grep -v '^#' cmake/smoke_targets.txt)
+
+      - name: Run tests under UBSan
+        env:
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        # -E '^smoke' excludes the smoke_* entries - they have their own
+        # step below with the same UBSAN_OPTIONS (set inside
+        # cmake/smoke.cmake, shared with linux-sanitize).
+        run: ctest --test-dir build-ubsan -E '^smoke' --output-on-failure
+
+      - name: Smoke-run headless examples and games under UBSan
+        # Same pass as linux-sanitize's smoke step, but under the UBSan-only
+        # build: each headless example/game binary runs for 5s with SDL
+        # dummy drivers + PONG_SMOKE=1 autoplay, so signed/float-cast
+        # overflow in example code paths the unit tests never touch aborts
+        # the run (halt_on_error + -fno-sanitize-recover=all). The
+        # acceptance rule and sanitizer env live in cmake/smoke.cmake (exit
+        # 124 = clean full window; immediate exit 0 = start() failure =
+        # fail); ASAN_OPTIONS is inert here since the build has no ASan.
+        run: ctest --test-dir build-ubsan -R '^smoke' --output-on-failure
+
+  linux-valgrind:
+    # Valgrind memcheck pass: catches uninitialized reads, invalid accesses,
+    # and definite / indirect / possibly-lost leaks. Valgrind uses dynamic
+    # binary instrumentation (it intercepts every load/store), so it is a
+    # genuinely different mechanism from ASan's compiler instrumentation -
+    # the two memory-checkers complement each other. Runs on a plain Debug
+    # build: never combined with ASan, whose allocator conflicts with
+    # Valgrind's interception.
+    #
+    # TRIAL leak policy: "possibly lost" is an error too (--errors-for-
+    # leak-kinds includes possible), so no real leak class can slip past
+    # both valgrind and LSan. Known third-party noise - box2d's b2Alloc
+    # arena chunks and SDL2's thread-local error buffer, which valgrind's
+    # pointer heuristics classify as "possibly lost" - is suppressed via
+    # valgrind.supp in the repo root. That file deliberately suppresses
+    # ONLY the "possible" kind; definite/indirect leaks are never
+    # suppressed anywhere. If a first run surfaces new library noise,
+    # refine valgrind.supp with `make memcheck-suppressions` (runs
+    # --gen-suppressions=all and appends new possible-only blocks, with the
+    # manual command documented in the file's header as a fallback). Run
+    # the same pass locally with `make memcheck`.
+    name: Linux (Valgrind memcheck)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Install SDL2 dependencies + valgrind
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            valgrind \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
+      - name: Configure (Debug, memcheck ctest tests on)
+        # UMBRA_MEMCHECK_CTEST registers the memcheck passes as ctest tests
+        # (memcheck_unit_*), so this job runs the EXACT same path a developer
+        # gets with `ctest -R memcheck` - no duplicated flags to drift.
+        run: cmake -S . -B build-valgrind -G Ninja -DCMAKE_BUILD_TYPE=Debug -DUMBRA_WERROR=ON -DUMBRA_BUILD_EXAMPLES=OFF -DUMBRA_MEMCHECK_CTEST=ON
+
+      - name: Build engine and tests
+        run: cmake --build build-valgrind --parallel 4 --target sdl_app_tests sdl_app_backend_tests
+
+      - name: Assert memcheck_path_* tests are registered (ctest -N)
+        # The four memcheck_path_* ctest entries pin the exact code paths
+        # whose bugs the sanitizers caught (GameJuice floating-text alpha,
+        # Space Invaders bomb-hit clear, Pac-Man no-heading ghost targeting,
+        # InputManager mouse-button bounds).
+        # `ctest -R` only fails when a matching test errors; it silently
+        # succeeds when the regex matches NOTHING - which is precisely how
+        # the Linux-side registration regressed once before (the whole
+        # memcheck block was nested under a non-Linux branch, so the run
+        # step matched zero tests and exited 0). This guard lists the
+        # registered tests and fails if any of the three names is absent,
+        # making that regression class impossible.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-valgrind -N)"
+          for t in \
+              memcheck_path_gamejuice_floating_text \
+              memcheck_path_invaders_bombs \
+              memcheck_path_pacman_ghost_target \
+              memcheck_path_input_mouse_bounds; do
+            if ! grep -qF "${t}" <<<"${listed}"; then
+              echo "::error::memcheck ctest entry '${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: ${t}"
+          done
+
+      - name: Validate valgrind.supp syntax
+        # Valgrind parses suppressions at startup and aborts with a FATAL
+        # message on structural errors (a bad frame name is silent though -
+        # it just never matches, which is what the trial's
+        # --gen-suppressions=all refinement catches). /bin/true allocates
+        # nothing, so this only exercises the file parse. The memcheck.cmake
+        # driver also validates it per unit test, so this step is a cheap
+        # fail-fast that runs even if ctest discovery regresses.
+        run: valgrind --tool=memcheck --suppressions=valgrind.supp --error-exitcode=1 /bin/true
+
+      - name: Run tests under Valgrind memcheck (ctest)
+        # Drives the exact CI flag set through the same ctest registration
+        # developers use locally. Valgrind is ~20-50x slower than native,
+        # but the suite is small (a couple of minutes; the per-test TIMEOUT
+        # property of 600s per unit binary preserves the old `timeout 600`
+        # hang guard exactly). Each test invokes cmake/memcheck.cmake,
+        # whose FATAL_ERROR on any memcheck error -
+        # invalid read/write, use of uninitialised value, or a definite /
+        # indirect / possibly-lost leak - exits non-zero and fails the test
+        # under ctest. --track-origins=yes points uninitialised reads back
+        # to the allocation that created the undefined value.
+        # --suppressions=valgrind.supp narrows the "possibly lost" class to
+        # the known SDL2/box2d noise sites, so genuine possible-loss bugs in
+        # first-party code still red. The regex also matches the
+        # memcheck_path_* entries (four focused single-test runs over the
+        # code paths whose bugs the sanitizers fixed); examples are OFF in
+        # this job, so no memcheck_example_* tests are registered.
+        run: ctest --test-dir build-valgrind -R '^memcheck_(unit|path)' --output-on-failure
+
+      - name: Fail on new valgrind noise (suppression-drift check)
+        # The trial policy in valgrind.supp is possible-only, so `make
+        # memcheck-suppressions` must be a NO-OP on a clean tree: if the
+        # harvest WOULD add blocks, valgrind noise has drifted and the
+        # refined file was never committed. This step runs the exact same
+        # harvest in check-only mode (-DMEMCHECK_CHECK_ONLY=ON) - the file
+        # is never touched - and fails with the precise command to run
+        # locally. Definite/indirect leaks and error kinds never reach this
+        # check: they are never auto-suppressed and already fail the
+        # memcheck tests above.
+        run: cmake -DMEMCHECK_BUILD_DIR=$PWD/build-valgrind -DMEMCHECK_SUPPRESSIONS=$PWD/valgrind.supp -DMEMCHECK_CHECK_ONLY=ON -P cmake/memcheck-suppressions.cmake
+
+  linux-valgrind-examples:
+    # Valgrind memcheck over the headless example binaries AND the shipped
+    # Games/ entries (template_game + every shipped game, run with
+    # PONG_SMOKE=1 autoplay), mirroring the linux-sanitize smoke step so
+    # example/game code paths the unit tests never touch get BOTH memory
+    # checkers (ASan+UBSan there, memcheck here).
+    # Examples loop forever waiting for a quit event, so each runs for ten
+    # seconds under memcheck with SDL's dummy drivers and is killed by
+    # timeout (10s rather than the ASan mirror's 5s because valgrind
+    # startup + --track-origins overhead otherwise eats most of the
+    # window). --exit-on-first-error=yes makes valgrind exit 1
+    # (--error-exitcode) on the FIRST invalid read/write or
+    # uninitialised-value use, so a finding fails the step immediately
+    # instead of being swallowed by the kill. Leak checking is off here:
+    # the examples are killed rather than exiting normally, so valgrind's
+    # exit-time leak scan never runs - leak coverage for engine/test code
+    # is the linux-valgrind job's job. Run the same pass locally with
+    # `make memcheck-examples`.
+    name: Linux (Valgrind examples)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Install SDL2 dependencies + valgrind
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            valgrind \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
+      - name: Configure (Debug, memcheck ctest tests on)
+        # UMBRA_MEMCHECK_CTEST registers the example memcheck passes as
+        # ctest tests (memcheck_example_*), so this job runs the EXACT same
+        # path a developer gets with `ctest -R memcheck`.
+        run: cmake -S . -B build-vg-examples -G Ninja -DCMAKE_BUILD_TYPE=Debug -DUMBRA_WERROR=ON -DUMBRA_BUILD_EXAMPLES=ON -DUMBRA_MEMCHECK_CTEST=ON
+
+      - name: Build headless examples and games
+        # Only the example targets that can run without a display are built,
+        # plus the 100-game program's shipped games (same set the ASan job
+        # smoke-runs; PONG_SMOKE=1 autoplay is set inside memcheck.cmake).
+        # Target list comes from cmake/smoke_targets.txt - the single
+        # source CMakeLists.txt reads into SMOKE_TARGETS - so this build
+        # step can never drift from what the memcheck-examples ctest entries
+        # register.
+        run: cmake --build build-vg-examples --parallel 4 --target $(grep -v '^#' cmake/smoke_targets.txt | tr '\n' ' ')
+
+      - name: Run headless examples under Valgrind memcheck (ctest)
+        # Drives the exact CI flag set through the same ctest registration
+        # developers use locally (memcheck_example_* tests, each running one
+        # example's 10s window). cmake/memcheck.cmake encodes the two
+        # valgrind adjustments: (1) exit 124 (killed by timeout) is the only
+        # pass - under the dummy driver no quit event ever arrives, so exit
+        # 0 can only mean start() failed (zero code paths covered) - and (2)
+        # --exit-on-first-error=yes turns the first invalid read/write or
+        # uninitialised-value use into an immediate exit 1, with a defensive
+        # grep over the log for raw error markers catching the kill/error
+        # race (the exit-time "ERROR SUMMARY" line is not reliably printed
+        # on SIGTERM death). --track-origins=yes traces uninitialised reads
+        # back to the allocating call. SDL dummy drivers are set inside the
+        # script, same as the ASan mirror.
+        run: ctest --test-dir build-vg-examples -R '^memcheck_example' --output-on-failure
+
+  macos:
+    name: macOS (Clang)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Install SDL2 dependencies
+        run: brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer ninja
+
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DUMBRA_WERROR=ON
+
+      - name: Build engine, all examples, and tests
+        run: cmake --build build --parallel 3
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure
+
+  windows:
+    name: Windows (MSVC)
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Restore vcpkg binary cache
+        uses: actions/cache@v4
+        with:
+          path: C:/vcpkg/installed
+          key: vcpkg-${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
+
+      - name: Configure (vcpkg manifest mode auto-installs SDL2 deps)
+        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DUMBRA_WERROR=ON
+        shell: bash
+
+      - name: Build engine, all examples, and tests (Release)
+        run: cmake --build build --config Release --parallel 4
+        shell: bash
+
+      - name: Run tests
+        # vcpkg DLLs (SDL2.dll etc.) live in the vcpkg installed/bin dir.
+        run: |
+          echo "C:/vcpkg/installed/x64-windows/bin" >> "$GITHUB_PATH"
+          ctest --test-dir build -C Release --output-on-failure
+        shell: bash
+
+  emscripten:
+    name: Emscripten (WASM)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Setup emsdk
+        uses: myMindstorm/setup-emsdk@v14
+        with:
+          version: 5.0.2
+
+      - name: Configure (WASM)
+        run: emcmake cmake -S . -B build-wasm -DUMBRA_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DUMBRA_WERROR=ON
+
+      # Building every example as WASM would make CI take ~30+ minutes, so we
+      # verify the WASM path with a representative example subset that covers
+      # each feature category (classic games, procedural, effects, sprites,
+      # mesh, GPU, audio, text). All targets share the same link flags. The
+      # 100-game program's shipped games ride the same flags via the
+      # UMBRA_GAME_TARGETS loop in the EMSCRIPTEN block, so the browser build
+      # path of Games/ is verified too. The two restored examples
+      # (perlin_noise_example, tank_and_bullet_example) are built and
+      # browser-smoked by name, and llm_test_example (a console-only
+      # LLM-interface demo, no window) is built and Node-smoked.
+      #
+      # The game list is NOT hardcoded: it is derived from
+      # cmake/smoke_targets.txt (the canonical native smoke list, filtered to
+      # the *_game entries) so the browser game list can never drift from the
+      # native one. The same derivation feeds browser_smoke.py below.
+      - name: Build representative examples and games (WASM)
+        run: |
+          GAMES="$(grep -v '^#' cmake/smoke_targets.txt | grep '_game$' | tr '\n' ' ')"
+          emmake cmake --build build-wasm --parallel 4 --target \
+            sdl_app \
+            snake_example \
+            roguelike_example \
+            minesweeper_example \
+            tictactoe_example \
+            procedural3d_example \
+            particles_example \
+            lighting_example \
+            text2d_example \
+            sprite_example \
+            mesh2d_example \
+            gpu_drawing_example \
+            spatial_audio_example \
+            navigation_example \
+            perlin_noise_example \
+            tank_and_bullet_example \
+            llm_test_example \
+            ${GAMES}
+
+      - name: Verify WASM artifacts
+        run: |
+          ls -la build-wasm/sdl_app.js build-wasm/sdl_app.wasm
+          ls -la build-wasm/perlin_noise_example.js build-wasm/perlin_noise_example.wasm
+          ls -la build-wasm/tank_and_bullet_example.js build-wasm/tank_and_bullet_example.wasm
+          ls -la build-wasm/llm_test_example.js build-wasm/llm_test_example.wasm
+          while IFS= read -r t; do
+            ls -la "build-wasm/${t}.js" "build-wasm/${t}.wasm"
+          done < <(grep -v '^#' cmake/smoke_targets.txt | grep '_game$')
+          ls build-wasm/*.data >/dev/null 2>&1 && echo "preloaded assets present"
+
+      - name: Smoke-run games headlessly in the browser
+        # Load every shipped game (the *_game entries of cmake/smoke_targets.txt,
+        # the same list the build step above compiled) in headless Chromium and
+        # assert each engine requestAnimationFrame loop reaches a running frame
+        # (window.__umbraFrameCount, set by Game::mainLoop under
+        # __EMSCRIPTEN__). Catches runtime failures the "artifact exists"
+        # check can't: SDL video init, canvas/WebGL creation, font
+        # preloading, and the first update/render/present must all succeed.
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+          python3 tools/browser_smoke.py build-wasm --targets-file cmake/smoke_targets.txt
+          # The two restored examples are not part of the shared *_game smoke
+          # list, so they are smoke-run by name (positional args bypass the
+          # --targets-file filter): reaching a running frame proves the
+          # legacy Scene/TileMap path (perlin_noise) and the texture fallback
+          # path (tank_and_bullet) work in the browser, not just link.
+          python3 tools/browser_smoke.py build-wasm perlin_noise_example tank_and_bullet_example
+
+      - name: Smoke-run console example in Node (LLM interface demo)
+        # llm_test_example is the console-only LLM-interface demo (its own
+        # ConsoleSnake game, no SDL window and no main loop), so it is not
+        # part of the browser smoke: under Emscripten it compiles to a
+        # .js/.wasm pair that runs headless in Node, prints the demo output,
+        # and exits 0. This asserts the console-only example works in the
+        # browser build path (not just links) by checking the demo's marker
+        # lines. Run from the build dir: the preloaded .data files resolve
+        # relative to cwd in Node.
+        run: |
+          cd build-wasm
+          out="$(node llm_test_example.js --demo)"
+          for marker in "=== LLM Game Interface Demo ===" "=== Simulated LLM Conversation ===" "JSON state:"; do
+            if ! grep -qF "${marker}" <<<"${out}"; then
+              echo "::error::llm_test_example demo output missing marker: ${marker}" >&2
+              echo "${out}" >&2
+              exit 1
+            fi
+            echo "OK: llm_test_example printed: ${marker}"
+          done
+
+  emscripten-sanitize:
+    # WASM build path compiled with Emscripten ASan (-fsanitize=address) and
+    # the unit tests run headless in Node, catching memory errors in the
+    # browser build path that the native sanitizer jobs cannot see. Debug is
+    # used because ASan requires low optimization (wasm-opt is incompatible
+    # with the shadow-memory layout). UMBRA_SANITIZE wires -fsanitize=address
+    # into every first-party target on Emscripten. Tests run single-threaded
+    # (the std::thread concurrency tests are guarded out for __EMSCRIPTEN__
+    # and stay covered by the native jobs) and the Examples/ directory is
+    # preloaded into the virtual FS for the backend tests.
+    name: Emscripten (WASM + ASan)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify single vendored layout (no root-level vendored dirs)
+        # Mirror of the CMake configure-time guard (CMakeLists.txt): the
+        # seven vendored trees must live only under dependencies/. Runs
+        # BEFORE configure so a fresh checkout containing a root-level
+        # duplicate (botched merge / accidental re-add) fails fast with a
+        # clear message instead of a mid-configure FATAL_ERROR, and it also
+        # covers jobs that configure from a stale cache.
+        run: tools/check_vendored_layout.sh
+
+      - name: Setup emsdk
+        uses: myMindstorm/setup-emsdk@v14
+        with:
+          version: 5.0.2
+
+      - name: Configure (WASM Debug + ASan)
+        run: emcmake cmake -S . -B build-wasm-sanitize -DCMAKE_BUILD_TYPE=Debug -DUMBRA_SANITIZE=ON -DUMBRA_WERROR=ON -DUMBRA_BUILD_EXAMPLES=OFF
+
+      - name: Build unit tests + games (WASM, instrumented)
+        # Every game also builds as a standalone WASM target (via the
+        # UMBRA_GAME_TARGETS loop) so the games' link path is ASan
+        # instrumented too; their runtime coverage comes from test_games.cpp,
+        # which #includes the game sources into sdl_app_tests and drives the
+        # physics through the LLM interface + Game2D::tick() in Node below.
+        # The game list is derived from cmake/smoke_targets.txt (filtered to
+        # *_game) so it can never drift from the native list.
+        run: |
+          GAMES="$(grep -v '^#' cmake/smoke_targets.txt | grep '_game$' | tr '\n' ' ')"
+          emmake cmake --build build-wasm-sanitize --parallel 4 --target sdl_app_tests sdl_app_backend_tests ${GAMES}
+
+      - name: Assert sanitize_path_* tests are registered (ctest -N)
+        # Mirror of the linux-sanitize guard, over the WASM build dir: the
+        # four focused entries pin the code paths whose bugs the sanitizers
+        # fixed (GameJuice floating-text alpha, Space Invaders bomb-hit
+        # clear, Pac-Man no-heading ghost targeting, InputManager
+        # mouse-button bounds), compiled into the WASM
+        # suite. ctest -N lists registered tests without running them; this
+        # fails the job if any name is absent, so a registration regression
+        # (e.g. the block moved out of the EMSCRIPTEN branch) can never
+        # silently lose the named WASM coverage.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-wasm-sanitize -N)"
+          for t in \
+              sanitize_path_gamejuice_floating_text \
+              sanitize_path_invaders_bombs \
+              sanitize_path_pacman_ghost_target \
+              sanitize_path_input_mouse_bounds; do
+            if ! grep -qF "${t}" <<<"${listed}"; then
+              echo "::error::sanitize ctest entry '${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: ${t}"
+          done
+
+      - name: Assert gate_regression test is registered (ctest -N)
+        # Mirror of the linux job's guard, over the WASM build dir: the
+        # shell-level gate regression is registered whenever UMBRA_BUILD_TESTS
+        # is ON. The plain emscripten job configures tests OFF, so it is NOT
+        # registered there - this job is the WASM config that compiles the
+        # test suite, and its ctest registration must stay pinned. ctest -N
+        # lists registered tests without running them; the harness itself is
+        # exercised in the linux job's full ctest run and its make test-github
+        # step.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build-wasm-sanitize -N)"
+          if ! grep -qF "gate_regression" <<<"${listed}"; then
+            echo "::error::gate_regression test not found in ctest -N - the add_test in CMakeLists.txt was dropped or re-gated" >&2
+            echo "${listed}" >&2
+            exit 1
+          fi
+          echo "OK: gate_regression registered"
+
+      - name: Verify game WASM artifacts (ASan)
+        run: |
+          while IFS= read -r t; do
+            ls -la "build-wasm-sanitize/${t}.js" "build-wasm-sanitize/${t}.wasm"
+          done < <(grep -v '^#' cmake/smoke_targets.txt | grep '_game$')
+
+      - name: Run unit tests in Node (ASan)
+        # The test binaries are .js (WASM) files that run headless in Node;
+        # ASan aborts non-zero on the first memory error. Node ships on
+        # ubuntu-24.04 runners. Run from the build dir because the preloaded
+        # .data files are resolved relative to the current directory in Node.
+        run: |
+          cd build-wasm-sanitize
+          node sdl_app_tests.js
+          node sdl_app_backend_tests.js
+          # Named focused entries: run the four regression tests pinned in
+          # the ctest -N assertion individually under WASM ASan. ctest drives
+          # `node sdl_app_tests.js <filter>`; the runner's argv[1] filter
+          # exits 1 on a non-match, so a test dropped from the WASM suite
+          # reds by name instead of hiding inside the full unit_tests run.
+          ctest -R '^sanitize_path' --output-on-failure

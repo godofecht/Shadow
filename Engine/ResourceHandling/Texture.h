@@ -1,6 +1,8 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #pragma once
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <memory>
 #include <string>
 #include <vector>
@@ -25,7 +27,7 @@ class Texture
         texture = SDL_CreateTextureFromSurface (renderer, loadedSurface);
         if (texture == nullptr)
         {
-            std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << std::endl;
+            std::cerr << "Unable to create texture from " << path << "! SDL Error: " << SDL_GetError() << '\n';
             SDL_FreeSurface (loadedSurface);
             return false;
         }

@@ -1,0 +1,12 @@
+{
+  "name": "umbra-shadow-engine",
+  "version-string": "1.0.0",
+  "description": "Umbra (Shadow) - SDL2/C++17 2D game engine",
+  "builtin-baseline": "efb1e7436979a30c4d3e5ab2375fd8e2e461d541",
+  "dependencies": [
+    "sdl2",
+    "sdl2-image",
+    "sdl2-ttf",
+    "sdl2-mixer"
+  ]
+}

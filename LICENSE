@@ -1,0 +1,79 @@
+Shadow Engine — Dual License
+=============================
+
+Copyright (c) 2024-2026 Abhishek Shivakumar
+
+The Shadow Engine (this software) is a proprietary asset owned by
+Abhishek Shivakumar. It is made available under a dual license: you may
+use, copy, modify, and/or redistribute it under either of the following
+two options, at your choice:
+
+  Option 1 — GNU General Public License, version 3 or later
+  Option 2 — Proprietary Commercial License (royalty-bearing)
+
+There is no permissive (MIT/ISC/BSD-style) option. The engine is not
+public-domain software, and any use outside the two options below
+requires the copyright holder's written permission.
+
+----------------------------------------------------------------------
+Option 1: GNU GENERAL PUBLIC LICENSE, Version 3 or later
+----------------------------------------------------------------------
+
+You may use the Shadow Engine to develop and distribute games under the
+GPL-3.0-or-later. Under this option the engine — and any game that
+incorporates or links it — is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>.
+
+The complete license text is in the file LICENSE.GPL-3.0.
+
+This option is ideal for free, open games: if you release your game's
+source code under the GPL, you may use the engine at no cost.
+
+----------------------------------------------------------------------
+Option 2: Proprietary Commercial License (royalty-bearing)
+----------------------------------------------------------------------
+
+To distribute a game commercially — closed-source, sold for money, or
+monetized in any way (paid apps, ad-supported releases, subscriptions,
+in-app purchases, etc.) — you must obtain a commercial license from the
+copyright holder and pay the agreed royalties. Commercial licenses are
+negotiated per title and are governed by the terms in LICENSE.COMMERCIAL.
+
+No commercial use is permitted under this repository's terms without
+such a license. Contact the copyright holder for a quote.
+
+----------------------------------------------------------------------
+Which option do I pick?
+----------------------------------------------------------------------
+
+  * Free / open game, GPL-licensed:   Option 1 (no fee).
+  * Paid or closed-source game:       Option 2 (commercial license +
+                                       royalties, negotiated per title).
+  * Forking, reselling, or re-        Not permitted outside the GPL
+    licensing the engine itself:      terms; commercial engine licensing
+                                       is by written agreement only.
+
+----------------------------------------------------------------------
+Third-party components
+----------------------------------------------------------------------
+
+Third-party libraries vendored in this repository are NOT covered by the
+dual license above and remain under their own licenses:
+
+  - SDL2, SDL2_image, SDL2_ttf, SDL2_mixer ........ zlib license
+  - Box2D ................................................. MIT
+  - RtAudio ............................................... MIT
+  - hidapi ...................................... BSD-3 / GPL-3.0
+    (hidapi's GPL-3.0 copy is the source of LICENSE.GPL-3.0)
+
+See the respective subdirectories for full license texts.

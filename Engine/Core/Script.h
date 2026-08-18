@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #ifndef SCRIPT_H
 #define SCRIPT_H
 

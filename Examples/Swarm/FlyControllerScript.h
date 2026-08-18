@@ -1,11 +1,10 @@
 #ifndef FLYCONTROLLERSCRIPT_H
 #define FLYCONTROLLERSCRIPT_H
 
-#include "Script.h"
-#include "Sprite.h"
-#include <SDL.h>
-#include "InputManagement.h"
-
+#include "Engine/Core/Script.h"
+#include "Engine/EntityAndScene/Sprite.h"
+#include <SDL2/SDL.h>
+#include "Engine/Core/InputManagement.h"
 class FlyControllerScript : public Script
 {
 public:
@@ -77,7 +76,7 @@ public:
 
 private:
     SimpleSprite* sprite;
-    int speed;
+    [[maybe_unused]] int speed;
 };
 
 #endif

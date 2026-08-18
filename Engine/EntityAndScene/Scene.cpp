@@ -1,9 +1,12 @@
-#include "Scene.h"
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 
+#include "Engine/EntityAndScene/Scene.h"
+#include "Engine/Core/AssetManager.h"
 void Scene::addItem (std::shared_ptr<SimpleSprite> sprite) 
 {
     sprite->setScene (this);   // Associate the sprite with the current scene
-    pendingSprites.push_back (sprite); // Add to pending, not main list
+    pendingSprites.push_back (std::move(sprite)); // Add to pending, not main list
 }
 
 void Scene::initializePendingSprites()
@@ -37,7 +40,7 @@ void Scene::render (Renderer* renderer)
         }
         catch (const std::exception& e)
         {
-            std::cerr << "Exception caught while rendering sprite: " << e.what() << std::endl;
+            std::cerr << "Exception caught while rendering sprite: " << e.what() << '\n';
         }
     }
 }

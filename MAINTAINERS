@@ -1,0 +1,12 @@
+# MAINTAINERS — the canonical list of GitHub handles that may review code.
+#
+# Every @handle (individual or @org/team) referenced in .github/CODEOWNERS
+# must be declared here, and the `make check-github` gate enforces it, so
+# review routing can never silently point at a misspelled or made-up account.
+#
+# One bare handle per line (no leading @). A team uses its org name — the part
+# before the slash — e.g. `@godofecht/games-team` is allowed because
+# `godofecht` is listed below. To add a maintainer, add their real GitHub
+# handle here first, then assign them in CODEOWNERS.
+
+godofecht

@@ -1,17 +1,18 @@
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
+// Shadow Engine - see LICENSE for details
 #ifndef SPRITE_H
 #define SPRITE_H
 
 #include <string>
 #include <vector>
 #include <memory>
-#include "Object.h"
-#include "Script.h"
+#include "Engine/Core/Object.h"
+#include "Engine/Core/Script.h"
 #include <iostream>
-#include "Geometry.h"
-#include "Texture.h"
-#include "Physics.h"
-#include "Helpers.h"
-
+#include "Engine/Core/Geometry.h"
+#include "Engine/ResourceHandling/Texture.h"
+#include "Engine/Core/Physics.h"
+#include "Engine/Core/Helpers.h"
 class Scene;
 
 class Part : public Object
@@ -23,9 +24,11 @@ public:
         
     }
 
+    ~Part() override = default;
+
     void renderAndRunScripts (Renderer* renderer) override
     {
-
+        (void)renderer;
     };
 };
 
@@ -62,7 +65,7 @@ public:
         : Object (renderer)
     {
         setId (_id);
-        std::cout << "Creating object: " << _id << std::endl;
+        std::cout << "Creating object: " << _id << '\n';
 
         loadBackgroundTexture (path);
         isInitialized = true;
@@ -72,12 +75,12 @@ public:
         : Object (renderer)
     {
         setId (_id);
-        std::cout << "Creating object: " << _id << std::endl;
+        std::cout << "Creating object: " << _id << '\n';
 
         isInitialized = false;
     }
 
-    ~SimpleSprite() { getBackgroundTexture().destroy(); }
+    ~SimpleSprite() override { getBackgroundTexture().destroy(); }
 
     std::vector<Component*> components;
 
@@ -90,17 +93,17 @@ public:
     }
 
     void setImage (const std::string& path);
-    void attachScript (std::shared_ptr<Script> script) { scripts.push_back (script); }
+    void attachScript (std::shared_ptr<Script> script) { scripts.push_back (std::move(script)); }
     std::vector<std::shared_ptr<Script>>& getScripts() { return scripts; }
 
-    virtual void renderAndRunScripts (Renderer* renderer) override;
+    void renderAndRunScripts (Renderer* renderer) override;
     void setActive (bool state) { isActive = state; }
     void destroy();
 
     Scene* getScene() const { return scene; }
     void setScene (Scene* _scene) { scene = _scene; }
 
-    virtual void update (float deltaTime) {}
+    virtual void update (float deltaTime) { (void)deltaTime; }
 
     Part* addPart (const std::string& path, const std::string& id)
     {
@@ -140,7 +143,7 @@ inline Vector2D calculateDirection (const Point2D& origin, const Point2D& target
     return magnitude > 0 ? Vector2D (dx / magnitude, dy / magnitude) : Vector2D(0, 0);
 }
 
-inline float calculateAngle (const Point2D& delta) { return atan2 (delta.y, delta.x) * 180.0 / M_PI; } //TODO: change atan2 to Point2D::calculateAngleFromOrigin()
+inline float calculateAngle (const Point2D& delta) { return static_cast<float>(atan2 (delta.y, delta.x) * 180.0 / M_PI); } //TODO: change atan2 to Point2D::calculateAngleFromOrigin()
 
 inline Point2D getMousePosition()
 {

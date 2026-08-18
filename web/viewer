@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Umbra Viewer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --panel: rgba(10, 16, 24, 0.92);
+            --line: rgba(0, 255, 136, 0.18);
+            --text: #a0a0b0;
+            --text-bright: #e6f7ff;
+            --accent: #00ff88;
+            --secondary: #00d9ff;
+            --shadow: rgba(0, 217, 255, 0.18);
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, rgba(0, 217, 255, 0.12), transparent 28%),
+                radial-gradient(circle at top left, rgba(0, 255, 136, 0.1), transparent 25%),
+                linear-gradient(180deg, #05070b 0%, #0a0a0f 100%);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .page {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+            padding: 18px 20px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--panel);
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .eyebrow {
+            color: var(--secondary);
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        h1 {
+            color: var(--text-bright);
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .sub {
+            font-size: 13px;
+            color: var(--text);
+            margin-top: 6px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-bright);
+            background: rgba(17, 17, 26, 0.88);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 10px 14px;
+            font-size: 13px;
+            transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .frame {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+            background: #020409;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 180px);
+            border: 0;
+            display: block;
+            background: #000;
+        }
+
+        .missing {
+            padding: 28px;
+            border: 1px solid rgba(255, 107, 107, 0.22);
+            border-radius: 18px;
+            background: rgba(255, 107, 107, 0.08);
+            color: #ffd7d7;
+            line-height: 1.6;
+        }
+
+        code {
+            color: var(--text-bright);
+            font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        }
+
+        @media (max-width: 800px) {
+            .page {
+                padding: 14px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            iframe {
+                height: calc(100vh - 220px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div>
+                <div class="eyebrow">Umbra Example</div>
+                <h1 id="demoTitle">Loading…</h1>
+                <div class="sub">Styled shell outside, native WASM page inside. The engine keeps full control of rendering.</div>
+            </div>
+            <div class="actions">
+                <a class="btn" href="index.html">Back to Gallery</a>
+                <a class="btn" href="docs/">Docs</a>
+                <a class="btn" id="rawLink" href="#">Open Raw Demo</a>
+            </div>
+        </div>
+
+        <div class="frame" id="frameWrap">
+            <iframe id="demoFrame" title="Umbra demo" allowfullscreen></iframe>
+        </div>
+
+        <div class="missing" id="missing" hidden>
+            This demo entrypoint is not present on the current deploy: <code id="missingName"></code>
+        </div>
+    </div>
+
+    <script>
+        const aliases = {
+            snake: 'snake',
+            minesweeper: 'minesweeper',
+            tictactoe: 'tictactoe',
+            roguelike: 'roguelike',
+            particles: 'particles',
+            lighting: 'lighting',
+            skeletal: 'skeletal',
+            parenting: 'parenting',
+            tweening: 'tweening',
+            physics_reactive: 'physics_reactive',
+            navigation: 'navigation',
+            ai_states: 'ai_states',
+            compute_sim: 'compute_sim',
+            fixed_timestep: 'fixed_timestep',
+            game_of_life: 'game_of_life',
+            procedural3d: 'procedural3d',
+            terrain: 'terrain',
+            text2d: 'text2d',
+            bunnymark: 'bunnymark',
+            slime_mold: 'slime_mold',
+            virtual_leaf: 'virtual_leaf',
+            venation: 'venation',
+            bloom: 'bloom',
+            spatial_audio: 'spatial_audio'
+        };
+
+        const names = {
+            ai_states: 'State Machine AI',
+            bloom: 'Bloom & Glow',
+            bunnymark: 'Bunnymark',
+            compute_sim: 'Gravity Compute',
+            fixed_timestep: 'Fixed Timestep',
+            game_of_life: 'Game of Life',
+            lighting: '2D Dynamic Shadows',
+            minesweeper: 'Minesweeper',
+            navigation: 'A* Pathfinding',
+            parenting: 'Hierarchical Transforms',
+            particles: 'Particle Emitters',
+            physics_reactive: 'Reactive Physics',
+            procedural3d: 'Geometry Projection',
+            roguelike: 'Roguelike',
+            skeletal: 'Inverse Kinematics',
+            slime_mold: 'Slime Mold',
+            snake: 'Snake',
+            spatial_audio: 'Positional Audio',
+            terrain: 'Terrain Flow',
+            text2d: 'Text 2D',
+            tictactoe: 'Tic Tac Toe',
+            tweening: 'Tweening Curves',
+            venation: 'Venation',
+            virtual_leaf: 'Virtual Leaf'
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const requested = params.get('demo') || 'shapes2d_example';
+        const resolved = aliases[requested] || requested;
+        const rawPath = `${resolved}.html`;
+
+        document.getElementById('demoTitle').textContent =
+            names[requested] || names[resolved] || requested.replaceAll('_', ' ');
+        document.getElementById('rawLink').href = rawPath;
+
+        fetch(rawPath, { method: 'HEAD' })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(rawPath);
+                }
+                document.getElementById('demoFrame').src = rawPath;
+            })
+            .catch(() => {
+                document.getElementById('frameWrap').hidden = true;
+                document.getElementById('missing').hidden = false;
+                document.getElementById('missingName').textContent = rawPath;
+            });
+    </script>
+</body>
+</html>

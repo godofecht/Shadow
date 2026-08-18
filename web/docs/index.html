@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Umbra Docs</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #071019;
+            --bg2: #0d1722;
+            --panel: rgba(10, 16, 24, 0.88);
+            --line: rgba(0, 255, 136, 0.16);
+            --text: #a9b8c8;
+            --text-bright: #eff8ff;
+            --accent: #00ff88;
+            --secondary: #00d9ff;
+            --muted: #7c8b9a;
+        }
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, rgba(0, 217, 255, 0.12), transparent 28%),
+                radial-gradient(circle at top left, rgba(0, 255, 136, 0.1), transparent 25%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        .page { max-width: 1480px; margin: 0 auto; padding: 24px; }
+        .hero, .sidebar, .article {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--panel);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.24);
+        }
+        .hero {
+            padding: 22px 24px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+        }
+        .eyebrow {
+            color: var(--secondary);
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        h1 { color: var(--text-bright); font-size: 28px; font-weight: 600; }
+        .sub { margin-top: 8px; max-width: 64ch; }
+        .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-bright);
+            background: rgba(17, 17, 26, 0.88);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+        .btn:hover { color: var(--accent); border-color: var(--accent); }
+        .layout {
+            display: grid;
+            grid-template-columns: 300px minmax(0, 1fr);
+            gap: 18px;
+        }
+        .sidebar { padding: 18px; align-self: start; position: sticky; top: 18px; }
+        .sidebar h2 { color: var(--text-bright); font-size: 20px; margin-bottom: 14px; }
+        .nav-group { margin-bottom: 18px; }
+        .nav-label {
+            color: var(--secondary);
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .nav-link {
+            display: block;
+            padding: 10px 12px;
+            text-decoration: none;
+            color: var(--text);
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: 0.18s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-bright);
+            border-color: var(--line);
+            background: rgba(255,255,255,0.03);
+        }
+        .article { padding: 28px; min-height: 70vh; }
+        .meta { color: var(--secondary); font-size: 13px; margin-bottom: 10px; }
+        .title { color: var(--text-bright); font-size: 34px; margin-bottom: 10px; }
+        .summary { color: var(--muted); margin-bottom: 24px; max-width: 70ch; }
+        .content { display: grid; gap: 16px; line-height: 1.7; }
+        .content h1, .content h2, .content h3, .content h4 { color: var(--text-bright); margin-top: 20px; }
+        .content h1 { font-size: 2rem; }
+        .content h2 { font-size: 1.45rem; }
+        .content h3 { font-size: 1.15rem; }
+        .content p, .content ul, .content ol, .content pre, .content table, .content blockquote { margin: 0; }
+        .content ul, .content ol { padding-left: 22px; }
+        .content pre {
+            overflow-x: auto;
+            padding: 16px;
+            border-radius: 14px;
+            background: #08111a;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .content code {
+            font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+            color: var(--text-bright);
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+        .content th, .content td {
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .content blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 14px;
+            color: var(--muted);
+        }
+        @media (max-width: 960px) {
+            .hero { flex-direction: column; align-items: flex-start; }
+            .layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Umbra Documentation</div>
+                <h1>Engine Notes, Architecture, and Example Guides</h1>
+                <p class="sub">This is the live docs surface for Umbra on abhishek-shivakumar.com. It pulls directly from the checked-in engine docs and examples notes, then renders them in a clean static shell.</p>
+            </div>
+            <div class="actions">
+                <a class="btn" href="/umbra/">Back to Umbra</a>
+                <a class="btn" href="/umbra/viewer?demo=slime_mold">Open Demo</a>
+            </div>
+        </section>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <h2>Docs</h2>
+                <div class="nav-group">
+                    <div class="nav-label">Core</div>
+                    <a class="nav-link" data-doc="README.md" href="#README.md">Overview</a>
+                    <a class="nav-link" data-doc="ARCHITECTURE.md" href="#ARCHITECTURE.md">Architecture</a>
+                    <a class="nav-link" data-doc="BUILD_AND_TEST.md" href="#BUILD_AND_TEST.md">Build & Test</a>
+                    <a class="nav-link" data-doc="LLM_INTERFACE.md" href="#LLM_INTERFACE.md">LLM Interface</a>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-label">Examples</div>
+                    <a class="nav-link" data-doc="EXAMPLES.md" href="#EXAMPLES.md">Example Games</a>
+                </div>
+            </aside>
+
+            <article class="article">
+                <div class="meta" id="docMeta">Loading document…</div>
+                <h1 class="title" id="docTitle">Umbra Docs</h1>
+                <p class="summary" id="docSummary">Static docs shell for the Umbra engine.</p>
+                <div class="content" id="docContent"></div>
+            </article>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>

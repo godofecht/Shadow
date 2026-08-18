@@ -1,0 +1,74 @@
+Shadow Engine — Commercial License
+==================================
+
+Copyright (c) 2024-2026 Abhishek Shivakumar
+
+This is the proprietary commercial license for the Shadow Engine. It is
+Option 2 of the dual license described in LICENSE and applies to any use
+of the engine in a game or application that is distributed or monetized
+commercially — including, without limitation, paid downloads, closed-
+source releases, ad-supported apps, and subscription or in-app-purchase
+models.
+
+BY ACCEPTING THIS LICENSE OR USING THE ENGINE FOR COMMERCIAL PURPOSES,
+YOU AGREE TO THE TERMS BELOW. If you do not agree, you may only use the
+engine under Option 1 (GPL-3.0-or-later) of LICENSE.
+
+1. Grant. Subject to this license and to the payment of the royalties in
+   Section 2, the Licensor grants you a non-exclusive, non-transferable,
+   worldwide license to use, copy, and modify the Shadow Engine solely to
+   develop and distribute one (1) commercial game (the "Game"). You may
+   not use the engine to develop more than one Game without a separate
+   license.
+
+2. Royalties. In consideration of the license granted in Section 1, you
+   agree to pay the Licensor a royalty of
+   _______________________________________% ("the Royalty Rate")
+   of the Gross Revenue from the Game. "Gross Revenue" means all revenue
+   actually received by you from the Game, including sales, licensing,
+   subscriptions, advertising, and in-app purchases, before taxes and
+   distribution-platform fees.
+
+   Royalties are payable
+   _______________________________________ (e.g., quarterly, within 30
+   days of each calendar quarter) together with the sales report
+   described in Section 5.
+
+3. Restrictions. You may not: (a) sublicense, sell, lease, or otherwise
+   redistribute the Shadow Engine itself, in source or binary form, as a
+   standalone product or as part of another engine or game framework;
+   (b) remove or alter any copyright or license notices; (c) use the
+   engine in any way that violates applicable law. You retain all rights
+   to the Game's own code, art, and assets, except as needed to exercise
+   this license.
+
+4. Engine improvements. Improvements, fixes, and modifications you make
+   to the engine for the Game may be used only within the Game. The
+   Licensor is free to incorporate any feedback you provide without
+   obligation to you.
+
+5. Sales reports and audit. Within 30 days after the end of each payment
+   period, you will provide the Licensor a written report of the Game's
+   Gross Revenue and the royalties due. The Licensor (or an independent
+   accountant) may audit your records upon reasonable notice to verify
+   the reports; any underpayment found is due immediately with interest.
+
+6. Term and termination. This license is effective until terminated.
+   The Licensor may terminate it immediately if you breach any term,
+   including failure to pay royalties when due. Upon termination you must
+   stop distributing the Game and remove the engine from it, except that
+   sections 6–8 survive termination.
+
+7. No warranty. THE ENGINE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+   NONINFRINGEMENT. THE ENTIRE RISK OF USING THE ENGINE IS WITH YOU.
+
+8. Limitation of liability. IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR
+   ANY SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES,
+   OR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN CONNECTION WITH THE USE
+   OR PERFORMANCE OF THE ENGINE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   SUCH DAMAGES.
+
+9. Governing law. This license is governed by the laws of the Licensor's
+   jurisdiction, without regard to conflict-of-law principles.

@@ -4,7 +4,7 @@
  *  Provides functionality to parse command line arguments to the test harness.
  */
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include "SDL_visualtest_sut_configparser.h"
 #include "SDL_visualtest_variator_common.h"
 #include "SDL_visualtest_action_configparser.h"

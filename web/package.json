@@ -1,0 +1,12 @@
+{
+  "name": "umbra-engine",
+  "version": "1.0.0",
+  "description": "Umbra Engine - 47 Interactive WASM Demos",
+  "scripts": {
+    "start": "serve . -l 3000 --cors",
+    "dev": "serve . -l 3000 --cors --debug"
+  },
+  "dependencies": {
+    "serve": "^14.2.5"
+  }
+}

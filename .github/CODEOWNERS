@@ -1,0 +1,38 @@
+# CODEOWNERS — review routing for the Shadow Engine.
+#
+# Each line maps a path pattern to the reviewer(s) responsible for it. The
+# LAST matching pattern wins, so specific areas below override the catch-all
+# `*`. Teams use @org/team; individuals use @username.
+#
+# Every @handle referenced below must be declared in the MAINTAINERS file at
+# the repo root (the canonical GitHub handle list) - `make check-github`
+# enforces this so review routing can never point at a misspelled or made-up
+# account. To add a maintainer, list their real handle in MAINTAINERS first,
+# then assign them per-area below, e.g.
+#   /Games/   @godofecht/games-team
+#   /Engine/  @username2
+
+# Catch-all: anything not covered by a more specific rule below.
+*                       @godofecht
+
+# Engine core — gameplay framework, rendering, ECS, physics bindings.
+/Engine/                @godofecht
+
+# The 100-game program and the example demos.
+/Games/                 @godofecht
+/Examples/              @godofecht
+
+# Unit suite — the coverage gate depends on these staying in sync with code.
+/tests/                 @godofecht
+
+# CI, build, and repo tooling — workflows, gates, sanitizers, valgrind.
+/.github/               @godofecht
+/cmake/                 @godofecht
+/tools/                 @godofecht
+/CMakeLists.txt         @godofecht
+/Makefile               @godofecht
+/build_wasm.sh          @godofecht
+/*.sh                   @godofecht
+
+# Docs — the check-docs gate keeps these recipes tied to the Makefile.
+/*.md                   @godofecht
