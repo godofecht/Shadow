@@ -127,8 +127,8 @@ public:
         generatePlatforms();
 
         // ---- Juice: spawn dust ---------------------------------------------
-        particles.burst((BASE_X + PLATFORM_W * 0.5f) * tileSize,
-                        (GRID_H - 1) * tileSize, 8,
+        particles.burst((float)((BASE_X + PLATFORM_W * 0.5f) * tileSize),
+                        (float)((GRID_H - 1) * tileSize), 8,
                         {120, 220, 90, 255}, 5.0f, 0.4f, 4.0f);
 
         createGrid(GRID_W, GRID_H, tileSize);
@@ -241,8 +241,8 @@ public:
         if (score - lastMilestone >= 50) {
             lastMilestone = score - (score % 50);
             sfx.play(uj::Sfx::Coin);
-            particles.burst(px * tileSize + tileSize,
-                            screenY(feet) * tileSize, 6,
+            particles.burst((float)(px * tileSize + tileSize),
+                            (float)(screenY(feet) * tileSize), 6,
                             {230, 200, 60, 255}, 4.0f, 0.4f, 4.0f);
             floatTexts.spawn(std::make_shared<TextDisplay>(
                 static_cast<int>(px * tileSize), 60, "+50"),
@@ -255,11 +255,11 @@ public:
             const bool newBest = score > bestScore;
             bestScore = std::max(bestScore, score);
             // ---- Juice: death burst at the bottom edge ---------------------
-            particles.burst(GRID_W * 0.5f * tileSize,
-                            (GRID_H - 1) * tileSize, 20,
+            particles.burst((float)(GRID_W * 0.5f * tileSize),
+                            (float)((GRID_H - 1) * tileSize), 20,
                             {120, 220, 90, 255}, 9.0f, 0.6f, 5.0f);
-            particles.burst(GRID_W * 0.5f * tileSize,
-                            (GRID_H - 1) * tileSize, 8,
+            particles.burst((float)(GRID_W * 0.5f * tileSize),
+                            (float)((GRID_H - 1) * tileSize), 8,
                             {255, 255, 255, 255}, 6.0f, 0.45f, 4.0f);
             shake.add(0.55f);
             hitStop.trigger(0.12f);
@@ -394,7 +394,7 @@ private:
             sfx.play(uj::Sfx::Jump);
             shake.add(0.22f);
             hitStop.trigger(0.05f);
-            particles.burst(px * tileSize + tileSize, screenY(p.y) * tileSize,
+            particles.burst((float)(px * tileSize + tileSize), (float)(screenY(p.y) * tileSize),
                             18, {230, 200, 60, 255}, 10.0f, 0.5f, 5.0f);
             floatTexts.spawn(std::make_shared<TextDisplay>(
                 static_cast<int>(px * tileSize), screenY(p.y) * tileSize - 16,
@@ -409,8 +409,8 @@ private:
             sfx.play(uj::Sfx::Thock);
             shake.add(0.15f);
             hitStop.trigger(0.04f);
-            particles.burst((p.x + PLATFORM_W * 0.5f) * tileSize,
-                            screenY(p.y) * tileSize, 14,
+            particles.burst((float)((p.x + PLATFORM_W * 0.5f) * tileSize),
+                            (float)(screenY(p.y) * tileSize), 14,
                             {158, 104, 52, 255}, 8.0f, 0.45f, 5.0f);
             return;
         }
@@ -418,7 +418,7 @@ private:
         squash = 1.0f;
         sfx.play(uj::Sfx::Jump);
         shake.add(0.10f);
-        particles.burst(px * tileSize + tileSize, screenY(p.y) * tileSize, 8,
+        particles.burst((float)(px * tileSize + tileSize), (float)(screenY(p.y) * tileSize), 8,
                         {120, 220, 90, 255}, 6.0f, 0.4f, 4.0f);
     }
 
@@ -470,8 +470,8 @@ private:
     void puffAtWall(const Platform& p) {
         const int y = screenY(p.y);
         if (y < 0 || y >= GRID_H) return;      // off-screen: skip
-        particles.burst((p.x + PLATFORM_W * 0.5f) * tileSize,
-                        y * tileSize, 4, {80, 150, 240, 255},
+        particles.burst((float)((p.x + PLATFORM_W * 0.5f) * tileSize),
+                        (float)(y * tileSize), 4, {80, 150, 240, 255},
                         3.5f, 0.3f, 3.0f);
     }
 

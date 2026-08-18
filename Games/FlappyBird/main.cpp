@@ -185,9 +185,9 @@ public:
                 // ---- Juice: score pop -------------------------------------
                 const int px = static_cast<int>(std::lround(p.x + PIPE_W)) * tileSize;
                 const int py = (p.gapTop + p.gapBottom) / 2 * tileSize;
-                particles.burst(BIRD_X * tileSize + BIRD_W * tileSize / 2,
-                                (int)std::lround(birdY) * tileSize +
-                                    BIRD_H * tileSize / 2,
+                particles.burst((float)(BIRD_X * tileSize + BIRD_W * tileSize / 2),
+                                (float)((int)std::lround(birdY) * tileSize +
+                                    BIRD_H * tileSize / 2),
                                 6, {245, 230, 120, 255}, 3.5f, 0.35f, 4.0f);
                 floatTexts.spawn(std::make_shared<TextDisplay>(px, py, "+1"),
                                  px, py);
@@ -307,8 +307,8 @@ private:
     void flap() {
         birdVy = FLAP_VY;
         // ---- Juice: hop puff ----------------------------------------------
-        particles.burst(BIRD_X * tileSize + BIRD_W * tileSize / 2,
-                        (int)std::lround(birdY + BIRD_H) * tileSize,
+        particles.burst((float)(BIRD_X * tileSize + BIRD_W * tileSize / 2),
+                        (float)((int)std::lround(birdY + BIRD_H) * tileSize),
                         6, {255, 255, 255, 255}, 3.5f, 0.3f, 3.5f);
         shake.add(0.05f);
         sfx.play(uj::Sfx::Jump);
@@ -332,13 +332,13 @@ private:
     void onDeath() {
         bestScore = std::max(bestScore, score);
         // ---- Juice: death burst -------------------------------------------
-        particles.burst(BIRD_X * tileSize + BIRD_W * tileSize / 2,
-                        (int)std::lround(birdY) * tileSize +
-                            BIRD_H * tileSize / 2,
+        particles.burst((float)(BIRD_X * tileSize + BIRD_W * tileSize / 2),
+                        (float)((int)std::lround(birdY) * tileSize +
+                            BIRD_H * tileSize / 2),
                         22, {240, 220, 60, 255}, 10.0f, 0.7f, 5.0f);
-        particles.burst(BIRD_X * tileSize + BIRD_W * tileSize / 2,
-                        (int)std::lround(birdY) * tileSize +
-                            BIRD_H * tileSize / 2,
+        particles.burst((float)(BIRD_X * tileSize + BIRD_W * tileSize / 2),
+                        (float)((int)std::lround(birdY) * tileSize +
+                            BIRD_H * tileSize / 2),
                         8, {255, 255, 255, 255}, 7.0f, 0.5f, 4.0f);
         shake.add(0.55f);
         hitStop.trigger(0.12f);

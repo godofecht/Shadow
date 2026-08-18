@@ -324,9 +324,9 @@ private:
 
         if (cell.mine) {
             // ---- Juice: the mine detonates ----------------------------------
-            particles.burst(pixX(x), pixY(y), 30, {255, 90, 30, 255},
+            particles.burst((float)pixX(x), (float)pixY(y), 30, {255, 90, 30, 255},
                             12.0f, 0.8f, 6.0f);
-            particles.burst(pixX(x), pixY(y), 14, {255, 220, 60, 255},
+            particles.burst((float)pixX(x), (float)pixY(y), 14, {255, 220, 60, 255},
                             8.0f, 0.6f, 5.0f);
             shake.add(0.7f);
             hitStop.trigger(0.18f);
@@ -359,14 +359,14 @@ private:
         // ---- Juice: flag thock + a red tick --------------------------------
         sfx.play(uj::Sfx::Thock);
         if (cell.flagged) {
-            particles.burst(pixX(x), pixY(y), 4, {255, 100, 100, 255},
+            particles.burst((float)pixX(x), (float)pixY(y), 4, {255, 100, 100, 255},
                             3.0f, 0.3f, 3.5f);
         }
         updateHUD();
     }
 
     void revealPop(int x, int y) {
-        particles.burst(pixX(x), pixY(y), 3, {215, 225, 245, 255},
+        particles.burst((float)pixX(x), (float)pixY(y), 3, {215, 225, 245, 255},
                         3.0f, 0.3f, 3.5f);
         if (revealSfxTimer <= 0.0f) {
             sfx.play(uj::Sfx::Ping);

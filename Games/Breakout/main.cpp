@@ -399,7 +399,7 @@ private:
         const int by = (BRICK_TOP + brickRow * 2) * tileSize;
         const SDL_Color color = {255, (uint8_t)(90 + brickRow * 30),
                                  (uint8_t)(90 + brickRow * 20), 255};
-        particles.burst(bx + tileSize, by + tileSize / 2, 14, color,
+        particles.burst((float)(bx + tileSize), (float)(by + tileSize / 2), 14, color,
                         8.0f, 0.5f, 5.0f);
         shake.add(0.22f);
         hitStop.trigger(0.05f);

@@ -560,8 +560,8 @@ private:
         const int by = (BRICK_TOP + brickRow * 2) * tileSize;
         const SDL_Color color = {255, (uint8_t)(90 + brickRow * 30),
                                  (uint8_t)(90 + brickRow * 20), 255};
-        particles.burst(bx + tileSize * BRICK_W / 2, by + tileSize / 2, 14,
-                        color, 8.0f, 0.5f, 5.0f);
+        particles.burst((float)(bx + tileSize * BRICK_W / 2), (float)(by + tileSize / 2), 14,
+                          color, 8.0f, 0.5f, 5.0f);
         shake.add(0.22f);
         hitStop.trigger(0.05f);
         sfx.play(uj::Sfx::Thock);
@@ -781,7 +781,7 @@ private:
         sfx.play(uj::Sfx::Lose);
         shake.add(0.4f);
         hitStop.trigger(0.10f);
-        particles.burst(paddleX * tileSize, PADDLE_Y * tileSize, 18,
+        particles.burst((float)(paddleX * tileSize), (float)(PADDLE_Y * tileSize), 18,
                         {240, 240, 240, 255}, 9.0f, 0.6f, 5.0f);
         floatTexts.spawn(std::make_shared<TextDisplay>(
             (int)(paddleX * tileSize), PADDLE_Y * tileSize - 14, "-1 LIFE"),

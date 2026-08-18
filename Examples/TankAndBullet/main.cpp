@@ -313,7 +313,7 @@ public:
         for (const auto& e : enemies)
         {
             if (!e.active) continue;
-            drawTank (sdl, e.x, e.y, 46.0f, enemyTex, e.hp == 1 ? 1.0f : 0.0f, sx, sy);
+            drawTank (sdl, e.x, e.y, 46, enemyTex, e.hp == 1 ? 1.0f : 0.0f, sx, sy);
         }
 
         // Bullets (glowing yellow tracer).
@@ -333,7 +333,7 @@ public:
         }
         else
         {
-            drawTank (sdl, playerX, playerY, 56.0f, hullTex, 0.0f, sx, sy);
+            drawTank (sdl, playerX, playerY, 56, hullTex, 0.0f, sx, sy);
             const float angleDeg = std::atan2 (aimY - playerY, aimX - playerX) * 180.0f / static_cast<float>(M_PI);
             const SDL_Rect turret = {
                 static_cast<int>(playerX) - 14 + sx, static_cast<int>(playerY) - 14 + sy, 28, 28 };

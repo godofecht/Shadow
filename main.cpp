@@ -22,9 +22,9 @@ public:
     void initializeComponents() override
     {
         auto scene = std::make_unique<Scene>();
-        auto assetManager = getAssetManager();
-        scene->setAssetManager(assetManager);
-        scene->addItem(assetManager->createAsset<TileMap>("tilemap"));
+        auto assets = getAssetManager();
+        scene->setAssetManager(assets);
+        scene->addItem(assets->createAsset<TileMap>("tilemap"));
 
         auto tilemap = getAssetManager()->getAsset<TileMap>("tilemap");
 

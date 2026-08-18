@@ -276,7 +276,7 @@ public:
             
             int lineY = 55;
             for (const auto& line : lines) {
-                Rect<float> lineBounds(560, lineY, 220, 18);
+                Rect<float> lineBounds(560.0f, (float)lineY, 220.0f, 18.0f);
                 renderer->getTextWriter()->drawTextToRenderer(line, renderer->renderer, lineBounds, "/default.ttf");
                 lineY += 20;
             }

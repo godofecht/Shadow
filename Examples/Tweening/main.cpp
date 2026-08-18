@@ -44,7 +44,7 @@ public:
         Renderer* renderer = getRenderer();
         renderer->clearScreen(15, 15, 20, 255);
 
-        int spacing = 700 / (objects.size() + 1);
+        int spacing = 700 / static_cast<int>(objects.size() + 1);
         for (size_t i = 0; i < objects.size(); ++i) {
             float t = objects[i].easingFunc(progress);
             float currentY = Easing::Lerp(objects[i].startY, objects[i].endY, t);

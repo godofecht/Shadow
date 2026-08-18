@@ -56,7 +56,7 @@ public:
     }
 
     void updateGame(float dt) override {
-        float deltaTime = dt;
+        float dtLocal = dt;   // local copy (avoids shadowing the base member)
         
         // Check for collision with trigger
         int mx, my;
@@ -80,7 +80,7 @@ public:
         // Update animations
         for (auto& animSprite : animatedSprites) {
             if (animSprite.isAnimating) {
-                animSprite.animationTimer += deltaTime;
+                animSprite.animationTimer += dtLocal;
                 
                 if (animSprite.animationTimer >= animSprite.frameTime) {
                     animSprite.animationTimer -= animSprite.frameTime;
@@ -101,10 +101,10 @@ public:
                 }
             }
             
-            animSprite.sprite->update(deltaTime);
+            animSprite.sprite->update(dtLocal);
         }
         
-        triggerSprite->update(deltaTime);
+        triggerSprite->update(dtLocal);
     }
 
     void renderGame() override {

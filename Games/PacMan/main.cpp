@@ -541,7 +541,7 @@ private:
                 }
             }
             // ---- Juice: power surge ----------------------------------------
-            particles.burst(pixX((float)cx), pixY((float)cy), 18,
+            particles.burst((float)pixX((float)cx), (float)pixY((float)cy), 18,
                             {230, 200, 60, 255}, 9.0f, 0.6f, 5.0f);
             shake.add(0.25f);
             hitStop.trigger(0.05f);
@@ -553,7 +553,7 @@ private:
         } else {
             score += 10;
             // ---- Juice: chomp sparkle + rate-limited chomp -----------------
-            particles.burst(pixX((float)cx), pixY((float)cy), 3,
+            particles.burst((float)pixX((float)cx), (float)pixY((float)cy), 3,
                             {255, 210, 110, 255}, 2.5f, 0.3f, 3.0f);
             if (chompTimer <= 0.0f) {
                 sfx.play(uj::Sfx::Ping);
@@ -666,7 +666,7 @@ private:
         score += pts;
         g.state = 4;                          // becomes eyes
         // ---- Juice: burst in the ghost's color -----------------------------
-        particles.burst(pixX(g.x), pixY(g.y), 18, ghostColor(g.color),
+        particles.burst((float)pixX(g.x), (float)pixY(g.y), 18, ghostColor(g.color),
                         9.0f, 0.6f, 5.0f);
         shake.add(0.3f);
         hitStop.trigger(0.06f);
@@ -680,9 +680,9 @@ private:
     void onPacDeath() {
         --lives;
         // ---- Juice: the chomper bursts --------------------------------------
-        particles.burst(pixX(pacx), pixY(pacy), 24,
+        particles.burst((float)pixX(pacx), (float)pixY(pacy), 24,
                         {255, 220, 60, 255}, 10.0f, 0.7f, 6.0f);
-        particles.burst(pixX(pacx), pixY(pacy), 8,
+        particles.burst((float)pixX(pacx), (float)pixY(pacy), 8,
                         {255, 255, 255, 255}, 7.0f, 0.5f, 5.0f);
         shake.add(0.6f);
         hitStop.trigger(0.15f);

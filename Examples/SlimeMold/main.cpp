@@ -212,8 +212,10 @@ struct Agent {
     void move(int w, int h) {
         x += cos(heading) * config.speed;
         y += sin(heading) * config.speed;
-        if (x < 0) x += w; if (x >= w) x -= w;
-        if (y < 0) y += h; if (y >= h) y -= h;
+        if (x < 0) x += w;
+        if (x >= w) x -= w;
+        if (y < 0) y += h;
+        if (y >= h) y -= h;
     }
 };
 
@@ -415,14 +417,14 @@ public:
     
     void handleMouseInput() {
         int mx, my;
-        Uint32 buttons = SDL_GetMouseState(&mx, &my);
+        Uint32 mouseButtons = SDL_GetMouseState(&mx, &my);
         
         // Check if mouse is in panel area
         if (!showPanel || mx < config.width - panelWidth - 10) return;
         
         // Handle slider dragging
         for (auto& slider : uiSliders) {
-            if (buttons & SDL_BUTTON(1)) {
+            if (mouseButtons & SDL_BUTTON(1)) {
                 if (slider.contains(mx, my)) {
                     slider.dragging = true;
                     slider.setValueFromMouse(mx);
@@ -438,7 +440,7 @@ public:
         // Handle button hover/click
         for (auto& btn : uiButtons) {
             btn.hovered = btn.contains(mx, my);
-            if (buttons & SDL_BUTTON(1) && btn.hovered) {
+            if (mouseButtons & SDL_BUTTON(1) && btn.hovered) {
                 btn.onClick();
                 SDL_Delay(150); // Prevent double-click
                 break;

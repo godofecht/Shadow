@@ -359,20 +359,31 @@ endif()
 # can never silently creep back in; CI pins it explicitly too. The MSVC /wd
 # suppressions are the standard non-actionable /W4 noise set (inlining
 # decisions, unreferenced local functions, struct padding) that Chromium/LLVM
-# also disable - real-bug warnings like C4244/C4267/C4996/C445x stay enabled
-# so they still fail CI. NOTE: if the Windows CI job ever turns red on a
+# also disable - real-bug warnings like C4244/C4267/C4996 stay enabled so
+# they still fail CI. NOTE: if the Windows CI job ever turns red on a
 # /W4-only noise warning the clang sweep can't predict (e.g. C4127, C4702,
 # C4624), extend this /wd list - that is the documented escape hatch.
+#
+# /wd4458 (declaration hides class member) is suppressed deliberately: the
+# examples' pervasive idiom `Renderer* renderer = getRenderer();` shadows the
+# base-class member of the same name on purpose, and renaming the local
+# across 40+ example files is riskier than the warning's value. Genuine
+# non-idiom shadowing (params/locals named after members with different
+# types) is fixed by rename, not suppressed.
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(UMBRA_WARN_FLAGS -Wall -Wextra)
     if(UMBRA_WERROR)
         list(APPEND UMBRA_WARN_FLAGS -Werror)
     endif()
 elseif(MSVC)
-    set(UMBRA_WARN_FLAGS /W4 /wd4514 /wd4710 /wd4711 /wd4820 /wd4505)
+    set(UMBRA_WARN_FLAGS /W4 /wd4514 /wd4710 /wd4711 /wd4820 /wd4505 /wd4458)
     if(UMBRA_WERROR)
         list(APPEND UMBRA_WARN_FLAGS /WX)
     endif()
+    # MSVC marks getenv() as deprecated (C4996) even though it is the
+    # standard C function used by every other platform's CI; silence the
+    # deprecation noise globally instead of churning to _dupenv_s.
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 endif()
 
 # NOTE: target_compile_options() only works on targets that already exist, so

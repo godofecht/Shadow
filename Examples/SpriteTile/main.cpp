@@ -16,7 +16,7 @@ class SpriteTileGame : public Game
     std::vector<TiledSprite> tiledSprites;
     float time;
 
-    void drawTiledSprite(const TiledSprite& ts, Renderer* renderer) {
+    void drawTiledSprite(const TiledSprite& ts, Renderer* ren) {
         float totalWidth = ts.tileWidth * ts.tileCountX;
         float totalHeight = ts.tileHeight * ts.tileCountY;
         
@@ -41,21 +41,21 @@ class SpriteTileGame : public Game
                 color.g = (Uint8)(color.g * anim);
                 color.b = (Uint8)(color.b * anim);
                 
-                SDL_SetRenderDrawColor(renderer->renderer, color.r, color.g, color.b, 255);
+                SDL_SetRenderDrawColor(ren->renderer, color.r, color.g, color.b, 255);
                 
                 SDL_Rect tileRect = {(int)tx, (int)ty, (int)ts.tileWidth, (int)ts.tileHeight};
-                SDL_RenderFillRect(renderer->renderer, &tileRect);
+                SDL_RenderFillRect(ren->renderer, &tileRect);
                 
                 // Draw tile border
-                SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, 100);
-                SDL_RenderDrawRect(renderer->renderer, &tileRect);
+                SDL_SetRenderDrawColor(ren->renderer, 0, 0, 0, 100);
+                SDL_RenderDrawRect(ren->renderer, &tileRect);
             }
         }
         
         // Draw bounding box
-        SDL_SetRenderDrawColor(renderer->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(ren->renderer, 255, 255, 255, 255);
         SDL_Rect bounds = {(int)ts.x, (int)ts.y, (int)totalWidth, (int)totalHeight};
-        SDL_RenderDrawRect(renderer->renderer, &bounds);
+        SDL_RenderDrawRect(ren->renderer, &bounds);
     }
 
 public:
@@ -110,7 +110,7 @@ public:
             
             // Draw label
             wchar_t label[64];
-            swprintf(label, 64, L"%s (%.0fx%.0f each)", ts.name.c_str(), ts.tileWidth, ts.tileHeight);
+            swprintf(label, 64, L"%hs (%.0fx%.0f each)", ts.name.c_str(), ts.tileWidth, ts.tileHeight);
             Rect<float> textBounds(ts.x, ts.y + ts.tileHeight * ts.tileCountY + 5, 200, 30);
             renderer->getTextWriter()->drawTextToRenderer(label, renderer->renderer, textBounds, "/default.ttf");
         }

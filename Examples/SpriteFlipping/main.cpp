@@ -109,7 +109,7 @@ public:
             
             // Draw label
             wchar_t label[64];
-            swprintf(label, 64, L"%s", fs.name.c_str());
+            swprintf(label, 64, L"%hs", fs.name.c_str());
             Rect<float> textBounds(fs.x, fs.y + 110, 120, 30);
             renderer->getTextWriter()->drawTextToRenderer(label, renderer->renderer, textBounds, "/default.ttf");
         }

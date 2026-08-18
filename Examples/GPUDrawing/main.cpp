@@ -73,9 +73,8 @@ public:
         
         // Create many instances for GPU batched rendering demo
         for (int i = 0; i < 500; i++) {
-            GPUInstance inst;
-            inst.x = 100 + (rand() % 600);
-            inst.y = 100 + (rand() % 500);
+            GPUInstance inst;              inst.x = static_cast<float>(100 + (rand() % 600));
+              inst.y = static_cast<float>(100 + (rand() % 500));
             inst.size = 16; // Fixed size
             inst.r = (Uint8)(100 + rand() % 155);
             inst.g = (Uint8)(100 + rand() % 155);
@@ -94,8 +93,7 @@ public:
         // FPS calculation
         frameCount++;
         fpsTimer += 0.016f;
-        if (fpsTimer >= 1.0f) {
-            currentFPS = frameCount;
+        if (fpsTimer >= 1.0f) {              currentFPS = static_cast<float>(frameCount);
             frameCount = 0;
             fpsTimer = 0;
         }
@@ -163,46 +161,46 @@ public:
         drawUI(renderer);
     }
     
-    void drawUI(Renderer* renderer) {
+    void drawUI(Renderer* ren) {
         // Draw FPS counter background (top-left)
-        SDL_SetRenderDrawBlendMode(renderer->renderer, SDL_BLENDMODE_BLEND);
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, 200);
+        SDL_SetRenderDrawBlendMode(ren->renderer, SDL_BLENDMODE_BLEND);
+        SDL_SetRenderDrawColor(ren->renderer, 0, 0, 0, 200);
         SDL_Rect fpsBg = {10, 10, 200, 35};
-        SDL_RenderFillRect(renderer->renderer, &fpsBg);
+        SDL_RenderFillRect(ren->renderer, &fpsBg);
         
         // Draw FPS counter border
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 255, 136, 255);
-        SDL_RenderDrawRect(renderer->renderer, &fpsBg);
+        SDL_SetRenderDrawColor(ren->renderer, 0, 255, 136, 255);
+        SDL_RenderDrawRect(ren->renderer, &fpsBg);
         
         // Draw FPS text
-        drawSimpleText(renderer->renderer, 20, 15, "FPS: " + std::to_string((int)currentFPS), {0, 255, 136, 255}, 0.8f);
+        drawSimpleText(ren->renderer, 20, 15, "FPS: " + std::to_string((int)currentFPS), {0, 255, 136, 255}, 0.8f);
         
         // Draw mode button background (top-right)
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, 200);
+        SDL_SetRenderDrawColor(ren->renderer, 0, 0, 0, 200);
         SDL_Rect modeBg = {650, 10, 140, 35};
-        SDL_RenderFillRect(renderer->renderer, &modeBg);
+        SDL_RenderFillRect(ren->renderer, &modeBg);
         
         // Draw mode button border
         if (renderMode == 1) {
-            SDL_SetRenderDrawColor(renderer->renderer, 0, 217, 255, 255); // Blue for GPU
+            SDL_SetRenderDrawColor(ren->renderer, 0, 217, 255, 255); // Blue for GPU
         } else {
-            SDL_SetRenderDrawColor(renderer->renderer, 255, 100, 100, 255); // Red for CPU
+            SDL_SetRenderDrawColor(ren->renderer, 255, 100, 100, 255); // Red for CPU
         }
-        SDL_RenderDrawRect(renderer->renderer, &modeBg);
+        SDL_RenderDrawRect(ren->renderer, &modeBg);
         
         // Draw mode text
         std::string modeText = (renderMode == 1) ? "GPU Mode" : "CPU Mode";
-        drawSimpleText(renderer->renderer, 660, 15, modeText, {255, 255, 255, 255}, 0.75f);
+        drawSimpleText(ren->renderer, 660, 15, modeText, {255, 255, 255, 255}, 0.75f);
         
         // Draw info text (below FPS)
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, 180);
+        SDL_SetRenderDrawColor(ren->renderer, 0, 0, 0, 180);
         SDL_Rect infoBg = {10, 50, 280, 30};
-        SDL_RenderFillRect(renderer->renderer, &infoBg);
-        SDL_SetRenderDrawColor(renderer->renderer, 255, 255, 255, 255);
-        SDL_RenderDrawRect(renderer->renderer, &infoBg);
+        SDL_RenderFillRect(ren->renderer, &infoBg);
+        SDL_SetRenderDrawColor(ren->renderer, 255, 255, 255, 255);
+        SDL_RenderDrawRect(ren->renderer, &infoBg);
         
         std::string infoText = "Particles: " + std::to_string(batchSize) + " | Click button to toggle";
-        drawSimpleText(renderer->renderer, 20, 55, infoText, {255, 255, 255, 255}, 0.7f);
+        drawSimpleText(ren->renderer, 20, 55, infoText, {255, 255, 255, 255}, 0.7f);
     }
 
     ~GPUDrawingGame() override {

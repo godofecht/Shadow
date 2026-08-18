@@ -28,13 +28,13 @@ public:
         constexpr int kMapH = 20;
 
         auto scene = std::make_unique<Scene>();
-        auto assetManager = getAssetManager();
-        scene->setAssetManager (assetManager);
-        scene->addItem (assetManager->createAsset<TileMap> ("tilemap"));
+        auto assets = getAssetManager();
+        scene->setAssetManager (assets);
+        scene->addItem (assets->createAsset<TileMap> ("tilemap"));
 
         // The engine's generator (Helpers.h): two octaves of noise at a
         // fixed scale, thresholded to a binary land/water tile map.
-        auto tilemap = assetManager->getAsset<TileMap> ("tilemap");
+        auto tilemap = assets->getAsset<TileMap> ("tilemap");
         std::vector<std::vector<float>> mapData =
             PerlinNoiseGenerator::generatePerlinNoiseMap (kMapW, kMapH, 0.12f, 2);
         for (auto& row : mapData)

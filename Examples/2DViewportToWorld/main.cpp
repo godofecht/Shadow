@@ -88,8 +88,7 @@ public:
         
         // Get mouse position and convert to world space
         int mx, my;
-        SDL_GetMouseState(&mx, &my);
-        mouseWorldPos = camera->viewportToWorld(mx, my);
+        SDL_GetMouseState(&mx, &my);          mouseWorldPos = camera->viewportToWorld((float)mx, (float)my);
     }
 
     void renderGame() override {

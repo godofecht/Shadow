@@ -15,61 +15,61 @@ class SpriteSliceGame : public Game
     
     std::vector<NinePatchSprite> ninePatchSprites;
 
-    void drawNinePatch(const NinePatchSprite& np, Renderer* renderer) {
+    void drawNinePatch(const NinePatchSprite& np, Renderer* ren) {
         float cw = np.cornerSize; // corner width/height
         float cx = np.x;
         float cy = np.y;
         float w = np.width;
         float h = np.height;
         
-        SDL_SetRenderDrawColor(renderer->renderer, np.color.r, np.color.g, np.color.b, np.color.a);
+        SDL_SetRenderDrawColor(ren->renderer, np.color.r, np.color.g, np.color.b, np.color.a);
         
         // Corner rectangles (not stretched)
         // Top-left
         SDL_Rect tl = {(int)cx, (int)cy, (int)cw, (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &tl);
+        SDL_RenderFillRect(ren->renderer, &tl);
         
         // Top-right
         SDL_Rect tr = {(int)(cx + w - cw), (int)cy, (int)cw, (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &tr);
+        SDL_RenderFillRect(ren->renderer, &tr);
         
         // Bottom-left
         SDL_Rect bl = {(int)cx, (int)(cy + h - cw), (int)cw, (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &bl);
+        SDL_RenderFillRect(ren->renderer, &bl);
         
         // Bottom-right
         SDL_Rect br = {(int)(cx + w - cw), (int)(cy + h - cw), (int)cw, (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &br);
+        SDL_RenderFillRect(ren->renderer, &br);
         
         // Edge rectangles (stretched in one direction)
         // Top edge
         SDL_Rect top = {(int)(cx + cw), (int)cy, (int)(w - 2*cw), (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &top);
+        SDL_RenderFillRect(ren->renderer, &top);
         
         // Bottom edge
         SDL_Rect bottom = {(int)(cx + cw), (int)(cy + h - cw), (int)(w - 2*cw), (int)cw};
-        SDL_RenderFillRect(renderer->renderer, &bottom);
+        SDL_RenderFillRect(ren->renderer, &bottom);
         
         // Left edge
         SDL_Rect left = {(int)cx, (int)(cy + cw), (int)cw, (int)(h - 2*cw)};
-        SDL_RenderFillRect(renderer->renderer, &left);
+        SDL_RenderFillRect(ren->renderer, &left);
         
         // Right edge
         SDL_Rect right = {(int)(cx + w - cw), (int)(cy + cw), (int)cw, (int)(h - 2*cw)};
-        SDL_RenderFillRect(renderer->renderer, &right);
+        SDL_RenderFillRect(ren->renderer, &right);
         
         // Center rectangle (stretched in both directions)
         SDL_Rect center = {(int)(cx + cw), (int)(cy + cw), (int)(w - 2*cw), (int)(h - 2*cw)};
-        SDL_SetRenderDrawColor(renderer->renderer, 
+        SDL_SetRenderDrawColor(ren->renderer, 
             static_cast<Uint8>(np.color.r * 1.2), static_cast<Uint8>(np.color.g * 1.2), static_cast<Uint8>(np.color.b * 1.2), static_cast<Uint8>(np.color.a * 0.8));
-        SDL_RenderFillRect(renderer->renderer, &center);
+        SDL_RenderFillRect(ren->renderer, &center);
         
         // Draw 9-patch grid lines
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, 100);
-        SDL_RenderDrawLine(renderer->renderer, (int)(cx + cw), (int)cy, (int)(cx + cw), (int)(cy + h));
-        SDL_RenderDrawLine(renderer->renderer, (int)(cx + w - cw), (int)cy, (int)(cx + w - cw), (int)(cy + h));
-        SDL_RenderDrawLine(renderer->renderer, (int)cx, (int)(cy + cw), (int)(cx + w), (int)(cy + cw));
-        SDL_RenderDrawLine(renderer->renderer, (int)cx, (int)(cy + h - cw), (int)(cx + w), (int)(cy + h - cw));
+        SDL_SetRenderDrawColor(ren->renderer, 0, 0, 0, 100);
+        SDL_RenderDrawLine(ren->renderer, (int)(cx + cw), (int)cy, (int)(cx + cw), (int)(cy + h));
+        SDL_RenderDrawLine(ren->renderer, (int)(cx + w - cw), (int)cy, (int)(cx + w - cw), (int)(cy + h));
+        SDL_RenderDrawLine(ren->renderer, (int)cx, (int)(cy + cw), (int)(cx + w), (int)(cy + cw));
+        SDL_RenderDrawLine(ren->renderer, (int)cx, (int)(cy + h - cw), (int)(cx + w), (int)(cy + h - cw));
     }
 
 public:
@@ -120,7 +120,7 @@ public:
             
             // Draw label
             wchar_t label[64];
-            swprintf(label, 64, L"%s (%.0fx%.0f)", np.name.c_str(), np.width, np.height);
+            swprintf(label, 64, L"%hs (%.0fx%.0f)", np.name.c_str(), np.width, np.height);
             Rect<float> textBounds(np.x, np.y + np.height + 5, 150, 30);
             renderer->getTextWriter()->drawTextToRenderer(label, renderer->renderer, textBounds, "/default.ttf");
         }

@@ -516,8 +516,8 @@ private:
         --lives;
         bulletActive = false;
         // ---- Juice: the cannon bursts --------------------------------------
-        particles.burst(playerX * tileSize + PLAYER_W * tileSize / 2,
-                        (PLAYER_Y + 1) * tileSize, 22, {80, 220, 255, 255},
+        particles.burst((float)(playerX * tileSize + PLAYER_W * tileSize / 2),
+                        (float)((PLAYER_Y + 1) * tileSize), 22, {80, 220, 255, 255},
                         10.0f, 0.7f, 6.0f);
         if (lives <= 0) {
             bestScore = std::max(bestScore, score);

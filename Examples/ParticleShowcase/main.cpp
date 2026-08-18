@@ -30,7 +30,7 @@ public:
             for (int i = 0; i < 10; i++) {
                 float angle = (rand() % 360) * (3.14159f / 180.0f);
                 float speed = (rand() % 100) / 20.0f;
-                particleSystem->emit(mx, my, cos(angle) * speed, sin(angle) * speed, {255, 150, 50, 255}, 1.0f, 8.0f);
+                particleSystem->emit((float)mx, (float)my, cos(angle) * speed, sin(angle) * speed, {255, 150, 50, 255}, 1.0f, 8.0f);
             }
         } else {
             // Auto-emit from center

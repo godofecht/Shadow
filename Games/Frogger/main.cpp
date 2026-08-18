@@ -408,7 +408,7 @@ private:
             lane.carW = spec[i][4];
             // A couple of cars already rolling for immediate action.
             for (int k = 0; k < lane.maxCars; ++k)
-                spawnCarAt(r, (lcgNext() % LANE_W));
+                spawnCarAt(r, static_cast<float>(lcgNext() % LANE_W));
         }
 
         // River lanes (rows 1..3): deterministic drifting logs.

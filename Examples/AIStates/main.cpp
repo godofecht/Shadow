@@ -46,9 +46,8 @@ public:
         if (state == AIState::PATROL) {
             float tx = targetX - ax, ty = targetY - ay;
             float d = sqrt(tx*tx + ty*ty);
-            if(d < 10) {
-                targetX = (rand() % 600) + 50;
-                targetY = (rand() % 600) + 50;
+            if(d < 10) {                  targetX = static_cast<float>((rand() % 600) + 50);
+                  targetY = static_cast<float>((rand() % 600) + 50);
             }
             ax += (tx/d) * 2.0f;
             ay += (ty/d) * 2.0f;

@@ -55,7 +55,7 @@ public:
             
             anim.sprite = std::make_shared<SimpleSprite>(getRenderer(), "player.png", "sheet" + std::to_string(i));
             anim.sprite->setPosition(Point2D(anim.x, anim.y));
-            anim.sprite->setSize(anim.frameWidth, anim.frameHeight);
+            anim.sprite->setSize((float)anim.frameWidth, (float)anim.frameHeight);
             
             animations.push_back(anim);
         }
@@ -112,8 +112,8 @@ public:
             
             // Draw label
             wchar_t label[64];
-            swprintf(label, 64, L"%s (Frame %d/%d)", anim.name.c_str(), anim.currentFrame + 1, anim.totalFrames);
-            Rect<float> textBounds(anim.x - 100, stripY + 25, 220, 30);
+            swprintf(label, 64, L"%hs (Frame %d/%d)", anim.name.c_str(), anim.currentFrame + 1, anim.totalFrames);
+            Rect<float> textBounds(anim.x - 100.0f, (float)(stripY + 25), 220.0f, 30.0f);
             renderer->getTextWriter()->drawTextToRenderer(label, renderer->renderer, textBounds, "/default.ttf");
             
             anim.sprite->renderAndRunScripts(renderer);

@@ -55,7 +55,7 @@ public:
     }
 
     void initGame() override {
-        int tileSize = 32;
+        int tilePx = 32;   // local pixel size (distinct from the base member)
         int chunkSize = 8;
         
         // Create multiple chunks
@@ -64,10 +64,10 @@ public:
                 TilemapChunk chunk;
                 chunk.chunkX = cx;
                 chunk.chunkY = cy;
-                chunk.tileSize = tileSize;
+                chunk.tileSize = tilePx;
                 chunk.chunkSize = chunkSize;
-                chunk.offsetX = cx * chunkSize * tileSize;
-                chunk.offsetY = cy * chunkSize * tileSize;
+                chunk.offsetX = static_cast<float>(cx * chunkSize * tilePx);
+                chunk.offsetY = static_cast<float>(cy * chunkSize * tilePx);
                 
                 // Generate tile values
                 for (int y = 0; y < chunkSize; y++) {

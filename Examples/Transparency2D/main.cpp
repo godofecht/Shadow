@@ -48,8 +48,8 @@ public:
         // Circles with gradient alpha
         for (int i = 0; i < 5; i++) {
             TransparentShape circle;
-            circle.x = 550 + i * 40;
-            circle.y = 150;
+            circle.x = static_cast<float>(550 + i * 40);
+            circle.y = 150.0f;
             circle.width = 30;
             circle.height = 30;
             circle.color = {255, 255, 0, (Uint8)(50 + i * 40)};

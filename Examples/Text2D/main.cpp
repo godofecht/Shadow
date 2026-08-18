@@ -38,13 +38,13 @@ public:
             spawnTimer = 0;
 
             FloatingText ft;
-            ft.x = 100 + (rand() % 600);
-            ft.y = 100 + (rand() % 400);
+            ft.x = static_cast<float>(100 + (rand() % 600));
+            ft.y = static_cast<float>(100 + (rand() % 400));
             ft.vx = (rand() % 100 - 50) * 0.5f;
-            ft.vy = -50 - (rand() % 50);
+            ft.vy = static_cast<float>(-50 - (rand() % 50));
             ft.maxLife = 2.0f;
             ft.life = ft.maxLife;
-            ft.size = 16 + (rand() % 20);
+            ft.size = static_cast<float>(16 + (rand() % 20));
 
             // Random colors with random alpha for transparency
             ft.color = {
@@ -70,10 +70,10 @@ public:
                 ft.x = (float)mx;
                 ft.y = (float)my;
                 ft.vx = (rand() % 100 - 50) * 0.3f;
-                ft.vy = -100 - (rand() % 50);
+                ft.vy = static_cast<float>(-100 - (rand() % 50));
                 ft.maxLife = 3.0f;
                 ft.life = ft.maxLife;
-                ft.size = 20 + (rand() % 15);
+                ft.size = static_cast<float>(20 + (rand() % 15));
                 // Bright yellow with varying alpha
                 ft.color = {255, 255, 0, (Uint8)(200 + rand() % 55)};
                 ft.text = L"Click!";
@@ -124,7 +124,7 @@ public:
             SDL_RenderFillRect(renderer->renderer, &bgRect);
 
             // Draw text using TextWriter (SDL_ttf handles alpha in the texture)
-            Rect<float> textBounds(ft.x, ft.y, textWidth, textHeight);
+            Rect<float> textBounds(ft.x, ft.y, (float)textWidth, (float)textHeight);
             renderer->getTextWriter()->drawTextToRenderer(ft.text, renderer->renderer, textBounds, "/default.ttf");
         }
         
