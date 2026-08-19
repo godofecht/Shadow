@@ -129,7 +129,7 @@ REGISTER_TEST(test_ThreadSafeMap_concurrent_inserts)
 
     for (int t = 0; t < kThreads; ++t)
     {
-        threads.emplace_back([&map, t]() {
+        threads.emplace_back([&, t]() {
             for (int i = 0; i < kPerThread; ++i)
             {
                 map.insert("key_" + std::to_string(t) + "_" + std::to_string(i), i);
@@ -158,7 +158,7 @@ REGISTER_TEST(test_ThreadSafeMap_concurrent_mixed_ops)
 
     for (int t = 0; t < kThreads; ++t)
     {
-        threads.emplace_back([&map, &stop, t]() {
+        threads.emplace_back([&, t]() {
             for (int i = 0; i < kIterations && !stop.load(); ++i)
             {
                 std::string key = "k" + std::to_string(i % 64);

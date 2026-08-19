@@ -574,8 +574,10 @@ private:
 // UMBRA_GAME_NO_MAIN lets tests include this file to reach the Minesweeper
 // class headlessly without a second main() symbol.
 #ifndef UMBRA_GAME_NO_MAIN
-int main()
+int main(int argc, char* argv[])
 {
+    (void)argc;
+    (void)argv;
 #ifdef __EMSCRIPTEN__
     static Minesweeper game;
 #else
