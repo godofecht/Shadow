@@ -47,8 +47,11 @@ permissions:
   contents: read
 
 concurrency:
+  # PRs cancel superseded runs to save runner time; main-branch pushes queue so
+  # a burst of small fixes never starves a slow job (valgrind / smoke) before it
+  # gets a runner. Same group + cancel-in-progress: false = FIFO queue on main.
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   linux:
