@@ -57,6 +57,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install SDL2 dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            libsdl2-dev \
+            libsdl2-image-dev \
+            libsdl2-ttf-dev \
+            libsdl2-mixer-dev
+
       - name: Run pre-commit sanity gates (make verify-all)
         # The exact combined command contributors run locally before every
         # commit - make verify-all chains check-games (every shipped Games/
@@ -73,11 +83,12 @@ jobs:
         # Windows-only C4244/C4267/C4458 classes fail locally; it skips when
         # clang++ is absent). check-github also pins both required-check
         # lists to EXPECTED_CHECK_COUNT entries (default-on, single source
-        # of truth in the script). The instant gates mirror a CMake
-        # configure-time guard but
-        # runs BEFORE configure, so a PR that breaks any of them fails in
-        # seconds with a full diagnosis instead of a mid-configure
-        # FATAL_ERROR. make stops on the first failing gate.
+        # of truth in the script). Runs after the SDL2 install because
+        # check-msvc builds the whole tree with the exact compile commands
+        # the real build uses (its scratch build/msvc-sweep dir needs the
+        # same system packages), but still before Configure so a PR that
+        # breaks any gate fails in seconds with a full diagnosis instead of
+        # a mid-configure FATAL_ERROR. make stops on the first failing gate.
         run: make verify-all
 
       - name: Run check-github regression harness (make test-github)
@@ -90,16 +101,6 @@ jobs:
         # no build and no network, so it runs before configure like
         # verify-all.
         run: make test-github
-
-      - name: Install SDL2 dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            ninja-build \
-            libsdl2-dev \
-            libsdl2-image-dev \
-            libsdl2-ttf-dev \
-            libsdl2-mixer-dev
 
       - name: Configure
         # UMBRA_SMOKE_CTEST=ON registers the smoke_* headless entries as
