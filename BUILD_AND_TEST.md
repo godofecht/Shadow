@@ -65,6 +65,32 @@ cd build
 ctest --output-on-failure
 ```
 
+### Headless smoke tests (every example and game)
+
+The headless smoke pass CI runs on Linux, macOS, and Windows is available
+locally as opt-in ctest tests. Each `smoke_*` entry runs one binary from
+`cmake/smoke_targets.txt` (every example + every shipped game) for 5s
+under SDL's dummy video/audio drivers, with `PONG_SMOKE=1` so games drive
+their real physics via autoplay. `cmake/smoke.cmake` encodes the CI
+acceptance rule: a full 5s window ("Process terminated due to timeout")
+means the app looped update/render without crashing, while an immediate
+exit 0 means `start()` failed and zero code paths were covered.
+
+```bash
+# Opt in at configure time (default OFF so plain `ctest` stays fast):
+cmake -S . -B build -DUMBRA_SMOKE_CTEST=ON
+
+# Build the binaries first (ctest does not build), then run:
+cmake --build build
+ctest --test-dir build -R '^smoke' --output-on-failure
+```
+
+`-R '^smoke'` matches one test per entry in `cmake/smoke_targets.txt`;
+`ctest -L smoke` selects by label instead. Each test carries a 120s
+TIMEOUT as a hang guard (a clean pass is ~5s per binary). The
+ASan+UBSan-instrumented variant of the same pass is `make smoke` - see
+"Sanitizer Testing (ASan + UBSan)" below.
+
 ## Pre-commit sanity gates (no build needed)
 
 The fast local gates below need neither a build nor a CMake configure - each
