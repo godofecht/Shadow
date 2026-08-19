@@ -55,7 +55,7 @@ public:
         walls.push_back(std::make_unique<PhysicsObject>(*world, 350.0f, 10.0f, 700.0f, 20.0f, false));
         walls.push_back(std::make_unique<PhysicsObject>(*world, 350.0f, 690.0f, 700.0f, 20.0f, false));
 
-        balls.push_back(std::make_unique<Ball>(*world, 350, 350, 15.0f, particles));
+        balls.push_back(std::make_unique<Ball>(*world, 350.0f, 350.0f, 15.0f, particles));
     }
 
     void update() override {
