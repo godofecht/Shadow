@@ -7,10 +7,11 @@
 #     entries (UMBRA_SANITIZE + UMBRA_BUILD_EXAMPLES), the
 #     sanitize_smoke_binaries build target, and the memcheck-examples
 #     target / memcheck_example_* ctest entries (Linux, valgrind).
-#   - The linux-sanitize and linux-ubsan CI jobs' "Assert smoke_* tests are
-#     registered (ctest -N)" steps, which read this file with
+#   - The linux-sanitize, linux-ubsan, and windows CI jobs' "Assert smoke_*
+#     tests are registered (ctest -N)" steps, which read this file with
 #     `grep -v '^#'`, so the asserted names can never drift from what CMake
-#     actually registers.
+#     actually registers (the windows job also runs the full smoke_* set
+#     headless, mirroring the Linux smoke pass).
 #   - The emscripten and emscripten-sanitize CI jobs, which derive their
 #     game build/smoke/artifact lists with `grep -v '^#' | grep '_game$'`,
 #     and tools/browser_smoke.py --targets-file (which filters to *_game),

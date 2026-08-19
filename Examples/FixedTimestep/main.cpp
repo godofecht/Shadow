@@ -12,7 +12,7 @@ class FixedStepGame : public Game
     const float dt = 1.0f / 60.0f;
 
 public:
-    FixedStepGame(const char* title, int width, int height) : Game(title, width, height) {}
+    FixedStepGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         std::cout << "Top: Variable Update (dependent on framerate)" << '\n';

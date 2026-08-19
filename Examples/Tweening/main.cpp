@@ -18,7 +18,7 @@ class TweeningGame : public Game
     bool forward = true;
 
 public:
-    TweeningGame(const char* title, int width, int height) : Game(title, width, height) {}
+    TweeningGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         objects = {

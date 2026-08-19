@@ -10,7 +10,8 @@ order, so a failing gate stops you before a slow build, and a failing build
 stops you before the test run:
 
 ```bash
-make verify-all                 # pre-commit gates (no build needed)
+make verify-all                 # pre-commit gates (five instant checks + the
+                                 #   Clang MSVC-mirror build below)
 make native                     # build engine + all examples + tests into build/
 ctest --test-dir build --output-on-failure   # run the whole suite
 ```
@@ -28,9 +29,9 @@ commit with `git commit --no-verify`; uninstall with
 
 ## The pre-commit gates
 
-`make verify-all` chains five fast checks — none needs a build or a CMake
-configure, each mirrors a CI step exactly, and make stops on the first
-failure:
+`make verify-all` chains the gates below, and make stops on the first
+failure. Five of them are instant (no build); the last (`check-msvc`) is the
+one that builds, mirroring the Windows job's warning set with Clang:
 
 - **`make check-games`** — every shipped `Games/` directory must appear in
   `cmake/smoke_targets.txt` (the canonical smoke list), otherwise it ships
@@ -49,6 +50,11 @@ failure:
   and both required-check lists (CONTRIBUTING.md bullets + PR template table)
   hold the expected entry count (pinned in the script), so routing,
   checklists, and the merge-gate list can't drift or shrink.
+- **`make check-msvc`** — builds the whole tree with Clang's MSVC-mirror
+  flags (`-Wfloat-conversion`, `-Wshorten-64-to-32`, `-Wshadow-field`), so
+  the Windows-only C4244/C4267/C4458 warning classes are caught on a dev
+  machine before the Windows job. Reuses a persistent `build/msvc-sweep` dir
+  (incremental) and skips if `clang++` is absent (the flags are Clang-only).
 
 These are the same checks the first CI minutes run, so a failure here is a
 failure CI would have caught — but in seconds, without leaving your terminal.

@@ -50,7 +50,7 @@ class CPUDrawingGame : public Game
     }
 
 public:
-    CPUDrawingGame(const char* title, int width, int height) : Game(title, width, height) {
+    CPUDrawingGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         textureWidth = 256;
         textureHeight = 256;
         cpuTexture = nullptr;

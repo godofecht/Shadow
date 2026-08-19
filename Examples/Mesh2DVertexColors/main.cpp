@@ -20,7 +20,7 @@ class Mesh2DVertexColorsGame : public Game
     float rotation;
 
 public:
-    Mesh2DVertexColorsGame(const char* title, int width, int height) : Game(title, width, height) {
+    Mesh2DVertexColorsGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         rotation = 0;
     }
 

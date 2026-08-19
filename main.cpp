@@ -15,7 +15,7 @@
 class TopDownTileGame : public Game
 {
 public:
-    TopDownTileGame(const char* title, int width, int height) : Game(title, width, height) {}
+    TopDownTileGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {}
 

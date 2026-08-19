@@ -23,7 +23,7 @@ class Mesh2DAlphaGame : public Game
     int selectedMode;
 
 public:
-    Mesh2DAlphaGame(const char* title, int width, int height) : Game(title, width, height) {
+    Mesh2DAlphaGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         currentBlendMode = SDL_BLENDMODE_BLEND;
         selectedMode = 0;
     }

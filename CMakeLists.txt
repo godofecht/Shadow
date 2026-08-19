@@ -574,36 +574,38 @@ if(UMBRA_BUILD_TESTS)
                     LABELS "sanitize"
                     TIMEOUT 300)
             endforeach()
+        endif()
 
-            # Headless smoke entries: one ctest test per example/game binary
-            # that runs without a display, mirroring the linux-sanitize CI
-            # job's smoke step and the memcheck_example_* pattern. Each runs
-            # its binary for 5s under SDL dummy drivers + PONG_SMOKE=1
-            # autoplay via cmake/smoke.cmake, which encodes the acceptance
-            # rule (exit 124 = full window clean; immediate exit 0 = start()
-            # failure = fail) so CI and developers share one implementation
-            # instead of a copy-pasted shell loop. Gated on
-            # UMBRA_BUILD_EXAMPLES so the linux-ubsan job (examples OFF)
-            # never registers binaries it does not build. The
-            # sanitize_smoke_binaries custom target lets the CI build step
-            # depend on the whole set without listing each name.
-            if(UMBRA_BUILD_EXAMPLES)
-                # SMOKE_TARGETS is read from cmake/smoke_targets.txt at the
-                # top of this file (single source of truth, shared with the
-                # memcheck-examples pass and the CI ctest -N assertions).
-                add_custom_target(sanitize_smoke_binaries DEPENDS ${SMOKE_TARGETS})
-                foreach(smoke_t IN LISTS SMOKE_TARGETS)
-                    add_test(NAME "smoke_${smoke_t}"
-                        COMMAND ${CMAKE_COMMAND}
-                            "-DSMOKE_BUILD_DIR=${CMAKE_BINARY_DIR}"
-                            "-DSMOKE_TARGET=${smoke_t}"
-                            -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/smoke.cmake")
-                    # Each runs one 5s window; 120s is a generous guard.
-                    set_tests_properties("smoke_${smoke_t}" PROPERTIES
-                        LABELS "smoke"
-                        TIMEOUT 120)
-                endforeach()
-            endif()
+        # Headless smoke entries: one ctest test per example/game binary
+        # that runs without a display, mirroring the linux-sanitize / ubsan
+        # CI jobs' smoke steps and the memcheck_example_* pattern. Each runs
+        # its binary for 5s under SDL dummy drivers + PONG_SMOKE=1 autoplay
+        # via cmake/smoke.cmake, which encodes the acceptance rule
+        # ("Process terminated due to timeout" after the full window = clean;
+        # immediate exit 0 = start() failure = fail) so CI and developers
+        # share one implementation instead of a copy-pasted shell loop.
+        # Registered when UMBRA_SANITIZE=ON (the Linux sanitizer jobs) OR on
+        # MSVC (the Windows CI job smoke-runs every binary headless the same
+        # way), and gated on UMBRA_BUILD_EXAMPLES so the linux-ubsan job
+        # (examples OFF) never registers binaries it does not build. The
+        # sanitize_smoke_binaries custom target lets the CI build step depend
+        # on the whole set without listing each name.
+        if((UMBRA_SANITIZE OR MSVC) AND UMBRA_BUILD_EXAMPLES)
+            # SMOKE_TARGETS is read from cmake/smoke_targets.txt at the
+            # top of this file (single source of truth, shared with the
+            # memcheck-examples pass and the CI ctest -N assertions).
+            add_custom_target(sanitize_smoke_binaries DEPENDS ${SMOKE_TARGETS})
+            foreach(smoke_t IN LISTS SMOKE_TARGETS)
+                add_test(NAME "smoke_${smoke_t}"
+                    COMMAND ${CMAKE_COMMAND}
+                        "-DSMOKE_BUILD_DIR=${CMAKE_BINARY_DIR}"
+                        "-DSMOKE_TARGET=${smoke_t}"
+                        -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/smoke.cmake")
+                # Each runs one 5s window; 120s is a generous guard.
+                set_tests_properties("smoke_${smoke_t}" PROPERTIES
+                    LABELS "smoke"
+                    TIMEOUT 120)
+            endforeach()
         endif()
     endif()
 endif()

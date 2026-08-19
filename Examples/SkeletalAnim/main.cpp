@@ -15,7 +15,7 @@ class SkeletalIKGame : public Game
     float tolerance = 0.1f;
 
 public:
-    SkeletalIKGame(const char* title, int width, int height) : Game(title, width, height) {}
+    SkeletalIKGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         float startX = 350, startY = 600;

@@ -15,7 +15,7 @@ public:
         Uint32 current_time = SDL_GetTicks();
 
         if (current_time - start_time >= 500) {  // Update every 500 ms
-            fps = (frame_count * 1000.0f) / (current_time - start_time);
+            fps = (static_cast<float>(frame_count) * 1000.0f) / static_cast<float>(current_time - start_time);
             frame_count = 0;
             start_time = current_time;
         }

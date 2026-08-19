@@ -16,7 +16,7 @@ class AIGame : public Game
     std::unique_ptr<ExplanationOverlay> explanation;
 
 public:
-    AIGame(const char* title, int width, int height) : Game(title, width, height) {}
+    AIGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         explanation = std::make_unique<ExplanationOverlay>(20, 20, 350);

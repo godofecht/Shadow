@@ -4,8 +4,8 @@
 #include "Engine/Core/Game2D.h"
 #include <iostream>
 
-Game2D::Game2D(const char* title, int width, int height, int tileSize)
-    : Game(title, width, height), tileSize(tileSize), gameWidth(width), gameHeight(height) {
+Game2D::Game2D(const char* windowTitle, int width, int height, int tileSize)
+    : Game(windowTitle, width, height), tileSize(tileSize), gameWidth(width), gameHeight(height) {
 }
 
 void Game2D::startGame() {
@@ -142,7 +142,7 @@ void Game2D::renderGrid() {
 void Game2D::update() {
     // Calculate delta time
     Uint32 currentTime = SDL_GetTicks();
-    deltaTime = (currentTime - lastFrameTime) / 1000.0f;
+    deltaTime = static_cast<float>(currentTime - lastFrameTime) / 1000.0f;
     lastFrameTime = currentTime;
     gameTime += deltaTime;
     

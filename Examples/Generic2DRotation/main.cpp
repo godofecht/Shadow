@@ -98,7 +98,7 @@ class Generic2DRotationGame : public Game
     float time;
 
 public:
-    Generic2DRotationGame(const char* title, int width, int height) : Game(title, width, height) {
+    Generic2DRotationGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         time = 0;
     }
 

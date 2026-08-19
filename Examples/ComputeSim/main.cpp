@@ -17,7 +17,7 @@ class ComputeGame : public Game
     const int BODY_COUNT = 500;
 
 public:
-    ComputeGame(const char* title, int width, int height) : Game(title, width, height) {}
+    ComputeGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         for(int i=0; i<BODY_COUNT; i++) {

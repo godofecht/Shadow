@@ -12,7 +12,7 @@ class RotationToCursorGame : public Game2D
         float followSpeed;
     };
     
-    std::vector<RotatingEntity> entities;
+    std::vector<RotatingEntity> rotatingEntities;
     Point2D cursorPos;
 
 public:
@@ -39,7 +39,7 @@ public:
             entity.sprite->setPosition(Point2D(entity.x, entity.y));
             entity.sprite->setSize(60, 60);
             
-            entities.push_back(entity);
+            rotatingEntities.push_back(entity);
         }
     }
 
@@ -50,7 +50,7 @@ public:
         cursorPos = Point2D((float)mx, (float)my);
         
         // Update each entity
-        for (auto& entity : entities) {
+        for (auto& entity : rotatingEntities) {
             // Calculate angle to cursor
             float dx = cursorPos.x - entity.x;
             float dy = cursorPos.y - entity.y;
@@ -79,16 +79,16 @@ public:
         SDL_Rect cursorRect = {(int)cursorPos.x - 5, (int)cursorPos.y - 5, 10, 10};
         SDL_RenderFillRect(renderer->renderer, &cursorRect);
         
-        // Draw lines from entities to cursor
+        // Draw lines from rotatingEntities to cursor
         SDL_SetRenderDrawColor(renderer->renderer, 255, 255, 255, 100);
-        for (const auto& entity : entities) {
+        for (const auto& entity : rotatingEntities) {
             SDL_RenderDrawLine(renderer->renderer,
                 (int)entity.x, (int)entity.y,
                 (int)cursorPos.x, (int)cursorPos.y);
         }
         
-        // Render all entities
-        for (auto& entity : entities) {
+        // Render all rotatingEntities
+        for (auto& entity : rotatingEntities) {
             entity.sprite->renderAndRunScripts(renderer);
         }
         

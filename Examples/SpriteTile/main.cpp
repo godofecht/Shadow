@@ -59,7 +59,7 @@ class SpriteTileGame : public Game
     }
 
 public:
-    SpriteTileGame(const char* title, int width, int height) : Game(title, width, height) {
+    SpriteTileGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         time = 0;
     }
 

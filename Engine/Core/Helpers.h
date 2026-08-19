@@ -91,7 +91,7 @@ private:
         a ^= b << s | b >> (w - s);
         a *= 2048419325u;
 
-        float random = a * (3.14159265f / ~(~0u >> 1));
+        float random = static_cast<float>(a) * (3.14159265f / static_cast<float>(~(~0u >> 1)));
         float dx = x - static_cast<float>(ix);
         float dy = y - static_cast<float>(iy);
         return (dx * cos(random) + dy * sin(random));

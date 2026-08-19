@@ -80,7 +80,7 @@ struct Entity {
 class ParentingGame : public Game
 {
 public:
-    ParentingGame(const char* title, int width, int height) : Game(title, width, height) {}
+    ParentingGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         // Create root (Sun)

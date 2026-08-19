@@ -29,7 +29,7 @@ class GPUDrawingGame : public Game
     int renderMode; // 0 = CPU, 1 = GPU
 
 public:
-    GPUDrawingGame(const char* title, int width, int height) : Game(title, width, height) {
+    GPUDrawingGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         textureSize = 32;
         time = 0;
         batchSize = 0;

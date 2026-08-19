@@ -10,7 +10,7 @@ class ParticleGame : public Game
     std::unique_ptr<ParticleSystem> particleSystem;
     
 public:
-    ParticleGame(const char* title, int width, int height) : Game(title, width, height) {}
+    ParticleGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         particleSystem = std::make_unique<ParticleSystem>(2000);

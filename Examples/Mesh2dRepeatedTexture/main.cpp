@@ -17,7 +17,7 @@ class Mesh2DRepeatedTextureGame : public Game
     float time;
 
 public:
-    Mesh2DRepeatedTextureGame(const char* title, int width, int height) : Game(title, width, height) {
+    Mesh2DRepeatedTextureGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         time = 0;
     }
 

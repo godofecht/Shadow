@@ -18,7 +18,7 @@ class Bloom2DGame : public Game
     float time;
 
 public:
-    Bloom2DGame(const char* title, int width, int height) : Game(title, width, height) {
+    Bloom2DGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         time = 0;
     }
 

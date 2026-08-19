@@ -35,7 +35,7 @@ class NavGame : public Game
     bool rightWasPressed = false;
 
 public:
-    NavGame(const char* title, [[maybe_unused]] int width, [[maybe_unused]] int height) : Game(title, 800, 600) {}
+    NavGame(const char* windowTitle, [[maybe_unused]] int width, [[maybe_unused]] int height) : Game(windowTitle, 800, 600) {}
 
     void onStart() override {
         findPath();

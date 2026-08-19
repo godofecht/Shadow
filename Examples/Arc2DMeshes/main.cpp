@@ -58,7 +58,7 @@ class Arc2DMeshesGame : public Game
     }
 
 public:
-    Arc2DMeshesGame(const char* title, int width, int height) : Game(title, width, height) {}
+    Arc2DMeshesGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         // Create various arc/sector shapes

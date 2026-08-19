@@ -73,7 +73,7 @@ class SpriteSliceGame : public Game
     }
 
 public:
-    SpriteSliceGame(const char* title, int width, int height) : Game(title, width, height) {}
+    SpriteSliceGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         // Create 9-patch sprites with different sizes

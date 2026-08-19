@@ -66,11 +66,14 @@ jobs:
         # dependencies/ is the single canonical vendored location),
         # check-docs (every 'make <target>' documented in CONTRIBUTING.md's
         # recipe must exist in the Makefile - the docs can't drift from the
-        # build surface), and check-github (every CI job referenced in the
+        # build surface), check-github (every CI job referenced in the
         # .github/*.md templates exists as a job, and every CODEOWNERS
-        # handle is declared in MAINTAINERS). check-github also pins both
-        # required-check lists to EXPECTED_CHECK_COUNT entries (default-on,
-        # single source of truth in the script). Each gate mirrors a CMake
+        # handle is declared in MAINTAINERS), and check-msvc (a Clang build
+        # with -Wfloat-conversion/-Wshorten-64-to-32/-Wshadow-field so the
+        # Windows-only C4244/C4267/C4458 classes fail locally; it skips when
+        # clang++ is absent). check-github also pins both required-check
+        # lists to EXPECTED_CHECK_COUNT entries (default-on, single source
+        # of truth in the script). The instant gates mirror a CMake
         # configure-time guard but
         # runs BEFORE configure, so a PR that breaks any of them fails in
         # seconds with a full diagnosis instead of a mid-configure
@@ -622,9 +625,49 @@ jobs:
 
       - name: Run tests
         # vcpkg DLLs (SDL2.dll etc.) live in the vcpkg installed/bin dir.
+        # -E '^smoke' excludes the smoke_* headless entries - they have
+        # their own dedicated step below (same split as the Linux jobs).
         run: |
           echo "C:/vcpkg/installed/x64-windows/bin" >> "$GITHUB_PATH"
-          ctest --test-dir build -C Release --output-on-failure
+          ctest --test-dir build -C Release -E '^smoke' --output-on-failure
+        shell: bash
+
+      - name: Assert smoke_* tests are registered (ctest -N)
+        # Mirrors the linux-sanitize / linux-ubsan guards: a registration
+        # regression (e.g. the CMake block getting re-nested or re-gated)
+        # would otherwise silently lose the Windows headless smoke coverage
+        # while ctest stays green. The asserted names are read from
+        # cmake/smoke_targets.txt - the single source CMakeLists.txt reads
+        # into SMOKE_TARGETS - so the assertion can never drift from what
+        # CMake actually registers.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build -C Release -N)"
+          while IFS= read -r t; do
+            [ -z "${t}" ] && continue
+            if ! grep -qF "smoke_${t}" <<<"${listed}"; then
+              echo "::error::smoke ctest entry 'smoke_${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: smoke_${t}"
+          done < <(grep -v '^#' cmake/smoke_targets.txt)
+        shell: bash
+
+      - name: Smoke-run headless examples and games (SDL dummy driver)
+        # Mirror of the linux-sanitize / linux-ubsan smoke pass: every
+        # binary in cmake/smoke_targets.txt (all examples + all shipped
+        # games) runs for 5s under SDL's dummy video/audio drivers, with
+        # PONG_SMOKE=1 so games drive their real physics via autoplay. The
+        # acceptance rule lives in cmake/smoke.cmake (driven by the smoke_*
+        # ctest entries, which register on MSVC too): "Process terminated
+        # due to timeout" after the full window = the app looped
+        # update/render without crashing; an immediate exit 0 = start()
+        # failed = zero code paths covered, so it only counts when the
+        # process ran for at least 2s. CMake's native execute_process TIMEOUT
+        # replaces GNU timeout, which Windows lacks in its default PATH
+        # (System32\timeout.exe is a different command).
+        run: ctest --test-dir build -C Release -R '^smoke' --output-on-failure
         shell: bash
 
   emscripten:

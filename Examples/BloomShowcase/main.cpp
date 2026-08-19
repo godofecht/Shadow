@@ -14,7 +14,7 @@ class BloomGame : public Game
     std::vector<LightSource> lights;
 
 public:
-    BloomGame(const char* title, int width, int height) : Game(title, width, height) {}
+    BloomGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         lights = {

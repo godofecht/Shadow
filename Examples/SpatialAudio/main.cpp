@@ -9,7 +9,7 @@ class SpatialAudioGame : public Game
     bool audioStarted = false;
 
 public:
-    SpatialAudioGame(const char* title, int width, int height) : Game(title, width, height) {}
+    SpatialAudioGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         std::cout << "Spatial Audio Demo: Click 'Start Audio' to begin." << '\n';

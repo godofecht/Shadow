@@ -10,7 +10,7 @@ struct Edge {
 class Procedural3DGame : public Game
 {
 public:
-    Procedural3DGame(const char* title, int width, int height) : Game(title, width, height) {}
+    Procedural3DGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         // Define a cube

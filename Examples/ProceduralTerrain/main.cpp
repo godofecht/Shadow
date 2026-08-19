@@ -7,7 +7,7 @@
 class Terrain3DGame : public Game
 {
 public:
-    Terrain3DGame(const char* title, int width, int height) : Game(title, width, height) {}
+    Terrain3DGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         gridWidth = 30;

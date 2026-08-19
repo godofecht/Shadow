@@ -70,7 +70,7 @@ class LightingGame : public Game
     std::unique_ptr<ExplanationOverlay> explanation;
 
 public:
-    LightingGame(const char* title, int width, int height) : Game(title, width, height) {}
+    LightingGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {}
 
     void onStart() override {
         obstacles = {

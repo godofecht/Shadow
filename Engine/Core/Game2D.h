@@ -16,7 +16,7 @@
 // Base class for 2D grid-based games with LLM support
 class Game2D : public Game, public LLMPlayable {
 public:
-    Game2D(const char* title, int width, int height, int tileSize = 20);
+    Game2D(const char* windowTitle, int width, int height, int tileSize = 20);
     
     // Override these in your game class
     virtual void initGame() = 0;           // Called once at game start

@@ -17,7 +17,7 @@ class Transparency2DGame : public Game
     float time;
 
 public:
-    Transparency2DGame(const char* title, int width, int height) : Game(title, width, height) {
+    Transparency2DGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         currentBlendMode = 0;
         time = 0;
     }

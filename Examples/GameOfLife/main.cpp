@@ -4,7 +4,7 @@
 
 class GameOfLife : public Game2D
 {
-    std::vector<std::vector<int>> grid;
+    std::vector<std::vector<int>> cells;
     std::vector<std::vector<int>> nextGrid;
     int cols, rows;
     uint32_t lastUpdate = 0;
@@ -12,7 +12,7 @@ class GameOfLife : public Game2D
 
     // Bounds-safe accessors (rows/cols are int, vector indices are size_t).
     // Named cellAt/nextCellAt (y,x order) to avoid confusion with Grid::cell(x,y).
-    int& cellAt(int y, int x) { return grid[static_cast<std::size_t>(y)][static_cast<std::size_t>(x)]; }
+    int& cellAt(int y, int x) { return cells[static_cast<std::size_t>(y)][static_cast<std::size_t>(x)]; }
     int& nextCellAt(int y, int x) { return nextGrid[static_cast<std::size_t>(y)][static_cast<std::size_t>(x)]; }
 
 public:
@@ -21,15 +21,15 @@ public:
     void initGame() override {
         cols = 70;
         rows = 70;
-        grid.resize(static_cast<std::size_t>(rows), std::vector<int>(static_cast<std::size_t>(cols), 0));
+        cells.resize(static_cast<std::size_t>(rows), std::vector<int>(static_cast<std::size_t>(cols), 0));
         nextGrid.resize(static_cast<std::size_t>(rows), std::vector<int>(static_cast<std::size_t>(cols), 0));
 
         // Initial pattern: Glider
-        grid[10][10] = 1; grid[11][11] = 1; grid[12][9] = 1; grid[12][10] = 1; grid[12][11] = 1;
+        cells[10][10] = 1; cells[11][11] = 1; cells[12][9] = 1; cells[12][10] = 1; cells[12][11] = 1;
         
         bindKey(KEY_SPACE).onPress([this](){ paused = !paused; });
         bindKey(KEY_R).onPress([this](){
-            for(auto& r : grid) std::fill(r.begin(), r.end(), 0);
+            for(auto& r : cells) std::fill(r.begin(), r.end(), 0);
         });
     }
 
@@ -66,7 +66,7 @@ public:
                     else nextCellAt(y, x) = state;
                 }
             }
-            grid = nextGrid;
+            cells = nextGrid;
             lastUpdate = SDL_GetTicks();
         }
 

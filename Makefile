@@ -117,9 +117,14 @@ wasm:
 # make check-github              verify .github/*.md templates reference only
 #                               real CI job names, and CODEOWNERS references
 #                               only handles in MAINTAINERS (no build needed)
+# make check-msvc                build the tree with Clang's MSVC-mirror flags
+#                               (-Wfloat-conversion/-Wshorten-64-to-32/
+#                               -Wshadow-field) so C4244/C4267/C4458 are caught
+#                               locally before the Windows job (skips if clang++
+#                               is absent)
 # make verify-all                 run check-games + check-examples + check-layout
-#                               + check-docs + check-github in one command
-#                               (the complete pre-commit pass)
+#                               + check-docs + check-github + check-msvc in one
+#                               command (the complete pre-commit pass)
 # make hooks                    install the git pre-commit hook (one-time
 #                               setup - runs make verify-all before every commit)
 # make protect-branch           apply full branch protection to main via the
@@ -204,6 +209,20 @@ check-docs:
 check-github:
 	@./tools/check_github_meta.sh
 
+# make check-msvc   build the whole tree (engine, app, examples, games, tests)
+#                   with Clang's MSVC-mirror flags so the Windows-only warning
+#                   classes - C4244 (float/double->int narrowing), C4267
+#                   (size_t->int), C4458 (param/member hides class member) -
+#                   fail locally instead of surprising the Windows CI job.
+#                   Reuses a persistent scratch dir (build/msvc-sweep) so
+#                   re-runs are incremental, and skips gracefully when clang++
+#                   is absent (the flags are Clang-only). Note this one DOES
+#                   build, so it is the slow leg of verify-all; the rest of the
+#                   gates are instant.
+
+check-msvc:
+	@./tools/check_msvc_warnings.sh
+
 # make test-github   run the offline regression tests for the GitHub tooling:
 #                    test_check_github_meta.sh exercises the check-github
 #                    gate (a pristine fixture must pass; seven mutations -
@@ -227,8 +246,8 @@ test-github:
 #                   (no build, no CMake). Same checks as the first CI minutes,
 #                   in the same order; make stops on the first failing gate.
 
-verify-all: check-games check-examples check-layout check-docs check-github
-	@echo "All gates passed: games registered, examples registered, vendored layout canonical, docs match the Makefile, GitHub metadata resolves."
+verify-all: check-games check-examples check-layout check-docs check-github check-msvc
+	@echo "All gates passed: games registered, examples registered, vendored layout canonical, docs match the Makefile, GitHub metadata resolves, MSVC-mirror warnings clean."
 
 # make hooks   install the git pre-commit hook in one command - the one-time
 #              setup CONTRIBUTING.md documents, so a new contributor just runs

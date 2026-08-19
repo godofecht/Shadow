@@ -40,8 +40,8 @@ public:
             return;
         }
 
-        tileWidth = static_cast<int>(getBounds().width / mapData[0].size());
-        tileHeight = static_cast<int>(getBounds().height / mapData.size());
+        tileWidth = static_cast<int>(getBounds().width / static_cast<float>(mapData[0].size()));
+        tileHeight = static_cast<int>(getBounds().height / static_cast<float>(mapData.size()));
 
         SDL_Renderer* sdlRenderer = _renderer->renderer;
         for (size_t i = 0; i < mapData.size(); ++i)

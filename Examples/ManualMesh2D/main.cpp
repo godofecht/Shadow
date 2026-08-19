@@ -22,7 +22,7 @@ class ManualMesh2DGame : public Game
     float time;
 
 public:
-    ManualMesh2DGame(const char* title, int width, int height) : Game(title, width, height) {
+    ManualMesh2DGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         time = 0;
     }
 

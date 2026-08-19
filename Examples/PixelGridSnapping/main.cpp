@@ -44,7 +44,7 @@ class PixelGridSnappingGame : public Game
     }
 
 public:
-    PixelGridSnappingGame(const char* title, int width, int height) : Game(title, width, height) {
+    PixelGridSnappingGame(const char* windowTitle, int width, int height) : Game(windowTitle, width, height) {
         pixelArtWidth = 64;
         pixelArtHeight = 64;
         scale = 10.0f;
