@@ -102,7 +102,11 @@ jobs:
             libsdl2-mixer-dev
 
       - name: Configure
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DUMBRA_WERROR=ON
+        # UMBRA_SMOKE_CTEST=ON registers the smoke_* headless entries as
+        # ctest tests (same opt-in pattern as UMBRA_MEMCHECK_CTEST), so this
+        # job drives the exact shared smoke.cmake pass the Windows and
+        # sanitizer jobs use instead of a copy-pasted shell loop.
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DUMBRA_WERROR=ON -DUMBRA_SMOKE_CTEST=ON
 
       - name: Assert gate_regression test is registered (ctest -N)
         # Mirrors the sanitize_path_*/smoke_*/memcheck_path_* guards: a
@@ -125,7 +129,45 @@ jobs:
         run: cmake --build build --parallel 4
 
       - name: Run tests
-        run: ctest --test-dir build --output-on-failure
+        # -E '^smoke' excludes the smoke_* headless entries - they have
+        # their own dedicated step below (same split as the Windows and
+        # sanitizer jobs).
+        run: ctest --test-dir build -E '^smoke' --output-on-failure
+
+      - name: Assert smoke_* tests are registered (ctest -N)
+        # Mirrors the Windows / linux-sanitize / linux-ubsan guards: a
+        # registration regression (e.g. the CMake block getting re-nested
+        # or re-gated) would otherwise silently lose the plain-Linux
+        # headless smoke coverage while ctest stays green. The asserted
+        # names are read from cmake/smoke_targets.txt - the single source
+        # CMakeLists.txt reads into SMOKE_TARGETS - so the assertion can
+        # never drift from what CMake actually registers.
+        run: |
+          set -euo pipefail
+          listed="$(ctest --test-dir build -N)"
+          while IFS= read -r t; do
+            [ -z "${t}" ] && continue
+            if ! grep -qF "smoke_${t}" <<<"${listed}"; then
+              echo "::error::smoke ctest entry 'smoke_${t}' not found in ctest -N" >&2
+              echo "${listed}" >&2
+              exit 1
+            fi
+            echo "OK: smoke_${t}"
+          done < <(grep -v '^#' cmake/smoke_targets.txt)
+
+      - name: Smoke-run headless examples and games (SDL dummy driver)
+        # Mirror of the Windows / linux-sanitize / linux-ubsan smoke pass:
+        # every binary in cmake/smoke_targets.txt (all examples + all
+        # shipped games) runs for 5s under SDL's dummy video/audio drivers,
+        # with PONG_SMOKE=1 so games drive their real physics via autoplay.
+        # The acceptance rule lives in cmake/smoke.cmake (driven by the
+        # smoke_* ctest entries, registered here via UMBRA_SMOKE_CTEST):
+        # "Process terminated due to timeout" after the full window = the
+        # app looped update/render without crashing; an immediate exit 0 =
+        # start() failed = zero code paths covered, so it only counts when
+        # the process ran for at least 2s. CMake's native execute_process
+        # TIMEOUT is used so the same step is portable to Windows.
+        run: ctest --test-dir build -R '^smoke' --output-on-failure
 
   test-coverage:
     # PR-only gate: a PR that changes engine or game code must also touch a

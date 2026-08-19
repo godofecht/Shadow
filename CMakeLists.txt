@@ -35,6 +35,7 @@ option(UMBRA_SANITIZE "Build with AddressSanitizer + UndefinedBehaviorSanitizer 
 # `ctest -R memcheck` drives valgrind too. Default OFF so a plain `ctest`
 # run (unit_tests / backend_tests only) stays fast.
 option(UMBRA_MEMCHECK_CTEST "Register valgrind memcheck passes as ctest tests (Linux; requires valgrind)" OFF)
+option(UMBRA_SMOKE_CTEST "Register headless example/game smoke runs as ctest tests (smoke_*; requires UMBRA_BUILD_EXAMPLES)" OFF)
 
 # RtAudio backends (Windows only)
 option(ENABLE_RTAUDIO_ASIO "Enable ASIO support for RtAudio" ON)
@@ -584,13 +585,14 @@ if(UMBRA_BUILD_TESTS)
         # ("Process terminated due to timeout" after the full window = clean;
         # immediate exit 0 = start() failure = fail) so CI and developers
         # share one implementation instead of a copy-pasted shell loop.
-        # Registered when UMBRA_SANITIZE=ON (the Linux sanitizer jobs) OR on
+        # Registered when UMBRA_SANITIZE=ON (the Linux sanitizer jobs), on
         # MSVC (the Windows CI job smoke-runs every binary headless the same
-        # way), and gated on UMBRA_BUILD_EXAMPLES so the linux-ubsan job
-        # (examples OFF) never registers binaries it does not build. The
-        # sanitize_smoke_binaries custom target lets the CI build step depend
-        # on the whole set without listing each name.
-        if((UMBRA_SANITIZE OR MSVC) AND UMBRA_BUILD_EXAMPLES)
+        # way), or with UMBRA_SMOKE_CTEST=ON (the plain Linux CI job and any
+        # developer who opts in), and gated on UMBRA_BUILD_EXAMPLES so the
+        # linux-ubsan job (examples OFF) never registers binaries it does not
+        # build. The sanitize_smoke_binaries custom target lets the CI build
+        # step depend on the whole set without listing each name.
+        if((UMBRA_SANITIZE OR MSVC OR UMBRA_SMOKE_CTEST) AND UMBRA_BUILD_EXAMPLES)
             # SMOKE_TARGETS is read from cmake/smoke_targets.txt at the
             # top of this file (single source of truth, shared with the
             # memcheck-examples pass and the CI ctest -N assertions).
