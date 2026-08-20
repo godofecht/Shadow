@@ -7,7 +7,7 @@
 Shadow is a C++17 game engine built on SDL2, Box2D, and SDL_mixer. It combines a compact native engine with grid gameplay, physics, audio, rendering, UI, WebAssembly builds, and a first-class interface for agent-driven games.
 
 [Get started](getting-started.md){ .md-button .md-button--primary }
-[Engine API](generated/api.md){ .md-button }
+[Engine API](DOCS.md){ .md-button }
 [View on GitHub](https://github.com/godofecht/Shadow){ .md-button }
 
 </div>
@@ -81,6 +81,6 @@ int main() {
 
 ## Where to go next
 
-Start with [Getting Started](getting-started.md) for a native build and your first game. Read [Architecture](architecture.md) to understand how `Game`, `Game2D`, scenes, rendering, physics, audio, and the grid layer fit together. The [Game Development Guide](generated/game-development.md) covers the shipped game workflow, while the [LLM Interface](generated/llm-interface.md) documents agent-controlled gameplay.
+Start with [Getting Started](getting-started.md) for a native build and your first game. Read [Architecture](architecture.md) to understand how `Game`, `Game2D`, scenes, rendering, physics, audio, and the grid layer fit together. The [Game Development Guide](GAME_DEV_GUIDE.md) covers the shipped game workflow, while the [LLM Interface](LLM_INTERFACE.md) documents agent-controlled gameplay.
 
-The complete public API is indexed in [Engine API](generated/api.md), and the [Examples](generated/examples.md) page points to the engine's runnable demonstrations.
+The complete public API is indexed in [Engine API](DOCS.md), and the [Examples](Examples/README.md) page points to the engine's runnable demonstrations.
