@@ -2,8 +2,19 @@ name: Docs Pages
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "DOCS.md"
+      - "GAME_DEV_GUIDE.md"
+      - "LLM_INTERFACE.md"
+      - "BUILD_AND_TEST.md"
+      - "GAMES.md"
+      - "Examples/README.md"
+      - "tools/prepare_docs_site.sh"
+      - ".github/workflows/pages.yml"
+  pull_request:
     paths:
       - "docs/**"
       - "mkdocs.yml"
@@ -24,7 +35,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: docs-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -51,11 +62,13 @@ jobs:
         run: mkdocs build --strict --site-dir site
 
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
