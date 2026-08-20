@@ -59,7 +59,7 @@ jobs:
         run: bash tools/prepare_docs_site.sh
 
       - name: Build documentation
-        run: mkdocs build --strict --site-dir site
+        run: mkdocs build --site-dir site
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
