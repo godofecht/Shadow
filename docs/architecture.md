@@ -76,7 +76,7 @@ The example catalog is intentionally important to the architecture: rendering fe
 
 The agent interface is not a separate game runtime. A game can implement the same state/action surface used by human input and expose it to an LLM or another controller. This keeps agent-driven play attached to the actual game state rather than a parallel simulation.
 
-See [LLM Interface](generated/llm-interface.md) for the concrete state export and action registration API.
+See [LLM Interface](LLM_INTERFACE.md) for the concrete state export and action registration API.
 
 ## Project layout
 
@@ -96,4 +96,4 @@ tools/           scaffolding, web builds, and validation helpers
 dependencies/    canonical vendored third-party dependencies
 ```
 
-For the complete class and method reference, see [Engine API](generated/api.md).
+For the complete class and method reference, see [Engine API](DOCS.md).
