@@ -52,7 +52,7 @@ make game GAME=Pong
 
 `make new-game` creates a complete game under `Games/Pong/`. Game directories are auto-registered by the CMake setup, so a new game does not need manual build wiring.
 
-For the full workflow, continue to the [Game Development Guide](generated/game-development.md).
+For the full workflow, continue to the [Game Development Guide](GAME_DEV_GUIDE.md).
 
 ## Minimal Game2D program
 
@@ -93,7 +93,7 @@ int main() {
 ctest --test-dir build --output-on-failure
 ```
 
-The repository also contains sanitizer, smoke, layout, example-registration, and platform-specific CI coverage. See [Build & Test](generated/build-and-test.md) for the complete matrix.
+The repository also contains sanitizer, smoke, layout, example-registration, and platform-specific CI coverage. See [Build & Test](BUILD_AND_TEST.md) for the complete matrix.
 
 ## Build for WebAssembly
 
