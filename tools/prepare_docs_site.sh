@@ -4,13 +4,15 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 
-mkdir -p docs/generated
+find . -maxdepth 1 -type f -name '*.md' -exec cp {} docs/ \;
 
-cp DOCS.md docs/generated/api.md
-cp GAME_DEV_GUIDE.md docs/generated/game-development.md
-cp LLM_INTERFACE.md docs/generated/llm-interface.md
-cp BUILD_AND_TEST.md docs/generated/build-and-test.md
-cp GAMES.md docs/generated/games.md
-cp Examples/README.md docs/generated/examples.md
+for license_file in LICENSE LICENSE.*; do
+    if [[ -f "$license_file" ]]; then
+        cp "$license_file" docs/
+    fi
+done
 
-printf 'Prepared canonical documentation under docs/generated/.\n'
+mkdir -p docs/Examples
+cp Examples/README.md docs/Examples/README.md
+
+printf 'Prepared canonical repository documentation under docs/.\n'
