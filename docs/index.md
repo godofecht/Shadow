@@ -1,19 +1,50 @@
 <div class="shadow-hero" markdown>
 
+<div class="shadow-hero-copy" markdown>
+
+<div class="shadow-kicker">C++17 · 2D · Native + WebAssembly</div>
+
 # Shadow Engine
 
 ### Build 2D games fast. Keep the engine understandable.
 
-Shadow is a C++17 game engine built on SDL2, Box2D, and SDL_mixer. It combines a compact native engine with grid gameplay, physics, audio, rendering, UI, WebAssembly builds, and a first-class interface for agent-driven games.
+Shadow is a compact C++17 game engine built on SDL2, Box2D, and SDL_mixer. It combines grid gameplay, physics, audio, rendering, UI, WebAssembly builds, and a first-class interface for agent-driven games without burying the game loop under a large framework.
+
+<div class="shadow-actions" markdown>
 
 [Get started](getting-started.md){ .md-button .md-button--primary }
 [Demo gallery](gallery.md){ .md-button }
 [Engine API](DOCS.md){ .md-button }
-[View on GitHub](https://github.com/godofecht/Shadow){ .md-button }
+[GitHub](https://github.com/godofecht/Shadow){ .md-button }
 
 </div>
 
+</div>
+
+<div class="shadow-hero-visual">
+  <img src="assets/umbra-eclipse.webp" alt="Shadow Engine eclipse mark">
+</div>
+
+</div>
+
+<div class="shadow-tech-rail">
+  <div><strong>SDL2</strong><span>windowing · input · rendering</span></div>
+  <div><strong>Box2D</strong><span>physics · contacts · worlds</span></div>
+  <div><strong>Game2D</strong><span>grid · entities · UI</span></div>
+  <div><strong>WASM</strong><span>browser builds · demos</span></div>
+</div>
+
 <div class="shadow-grid" markdown>
+
+<div class="shadow-card shadow-card--lead" markdown>
+
+## One engine surface
+
+The native loop, grid framework, rendering, audio, physics, examples, and agent-facing state model all live in the same codebase. Start small and reach lower-level systems only when the game needs them.
+
+[Read the architecture](architecture.md)
+
+</div>
 
 <div class="shadow-card" markdown>
 
@@ -80,8 +111,21 @@ int main() {
 }
 ```
 
+<div class="shadow-next" markdown>
+
 ## Where to go next
 
-Open the [Demo Gallery](gallery.md) for a visual tour of real rendering, simulation, physics, AI, audio, performance, and game examples. Start with [Getting Started](getting-started.md) for a native build and your first game. Read [Architecture](architecture.md) to understand how `Game`, `Game2D`, scenes, rendering, physics, audio, and the grid layer fit together. The [Game Development Guide](GAME_DEV_GUIDE.md) covers the shipped game workflow, while the [LLM Interface](LLM_INTERFACE.md) documents agent-controlled gameplay.
+<div markdown>
 
-The complete public API is indexed in [Engine API](DOCS.md), and the [Examples](Examples/README.md) page points to the engine's complete runnable demonstration catalog.
+### See it first
+Open the [Demo Gallery](gallery.md) for a visual tour of real rendering, simulation, physics, AI, audio, performance, and complete game examples.
+
+### Build something
+Start with [Getting Started](getting-started.md), then use the [Game Development Guide](GAME_DEV_GUIDE.md) for the shipped game workflow.
+
+### Understand the engine
+Read [Architecture](architecture.md), the [Engine API](DOCS.md), and the [LLM Interface](LLM_INTERFACE.md) for the system-level view.
+
+</div>
+
+</div>
