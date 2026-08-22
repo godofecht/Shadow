@@ -1,14 +1,22 @@
-# Shadow Engine
+<p align="center">
+  <img src="docs/assets/umbra-eclipse.webp" width="176" alt="Shadow Engine eclipse mark">
+</p>
 
-[![CI](https://github.com/godofecht/Shadow/actions/workflows/ci.yml/badge.svg)](https://github.com/godofecht/Shadow/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
-[![License: GPL-3.0-or-later OR Commercial](https://img.shields.io/badge/license-GPL--3.0--or--later%20OR%20Commercial-orange)](LICENSE)
-[![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C)](https://en.cppreference.com/w/cpp/17)
-[![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux%20%7C%20Windows%20%7C%20WASM-lightgrey)](README.md)
+<h1 align="center">Shadow Engine</h1>
 
-A C++17 2D game engine built on SDL2, Box2D, and SDL_mixer. Ships with a
-grid-based game framework, an LLM-playable game interface, and a large set
-of runnable example games.
+<p align="center"><strong>Build 2D games fast. Keep the engine understandable.</strong></p>
+
+<p align="center">
+  <a href="https://github.com/godofecht/Shadow/actions/workflows/ci.yml"><img src="https://github.com/godofecht/Shadow/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version 1.0.0"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0--or--later%20OR%20Commercial-orange" alt="License"></a>
+  <img src="https://img.shields.io/badge/C%2B%2B-17-00599C" alt="C++17">
+  <img src="https://img.shields.io/badge/platforms-macOS%20%7C%20Linux%20%7C%20Windows%20%7C%20WASM-lightgrey" alt="Platforms">
+</p>
+
+<p align="center">
+A C++17 2D game engine built on SDL2, Box2D, and SDL_mixer, with grid gameplay, an LLM-playable interface, and a large runnable example catalog.
+</p>
 
 **Version:** `v1.0.0` — see [CHANGELOG.md](CHANGELOG.md).
 **License:** dual-licensed under the **GPL-3.0-or-later** or a **proprietary
