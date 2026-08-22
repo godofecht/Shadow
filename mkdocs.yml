@@ -24,12 +24,16 @@ nav:
 theme:
   name: material
   language: en
+  logo: assets/umbra-eclipse.webp
+  favicon: assets/umbra-eclipse.webp
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.top
     - navigation.instant
     - navigation.tracking
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -37,13 +41,13 @@ theme:
   palette:
     - scheme: slate
       primary: black
-      accent: deep purple
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
     - scheme: default
       primary: black
-      accent: deep purple
+      accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
