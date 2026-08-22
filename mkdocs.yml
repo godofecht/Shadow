@@ -1,5 +1,6 @@
 site_name: Shadow Engine
 site_description: C++17 2D game engine with grid gameplay, Box2D physics, audio, rendering, and first-class LLM-driven play.
+site_url: https://godofecht.github.io/Shadow/
 repo_url: https://github.com/godofecht/Shadow
 repo_name: godofecht/Shadow
 edit_uri: edit/main/
