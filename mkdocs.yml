@@ -1,0 +1,69 @@
+site_name: Shadow Engine
+site_description: C++17 2D game engine with grid gameplay, Box2D physics, audio, rendering, and first-class LLM-driven play.
+repo_url: https://github.com/godofecht/Shadow
+repo_name: godofecht/Shadow
+edit_uri: edit/main/
+docs_dir: .docs-build
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - Guides:
+      - Game Development: GAME_DEV_GUIDE.md
+      - LLM Interface: LLM_INTERFACE.md
+      - Build & Test: BUILD_AND_TEST.md
+  - Reference:
+      - Engine API: DOCS.md
+      - Examples: Examples/README.md
+      - Game Catalog: GAMES.md
+  - Licensing: licensing.md
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - scheme: slate
+      primary: black
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: black
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; Shadow Engine contributors

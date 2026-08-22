@@ -1,0 +1,80 @@
+:root {
+  --shadow-surface: rgba(255, 255, 255, 0.045);
+  --shadow-border: rgba(255, 255, 255, 0.10);
+}
+
+[data-md-color-scheme="default"] {
+  --shadow-surface: rgba(0, 0, 0, 0.035);
+  --shadow-border: rgba(0, 0, 0, 0.10);
+}
+
+.shadow-hero {
+  padding: 3.5rem 0 2rem;
+  max-width: 58rem;
+}
+
+.shadow-hero h1 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.shadow-hero h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  opacity: 0.82;
+}
+
+.shadow-hero > p {
+  max-width: 50rem;
+  font-size: 1.05rem;
+}
+
+.shadow-hero .md-button {
+  margin-top: 0.7rem;
+  margin-right: 0.45rem;
+}
+
+.shadow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.shadow-card {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--shadow-border);
+  border-radius: 0.8rem;
+  background: var(--shadow-surface);
+}
+
+.shadow-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+
+.shadow-card p:last-child {
+  margin-bottom: 0;
+}
+
+.md-header {
+  backdrop-filter: blur(14px);
+}
+
+.md-typeset code {
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 44rem) {
+  .shadow-hero {
+    padding-top: 2rem;
+  }
+
+  .shadow-grid {
+    grid-template-columns: 1fr;
+  }
+}
