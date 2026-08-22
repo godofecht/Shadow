@@ -8,6 +8,7 @@ docs_dir: .docs-build
 
 nav:
   - Home: index.md
+  - Demo Gallery: gallery.md
   - Getting Started: getting-started.md
   - Architecture: architecture.md
   - Guides:
