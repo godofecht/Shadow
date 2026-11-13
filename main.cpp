@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later OR ISC
+// SPDX-License-Identifier: GPL-3.0-or-later OR LicenseRef-Commercial
 // Shadow Engine - see LICENSE for details
 
 #include "Engine/Core/SDLApp.h"
